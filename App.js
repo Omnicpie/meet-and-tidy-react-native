@@ -1,16 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Button, StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import logo from './assets/images/logo.png';
 
 export default function App() {
-// add event button
   return (
     <View style={styles.container}>
-      <Button title={'+ Create'}/>
+      <Button style={styles.createButton} title={'+ Create'}/>
     </View>
   )
-// logo and tagline
+
   return (
     <View style={styles.container}>
       <Image source={logo} style={styles.logo} /> 
@@ -18,9 +17,9 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
   )
-// search bar
 
-// scrollbar for popular events
+  // search bar will go here
+
   return (
     <ScrollView style={styles.scrollContainer}>
       <Text style={styles.subHeading}>Popular events</Text>
@@ -34,8 +33,9 @@ export default function App() {
       <View style={styles.small} />
       <View style={styles.large} />
     </ScrollView>
-  );
-// bottompage navigation buttons
+  )
+
+  // bottompage navigation buttons will go here
 
 }
 
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   subHeading: {
     color: 'black', 
     fontSize: 20,
-    fontWeight: bold
+    fontWeight: 'bold'
   },
   logo: {
     width: 250, 
@@ -75,5 +75,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginRight: 10,
     backgroundColor: 'steelblue',
+  },
+  createButton: {
+
   },
 });
