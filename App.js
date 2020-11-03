@@ -21,18 +21,21 @@ export default function App() {
   // search bar will go here
 
   return (
-    <ScrollView style={styles.scrollContainer}>
-      <Text style={styles.subHeading}>Popular events</Text>
-      <View style={styles.large} />
-      <ScrollView horizontal>
+    <Container>
+      <ScrollView style={styles.scrollContainer}>
+        <Text style={styles.subHeading}>Popular events</Text>
+        <View style={styles.large} />
+        <ScrollView horizontal>
+          <View style={styles.small} />
+          <View style={styles.small} />
+          <View style={styles.small} />
+        </ScrollView>
+        <View style={styles.large} />
         <View style={styles.small} />
-        <View style={styles.small} />
-        <View style={styles.small} />
+        <View style={styles.large} />
       </ScrollView>
-      <View style={styles.large} />
-      <View style={styles.small} />
-      <View style={styles.large} />
-    </ScrollView>
+      <Bullets/>
+    </Container>
   )
 
   // bottompage navigation buttons will go here
