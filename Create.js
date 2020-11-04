@@ -1,13 +1,11 @@
 import React from 'react';
-import { Button, StyleSheet, View} from 'react-native';
+import { Button, StyleSheet, SafeAreaView, Platform, StatusBar} from 'react-native';
 
 export default function Create() {
   return (
-  <View>
-    <View style={styles.container}>
-      <Button style={styles.createButton} title={'+ Create'}/>
-    </View>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Button style={styles.createButton} title={'+ Create'} />
+    </SafeAreaView>
   )
 }
 
@@ -17,10 +15,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  createButton: {
-    alignItems: 'right',
-    justifyContent: 'right',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
   tagLine: {
     color: '#888', 
@@ -30,5 +25,5 @@ const styles = StyleSheet.create({
     width: 250, 
     height: 125,
     marginTop: 25
-  }
+  },
 });

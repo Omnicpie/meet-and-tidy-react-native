@@ -1,17 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import logo from './assets/images/logo.png';
 
 export default function Logo() {
   return (
-  <View>
+  <SafeAreaView>
     <View style={styles.container}>
-      <Image source={logo} style={styles.logo} /> 
+        <TouchableOpacity>
+            <Image source={logo} style={styles.logo} /> 
+        </TouchableOpacity>
       <Text style={styles.tagLine}>Commit to clean up</Text>
       <StatusBar style="auto" />
     </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
