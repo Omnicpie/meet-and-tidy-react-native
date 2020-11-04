@@ -4,7 +4,7 @@ import { Button, StyleSheet, SafeAreaView, Platform, StatusBar} from 'react-nati
 export default function Create() {
   return (
     <SafeAreaView style={styles.container}>
-      <Button style={styles.createButton} title={'+ Create'} />
+      <Button style={styles.createButton} title={'+ Create'} color= "rgb(84, 174, 51)"/>
     </SafeAreaView>
   )
 }
