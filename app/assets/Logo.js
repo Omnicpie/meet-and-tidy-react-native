@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
-import logo from './assets/images/logo.png';
+import logo from './images/logo.png';
 
 export default function Logo() {
   return (
