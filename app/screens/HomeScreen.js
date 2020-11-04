@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import Bullets from '../assets/Bullets'
 import PopularEventScroll from '../assets/PopularEventScroll'
-import Create from '../assets/Create'
+import CreateEventButton from '../assets/CreateEventButton'
 import Logo from '../assets/Logo'
+import SearchBar from '../assets/SearchBar'
 import EventButton from '../assets/EventButton'
 import { StyleSheet, Button, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,21 +19,26 @@ function HomeScreen({navigation}) {
      }, []);
     return (
     <SafeAreaView>
-      <Create />
+      <CreateEventButton />
       <Logo />
       <View>
       { events }
-    
+        <SearchBar />
         <PopularEventScroll />
         <Bullets/>
-        <Button
-      title="Go to Event"
-      onPress={() =>
-        navigation.navigate('Event', { name: 'Event' })
-      }
-    />
+        <Button 
+          title="Go to Event"
+          onPress={() =>
+            navigation.navigate('Event', { name: 'Event' })
+          }
+        />
+        <Button 
+          title="Go to create an event"
+          onPress={() =>
+            navigation.navigate('CreateEvent', { name: 'CreateEvent' })
+          }
+        />
       </View>
- 
     </SafeAreaView> 
     );
 }

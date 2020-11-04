@@ -6,6 +6,7 @@ const Stack = createStackNavigator();
 // import (useDimensions) from '@react-native-community/hooks';
 import HomeScreen from "./app/screens/HomeScreen";
 import EventScreen from "./app/screens/EventScreen";
+import CreateEventScreen from "./app/screens/CreateEventScreen";
 
 
 export default function App() {
@@ -21,6 +22,12 @@ export default function App() {
           name="Event" 
           component={EventScreen} 
           options={{ title: 'Event Screen' }}
+
+        />
+        <Stack.Screen 
+          name="CreateEvent" 
+          component={CreateEventScreen} 
+          options={{ title: 'Create Event Screen' }}
 
         />
       </Stack.Navigator>
