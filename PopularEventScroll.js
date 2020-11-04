@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 10,
     marginRight: 10,
-    backgroundColor: 'skyblue',
+    backgroundColor: 'rgb(84, 174, 51)' ,
   },
 });
