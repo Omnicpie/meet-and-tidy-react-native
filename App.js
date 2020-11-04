@@ -1,15 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View, Image, ScrollView} from 'react-native';
-import logo from './assets/images/logo.png';
 import Bullets from './Bullets.js'
 import PopularEvents from './PopularEvents.js'
-import Header from './Header.js'
+import Create from './Create.js'
+import Logo from './Logo.js'
+import SearchBar from './SearchBar.js'
 
 export default function App() {
   return (
     <View>
-      <Header />
+      <Create />
+      <Logo />
+      <SearchBar />
       <PopularEvents />
       <Bullets/>
     </View>
