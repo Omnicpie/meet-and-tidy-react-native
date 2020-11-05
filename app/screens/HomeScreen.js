@@ -1,39 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Bullets from '../assets/Bullets'
 import PopularEventScroll from '../assets/PopularEventScroll'
-import Request from '../assets/request'
 import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
 import { Button, View, SafeAreaView, ActivityIndicator, FlatList, Text} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 function HomeScreen({navigation}) {
-    
-     const [isLoading, setLoading] = useState(true);
-     const [data, setData] = useState([]);
-   
-     useEffect(() => {
-       new Request("GET", "http://localhost:1337/events/").make()
-         .then((response) => response.json())
-         .then((json) => {
-           setData(json);
-           console.log(json);
-         })
-         .catch((error) => console.error(error))
-         .finally(() => setLoading(false));
-     }, []); 
+
 
     return (
     <SafeAreaView>
-      {isLoading ? <ActivityIndicator/> : (
-        <FlatList
-          data={data}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
-            <Text>{item.title}, {item.description}</Text>
-          )}
-        />
-      )}
       <Button       
         title="+ Create" 
         color= "rgb(84, 174, 51)" 

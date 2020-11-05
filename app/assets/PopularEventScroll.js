@@ -1,9 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView, SafeAreaView} from 'react-native';
+import Request from '../assets/request'
 
 export default function PopularEventScroll() {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    new Request("GET", "http://localhost:1337/events/").make()
+      .then((response) => response.json())
+      .then((json) => {
+        setData(json);
+        console.log(json);
+      })
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []); 
+
   return (
   <View style={styles.scrollContainer}>
+          {isLoading ? <ActivityIndicator/> : (
+        <FlatList
+          data={data}
+          keyExtractor={({ id }, index) => id}
+          renderItem={({ item }) => (
+            <Text>{item.title}, {item.description}</Text>
+          )}
+        />
+      )}
       <Text style={styles.subHeading}>Popular events</Text>
       <ScrollView style={styles.popScroll} horizontal>
           <View style={styles.tile} />
