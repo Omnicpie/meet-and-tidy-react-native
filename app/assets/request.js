@@ -6,76 +6,19 @@ class Request {
     this.url = url;
   }
  async make() {
-    
-    try {
-        const response = await fetch("http://localhost:1337/events/", {
-            method: 'GET',
-            headers: {
-              Accept: "Access-Control-Allow-Origin",
-              'Content-Type': 'application/json',
-              
-            },
-            credentials: 'same-origin',
-          });
-        const data = await response();
+    if (this.method === "GET") {
+      try {
+        const response = await fetch(this.url)
+        const data = await response;
 
         return await Promise.resolve(data);
-
-    } catch (e) {
+      } catch (e) {
         console.log("ERROR" + e);
 
         return Promise.reject();
       }
-  }
+    }
+  } 
 }
 
 export default Request;
-
-
-async function make() {
-    try {
-        const response = await fetch("http://localhost:1337/events/", {
-        method: 'GET',
-        headers: {
-          Accept: "Access-Control-Allow-Origin",
-          'Content-Type': 'application/json',
-          
-        },
-        credentials: 'same-origin',
-      });
-            const data = await response;
-    
-            return await Promise.resolve(data);
-    
-        }catch (e) {
-            console.log("ERROR" + e);
-    
-            return Promise.reject();
-          }
-    }
-    make();
-
-
-/* 
-async function make() {
-    try {
-            const response = await fetch("http://localhost:1337/events/", {
-        method: 'GET',
-        headers: {
-          Accept: '', 
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-        credentials: 'same-origin',
-      });
-            const data = await response;
-    
-            return await Promise.resolve(data);
-    
-        }catch (e) {
-            console.log("ERROR" + e);
-    
-            return Promise.reject();
-          }
-    }
-    make(); */

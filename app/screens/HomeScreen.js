@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Bullets from '../assets/Bullets'
 import PopularEventScroll from '../assets/PopularEventScroll'
+import Request from '../assets/request'
 import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
 import { Button, SafeAreaView} from 'react-native';
@@ -18,7 +19,9 @@ function HomeScreen({navigation}) {
      const [data, setData] = useState([]);
    
      useEffect(() => {
-       fetch('http://localhost:1337/events/')
+       new Request("GET", "http://localhost:1337/events/").make()
+       
+      //fetch('http://localhost:1337/events/')
          .then((response) => response.json())
          .then((json) => {
            setData(json);
