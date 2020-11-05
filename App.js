@@ -7,6 +7,7 @@ const Stack = createStackNavigator();
 import HomeScreen from "./app/screens/HomeScreen";
 import EventScreen from "./app/screens/EventScreen";
 import CreateEventScreen from "./app/screens/CreateEventScreen";
+import EventDetailScreen from "./app/screens/EventDetailScreen";
 
 
 export default function App() {
@@ -22,13 +23,16 @@ export default function App() {
           name="Event" 
           component={EventScreen} 
           options={{ title: 'Event Screen' }}
-
         />
         <Stack.Screen 
           name="CreateEvent" 
           component={CreateEventScreen} 
           options={{ title: 'Create Event Screen' }}
-
+        />
+        <Stack.Screen 
+          name="EventDetailScreen" 
+          component={EventDetailScreen} 
+          options={{ title: 'Event Detail Screen' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
