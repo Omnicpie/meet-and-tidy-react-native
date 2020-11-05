@@ -13,7 +13,6 @@ import FlagCreateScreen from "./app/screens/FlagCreateScreen";
 import RegistrationScreen from "./app/screens/RegistrationScreen";
 import MyActivitiesScreen from "./app/screens/MyActivitiesScreen";
 
-
 export default function App() {
   return (
     <NavigationContainer>
