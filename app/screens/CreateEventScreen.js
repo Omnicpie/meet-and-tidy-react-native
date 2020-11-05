@@ -2,9 +2,15 @@ import React from 'react';
 import { StyleSheet, Button, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
 
 
-function CreateEventScreen(props) {
+function CreateEventScreen({navigation}) {
     return (
       <SafeAreaView style={styles.container}>
+                <Button 
+          title="Go to Event"
+          onPress={() =>
+            navigation.navigate('Event', { name: 'Event' })
+          }
+        />
         <Text>A 'Create an event' form will be here </Text>
       </SafeAreaView> 
     );

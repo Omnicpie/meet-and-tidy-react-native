@@ -12,12 +12,7 @@ function EventScreen(props) {
  
         <View>
             EVENT SCREEN
-          <Button
-        title="Go to Event"
-        onPress={() =>
-          navigation.navigate('Event', { name: 'Event' })
-        }
-      />
+
         </View>
    
       </SafeAreaView> 

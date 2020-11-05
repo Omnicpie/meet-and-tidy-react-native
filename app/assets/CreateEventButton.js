@@ -1,19 +1,16 @@
 import React from 'react';
-import EventButton from '../assets/EventButton'
-import { StyleSheet, Button, SafeAreaView, Platform } from 'react-native';
-// import { NavigationContainer } from '@react-navigation/native';
 
-// const Stack = createStackNavigator();
+import { StyleSheet, Button, Platform, SafeAreaView } from 'react-native';
 
-function CreateEventButton(props) {
+
+function CreateEventButton() {
+
   return (
     <SafeAreaView style={styles.container}>
       <Button
-      title="+ Create" 
+      title="+ Creat=e" 
       color= "rgb(84, 174, 51)"
-      onPress={() =>
-        navigation.navigate('CreateEvent', { name: 'CreateEvent' } )
-      }
+
     />
     </SafeAreaView>
   );
@@ -28,14 +25,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
-  },
-  tagLine: {
-    color: '#888', 
-    fontSize: 15
-  },
-  logo: {
-    width: 250, 
-    height: 125,
-    marginTop: 25
-  },
+  }
 });
