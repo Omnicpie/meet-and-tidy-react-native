@@ -4,6 +4,7 @@ import PopularEventScroll from '../assets/PopularEventScroll'
 import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
 import { Button, SafeAreaView} from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 function HomeScreen({navigation}) {
 /*    const [events, setEvents] = useState([]); 
@@ -40,8 +41,8 @@ function HomeScreen({navigation}) {
         onPress={() =>
         navigation.navigate('SafetyDisclaimer', { name: 'SafetyDisclaimer' })
       }/>
-      <Button 
-        title="Go to Flag Create screen"
+      <FontAwesome.Button 
+        name="flag"
         onPress={() =>
         navigation.navigate('FlagCreate', { name: 'FlagCreate' })
       }/>
@@ -50,8 +51,8 @@ function HomeScreen({navigation}) {
         onPress={() =>
         navigation.navigate('Registration', { name: 'Registration' })
       }/>
-      <Button 
-        title="Go to My Activities Screen"
+      <FontAwesome.Button 
+        name="user"
         onPress={() =>
         navigation.navigate('MyActivities', { name: 'MyActivities' })
       }/>
