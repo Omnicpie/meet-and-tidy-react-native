@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Bullets from '../assets/Bullets'
 import PopularEventScroll from '../assets/PopularEventScroll'
 import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
-import { Button, View, SafeAreaView} from 'react-native';
+import { Button, SafeAreaView} from 'react-native';
 
 function HomeScreen({navigation}) {
 /*    const [events, setEvents] = useState([]); 
@@ -34,6 +34,26 @@ function HomeScreen({navigation}) {
         title="Go to event details"
         onPress={() =>
         navigation.navigate('EventDetail', { name: 'EventDetail' })
+      }/>
+      <Button 
+        title="Go to Safety disclaimer screen"
+        onPress={() =>
+        navigation.navigate('SafetyDisclaimer', { name: 'SafetyDisclaimer' })
+      }/>
+      <Button 
+        title="Go to Flag Create screen"
+        onPress={() =>
+        navigation.navigate('FlagCreate', { name: 'FlagCreate' })
+      }/>
+      <Button 
+        title="Go to Registration screen"
+        onPress={() =>
+        navigation.navigate('Registration', { name: 'Registration' })
+      }/>
+      <Button 
+        title="Go to My Activities Screen"
+        onPress={() =>
+        navigation.navigate('MyActivities', { name: 'MyActivities' })
       }/>
     </SafeAreaView> 
     );

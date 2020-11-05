@@ -8,6 +8,10 @@ import HomeScreen from "./app/screens/HomeScreen";
 import EventScreen from "./app/screens/EventScreen";
 import CreateEventScreen from "./app/screens/CreateEventScreen";
 import EventDetailScreen from "./app/screens/EventDetailScreen";
+import SafetyDisclaimerScreen from "./app/screens/SafetyDisclaimerScreen";
+import FlagCreateScreen from "./app/screens/FlagCreateScreen";
+import RegistrationScreen from "./app/screens/RegistrationScreen";
+import MyActivitiesScreen from "./app/screens/MyActivitiesScreen";
 
 
 export default function App() {
@@ -33,6 +37,26 @@ export default function App() {
           name="EventDetailScreen" 
           component={EventDetailScreen} 
           options={{ title: 'Event Detail Screen' }}
+        />
+        <Stack.Screen 
+          name="SafetyDisclaimerScreen" 
+          component={SafetyDisclaimerScreen} 
+          options={{ title: 'Safety Disclaimer Screen' }}
+        />
+        <Stack.Screen 
+          name="FlagCreateScreen" 
+          component={FlagCreateScreen} 
+          options={{ title: 'Flag Create Screen' }}
+        />
+        <Stack.Screen 
+          name="RegistrationScreen" 
+          component={RegistrationScreen} 
+          options={{ title: 'Registration Screen' }}
+        />
+        <Stack.Screen 
+          name="MyActivitiesScreen" 
+          component={MyActivitiesScreen} 
+          options={{ title: 'My Activities Screen' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
