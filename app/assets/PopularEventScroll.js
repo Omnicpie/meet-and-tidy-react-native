@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView, SafeAreaView} from 'react-native';
 import Request from '../assets/request'
+// uninstall me!
+import {SwipeableFlatList} from 'react-native-swipeable-flat-list';
 
-export default function PopularEventScroll() {
+export default function PopularEventScroll({navigation}) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -19,22 +21,22 @@ export default function PopularEventScroll() {
 
   return (
   <View style={styles.scrollContainer}>
-          {isLoading ? <ActivityIndicator/> : (
+
+      <Text style={styles.subHeading}>Popular events</Text>
+      <ScrollView style={styles.popScroll}>
+      {isLoading ? <ActivityIndicator/> : (
         <FlatList
           data={data}
+          horizontal = {true}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
-            <Text>{item.title}, {item.description}</Text>
+            <Text onPress={() =>
+              navigation.navigate('Event', item.id )
+            }style={styles.tile}>{item.title}, {item.description}</Text>
           )}
         />
       )}
-      <Text style={styles.subHeading}>Popular events</Text>
-      <ScrollView style={styles.popScroll} horizontal>
-          <View style={styles.tile} />
-          <View style={styles.tile} />
-          <View style={styles.tile} />
-          <View style={styles.tile} />
-          <View style={styles.tile} />
+      
       </ScrollView>
   </View>
   )
@@ -65,5 +67,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginRight: 10,
     backgroundColor: 'rgb(84, 174, 51)' ,
+    flexDirection: "row"
   },
 });

@@ -19,13 +19,9 @@ function HomeScreen({navigation}) {
           }/>
       <Logo />
       <SearchBar />
-      <Button 
-        title="Go to Event"
-        onPress={() =>
-        navigation.navigate('Event', { name: 'Event' })
-      }/>
-      <PopularEventScroll />
-      <Bullets/>       
+
+      <PopularEventScroll navigation = {navigation}/>
+         
       <Button 
         title="Go to event details"
         onPress={() =>
