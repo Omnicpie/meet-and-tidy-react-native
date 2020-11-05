@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, Text } from 'react-native';
 
 
-function EventDetailScreen(navigation) {
+function EventDetailScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <Text>The details of the selected event will be here </Text>

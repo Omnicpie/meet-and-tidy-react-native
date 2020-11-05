@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Bullets from '../assets/Bullets'
 import PopularEventScroll from '../assets/PopularEventScroll'
 import Logo from '../assets/Logo'
@@ -13,7 +13,21 @@ function HomeScreen({navigation}) {
           .then(response => response.json())
           .then(json => setEvents(json) )
      }, []); */
-     
+    
+     const [isLoading, setLoading] = useState(true);
+     const [data, setData] = useState([]);
+   
+     useEffect(() => {
+       fetch('http://localhost:1337/events/')
+         .then((response) => response.json())
+         .then((json) => {
+           setData(json);
+           console.log(json);
+         })
+         .catch((error) => console.error(error))
+         .finally(() => setLoading(false));
+     }, []); 
+
     return (
     <SafeAreaView>
       <Button       
@@ -34,7 +48,7 @@ function HomeScreen({navigation}) {
       <Button 
         title="Go to event details"
         onPress={() =>
-        navigation.navigate('EventDetail', { name: 'EventDetail' })
+        navigation.navigate('EventDetail')
       }/>
       <Button 
         title="Go to Safety disclaimer screen"

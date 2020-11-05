@@ -33,27 +33,27 @@ export default function App() {
           options={{ title: 'Create Event Screen' }}
         />
         <Stack.Screen 
-          name="EventDetailScreen" 
+          name="EventDetail" 
           component={EventDetailScreen} 
           options={{ title: 'Event Detail Screen' }}
         />
         <Stack.Screen 
-          name="SafetyDisclaimerScreen" 
+          name="SafetyDisclaimer" 
           component={SafetyDisclaimerScreen} 
           options={{ title: 'Safety Disclaimer Screen' }}
         />
         <Stack.Screen 
-          name="FlagCreateScreen" 
+          name="FlagCreate" 
           component={FlagCreateScreen} 
           options={{ title: 'Flag Create Screen' }}
         />
         <Stack.Screen 
-          name="RegistrationScreen" 
+          name="Registration" 
           component={RegistrationScreen} 
           options={{ title: 'Registration Screen' }}
         />
         <Stack.Screen 
-          name="MyActivitiesScreen" 
+          name="MyActivities" 
           component={MyActivitiesScreen} 
           options={{ title: 'My Activities Screen' }}
         />
