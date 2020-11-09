@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView, SafeAreaView} from 'react-native';
 import Request from '../assets/request'
-// uninstall me!
-import {SwipeableFlatList} from 'react-native-swipeable-flat-list';
 
 export default function PopularEventScroll({navigation}) {
   const [isLoading, setLoading] = useState(true);

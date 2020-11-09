@@ -20,7 +20,7 @@ function HomeScreen({navigation}) {
       <Logo />
       <SearchBar />
 
-      <PopularEventScroll navigation = {navigation}/>
+      <PopularEventScroll navigation={navigation}/>
          
       <Button 
         title="Go to event details"

@@ -1,5 +1,3 @@
-import React from 'react';
-
 class Request {
   constructor(method, url) {
     this.method = method;
