@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TextInput } from 'react-native';
 
 export default function SearchBar() {
   return (
     <View style={styles.container}>
-      <input type="text" /*value={this.state.search}*/ />
+      <TextInput type="text" /*value={this.state.search}*/ />
     </View>
   )
 };
