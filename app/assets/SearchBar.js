@@ -24,7 +24,9 @@ const SearchBar = () => {
     searchArea: {
       alignItems: 'center',
       flex: 1,
-      paddingTop: 25,
+      paddingTop: 35,
+      paddingBottom: 25,
+      backgroundColor: 'white'
     }
   });
   
