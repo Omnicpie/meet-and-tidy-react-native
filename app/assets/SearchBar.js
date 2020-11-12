@@ -7,6 +7,7 @@ const SearchBar = () => {
   
     const onChangeSearch = (query) => {
       setSearchQuery(query);
+      console.log(query);
     }
   
     return (
