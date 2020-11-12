@@ -1,5 +1,6 @@
 import React from 'react';
 import BottomNavBar from '../assets/BottomNavBar'
+import EventForm from '../assets/eventForm'
 import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 
@@ -8,7 +9,8 @@ function CreateEventScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <Text>A 'Create an event' form will be here </Text>
+        <Text>Create an event</Text>
+        <EventForm/>
         <ProgressBar style={styles.progressBar} progress={0.1} color={Colors.green500} />
         <Text>1 of 8</Text>
       </View>
