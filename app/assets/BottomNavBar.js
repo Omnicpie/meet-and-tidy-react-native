@@ -1,24 +1,24 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
-import { IconButton, Color } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 
 function BottomNavBar({navigation}) {
 
     return (
     <SafeAreaView style={styles.container}>
-      <IconButton style={styles.icon}
+      <IconButton
         icon="home"
         name="flag"
         size={30}
         onPress={() => navigation.navigate('Home')
       }/>
-      <IconButton style={styles.icon}
+      <IconButton
         icon="flag-outline"
         name="flag"
         size={30}
         onPress={() => navigation.navigate('FlagCreate')
       }/>
-      <IconButton style={styles.icon}
+      <IconButton
         icon="account"
         name="flag"
         size={30}
@@ -32,9 +32,12 @@ export default BottomNavBar;
 
 const styles = StyleSheet.create({
     container: {
+      paddingLeft: 8,
+      width: 100,
       flex: 1,
-    },
-    icon: {
-       color: "rgb(84, 174, 51)" 
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      position: 'absolute'
     }
   });
