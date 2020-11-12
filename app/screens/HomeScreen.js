@@ -14,6 +14,8 @@ function HomeScreen({navigation}) {
       <Button       
         title="+ Create" 
         color= "rgb(84, 174, 51)" 
+        mode="contained"
+        icon="plus"
         onPress={() =>
             navigation.navigate('CreateEvent')
           }/>
