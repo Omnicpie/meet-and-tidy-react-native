@@ -1,10 +1,8 @@
 import React from 'react';
-import Bullets from '../assets/Bullets'
 import PopularEventScroll from '../assets/PopularEventScroll'
 import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
 import { Button, View, SafeAreaView, ActivityIndicator, FlatList, Text} from 'react-native';
-// import { FontAwesome } from '@expo/vector-icons';
 import { IconButton, Colors } from 'react-native-paper';
 
 function HomeScreen({navigation}) {
@@ -60,6 +58,7 @@ function HomeScreen({navigation}) {
         size={30}
         onPress={() => navigation.navigate('MyActivities')
       }/>
+      <BottomNavBar/>
     </SafeAreaView> 
     );
 }
