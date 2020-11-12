@@ -2,7 +2,8 @@ import React from 'react';
 import PopularEventScroll from '../assets/PopularEventScroll'
 import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
-import { Button, View, SafeAreaView, ActivityIndicator, FlatList, Text} from 'react-native';
+import BottomNavBar from '../assets/BottomNavBar'
+import { Button, SafeAreaView } from 'react-native';
 import { IconButton, Colors } from 'react-native-paper';
 
 function HomeScreen({navigation}) {
@@ -35,29 +36,8 @@ function HomeScreen({navigation}) {
       <Button 
         title="Go to Registration screen"
         onPress={() =>
-        navigation.navigate('Registration', { name: 'Registration' })
-      }/>
-      <IconButton
-        icon="home"
-        color={Colors.green500}
-        name="flag"
-        size={30}
-        onPress={() => navigation.navigate('Home')
-      }/>
-      <IconButton
-        icon="flag-outline"
-        color={Colors.green500}
-        name="flag"
-        size={30}
-        onPress={() => navigation.navigate('FlagCreate')
-      }/>
-      <IconButton
-        icon="account"
-        color={Colors.green500}
-        name="flag"
-        size={30}
-        onPress={() => navigation.navigate('MyActivities')
-      }/>
+        navigation.navigate('Registration')
+      }></Button>
       <BottomNavBar/>
     </SafeAreaView> 
     );
