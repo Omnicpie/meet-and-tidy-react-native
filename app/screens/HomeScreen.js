@@ -4,10 +4,10 @@ import PopularEventScroll from '../assets/PopularEventScroll'
 import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
 import { Button, View, SafeAreaView, ActivityIndicator, FlatList, Text} from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+// import { FontAwesome } from '@expo/vector-icons';
+import { IconButton, Colors } from 'react-native-paper';
 
 function HomeScreen({navigation}) {
-
 
     return (
     <SafeAreaView>
@@ -34,20 +34,31 @@ function HomeScreen({navigation}) {
         onPress={() =>
         navigation.navigate('SafetyDisclaimer', { name: 'SafetyDisclaimer' })
       }/>
-      <FontAwesome.Button 
-        name="flag"
-        onPress={() =>
-        navigation.navigate('FlagCreate', { name: 'FlagCreate' })
-      }/>
       <Button 
         title="Go to Registration screen"
         onPress={() =>
         navigation.navigate('Registration', { name: 'Registration' })
       }/>
-      <FontAwesome.Button 
-        name="user"
-        onPress={() =>
-        navigation.navigate('MyActivities', { name: 'MyActivities' })
+      <IconButton
+        icon="home"
+        color={Colors.green500}
+        name="flag"
+        size={30}
+        onPress={() => navigation.navigate('Home')
+      }/>
+      <IconButton
+        icon="flag-outline"
+        color={Colors.green500}
+        name="flag"
+        size={30}
+        onPress={() => navigation.navigate('FlagCreate')
+      }/>
+      <IconButton
+        icon="account"
+        color={Colors.green500}
+        name="flag"
+        size={30}
+        onPress={() => navigation.navigate('MyActivities')
       }/>
     </SafeAreaView> 
     );
