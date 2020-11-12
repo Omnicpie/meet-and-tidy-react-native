@@ -1,20 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, TextInput } from 'react-native';
+import { Searchbar } from 'react-native-paper';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
-export default function SearchBar() {
-  return (
-    <View style={styles.container}>
-      <TextInput type="text" /*value={this.state.search}*/ />
+const SearchBar = () => {
+    const [searchQuery, setSearchQuery] = React.useState('');
+  
+    const onChangeSearch = query => setSearchQuery(query);
+  
+    return (
+    <View style={styles.searchArea}>
+      <Searchbar
+        placeholder="Find an event..."
+        onChangeText={onChangeSearch}
+        value={searchQuery}
+      />
     </View>
-  )
-};
+    );
+  };
+  
+  export default SearchBar;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25
-  }
-});
+  const styles = StyleSheet.create({
+    searchArea: {
+      alignItems: 'center',
+      flex: 1,
+      paddingTop: 25,
+    }
+  });
+  
