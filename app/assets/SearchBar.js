@@ -5,7 +5,9 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 const SearchBar = () => {
     const [searchQuery, setSearchQuery] = React.useState('');
   
-    const onChangeSearch = query => setSearchQuery(query);
+    const onChangeSearch = (query) => {
+      setSearchQuery(query);
+    }
   
     return (
     <View style={styles.searchArea}>
