@@ -11,7 +11,7 @@ function EventScreen(props) {
     new Request("GET", "http://localhost:1337/events/" + eventId).make()
       .then((response) => response.json())
       .then((json) => {
-        setData(json);
+        setData(json[0]);
         console.log(json);
       })
       .catch((error) => console.error(error))
