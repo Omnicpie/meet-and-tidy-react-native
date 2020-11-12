@@ -4,7 +4,6 @@ import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
 import BottomNavBar from '../assets/BottomNavBar'
 import { Button, SafeAreaView } from 'react-native';
-import { IconButton, Colors } from 'react-native-paper';
 
 function HomeScreen({navigation}) {
 
