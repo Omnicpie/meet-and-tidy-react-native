@@ -3,17 +3,22 @@ import { Text, View, TextInput, Button} from 'react-native';
 
 export default function eventForm() {
 
-   const [title, onChangeText] = React.useState('');
+   const [title, onChangeText ] = React.useState('');
+   const [description, onChangeText ] = React.useState('');
 
     const titleChange = (text) => {
   
         onChangeText(text);
     }
+
+    const descriptionChange = (text) => {
+        onChangeText(text);
+    }
     
     async function saveEvent() {
 
-        const Event = new EventObject(title);
-        
+        const Event = new EventObject(title, description);
+        console.log(Event);
         try {
             const response = await fetch("http://localhost:1337/events/", {
                 method: 'POST',
@@ -35,8 +40,9 @@ export default function eventForm() {
 
 
     class EventObject {
-        constructor(title) {
-            this.title = title
+        constructor(title, description) {
+            this.title = title,
+            this.description = description
         }
     }
 
@@ -47,6 +53,11 @@ export default function eventForm() {
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={text => titleChange(text) }
         title={title}
+        />
+        <TextInput
+        style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
+        onChangeText={text => descriptionChange(text) }
+        description={description}
         />
         <Button
             onPress={saveEvent}
