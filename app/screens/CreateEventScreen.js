@@ -1,4 +1,5 @@
 import React from 'react';
+import BottomNavBar from '../assets/BottomNavBar'
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 
 
@@ -6,6 +7,7 @@ function CreateEventScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <Text>A 'Create an event' form will be here </Text>
+      <BottomNavBar/>
     </SafeAreaView> 
   );
 }
