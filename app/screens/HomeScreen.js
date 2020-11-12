@@ -3,7 +3,7 @@ import PopularEventScroll from '../assets/PopularEventScroll'
 import Logo from '../assets/Logo'
 import SearchBar from '../assets/SearchBar'
 import BottomNavBar from '../assets/BottomNavBar'
-import { Button, SafeAreaView } from 'react-native';
+import { Button, SafeAreaView, View } from 'react-native';
 
 function HomeScreen({navigation}) {
 
@@ -37,7 +37,9 @@ function HomeScreen({navigation}) {
         onPress={() =>
         navigation.navigate('Registration')
       }></Button>
-      <BottomNavBar/>
+      <View>
+        <BottomNavBar/>
+      </View>
     </SafeAreaView> 
     );
 }
