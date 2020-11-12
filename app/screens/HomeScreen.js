@@ -38,7 +38,7 @@ function HomeScreen({navigation}) {
         navigation.navigate('Registration')
       }></Button>
       <View>
-        <BottomNavBar/>
+        <BottomNavBar navigation={navigation}/>
       </View>
     </SafeAreaView> 
     );

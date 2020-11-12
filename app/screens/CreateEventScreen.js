@@ -12,7 +12,7 @@ function CreateEventScreen({navigation}) {
         <ProgressBar style={styles.progressBar} progress={0.1} color={Colors.green500} />
         <Text>1 of 8</Text>
       </View>
-      <BottomNavBar/>
+      <BottomNavBar navigation={navigation}/>
     </SafeAreaView> 
   );
 }
