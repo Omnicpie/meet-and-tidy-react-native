@@ -38,6 +38,9 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      position: 'absolute'
+      position: 'absolute',
+      left: 0, 
+      right: 0, 
+      bottom: 0
     }
   });
