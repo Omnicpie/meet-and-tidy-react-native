@@ -11,6 +11,7 @@ export default function EventFormStep4({
   return (
     <View>
       <Text>Create an event</Text>
+      <Text>Title and description</Text>
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={(text) => onChangeTitle(text)}
@@ -24,8 +25,8 @@ export default function EventFormStep4({
         onPress={onNext}
         title="Next"
       />
-      <ProgressBar style={styles.progressBar} progress={0.1} color={Colors.green500} />
-      <Text>1 of 8</Text>
+      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
+      <Text>4 of 8</Text>
     </View>
   );
 }

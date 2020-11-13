@@ -8,6 +8,7 @@ import EventFormStep1 from '../assets/EventFormStep1';
 import EventFormStep2 from '../assets/EventFormStep2';
 import EventFormStep3 from '../assets/EventFormStep3';
 import EventFormStep4 from '../assets/EventFormStep4';
+import EventFormStep5 from '../assets/EventFormStep5';
 import Request from '../assets/request';
 
 function CreateEventScreen({ navigation }) {
@@ -15,6 +16,8 @@ function CreateEventScreen({ navigation }) {
   const [description, onChangeDescription] = useState('');
   const [location, onChangeLocation] = useState('');
   const [date, onChangeDate] = useState('');
+  const [eventType, onChangeEventType] = useState('');
+  const [facilityType, onChangeFacilityType] = useState('');
 
   const [screen, setScreen] = useState(1);
 
@@ -23,7 +26,9 @@ function CreateEventScreen({ navigation }) {
       title: title,
       description: description,
       location: location,
-      startsOn: date
+      startsOn: date,
+      eventType: eventType,
+      facilityType: facilityType
     };
 
     new Request("POST", "http://localhost:1337/events/").make(event);
@@ -92,20 +97,38 @@ function CreateEventScreen({ navigation }) {
             onNext={onNext}
           />
         )
+        case 3:
+          return (
+            <View>
+              <EventFormStep3
+                eventType={eventType} onChangeEventType={onChangeEventType}
+                onNext={onNext}
+              />
+           </View>
+           )
 
-     case 3:
+     case 4:
        return (
          <View>
            <EventFormStep4
              title={title} onChangeTitle={onChangeTitle}
              description={description} onChangeDescription={onChangeDescription}
-             //onNext={onNext}
+             onNext={onNext}
            />
-          <Button
-            onPress={saveEvent}
-            title="Save"
-          />
         </View>
+        )
+      case 5:
+        return (
+          <View>
+            <EventFormStep5
+              title={title} onChangeFacilityType={onChangeFacilityType}
+              //onNext={onNext}
+            />
+           <Button
+             onPress={saveEvent}
+             title="Save"
+           />
+         </View>
         )
      }
    }
