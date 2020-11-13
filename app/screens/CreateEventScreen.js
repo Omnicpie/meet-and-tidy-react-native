@@ -38,15 +38,15 @@ function CreateEventScreen({ navigation }) {
     new Request("POST", "http://localhost:1337/events/").make(event);
   }
 
-   function onNext() {
-     console.log('next tapped by a child component');
+  function onNext() {
 
-     //saveEvent();
+    setScreen(screen + 1);
+    //saveEvent();
 
      //validate the inputs so far! DONE BUT MORE TO DO
    //  if (validateInput()) {
       //check if you've reached the last screen!
-      setScreen(screen + 1);
+
     // } else {
     //   console.log("validations not met!")
     // }
@@ -64,41 +64,36 @@ function CreateEventScreen({ navigation }) {
             onNext={onNext}
           />
         )
-     case 2:
-       return (
-         <EventFormStep2
+      case 2:
+        return (
+          <EventFormStep2
             date={date} onChangeDate={onChangeDate}
             onNext={onNext}
           />
         )
-        case 3:
-          return (
-            <View>
-              <EventFormStep3
-                eventType={eventType} onChangeEventType={onChangeEventType}
-                onNext={onNext}
-              />
-           </View>
-           )
-
-     case 4:
-       return (
-         <View>
-           <EventFormStep4
-             title={title} onChangeTitle={onChangeTitle}
-             onNext={onNext}
-           />
-        </View>
+      case 3:
+        return (
+          <View>
+            <EventFormStep3
+              eventType={eventType} onChangeEventType={onChangeEventType}
+              onNext={onNext}
+            />
+         </View>
+         )
+      case 4:
+        return (
+          <View>
+            <EventFormStep4
+              title={title} onChangeTitle={onChangeTitle}
+               onNext={onNext}
+             />
+          </View>
         )
       case 5:
         return (
           <View>
             <EventFormStep5
-<<<<<<< Updated upstream
-              title={title} onChangeFacilityType={onChangeFacilityType}
-=======
               facilityType={facilityType} onChangeFacilityType={onChangeFacilityType}
->>>>>>> Stashed changes
               onNext={onNext}
             />
          </View>
@@ -108,30 +103,31 @@ function CreateEventScreen({ navigation }) {
             <View>
               <EventFormStep6
                 description={description} onChangeDescription={onChangeDescription}
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
                 onNext={onNext}
               />
-           </View>
+            </View>
           )
-          case 7:
-            return (
-              <View>
-                <EventFormStep7
-                  image={image} onChangeImage={onChangeImage}
-
-                  //onNext={onNext}
-                />
-               <Button
-                 onPress={saveEvent}
-                 title="Save"
-               />
-             </View>
-            )
-     }
-   }
+        case 7:
+          return (
+            <View>
+              <EventFormStep7
+                image={image} onChangeImage={onChangeImage}
+                onNext={onNext}
+              />
+            </View>
+          )
+        case 8:
+        return (
+          <View>
+            <EventFormStep8/>
+              <Button
+                onPress={saveEvent}
+                title="Save"
+              />
+          </View>
+        )
+      }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
