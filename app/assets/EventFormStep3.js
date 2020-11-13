@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  StyleSheet, Text, View, TextInput, Button,
+  StyleSheet, Text, View, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import EventTypeSelectButtons from '../assets/EventTypeSelectButtons';
@@ -10,7 +10,15 @@ import Request from './request';
 export default function EventFormStep3({
   eventType, onChangeEventType, onNext,
 } = props) {
-
+  console.log(eventType);
+  function validateInput() {
+    console.log(eventType);
+    if (eventType.length > 3 && typeof eventType === "string") {
+      onNext();
+    } else {
+      alert(`Please select an event type.`);
+    }
+  }
   return (
     <View>
       <Text>Create an event</Text>
@@ -19,7 +27,7 @@ export default function EventFormStep3({
         eventType={eventType} onChangeEventType={onChangeEventType}
       />
       <Button
-        onPress={onNext}
+        onPress={validateInput}
         title="Next"
       />
       <ProgressBar style={styles.progressBar} progress={0.375} color={Colors.green500} />

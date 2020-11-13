@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Searchbar } from 'react-native-paper';
 import {
   StyleSheet, Text, View, FlatList,
 } from 'react-native';
 
 const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = React.useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const onChangeSearch = (query) => {
     setSearchQuery(query);

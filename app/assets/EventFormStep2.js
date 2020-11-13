@@ -8,6 +8,14 @@ import Request from './request';
 export default function EventFormStep2({
   date, onChangeDate, onNext,
 } = props) {
+  function validateInput() {
+    if (date.length > 6 && typeof date === "string") {
+      onNext();
+    } else {
+      alert(`Please enter a valid date, "${date}" needs to be at least 5 characters long.`);
+    }
+  }
+
   return (
     <View>
       <Text>Create an event</Text>
@@ -18,7 +26,7 @@ export default function EventFormStep2({
         date={date}
       />
       <Button
-        onPress={onNext}
+        onPress={validateInput}
         title="Next"
       />
       <ProgressBar style={styles.progressBar} progress={0.25} color={Colors.green500} />

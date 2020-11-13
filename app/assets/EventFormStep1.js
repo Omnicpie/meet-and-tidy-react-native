@@ -3,11 +3,20 @@ import {
   StyleSheet, Text, View, TextInput, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-import Request from './request';
+
 
 export default function EventFormStep1({
 location, onChangeLocation, onNext
 } = props) {
+
+  function validateInput() {
+    if (location.length > 6 && typeof location === "string") {
+      onNext();
+    } else {
+      alert(`Please enter a valid location, "${location}" needs to be at least 5 characters long.`);
+    }
+  }
+
   return (
     <View>
       <Text>Create an event</Text>
@@ -18,12 +27,13 @@ location, onChangeLocation, onNext
         location={location}
       />
       <Button
-        onPress={onNext}
+        onPress={validateInput}
         title="Next"
       />
       <ProgressBar style={styles.progressBar} progress={0.1} color={Colors.green500} />
       <Text>1 of 8</Text>
     </View>
+
   );
 }
 

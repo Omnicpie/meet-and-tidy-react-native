@@ -8,6 +8,7 @@ export default function FacilityTypeSelectButtons({
 } = props) {
 
   return (
+    // TODO this currently only selects the last one from the list
 
     <View>
       <Button

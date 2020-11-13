@@ -44,46 +44,16 @@ function CreateEventScreen({ navigation }) {
      //saveEvent();
 
      //validate the inputs so far! DONE BUT MORE TO DO
-     if (validateInput()) {
+   //  if (validateInput()) {
       //check if you've reached the last screen!
       setScreen(screen + 1);
-     } else {
-       console.log("validations not met!")
-     }
+    // } else {
+    //   console.log("validations not met!")
+    // }
 
      // on the final screen save the event to the backend
      // and navigate out of this screen/component....
    }
-
-
-   function validateInput() {
-    return true;
-    switch(screen) {
-      case 1:
-        let validationRules = {
-          minLength: 6,
-          type: "string"
-      }
-
-      if (typeof title !== validationRules.type) {
-          return false;
-      }
-      if (typeof description !== validationRules.type) {
-        return false;
-      }
-      if (title.length < validationRules.minLength ) {
-          return false;
-      }
-      if (description.length < validationRules.minLength ) {
-        return false;
-      }
-      return true;
-
-      case 2:
-        console.log("Screen 1 validations for" + title + description);
-      break;
-   }
-  }
 
   function currentScreen() {
     switch(screen) {
@@ -124,7 +94,11 @@ function CreateEventScreen({ navigation }) {
         return (
           <View>
             <EventFormStep5
+<<<<<<< Updated upstream
               title={title} onChangeFacilityType={onChangeFacilityType}
+=======
+              facilityType={facilityType} onChangeFacilityType={onChangeFacilityType}
+>>>>>>> Stashed changes
               onNext={onNext}
             />
          </View>
@@ -134,7 +108,10 @@ function CreateEventScreen({ navigation }) {
             <View>
               <EventFormStep6
                 description={description} onChangeDescription={onChangeDescription}
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                 onNext={onNext}
               />
            </View>
