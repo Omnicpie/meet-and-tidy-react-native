@@ -10,7 +10,7 @@ location, onChangeLocation, onNext
 } = props) {
 
   function validateInput() {
-    if (location.length > 6 && typeof location === "string") {
+    if (location.length > 3) {
       onNext();
     } else {
       alert(`Please enter a valid location, "${location}" needs to be at least 5 characters long.`);

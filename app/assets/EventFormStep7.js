@@ -18,7 +18,10 @@ export default function EventFormStep7({
         onChangeText={(text) => onChangeImage(text)}
         image={image}
       />
-
+      <Button
+        onPress={onNext}
+        title="Next"
+      />
       <ProgressBar style={styles.progressBar} progress={0.875} color={Colors.green500} />
       <Text>7 of 8</Text>
     </View>

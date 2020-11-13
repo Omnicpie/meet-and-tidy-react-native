@@ -11,6 +11,7 @@ import EventFormStep4 from '../assets/EventFormStep4';
 import EventFormStep5 from '../assets/EventFormStep5';
 import EventFormStep6 from '../assets/EventFormStep6';
 import EventFormStep7 from '../assets/EventFormStep7';
+import EventFormStep8 from '../assets/EventFormStep8';
 import Request from '../assets/request';
 
 function CreateEventScreen({ navigation }) {
@@ -119,7 +120,16 @@ function CreateEventScreen({ navigation }) {
         case 8:
         return (
           <View>
-            <EventFormStep8/>
+            <EventFormStep8
+            title = {title}
+            date = {date}
+            description = {description}
+            location = {location}
+            eventType = {eventType}
+            image = {image}
+
+
+            />
               <Button
                 onPress={saveEvent}
                 title="Save"
