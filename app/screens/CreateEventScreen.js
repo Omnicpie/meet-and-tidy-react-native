@@ -9,6 +9,8 @@ import EventFormStep2 from '../assets/EventFormStep2';
 import EventFormStep3 from '../assets/EventFormStep3';
 import EventFormStep4 from '../assets/EventFormStep4';
 import EventFormStep5 from '../assets/EventFormStep5';
+import EventFormStep6 from '../assets/EventFormStep6';
+import EventFormStep7 from '../assets/EventFormStep7';
 import Request from '../assets/request';
 
 function CreateEventScreen({ navigation }) {
@@ -18,6 +20,7 @@ function CreateEventScreen({ navigation }) {
   const [date, onChangeDate] = useState('');
   const [eventType, onChangeEventType] = useState('');
   const [facilityType, onChangeFacilityType] = useState('');
+  const [image, onChangeImage] = useState('');
 
   const [screen, setScreen] = useState(1);
 
@@ -28,7 +31,8 @@ function CreateEventScreen({ navigation }) {
       location: location,
       startsOn: date,
       eventType: eventType,
-      facilityType: facilityType
+      facilityType: facilityType,
+      image: image
     };
 
     new Request("POST", "http://localhost:1337/events/").make(event);
@@ -112,7 +116,6 @@ function CreateEventScreen({ navigation }) {
          <View>
            <EventFormStep4
              title={title} onChangeTitle={onChangeTitle}
-             description={description} onChangeDescription={onChangeDescription}
              onNext={onNext}
            />
         </View>
@@ -122,14 +125,34 @@ function CreateEventScreen({ navigation }) {
           <View>
             <EventFormStep5
               title={title} onChangeFacilityType={onChangeFacilityType}
-              //onNext={onNext}
+              onNext={onNext}
             />
-           <Button
-             onPress={saveEvent}
-             title="Save"
-           />
          </View>
         )
+        case 6:
+          return (
+            <View>
+              <EventFormStep6
+                description={description} onChangeDescription={onChangeDescription}
+
+                onNext={onNext}
+              />
+           </View>
+          )
+          case 7:
+            return (
+              <View>
+                <EventFormStep7
+                  image={image} onChangeImage={onChangeImage}
+
+                  //onNext={onNext}
+                />
+               <Button
+                 onPress={saveEvent}
+                 title="Save"
+               />
+             </View>
+            )
      }
    }
 
