@@ -1,35 +1,36 @@
-import React, {useState} from 'react';
-import BottomNavBar from '../assets/BottomNavBar'
-import EventFormStep1 from '../assets/EventFormStep1'
-import EventFormStep2 from '../assets/EventFormStep2'
-import Request from '../assets/request'
-import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View, StyleSheet, Text, SafeAreaView,
+} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
+import BottomNavBar from '../assets/BottomNavBar';
+import EventFormStep1 from '../assets/EventFormStep1';
+import EventFormStep2 from '../assets/EventFormStep2';
+import Request from '../assets/request';
 
-
-function CreateEventScreen({navigation}) {
-  const [title, onChangeTitle ] = useState('');
-  const [description, onChangeDescription ] = useState('');
+function CreateEventScreen({ navigation }) {
+  const [title, onChangeTitle] = useState('');
+  const [description, onChangeDescription] = useState('');
   const [screen, setScreen] = useState(1);
 
-   async function saveEvent() {
-       const event = {
-           title: title,
-           description: description
-       }
+  async function saveEvent() {
+    const event = {
+      title,
+      description,
+    };
 
        new Request("POST", "http://localhost:1337/events/").make(event);
    }
-   
+
    function onNext() {
      console.log('next tapped by a child component');
-     
+
      //saveEvent();
 
-     //validate the inputs so far! DONE BUT MORE TO DO 
+     //validate the inputs so far! DONE BUT MORE TO DO
      if (validateInput()) {
       //check if you've reached the last screen!
-      setScreen(screen + 1); 
+      setScreen(screen + 1);
      } else {
        console.log("validations not met!")
      }
@@ -46,19 +47,19 @@ function CreateEventScreen({navigation}) {
           minLength: 6,
           type: "string"
       }
-  
+
       if (typeof title !== validationRules.type) {
           return false;
-      } 
+      }
       if (typeof description !== validationRules.type) {
         return false;
-      } 
+      }
       if (title.length < validationRules.minLength ) {
           return false;
-      } 
+      }
       if (description.length < validationRules.minLength ) {
         return false;
-      } 
+      }
       return true;
 
       case 2:
@@ -77,7 +78,7 @@ function CreateEventScreen({navigation}) {
           onNext={onNext}
         />
        )
-     
+
      case 2:
       return (
         <EventFormStep2
@@ -85,17 +86,17 @@ function CreateEventScreen({navigation}) {
           description={description} onChangeDescription={onChangeDescription}
           onNext={onNext}
         />
-       ) 
+       )
      }
    }
 
-   return (
+  return (
     <SafeAreaView style={styles.container}>
       <View>
         {currentScreen()}
       </View>
-      <BottomNavBar navigation={navigation}/>
-    </SafeAreaView> 
+      <BottomNavBar navigation={navigation} />
+    </SafeAreaView>
   );
 }
 
@@ -107,9 +108,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 25
+    paddingVertical: 25,
   },
   progressBar: {
-    marginTop: 50
-  }
+    marginTop: 50,
+  },
 });

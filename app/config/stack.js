@@ -4,20 +4,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-const AppStack = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Welcome' }}
-        />
-        <Stack.Screen 
-          name="Event" 
-          component={EventScreen} 
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+const AppStack = () => (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ title: 'Welcome' }}
+      />
+      <Stack.Screen
+        name="Event"
+        component={EventScreen}
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+);

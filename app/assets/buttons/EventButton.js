@@ -5,11 +5,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 function EventButton(props) {
-    return (
-        <div>
+  return (
+    <div>
       <text>Boom Baby</text>
-        </div>
-    );
+    </div>
+  );
 }
 
 export default EventButton;

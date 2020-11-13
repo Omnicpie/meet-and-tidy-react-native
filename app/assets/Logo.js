@@ -1,20 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity,
+} from 'react-native';
 import logo from './images/logo.png';
 
 export default function Logo() {
   return (
-  <SafeAreaView>
-    <View style={styles.container}>
+    <SafeAreaView>
+      <View style={styles.container}>
         <TouchableOpacity>
-            <Image source={logo} style={styles.logo} /> 
+          <Image source={logo} style={styles.logo} />
         </TouchableOpacity>
-      <Text style={styles.tagLine}>Commit to clean up</Text>
-      <StatusBar style="auto" />
-    </View>
+        <Text style={styles.tagLine}>Commit to clean up</Text>
+        <StatusBar style="auto" />
+      </View>
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -25,12 +27,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tagLine: {
-    color: '#888', 
-    fontSize: 15
+    color: '#888',
+    fontSize: 15,
   },
   logo: {
-    width: 250, 
+    width: 250,
     height: 125,
-    marginTop: 25
-  }
+    marginTop: 25,
+  },
 });
