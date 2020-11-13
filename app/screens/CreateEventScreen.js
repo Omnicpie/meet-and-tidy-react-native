@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
 import {
-  View, StyleSheet, Text, SafeAreaView,
+  View, StyleSheet, Text, SafeAreaView, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import BottomNavBar from '../assets/BottomNavBar';
 import EventFormStep1 from '../assets/EventFormStep1';
 import EventFormStep2 from '../assets/EventFormStep2';
+import EventFormStep3 from '../assets/EventFormStep3';
+import EventFormStep4 from '../assets/EventFormStep4';
 import Request from '../assets/request';
 
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');
   const [description, onChangeDescription] = useState('');
+  const [location, onChangeLocation] = useState('');
+  const [date, onChangeDate] = useState('');
+
   const [screen, setScreen] = useState(1);
 
   async function saveEvent() {
     const event = {
-      title,
-      description,
+      title: title,
+      description: description,
+      location: location,
+      startsOn: date
     };
 
-       new Request("POST", "http://localhost:1337/events/").make(event);
-   }
+    new Request("POST", "http://localhost:1337/events/").make(event);
+  }
 
    function onNext() {
      console.log('next tapped by a child component');
@@ -41,6 +48,7 @@ function CreateEventScreen({ navigation }) {
 
 
    function validateInput() {
+    return true;
     switch(screen) {
       case 1:
         let validationRules = {
@@ -68,25 +76,37 @@ function CreateEventScreen({ navigation }) {
    }
   }
 
-   function currentScreen() {
-     switch(screen) {
-     case 1:
-      return (
-        <EventFormStep1
-          title={title} onChangeTitle={onChangeTitle}
-          description={description} onChangeDescription={onChangeDescription}
-          onNext={onNext}
-        />
-       )
-
+  function currentScreen() {
+    switch(screen) {
+      case 1:
+        return (
+          <EventFormStep1
+            location={location} onChangeLocation={onChangeLocation}
+            onNext={onNext}
+          />
+        )
      case 2:
-      return (
-        <EventFormStep2
-          title={title} onChangeTitle={onChangeTitle}
-          description={description} onChangeDescription={onChangeDescription}
-          onNext={onNext}
-        />
-       )
+       return (
+         <EventFormStep2
+            date={date} onChangeDate={onChangeDate}
+            onNext={onNext}
+          />
+        )
+
+     case 3:
+       return (
+         <View>
+           <EventFormStep4
+             title={title} onChangeTitle={onChangeTitle}
+             description={description} onChangeDescription={onChangeDescription}
+             //onNext={onNext}
+           />
+          <Button
+            onPress={saveEvent}
+            title="Save"
+          />
+        </View>
+        )
      }
    }
 

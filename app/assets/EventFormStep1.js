@@ -6,19 +6,16 @@ import { ProgressBar, Colors } from 'react-native-paper';
 import Request from './request';
 
 export default function EventFormStep1({
-  title, onChangeTitle, description, onChangeDescription, onNext,
+location, onChangeLocation, onNext
 } = props) {
   return (
     <View>
       <Text>Create an event</Text>
+      <Text>Where is your event?</Text>
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeTitle(text)}
-        title={title}
-      />
-      <TextInput
-        style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeDescription(text)}
+        onChangeText={(text) => onChangeLocation(text)}
+        location={location}
       />
       <Button
         onPress={onNext}
