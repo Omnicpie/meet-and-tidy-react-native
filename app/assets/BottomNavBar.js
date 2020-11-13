@@ -3,8 +3,7 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import { IconButton } from 'react-native-paper';
 
 function BottomNavBar({navigation}) {
-console.log("******************");
-console.log(navigation);
+
     return (
     <SafeAreaView style={styles.container}>
       <IconButton

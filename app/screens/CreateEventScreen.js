@@ -23,16 +23,51 @@ function CreateEventScreen({navigation}) {
    
    function onNext() {
      console.log('next tapped by a child component');
+     
      //saveEvent();
-     //validate the inputs so far!
-     //check if you've reached the last screen!
-     setScreen(screen + 1);
+
+     //validate the inputs so far! DONE BUT MORE TO DO 
+     if (validateInput()) {
+      //check if you've reached the last screen!
+      setScreen(screen + 1); 
+     } else {
+       console.log("validations not met!")
+     }
+
      // on the final screen save the event to the backend
      // and navigate out of this screen/component....
    }
 
+
+   function validateInput() {
+    switch(screen) {
+      case 1:
+        let validationRules = {
+          minLength: 6,
+          type: "string"
+      }
+  
+      if (typeof title !== validationRules.type) {
+          return false;
+      } 
+      if (typeof description !== validationRules.type) {
+        return false;
+      } 
+      if (title.length < validationRules.minLength ) {
+          return false;
+      } 
+      if (description.length < validationRules.minLength ) {
+        return false;
+      } 
+      return true;
+
+      case 2:
+        console.log("Screen 1 validations for" + title + description);
+      break;
+   }
+  }
+
    function currentScreen() {
-     // case statement is more appropriate
      switch(screen) {
      case 1:
       return (
@@ -50,27 +85,8 @@ function CreateEventScreen({navigation}) {
           description={description} onChangeDescription={onChangeDescription}
           onNext={onNext}
         />
-       )
-     
+       ) 
      }
-     /*
-     if (screen === 1) {
-       return (
-        <EventFormStep1
-          title={title} onChangeTitle={onChangeTitle}
-          description={description} onChangeDescription={onChangeDescription}
-          onNext={onNext}
-        />
-       )
-     } else if (screen === 2) {
-      return (
-        <EventFormStep2
-          title={title} onChangeTitle={onChangeTitle}
-          description={description} onChangeDescription={onChangeDescription}
-          onNext={onNext}
-        />
-       )
-     } */
    }
 
    return (
