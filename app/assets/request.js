@@ -2,8 +2,9 @@ class Request {
   constructor(method, url) {
     this.method = method;
     this.url = url;
+
   }
- async make() {
+ async make(body = {}) {
     if (this.method === "GET") {
       try {
         const response = await fetch(this.url)
@@ -15,6 +16,26 @@ class Request {
 
         return Promise.reject();
       }
+    }
+    if (this.method === "POST") {
+      try {
+        const response = await fetch(this.url, {
+            method: 'POST',
+            headers: {
+             'Content-Type': 'application/json'
+            },
+         body:  JSON.stringify(body) 
+        });
+
+        const data = await response;
+
+        return await Promise.resolve(data);
+
+      } catch (e) {
+        console.log("ERROR" + e);
+
+        return Promise.reject();
+      } 
     }
   } 
 }
