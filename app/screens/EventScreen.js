@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, ActivityIndicator, FlatList, SafeAreaView, ScrollView, Text, View,
+  StyleSheet, ActivityIndicator, SafeAreaView, Text, View,
 } from 'react-native';
 import Request from '../assets/request';
 

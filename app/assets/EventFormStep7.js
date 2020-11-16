@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   StyleSheet, Text, View, TextInput, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-import Request from './request';
+// import Request from './request';
 
 export default function EventFormStep7({
   image, onChangeImage, onNext,

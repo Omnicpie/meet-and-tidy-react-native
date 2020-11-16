@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  StyleSheet, Text, View, TextInput, Button,
+  StyleSheet, Text, View
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 

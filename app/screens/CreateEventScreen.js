@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import {
-  View, StyleSheet, Text, SafeAreaView, Button,
+  View, StyleSheet, SafeAreaView, Button,
 } from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
 import BottomNavBar from '../assets/BottomNavBar';
 import EventFormStep1 from '../assets/EventFormStep1';
 import EventFormStep2 from '../assets/EventFormStep2';
