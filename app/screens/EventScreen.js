@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   StyleSheet, ActivityIndicator, SafeAreaView, Text, View,
 } from 'react-native';
-import Request from '../assets/request';
+import Request from '../helpers/Request';
 
 function EventScreen(props) {
   const eventId = props.route.params;

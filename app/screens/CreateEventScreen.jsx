@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import {
   View, StyleSheet, SafeAreaView, Button,
 } from 'react-native';
-import BottomNavBar from '../assets/BottomNavBar';
-import EventFormStep1 from '../assets/EventFormStep1';
-import EventFormStep2 from '../assets/EventFormStep2';
-import EventFormStep3 from '../assets/EventFormStep3';
-import EventFormStep4 from '../assets/EventFormStep4';
-import EventFormStep5 from '../assets/EventFormStep5';
-import EventFormStep6 from '../assets/EventFormStep6';
-import EventFormStep7 from '../assets/EventFormStep7';
-import EventFormStep8 from '../assets/EventFormStep8';
-import Request from '../assets/request';
+import BottomNavBar from '../components/BottomNavBar';
+import EventLocation from '../components/Events/EventLocation';
+import EventDate from '../components/Events/EventDate';
+import EventType from '../components/Events/EventType';
+import EventTitle from '../components/Events/EventTitle';
+import EventFacility from '../components/Events/EventFacility';
+import EventDescription from '../components/Events/EventDescription';
+import EventImage from '../components/Events/EventImage';
+import EventPreview from '../components/Events/EventPreview';
+import Request from '../helpers/Request';
 
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');
@@ -58,7 +58,7 @@ function CreateEventScreen({ navigation }) {
     switch (screen) {
       case 1:
         return (
-          <EventFormStep1
+          <EventLocation
             location={location}
             onChangeLocation={onChangeLocation}
             onNext={onNext}
@@ -66,7 +66,7 @@ function CreateEventScreen({ navigation }) {
         );
       case 2:
         return (
-          <EventFormStep2
+          <EventDate
             date={date}
             onChangeDate={onChangeDate}
             onNext={onNext}
@@ -75,7 +75,7 @@ function CreateEventScreen({ navigation }) {
       case 3:
         return (
           <View>
-            <EventFormStep3
+            <EventType
               eventType={eventType}
               onChangeEventType={onChangeEventType}
               onNext={onNext}
@@ -85,7 +85,7 @@ function CreateEventScreen({ navigation }) {
       case 4:
         return (
           <View>
-            <EventFormStep4
+            <EventTitle
               title={title}
               onChangeTitle={onChangeTitle}
               onNext={onNext}
@@ -95,7 +95,7 @@ function CreateEventScreen({ navigation }) {
       case 5:
         return (
           <View>
-            <EventFormStep5
+            <EventFacility
               facilityType={facilityType}
               onChangeFacilityType={onChangeFacilityType}
               onNext={onNext}
@@ -105,7 +105,7 @@ function CreateEventScreen({ navigation }) {
       case 6:
         return (
           <View>
-            <EventFormStep6
+            <EventDescription
               description={description}
               onChangeDescription={onChangeDescription}
               onNext={onNext}
@@ -115,7 +115,7 @@ function CreateEventScreen({ navigation }) {
       case 7:
         return (
           <View>
-            <EventFormStep7
+            <EventImage
               image={image}
               onChangeImage={onChangeImage}
               onNext={onNext}
@@ -125,14 +125,13 @@ function CreateEventScreen({ navigation }) {
       case 8:
         return (
           <View>
-            <EventFormStep8
+            <EventPreview
               title={title}
               date={date}
               description={description}
               location={location}
               eventType={eventType}
               image={image}
-
             />
             <Button
               onPress={saveEvent}
@@ -140,6 +139,8 @@ function CreateEventScreen({ navigation }) {
             />
           </View>
         );
+      default:
+        return (<> </>);
     }
   }
 

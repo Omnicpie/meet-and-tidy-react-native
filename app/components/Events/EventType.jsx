@@ -5,14 +5,10 @@ import {
 import { ProgressBar, Colors } from 'react-native-paper';
 import EventTypeSelectButtons from './EventTypeSelectButtons';
 
-import Request from './request';
-
-export default function EventFormStep3({
+export default function EventType({
   eventType, onChangeEventType, onNext,
 } = props) {
-  console.log(eventType);
   function validateInput() {
-    console.log(eventType);
     if (eventType.length > 3 && typeof eventType === 'string') {
       onNext();
     } else {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView, SafeAreaView,
 } from 'react-native';
-import Request from './request';
+import Request from '../helpers/Request';
 
 export default function PopularEventScroll({ navigation }) {
   const [isLoading, setLoading] = useState(true);

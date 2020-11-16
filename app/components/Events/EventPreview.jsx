@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  StyleSheet, Text, View
+  StyleSheet, Text, View,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 
 // Preview event before saving
 
-export default function EventFormStep8({
+export default function EventPreview({
   location, title, description, eventType, image, date,
 } = props) {
   return (

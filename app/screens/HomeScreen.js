@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, SafeAreaView, View } from 'react-native';
-import PopularEventScroll from '../assets/PopularEventScroll';
-import Logo from '../assets/Logo';
-import SearchBar from '../assets/SearchBar';
-import BottomNavBar from '../assets/BottomNavBar';
+import PopularEventScroll from '../components/PopularEventScroll';
+import Logo from '../components/Logo';
+import SearchBar from '../components/SearchBar';
+import BottomNavBar from '../components/BottomNavBar';
 
 function HomeScreen({ navigation }) {
   return (

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import {
-  StyleSheet, Text, View, Button
+  StyleSheet, Text, View, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import FacilityTypeSelectButtons from './FacilityTypeSelectButtons';
 
-export default function EventFormStep5({
+export default function EventFacility({
   facilityType, onChangeFacilityType, onNext,
 } = props) {
   return (

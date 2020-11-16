@@ -5,25 +5,25 @@ import {
 import { ProgressBar, Colors } from 'react-native-paper';
 // import Request from './request';
 
-export default function EventFormStep7({
-  image, onChangeImage, onNext,
+export default function EventDescription({
+  description, onChangeDescription, onNext,
 } = props) {
   return (
     <View>
       <Text>Create an event</Text>
-      <Text>Images</Text>
+      <Text>Description</Text>
 
       <TextInput
         style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeImage(text)}
-        image={image}
+        onChangeText={(text) => onChangeDescription(text)}
+        description={description}
       />
       <Button
         onPress={onNext}
         title="Next"
       />
-      <ProgressBar style={styles.progressBar} progress={0.875} color={Colors.green500} />
-      <Text>7 of 8</Text>
+      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
+      <Text>6 of 8</Text>
     </View>
   );
 }

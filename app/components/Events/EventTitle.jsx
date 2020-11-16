@@ -3,35 +3,27 @@ import {
   StyleSheet, Text, View, TextInput, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
+// import Request from './request';
 
-export default function EventFormStep1({
-  location, onChangeLocation, onNext,
+export default function EventTitle({
+  title, onChangeTitle, onNext,
 } = props) {
-  function validateInput() {
-    if (location.length > 3) {
-      onNext();
-    } else {
-      alert(`Please enter a valid location, "${location}" needs to be at least 5 characters long.`);
-    }
-  }
-
   return (
     <View>
       <Text>Create an event</Text>
-      <Text>Where is your event?</Text>
+      <Text>Title</Text>
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeLocation(text)}
-        location={location}
+        onChangeText={(text) => onChangeTitle(text)}
+        title={title}
       />
       <Button
-        onPress={validateInput}
+        onPress={onNext}
         title="Next"
       />
-      <ProgressBar style={styles.progressBar} progress={0.1} color={Colors.green500} />
-      <Text>1 of 8</Text>
+      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
+      <Text>4 of 8</Text>
     </View>
-
   );
 }
 

@@ -3,7 +3,7 @@ import React from 'react';
 import {
   StyleSheet, Text, View, Image, SafeAreaView, TouchableOpacity,
 } from 'react-native';
-import logo from './images/logo.png';
+import logo from '../assets/images/logo.png';
 
 export default function Logo() {
   return (

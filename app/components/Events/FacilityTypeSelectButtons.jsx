@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Button
+  View, Button,
 } from 'react-native';
 
 export default function FacilityTypeSelectButtons({
