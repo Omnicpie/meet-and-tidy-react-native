@@ -4,42 +4,41 @@ import {
 } from 'react-native';
 
 export default function EventTypeSelectButtons({
-  eventType, onChangeEventType
+  eventType, onChangeEventType,
 } = props) {
-
   return (
     // TODO this currently only selects the last one from the list
     <View>
       <Button
-      onPress={onChangeEventType(eventType)}
-      eventType="Park"
-      title="Park"
+        onPress={onChangeEventType(eventType)}
+        eventType="Park"
+        title="Park"
       />
       <Button
-        onPress={onChangeEventType("Canal")}
+        onPress={onChangeEventType('Canal')}
         eventType="Canal"
         title="Canal"
       />
       <Button
-        onPress={onChangeEventType("Beach")}
+        onPress={onChangeEventType('Beach')}
         eventType="Beach"
         title="Beach"
       />
       <Button
-        onPress={onChangeEventType("Street")}
+        onPress={onChangeEventType('Street')}
         eventType="Street"
         title="Street"
       />
       <Button
-        onPress={onChangeEventType("Woodland")}
+        onPress={onChangeEventType('Woodland')}
         eventType="Woodland"
         title="Woodland"
       />
       <Button
-        onPress={onChangeEventType("Cemetery")}
+        onPress={onChangeEventType('Cemetery')}
         eventType="Cemetery"
         title="Cemetery"
       />
     </View>
-  )
+  );
 }

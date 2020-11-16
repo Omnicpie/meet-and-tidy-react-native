@@ -8,13 +8,13 @@ import FacilityTypeSelectButtons from './FacilityTypeSelectButtons';
 export default function EventFormStep5({
   facilityType, onChangeFacilityType, onNext,
 } = props) {
-
   return (
     <View>
       <Text>Create an event</Text>
       <Text>Facilities</Text>
       <FacilityTypeSelectButtons
-        facilityType={facilityType} onChangeFacilityType={onChangeFacilityType}
+        facilityType={facilityType}
+        onChangeFacilityType={onChangeFacilityType}
       />
       <Button
         onPress={onNext}

@@ -27,116 +27,121 @@ function CreateEventScreen({ navigation }) {
 
   async function saveEvent() {
     const event = {
-      title: title,
-      description: description,
-      location: location,
+      title,
+      description,
+      location,
       startsOn: date,
-      eventType: eventType,
-      facilityType: facilityType,
-      image: image
+      eventType,
+      facilityType,
+      image,
     };
 
-    new Request("POST", "http://localhost:1337/events/").make(event);
+    new Request('POST', 'http://localhost:1337/events/').make(event);
   }
 
   function onNext() {
-
     setScreen(screen + 1);
-    //saveEvent();
+    // saveEvent();
 
-     //validate the inputs so far! DONE BUT MORE TO DO
-   //  if (validateInput()) {
-      //check if you've reached the last screen!
+    // validate the inputs so far! DONE BUT MORE TO DO
+    //  if (validateInput()) {
+    // check if you've reached the last screen!
 
     // } else {
     //   console.log("validations not met!")
     // }
 
-     // on the final screen save the event to the backend
-     // and navigate out of this screen/component....
-   }
+    // on the final screen save the event to the backend
+    // and navigate out of this screen/component....
+  }
 
   function currentScreen() {
-    switch(screen) {
+    switch (screen) {
       case 1:
         return (
           <EventFormStep1
-            location={location} onChangeLocation={onChangeLocation}
+            location={location}
+            onChangeLocation={onChangeLocation}
             onNext={onNext}
           />
-        )
+        );
       case 2:
         return (
           <EventFormStep2
-            date={date} onChangeDate={onChangeDate}
+            date={date}
+            onChangeDate={onChangeDate}
             onNext={onNext}
           />
-        )
+        );
       case 3:
         return (
           <View>
             <EventFormStep3
-              eventType={eventType} onChangeEventType={onChangeEventType}
+              eventType={eventType}
+              onChangeEventType={onChangeEventType}
               onNext={onNext}
             />
-         </View>
-         )
+          </View>
+        );
       case 4:
         return (
           <View>
             <EventFormStep4
-              title={title} onChangeTitle={onChangeTitle}
-               onNext={onNext}
-             />
+              title={title}
+              onChangeTitle={onChangeTitle}
+              onNext={onNext}
+            />
           </View>
-        )
+        );
       case 5:
         return (
           <View>
             <EventFormStep5
-              facilityType={facilityType} onChangeFacilityType={onChangeFacilityType}
+              facilityType={facilityType}
+              onChangeFacilityType={onChangeFacilityType}
               onNext={onNext}
             />
-         </View>
-        )
-        case 6:
-          return (
-            <View>
-              <EventFormStep6
-                description={description} onChangeDescription={onChangeDescription}
-                onNext={onNext}
-              />
-            </View>
-          )
-        case 7:
-          return (
-            <View>
-              <EventFormStep7
-                image={image} onChangeImage={onChangeImage}
-                onNext={onNext}
-              />
-            </View>
-          )
-        case 8:
+          </View>
+        );
+      case 6:
+        return (
+          <View>
+            <EventFormStep6
+              description={description}
+              onChangeDescription={onChangeDescription}
+              onNext={onNext}
+            />
+          </View>
+        );
+      case 7:
+        return (
+          <View>
+            <EventFormStep7
+              image={image}
+              onChangeImage={onChangeImage}
+              onNext={onNext}
+            />
+          </View>
+        );
+      case 8:
         return (
           <View>
             <EventFormStep8
-            title = {title}
-            date = {date}
-            description = {description}
-            location = {location}
-            eventType = {eventType}
-            image = {image}
-
+              title={title}
+              date={date}
+              description={description}
+              location={location}
+              eventType={eventType}
+              image={image}
 
             />
-              <Button
-                onPress={saveEvent}
-                title="Save"
-              />
+            <Button
+              onPress={saveEvent}
+              title="Save"
+            />
           </View>
-        )
-      }
+        );
+    }
   }
 
   return (

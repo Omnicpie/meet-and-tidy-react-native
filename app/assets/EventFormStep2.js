@@ -9,7 +9,7 @@ export default function EventFormStep2({
   date, onChangeDate, onNext,
 } = props) {
   function validateInput() {
-    if (date.length > 6 && typeof date === "string") {
+    if (date.length > 6 && typeof date === 'string') {
       onNext();
     } else {
       alert(`Please enter a valid date, "${date}" needs to be at least 5 characters long.`);

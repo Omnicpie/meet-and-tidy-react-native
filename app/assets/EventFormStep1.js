@@ -4,11 +4,9 @@ import {
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 
-
 export default function EventFormStep1({
-location, onChangeLocation, onNext
+  location, onChangeLocation, onNext,
 } = props) {
-
   function validateInput() {
     if (location.length > 3) {
       onNext();

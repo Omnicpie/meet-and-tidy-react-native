@@ -3,7 +3,7 @@ import {
   StyleSheet, Text, View, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-import EventTypeSelectButtons from '../assets/EventTypeSelectButtons';
+import EventTypeSelectButtons from './EventTypeSelectButtons';
 
 import Request from './request';
 
@@ -13,10 +13,10 @@ export default function EventFormStep3({
   console.log(eventType);
   function validateInput() {
     console.log(eventType);
-    if (eventType.length > 3 && typeof eventType === "string") {
+    if (eventType.length > 3 && typeof eventType === 'string') {
       onNext();
     } else {
-      alert(`Please select an event type.`);
+      alert('Please select an event type.');
     }
   }
   return (
@@ -24,7 +24,8 @@ export default function EventFormStep3({
       <Text>Create an event</Text>
       <Text>Event Type</Text>
       <EventTypeSelectButtons
-        eventType={eventType} onChangeEventType={onChangeEventType}
+        eventType={eventType}
+        onChangeEventType={onChangeEventType}
       />
       <Button
         onPress={validateInput}
