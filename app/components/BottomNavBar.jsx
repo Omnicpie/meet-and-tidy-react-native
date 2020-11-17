@@ -31,15 +31,16 @@ export default BottomNavBar;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "grey",
     paddingLeft: 8,
     width: 100,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     position: 'absolute',
     left: 0,
     right: 0,
-    bottom: 0,
+    bottom: 0
   },
 });
