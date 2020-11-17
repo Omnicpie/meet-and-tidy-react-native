@@ -21,7 +21,7 @@ export default function FlagType({
       <Text>Flag Type</Text>
       <FlagTypeSelectButtons
         flagType={flagType}
-        onChangeflagType={onChangeFlagType}
+        onChangeFlagType={onChangeFlagType}
       />
       <Button
         onPress={validateInput}

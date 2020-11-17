@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 
 export default function FlagTypeSelectButtons({
-  flagType, onChangeFlagType,
+  flagType, onChangeFlagType
 } = props) {
   return (
     // TODO this currently only selects the last one from the list

@@ -77,8 +77,6 @@ function CreateFlagScreen({ navigation }) {
         return (
           <View>
             <FlagPreview
-              title={title}
-              date={date}
               description={description}
               location={location}
               flagType={flagType}
