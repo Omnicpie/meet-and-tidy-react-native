@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, SafeAreaView, View } from 'react-native';
+import { Button, SafeAreaView } from 'react-native';
 import PopularEventScroll from '../components/PopularEventScroll';
 import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
@@ -20,7 +20,7 @@ function HomeScreen({ navigation }) {
 
       <PopularEventScroll navigation={navigation} />
 
-      <Button
+      {/* <Button
         title="Go to event details"
         onPress={() => navigation.navigate('EventDetail')}
       />
@@ -31,10 +31,8 @@ function HomeScreen({ navigation }) {
       <Button
         title="Go to Registration screen"
         onPress={() => navigation.navigate('Registration')}
-      />
-      <View>
+      /> */}
         <BottomNavBar navigation={navigation} />
-      </View>
     </SafeAreaView>
   );
 }
