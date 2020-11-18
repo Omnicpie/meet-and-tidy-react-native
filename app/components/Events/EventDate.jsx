@@ -42,11 +42,9 @@ const styles = StyleSheet.create({
   textInput: {
     height: 40,
     width: '100%',
-    textAlign: 'center',
     borderColor: 'gray',
     borderWidth: 1,
     marginBottom: 50,
-
   },
   primaryHeading: {
     textAlign: 'center',
