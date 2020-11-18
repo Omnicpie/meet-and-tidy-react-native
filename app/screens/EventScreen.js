@@ -3,7 +3,7 @@ import {
   StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button
 } from 'react-native';
 import Request from '../helpers/Request';
-// import BottomNavBar from '../components/BottomNavBar';
+import BottomNavBar from '../components/BottomNavBar';
 
 function EventScreen(props) {
   const eventId = props.route.params;
@@ -55,7 +55,7 @@ function EventScreen(props) {
             <Text style={styles.subheading}>Location:</Text>
             <Text style={styles.infoTile}>{data.location}</Text>
           </View>
-          {/* <BottomNavBar navigation={navigation} /> */}
+          <BottomNavBar navigation={navigation} />
         </View>
       )}
     </SafeAreaView>
