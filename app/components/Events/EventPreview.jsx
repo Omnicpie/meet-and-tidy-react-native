@@ -12,12 +12,12 @@ export default function EventPreview({
   return (
     <SafeAreaView style={styles.eventContainer}>
       <View>
-        <Text style={styles.primaryHeading}>Preview event</Text>
+        <Text style={styles.subheading}>Preview event</Text>
         <Text>
           <Image source={{ uri: image }} style={styles.imageSelected} />
         </Text>
         <Text style={styles.primaryHeading}>{title}</Text>
-        <Text style={styles.paragraph}>{eventType}</Text>
+        <Text style={styles.secondaryHeading}>{eventType}</Text>
         <View>
           <Text style={styles.subheading}>Date:</Text>
           <Text style={styles.paragraph}>{date}</Text>
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingTop: 20,
     paddingLeft: 15,
+    marginBottom: 5,
   },
   infoTile: {
     width: '100',
@@ -78,10 +79,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    marginTop: 5,
   },
   imageSelected: {
-    width: '85%',
-    height: 200,
+    width: '100%',
+    height: 150,
   },
 });
