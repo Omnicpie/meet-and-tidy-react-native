@@ -25,7 +25,7 @@ function EventScreen(props) {
       {isLoading ? <ActivityIndicator /> : (
         <View>
           <View>
-            <Text style={styles.tile}>Image</Text>
+            <Text style={styles.topTile}>Image</Text>
           </View>
           <View>
             <Text style={styles.primaryHeading}>{data.title}</Text>
@@ -42,6 +42,14 @@ function EventScreen(props) {
           <View>
             <Text style={styles.subheading}>Description:</Text>
             <Text style={styles.paragraph}>{data.description}</Text>
+          </View>
+          <View>
+            <Text style={styles.subheading}>Images:</Text>
+            <Text style={styles.infoTile}>{data.image}</Text>
+          </View>
+          <View>
+            <Text style={styles.subheading}>Location:</Text>
+            <Text style={styles.infoTile}>{data.location}</Text>
           </View>
           {/* <BottomNavBar navigation={navigation} /> */}
         </View>
@@ -80,12 +88,20 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 15,
   },
-  tile: {
+  topTile: {
     width: '100%',
     height: 150,
     backgroundColor: 'rgb(84, 174, 51)',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
+  },
+  infoTile: {
+    width: '85%',
+    height: 150,
+    backgroundColor: 'rgb(84, 174, 51)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center'
   },
 });
