@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet, Text, View, SafeAreaView
+  StyleSheet, Text, View, Image, SafeAreaView,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 
@@ -13,8 +13,9 @@ export default function EventPreview({
     <SafeAreaView style={styles.eventContainer}>
       <View>
         <Text>Preview event</Text>
-        <Text>image
-          {image}
+        <Text>
+          Image:
+          <Image source={{ uri: image }} style={styles.imageSelected} />
         </Text>
         <Text style={styles.primaryHeading}>{title}</Text>
         <Text style={styles.paragraph}>{eventType}</Text>
@@ -83,5 +84,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     marginTop: 5,
+  },
+  imageSelected: {
+    width: '100%',
+    height: 200,
   },
 });

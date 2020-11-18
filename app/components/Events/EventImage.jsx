@@ -32,6 +32,7 @@ export default function EventImage({
     });
 
     console.log(result);
+    onChangeImage(result.uri);
 
     if (!result.cancelled) {
       setImage(result.uri);
