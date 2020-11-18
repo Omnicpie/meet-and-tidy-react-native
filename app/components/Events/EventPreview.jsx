@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet, Text, View,
+  StyleSheet, Text, View, SafeAreaView
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 
@@ -13,30 +13,27 @@ export default function EventPreview({
     <SafeAreaView style={styles.eventContainer}>
       <View>
         <Text>Preview event</Text>
-        <Text>
-          Image:
+        <Text>image
           {image}
         </Text>
-        <Text style={styles.primaryHeading}>
-          Title:
-          {title}
-        </Text>
-        <Text style={styles.paragraph}>
-          Date:
-          {date}
-        </Text>
-        <Text style={styles.paragraph}>
-          Description:
-          {description}
-        </Text>
-        <Text style={styles.paragraph}>
-          Type:
-          {eventType}
-        </Text>
-        <Text style={styles.paragraph}>
-          Location:
-          {location}
-        </Text>
+        <Text style={styles.primaryHeading}>{title}</Text>
+        <Text style={styles.paragraph}>{eventType}</Text>
+        <View>
+          <Text style={styles.subheading}>Date:</Text>
+          <Text style={styles.paragraph}>{date}</Text>
+        </View>
+        <View>
+          <Text style={styles.subheading}>Description:</Text>
+          <Text style={styles.paragraph}>{description}</Text>
+        </View>
+        <View>
+          <Text style={styles.subheading}>Images:</Text>
+          <Text>{image}</Text>
+        </View>
+        <View>
+          <Text style={styles.subheading}>Location:</Text>
+          <Text style={styles.infoTile}>{location}</Text>
+        </View>
         <ProgressBar style={styles.progressBar} progress={1} color={Colors.green500} />
         <Text>8 of 8</Text>
       </View>
@@ -64,5 +61,27 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 23,
     paddingTop: 10
+  },
+  secondaryHeading: {
+    textAlign: 'center',
+    width: '100%',
+    paddingLeft: 15,
+  },
+  subheading: {
+    textAlign: 'left',
+    width: '100%',
+    fontSize: 15,
+    fontWeight: "bold",
+    paddingTop: 20,
+    paddingLeft: 15,
+  },
+  infoTile: {
+    width: '100',
+    height: 150,
+    backgroundColor: 'rgb(84, 174, 51)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginTop: 5,
   },
 });
