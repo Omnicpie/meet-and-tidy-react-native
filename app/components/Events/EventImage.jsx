@@ -37,46 +37,20 @@ export default function EventImage({
       setImage(result.uri);
     }
   };
-
+  // TODO call onChangeImage and make it equal to imageSelect
   return (
     <View>
       <ProgressBar style={styles.progressBar} progress={0.875} color={Colors.green500} />
       <Text style={styles.centeredText}>7 of 8</Text>
       <Text style={styles.primaryHeading}>Upload an event image</Text>
       <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {imageSelect && <Image source={{ uri: imageSelect }} style={{ width: 200, height: 200 }} />}
+      {imageSelect && <Image source={{ uri: imageSelect }} style={styles.imageSelected} />}
       <NextPreviousButtons
         onNext={onNext}
         onPrevious={onPrevious}
       />
     </View>
   );
-
-/*
-
-  return (
-    <View>
-      <ProgressBar style={styles.progressBar} progress={0.875} color={Colors.green500} />
-      <Text style={styles.centeredText}>7 of 8</Text>
-      <Text style={styles.primaryHeading}>Upload an event image</Text>
-
-      <TextInput
-        style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeImage(text)}
-        image={image}
-      />
-      <NextPreviousButtons
-        onNext={onNext}
-        onPrevious={onPrevious}
-      />
-      <Button
-        title='Upload'
-        onPress={() => ImagePicker.showImagePicker(options)}
-      />
-    </View>
-  );
-}
-*/
 }
 
 const styles = StyleSheet.create({
@@ -99,5 +73,9 @@ const styles = StyleSheet.create({
   centeredText: {
     textAlign: 'center',
     marginTop: 5,
+  },
+  imageSelected: {
+    width: '100%',
+    height: 200,
   },
 });
