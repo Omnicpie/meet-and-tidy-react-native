@@ -18,8 +18,9 @@ export default function EventDate({
 
   return (
     <View>
-      <Text>Create an event</Text>
-      <Text>Date</Text>
+      <ProgressBar style={styles.progressBar} progress={0.25} color={Colors.green500} />
+      <Text>2 of 8</Text>
+      <Text style={styles.primaryHeading}>When is your event?</Text>
       <TextInput
         defaultValue={date}
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
@@ -34,8 +35,7 @@ export default function EventDate({
         onPress={validateInput}
         title="Next"
       />
-      <ProgressBar style={styles.progressBar} progress={0.25} color={Colors.green500} />
-      <Text>2 of 8</Text>
+
     </View>
   );
 }

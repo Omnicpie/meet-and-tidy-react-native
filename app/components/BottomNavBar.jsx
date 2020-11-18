@@ -8,19 +8,19 @@ function BottomNavBar({ navigation }) {
       <IconButton style={styles.icon}
         icon="home"
         name="home"
-        size={30}
+        size={35}
         onPress={() => navigation.navigate('Home')}
       />
       <IconButton style={styles.icon}
         icon="flag-outline"
         name="flag"
-        size={30}
+        size={35}
         onPress={() => navigation.navigate('CreateFlag')}
       />
       <IconButton style={styles.icon}
         icon="account"
         name="activities"
-        size={30}
+        size={35}
         onPress={() => navigation.navigate('MyActivities')}
       />
     </SafeAreaView>
