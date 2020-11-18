@@ -3,6 +3,7 @@ import {
   StyleSheet, ActivityIndicator, SafeAreaView, Text, View
 } from 'react-native';
 import Request from '../helpers/Request';
+// import BottomNavBar from '../components/BottomNavBar';
 
 function EventScreen(props) {
   const eventId = props.route.params;
@@ -28,10 +29,10 @@ function EventScreen(props) {
           </View>
           <View>
             <Text style={styles.primaryHeading}>{data.title}</Text>
-            <Text style={styles.paragraph}>{data.eventType}</Text>
+            <Text style={styles.secondaryHeading}>{data.eventType}</Text>
           </View>
           <View>
-            <Text style={styles.subheading}>Date of event:</Text>
+            <Text style={styles.subheading}>Date:</Text>
             <Text style={styles.paragraph}>{data.date}</Text>
           </View>
           <View>
@@ -42,7 +43,7 @@ function EventScreen(props) {
             <Text style={styles.subheading}>Description:</Text>
             <Text style={styles.paragraph}>{data.description}</Text>
           </View>
-          <BottomNavBar navigation={navigation} />
+          {/* <BottomNavBar navigation={navigation} /> */}
         </View>
       )}
     </SafeAreaView>
@@ -59,20 +60,32 @@ const styles = StyleSheet.create({
   primaryHeading: {
     textAlign: 'center',
     fontSize: 23,
+    paddingTop: 10
+  },
+  secondaryHeading: {
+    textAlign: 'center',
+    width: '100%',
+    paddingLeft: 15,
   },
   paragraph: {
-    textAlign: 'center',
+    textAlign: 'left',
     width: '100%',
+    paddingLeft: 15,
   },
   subheading: {
-    textAlign: 'center',
+    textAlign: 'left',
     width: '100%',
     fontSize: 15,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    paddingTop: 20,
+    paddingLeft: 15,
   },
   tile: {
-    width: 200,
-    height: 200,
+    width: '100%',
+    height: 150,
     backgroundColor: 'rgb(84, 174, 51)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
 });
