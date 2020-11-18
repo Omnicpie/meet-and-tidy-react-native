@@ -55,7 +55,6 @@ function EventDetailScreen(props) {
             <Text style={styles.subheading}>Location:</Text>
             <Text style={styles.infoTile}>{data.location}</Text>
           </View>
-          <BottomNavBar navigation={navigation} />
         </View>
       )}
     </SafeAreaView>
