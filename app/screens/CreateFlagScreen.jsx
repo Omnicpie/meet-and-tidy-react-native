@@ -94,7 +94,7 @@ function CreateFlagScreen({ navigation }) {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <View>
         {currentScreen()}
       </View>
@@ -104,3 +104,12 @@ function CreateFlagScreen({ navigation }) {
 }
 
 export default CreateFlagScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+  },
+
+});
