@@ -1,11 +1,22 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 
 function MyActivitiesScreen(navigation) {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>A profile of the users activite e.g. upcoming events will be listed here </Text>
+      <View>
+        <Text style={styles.subheading}>Events I'm Attending</Text>
+        <Text style={styles.paragraph}>You're not attending any events</Text>
+      </View>
+      <View>
+        <Text style={styles.subheading}>Events I'm Organising</Text>
+        <Text style={styles.paragraph}>You're not organising any events</Text>
+      </View>
+      <View>
+        <Text style={styles.subheading}>Messes I've Flagged</Text>
+        <Text style={styles.paragraph}>1</Text>
+      </View>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
@@ -20,5 +31,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 25,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 23,
+    paddingTop: 10,
+  },
+  paragraph: {
+    textAlign: 'center',
+    width: '100%',
+    paddingLeft: 15,
+  },
+  subheading: {
+    textAlign: 'center',
+    width: '100%',
+    fontSize: 15,
+    fontWeight: "bold",
+    paddingTop: 20,
+    paddingLeft: 15,
   },
 });
