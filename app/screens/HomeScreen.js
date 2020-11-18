@@ -49,5 +49,5 @@ const styles = StyleSheet.create({
   },
   progressBar: {
     marginTop: 50,
-  },
+  }
 });
