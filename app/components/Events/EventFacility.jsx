@@ -4,36 +4,29 @@ import {
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import FacilityTypeSelectButtons from './FacilityTypeSelectButtons';
+import NextPreviousButtons from './NextPreviousButtons';
 
 export default function EventFacility({
-  facilityType, onChangeFacilityType, onNext,
+  facilityType, onChangeFacilityType, onNext, onPrevious,
 } = props) {
   return (
     <View>
-      <Text>Create an event</Text>
-      <Text>Facilities</Text>
+      <ProgressBar style={styles.progressBar} progress={0.625} color={Colors.green500} />
+      <Text>5 of 8</Text>
+      <Text>What facilities are available?</Text>
       <FacilityTypeSelectButtons
         facilityType={facilityType}
         onChangeFacilityType={onChangeFacilityType}
       />
-      <Button
-        onPress={onNext}
-        title="Next"
+      <NextPreviousButtons
+        onNext={onNext}
+        onPrevious={onPrevious}
       />
-      <ProgressBar style={styles.progressBar} progress={0.625} color={Colors.green500} />
-      <Text>5 of 8</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
   progressBar: {
     marginTop: 50,
   },

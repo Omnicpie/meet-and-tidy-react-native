@@ -4,9 +4,10 @@ import {
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import EventTypeSelectButtons from './EventTypeSelectButtons';
+import NextPreviousButtons from './NextPreviousButtons';
 
 export default function EventType({
-  eventType, onChangeEventType, onNext,
+  eventType, onChangeEventType, onNext, onPrevious,
 } = props) {
   function validateInput() {
     if (eventType.length > 3 && typeof eventType === 'string') {
@@ -17,31 +18,33 @@ export default function EventType({
   }
   return (
     <View>
-      <Text>Create an event</Text>
-      <Text>Event Type</Text>
+      <ProgressBar style={styles.progressBar} progress={0.375} color={Colors.green500} />
+      <Text>3 of 8</Text>
+      <Text style={styles.primaryHeading}>What type of event is it?</Text>
       <EventTypeSelectButtons
         eventType={eventType}
         onChangeEventType={onChangeEventType}
       />
-      <Button
-        onPress={validateInput}
-        title="Next"
+      <NextPreviousButtons
+        onNext={onNext}
+        onPrevious={onPrevious}
       />
-      <ProgressBar style={styles.progressBar} progress={0.375} color={Colors.green500} />
-      <Text>3 of 8</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
   progressBar: {
     marginTop: 50,
+  },
+  centeredText: {
+    textAlign: 'center',
+    marginTop: 5,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginTop: 50,
+    marginBottom: 50,
   },
 });

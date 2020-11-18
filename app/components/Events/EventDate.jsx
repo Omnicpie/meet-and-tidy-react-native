@@ -3,7 +3,7 @@ import {
   StyleSheet, Text, View, TextInput, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-// import Request from './request';
+import NextPreviousButtons from './NextPreviousButtons';
 
 export default function EventDate({
   date, onChangeDate, onNext, onPrevious
@@ -19,36 +19,43 @@ export default function EventDate({
   return (
     <View>
       <ProgressBar style={styles.progressBar} progress={0.25} color={Colors.green500} />
-      <Text>2 of 8</Text>
+      <Text style={styles.centeredText}>2 of 8</Text>
       <Text style={styles.primaryHeading}>When is your event?</Text>
       <TextInput
         defaultValue={date}
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+        style={styles.textInput}
         onChangeText={(text) => onChangeDate(text)}
         date={date}
       />
-      <Button
-        onPress={onPrevious}
-        title="Previous"
+      <NextPreviousButtons
+        onNext={onNext}
+        onPrevious={onPrevious}
       />
-      <Button
-        onPress={validateInput}
-        title="Next"
-      />
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
   progressBar: {
     marginTop: 50,
+  },
+  textInput: {
+    height: 40,
+    width: '100%',
+    textAlign: 'center',
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 50,
+
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginTop: 50,
+    marginBottom: 50,
+  },
+  centeredText: {
+    textAlign: 'center',
+    marginTop: 5,
   },
 });

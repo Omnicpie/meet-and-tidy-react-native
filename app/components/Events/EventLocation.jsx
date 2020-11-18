@@ -28,6 +28,8 @@ export default function EventLocation({
           location={location}
         />
       </View>
+      <View style={styles.infoTile}><Text>Map</Text></View>
+
       <View style={styles.nextButton}>
         <Button
           onPress={validateInput}
@@ -61,9 +63,17 @@ const styles = StyleSheet.create({
   textInput: {
     height: 40,
     width: '100%',
-    textAlign: 'center',
     borderColor: 'gray',
     borderWidth: 1,
+    marginBottom: 50,
+
+  },
+  infoTile: {
+    height: 150,
+    backgroundColor: 'rgb(84, 174, 51)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
     marginBottom: 50,
 
   },

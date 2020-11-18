@@ -3,39 +3,41 @@ import {
   StyleSheet, Text, View, TextInput, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-// import Request from './request';
+import NextPreviousButtons from './NextPreviousButtons';
 
 export default function EventTitle({
-  title, onChangeTitle, onNext,
+  title, onChangeTitle, onNext, onPrevious,
 } = props) {
   return (
     <View>
-      <Text>Create an event</Text>
-      <Text>Title</Text>
+      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
+      <Text>4 of 8</Text>
+      <Text style={styles.primaryHeading}>Name your event</Text>
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={(text) => onChangeTitle(text)}
         title={title}
       />
-      <Button
-        onPress={onNext}
-        title="Next"
+      <NextPreviousButtons
+        onNext={onNext}
+        onPrevious={onPrevious}
       />
-      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
-      <Text>4 of 8</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
   progressBar: {
     marginTop: 50,
+  },
+  centeredText: {
+    textAlign: 'center',
+    marginTop: 5,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginTop: 50,
+    marginBottom: 50,
   },
 });

@@ -3,27 +3,27 @@ import {
   StyleSheet, Text, View, TextInput, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-// import Request from './request';
+import NextPreviousButtons from './NextPreviousButtons';
 
 export default function EventDescription({
-  description, onChangeDescription, onNext,
+  description, onChangeDescription, onNext, onPrevious
 } = props) {
   return (
     <View>
-      <Text>Create an event</Text>
-      <Text>Description</Text>
+      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
+      <Text>6 of 8</Text>
+      <Text style={styles.primaryHeading}>Tell us more about your event</Text>
 
       <TextInput
         style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={(text) => onChangeDescription(text)}
         description={description}
       />
-      <Button
-        onPress={onNext}
-        title="Next"
+      <NextPreviousButtons
+        onNext={onNext}
+        onPrevious={onPrevious}
       />
-      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
-      <Text>6 of 8</Text>
+
     </View>
   );
 }
@@ -38,5 +38,15 @@ const styles = StyleSheet.create({
   },
   progressBar: {
     marginTop: 50,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginTop: 50,
+    marginBottom: 50,
+  },
+  centeredText: {
+    textAlign: 'center',
+    marginTop: 5,
   },
 });

@@ -12,6 +12,7 @@ import EventDescription from '../components/Events/EventDescription';
 import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
+import StyleSheets from '../helpers/Stylesheets';
 
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');
@@ -71,6 +72,7 @@ function CreateEventScreen({ navigation }) {
       case 2:
         return (
           <EventDate
+            StyleSheets={StyleSheets}
             date={date}
             onChangeDate={onChangeDate}
             onNext={onNext}
@@ -84,6 +86,7 @@ function CreateEventScreen({ navigation }) {
               eventType={eventType}
               onChangeEventType={onChangeEventType}
               onNext={onNext}
+              onPrevious={onPrevious}
             />
           </View>
         );
@@ -94,6 +97,7 @@ function CreateEventScreen({ navigation }) {
               title={title}
               onChangeTitle={onChangeTitle}
               onNext={onNext}
+              onPrevious={onPrevious}
             />
           </View>
         );
@@ -104,6 +108,7 @@ function CreateEventScreen({ navigation }) {
               facilityType={facilityType}
               onChangeFacilityType={onChangeFacilityType}
               onNext={onNext}
+              onPrevious={onPrevious}
             />
           </View>
         );
@@ -114,6 +119,7 @@ function CreateEventScreen({ navigation }) {
               description={description}
               onChangeDescription={onChangeDescription}
               onNext={onNext}
+              onPrevious={onPrevious}
             />
           </View>
         );
@@ -124,6 +130,7 @@ function CreateEventScreen({ navigation }) {
               image={image}
               onChangeImage={onChangeImage}
               onNext={onNext}
+              onPrevious={onPrevious}
             />
           </View>
         );
@@ -137,6 +144,7 @@ function CreateEventScreen({ navigation }) {
               location={location}
               eventType={eventType}
               image={image}
+              onPrevious={onPrevious}
             />
             <Button
               onPress={saveEvent}
