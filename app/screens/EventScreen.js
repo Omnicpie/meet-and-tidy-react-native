@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, ActivityIndicator, SafeAreaView, Text, View
+  StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button
 } from 'react-native';
 import Request from '../helpers/Request';
 // import BottomNavBar from '../components/BottomNavBar';
@@ -26,6 +26,10 @@ function EventScreen(props) {
         <View>
           <View>
             <Text style={styles.topTile}>Image</Text>
+            <Button
+              title="Attend"
+              mode="contained"
+            />
           </View>
           <View>
             <Text style={styles.primaryHeading}>{data.title}</Text>
@@ -97,11 +101,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   infoTile: {
-    width: '85%',
+    width: '85',
     height: 150,
     backgroundColor: 'rgb(84, 174, 51)',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 5,
   },
 });
