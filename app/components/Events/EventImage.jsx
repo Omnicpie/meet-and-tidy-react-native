@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  StyleSheet, Text, View, TextInput, Button, Platform,
+  StyleSheet, Text, View, Image, TextInput, Button, Platform,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
@@ -44,7 +44,7 @@ export default function EventImage({
       <Text style={styles.centeredText}>7 of 8</Text>
       <Text style={styles.primaryHeading}>Upload an event image</Text>
       <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {imageSelect && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+      {imageSelect && <Image source={{ uri: imageSelect }} style={{ width: 200, height: 200 }} />}
       <NextPreviousButtons
         onNext={onNext}
         onPrevious={onPrevious}
