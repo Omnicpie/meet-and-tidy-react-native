@@ -44,7 +44,7 @@ export default function EventImage({
       <Text style={styles.centeredText}>7 of 8</Text>
       <Text style={styles.primaryHeading}>Upload an event image</Text>
       <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {imageSelect && <Image source={{ uri: imageSelect }} style={{ width: 200, height: 200 }} />}
+      {imageSelect && <Image source={{ uri: imageSelect }} style={styles.imageSelected} />}
       <NextPreviousButtons
         onNext={onNext}
         onPrevious={onPrevious}
@@ -73,5 +73,9 @@ const styles = StyleSheet.create({
   centeredText: {
     textAlign: 'center',
     marginTop: 5,
+  },
+  imageSelected: {
+    width: '100%',
+    height: 200,
   },
 });
