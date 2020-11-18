@@ -17,34 +17,54 @@ export default function EventLocation({
 
   return (
     <View>
-      <Text>Create an event</Text>
-      <Text>Where is your event?</Text>
-      <TextInput
-        defaultValue={location}
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeLocation(text)}
-        location={location}
-      />
-      <Button
-        onPress={validateInput}
-        title="Next"
-      />
-      <ProgressBar style={styles.progressBar} progress={0.1} color={Colors.green500} />
-      <Text>1 of 8</Text>
+      <View style={styles.locationContainer}>
+        <ProgressBar style={styles.progressBar} progress={0.1} color={Colors.green500} />
+        <Text style={styles.centeredText}>1 of 8</Text>
+        <Text style={styles.primaryHeading}>Where is your event?</Text>
+        <TextInput
+          defaultValue={location}
+          style={styles.textInput}
+          onChangeText={(text) => onChangeLocation(text)}
+          location={location}
+        />
+      </View>
+      <View style={styles.nextButton}>
+        <Button
+          onPress={validateInput}
+          title="Next"
+        />
+      </View>
     </View>
-
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  locationContainer: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
+
   },
   progressBar: {
+    marginTop: 25,
+
+  },
+  centeredText: {
+    textAlign: 'center',
+    marginTop: 5,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
     marginTop: 50,
+    marginBottom: 50,
+  },
+  textInput: {
+    height: 40,
+    width: '100%',
+    textAlign: 'center',
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 50,
+
   },
 });
