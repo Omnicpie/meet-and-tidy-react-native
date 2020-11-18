@@ -20,7 +20,7 @@ function EventScreen(props) {
       .finally(() => setLoading(false));
   }, []);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.eventContainer}>
       {isLoading ? <ActivityIndicator /> : (
         <View>
           <Text style={styles.primaryHeading}>{data.title}</Text>
@@ -34,7 +34,7 @@ function EventScreen(props) {
 export default EventScreen;
 
 const styles = StyleSheet.create({
-  container: {
+  eventContainer: {
     flex: 1,
     backgroundColor: '#fff',
 
