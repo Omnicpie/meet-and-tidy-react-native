@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "95%",
     backgroundColor: '#fff',
-
   },
   subHeading: {
     color: 'black',
