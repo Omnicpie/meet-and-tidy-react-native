@@ -10,42 +10,42 @@ export default function EventPreview({
   location, title, description, eventType, image, date,
 } = props) {
   return (
-    <View>
-      <Text>Preview event</Text>
-      <Text>
-        Title:
-        {title}
-      </Text>
-      <Text>
-        Date:
-        {date}
-      </Text>
-      <Text>
-        Description:
-        {description}
-      </Text>
-      <Text>
-        Type:
-        {eventType}
-      </Text>
-      <Text>
-        Location:
-        {location}
-      </Text>
-      <Text>
-        Image:
-        {image}
-      </Text>
-
-      <ProgressBar style={styles.progressBar} progress={1} color={Colors.green500} />
-      <Text>8 of 8</Text>
-    </View>
-
+    <SafeAreaView style={styles.eventContainer}>
+      <View>
+        <Text>Preview event</Text>
+        <Text>
+          Image:
+          {image}
+        </Text>
+        <Text style={styles.primaryHeading}>
+          Title:
+          {title}
+        </Text>
+        <Text style={styles.paragraph}>
+          Date:
+          {date}
+        </Text>
+        <Text style={styles.paragraph}>
+          Description:
+          {description}
+        </Text>
+        <Text style={styles.paragraph}>
+          Type:
+          {eventType}
+        </Text>
+        <Text style={styles.paragraph}>
+          Location:
+          {location}
+        </Text>
+        <ProgressBar style={styles.progressBar} progress={1} color={Colors.green500} />
+        <Text>8 of 8</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  eventContainer: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
@@ -54,5 +54,15 @@ const styles = StyleSheet.create({
   },
   progressBar: {
     marginTop: 50,
+  },
+  paragraph: {
+    textAlign: 'left',
+    width: '100%',
+    paddingLeft: 15,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 23,
+    paddingTop: 10
   },
 });
