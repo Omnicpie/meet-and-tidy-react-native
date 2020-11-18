@@ -41,5 +41,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     backgroundColor: '#54AE33',
+    marginLeft: '7%',
+    marginRight: '7%',
   },
 });
