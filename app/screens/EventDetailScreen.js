@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     width: '100%',
     paddingLeft: 15,
+    paddingRight: 15,
   },
   subheading: {
     textAlign: 'left',

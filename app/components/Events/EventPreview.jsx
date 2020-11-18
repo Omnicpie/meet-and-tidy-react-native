@@ -7,7 +7,7 @@ import { ProgressBar, Colors } from 'react-native-paper';
 // Preview event before saving
 
 export default function EventPreview({
-  location, title, description, eventType, image, date,
+  location, title, description, eventType, image, date, facilityType
 } = props) {
   return (
     <SafeAreaView style={styles.eventContainer}>
@@ -21,6 +21,10 @@ export default function EventPreview({
         <View>
           <Text style={styles.subheading}>Date:</Text>
           <Text style={styles.paragraph}>{date}</Text>
+        </View>
+        <View>
+          <Text style={styles.subheading}>Facilities:</Text>
+          <Text style={styles.paragraph}>{facilityType}</Text>
         </View>
         <View>
           <Text style={styles.subheading}>Description:</Text>
@@ -52,11 +56,13 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     width: '100%',
     paddingLeft: 15,
+    paddingRight: 15,
   },
   primaryHeading: {
     textAlign: 'center',
     fontSize: 23,
-    paddingTop: 10
+    paddingTop: 10,
+    paddingBottom: 3
   },
   secondaryHeading: {
     textAlign: 'center',
@@ -68,20 +74,22 @@ const styles = StyleSheet.create({
     width: '100%',
     fontSize: 15,
     fontWeight: "bold",
-    paddingTop: 20,
+    paddingTop: 10,
     paddingLeft: 15,
     marginBottom: 5,
   },
   infoTile: {
-    width: '100',
+    width: '85',
     height: 150,
     backgroundColor: 'rgb(84, 174, 51)',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
+    marginLeft: 15,
+    marginRight: 15,
   },
   imageSelected: {
     width: '100%',
-    height: 150,
+    height: 200,
   },
 });
