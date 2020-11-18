@@ -12,9 +12,8 @@ export default function EventPreview({
   return (
     <SafeAreaView style={styles.eventContainer}>
       <View>
-        <Text>Preview event</Text>
+        <Text style={styles.primaryHeading}>Preview event</Text>
         <Text>
-          Image:
           <Image source={{ uri: image }} style={styles.imageSelected} />
         </Text>
         <Text style={styles.primaryHeading}>{title}</Text>
@@ -26,10 +25,6 @@ export default function EventPreview({
         <View>
           <Text style={styles.subheading}>Description:</Text>
           <Text style={styles.paragraph}>{description}</Text>
-        </View>
-        <View>
-          <Text style={styles.subheading}>Images:</Text>
-          <Text>{image}</Text>
         </View>
         <View>
           <Text style={styles.subheading}>Location:</Text>
@@ -86,7 +81,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   imageSelected: {
-    width: '100%',
+    width: '85%',
     height: 200,
   },
 });
