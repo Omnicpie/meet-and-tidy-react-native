@@ -14,7 +14,7 @@ const AppStack = () => (
       />
       <Stack.Screen
         name="Event"
-        component={EventScreen}
+        component={EventDetailScreen}
       />
     </Stack.Navigator>
   </NavigationContainer>

@@ -20,10 +20,7 @@ function HomeScreen({ navigation }) {
 
       <PopularEventScroll navigation={navigation} />
 
-      {/* <Button
-        title="Go to event details"
-        onPress={() => navigation.navigate('EventDetail')}
-      />
+      {/*
       <Button
         title="Go to Safety disclaimer screen"
         onPress={() => navigation.navigate('SafetyDisclaimer', { name: 'SafetyDisclaimer' })}
