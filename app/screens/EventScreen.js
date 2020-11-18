@@ -23,25 +23,24 @@ function EventScreen(props) {
     <SafeAreaView style={styles.eventContainer}>
       {isLoading ? <ActivityIndicator /> : (
         <View>
-          <Text style={styles.primaryHeading}>{data.title}</Text>
           <View>
             <Text style={styles.tile}>Image</Text>
           </View>
           <View>
-            <Text style={styles.subheading}>Description:</Text>
-            <Text style={styles.paragraph}>{data.description}</Text>
+            <Text style={styles.primaryHeading}>{data.title}</Text>
+            <Text style={styles.paragraph}>{data.eventType}</Text>
           </View>
           <View>
             <Text style={styles.subheading}>Date of event:</Text>
             <Text style={styles.paragraph}>{data.date}</Text>
           </View>
           <View>
-            <Text style={styles.subheading}>Type of event:</Text>
-            <Text style={styles.paragraph}>{data.eventType}</Text>
-          </View>
-          <View>
             <Text style={styles.subheading}>Facilities available:</Text>
             <Text style={styles.paragraph}>{data.facilityType}</Text>
+          </View>
+          <View>
+            <Text style={styles.subheading}>Description:</Text>
+            <Text style={styles.paragraph}>{data.description}</Text>
           </View>
           <BottomNavBar navigation={navigation} />
         </View>
