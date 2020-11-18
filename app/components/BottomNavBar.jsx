@@ -4,7 +4,7 @@ import { IconButton } from 'react-native-paper';
 
 function BottomNavBar({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.navContainer}>
       <IconButton style={styles.icon}
         icon="home"
         name="home"
@@ -30,19 +30,16 @@ function BottomNavBar({ navigation }) {
 export default BottomNavBar;
 
 const styles = StyleSheet.create({
-  container: {
-    width: 100,
-    flex: 1,
+  navContainer: {
+    width: "100%",
+
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    position: 'absolute',
-    bottom:0,
-    left:0,
-    right:0
+    justifyContent: 'center',
+    paddingBottom: 10,
   },
   icon: {
     // flex:,
     backgroundColor: '#54AE33',
-  }
+  },
 });

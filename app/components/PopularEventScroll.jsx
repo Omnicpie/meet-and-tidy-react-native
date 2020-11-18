@@ -20,7 +20,7 @@ export default function PopularEventScroll({ navigation }) {
   }, []);
 
   return (
-    <View>
+    <View style={styles.scrollContainer}>
 
       <Text style={styles.subHeading}>Popular events</Text>
       <ScrollView style={styles.popScroll}>
@@ -48,18 +48,16 @@ export default function PopularEventScroll({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flex: 1,
+    width: "95%",
+    backgroundColor: '#fff',
 
+  },
   subHeading: {
     color: 'black',
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  scrollContainer: {
-    paddingTop: 40,
-    padding: 10,
-  },
-  popScroll: {
-    paddingTop: 20,
   },
   tile: {
     width: 200,
@@ -67,6 +65,5 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginRight: 10,
     backgroundColor: 'rgb(84, 174, 51)',
-    flexDirection: 'row',
   },
 });

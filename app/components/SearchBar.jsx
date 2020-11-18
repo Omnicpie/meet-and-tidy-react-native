@@ -26,7 +26,6 @@ export default SearchBar;
 const styles = StyleSheet.create({
   searchArea: {
     alignItems: 'center',
-    flex: 1,
     paddingTop: 35,
     paddingBottom: 25,
     backgroundColor: 'white',
