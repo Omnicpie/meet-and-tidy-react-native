@@ -12,6 +12,7 @@ import EventDescription from '../components/Events/EventDescription';
 import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
+
 import StyleSheets from '../helpers/Stylesheets';
 
 function CreateEventScreen({ navigation }) {
@@ -131,6 +132,7 @@ function CreateEventScreen({ navigation }) {
               onChangeImage={onChangeImage}
               onNext={onNext}
               onPrevious={onPrevious}
+
             />
           </View>
         );
