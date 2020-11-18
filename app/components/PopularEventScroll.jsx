@@ -20,7 +20,7 @@ export default function PopularEventScroll({ navigation }) {
   }, []);
 
   return (
-    <View style={styles.scrollContainer}>
+    <View>
 
       <Text style={styles.subHeading}>Popular events</Text>
       <ScrollView style={styles.popScroll}>
@@ -48,12 +48,7 @@ export default function PopularEventScroll({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
   subHeading: {
     color: 'black',
     fontSize: 20,

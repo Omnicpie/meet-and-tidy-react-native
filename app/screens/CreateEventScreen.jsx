@@ -54,6 +54,10 @@ function CreateEventScreen({ navigation }) {
     // and navigate out of this screen/component....
   }
 
+  function onPrevious() {
+    setScreen(screen - 1);
+  }
+
   function currentScreen() {
     switch (screen) {
       case 1:
@@ -70,6 +74,7 @@ function CreateEventScreen({ navigation }) {
             date={date}
             onChangeDate={onChangeDate}
             onNext={onNext}
+            onPrevious={onPrevious}
           />
         );
       case 3:

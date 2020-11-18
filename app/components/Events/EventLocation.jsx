@@ -8,10 +8,10 @@ export default function EventLocation({
   location, onChangeLocation, onNext,
 } = props) {
   function validateInput() {
-    if (location.length > 3) {
+    if (location.length > 2) {
       onNext();
     } else {
-      alert(`Please enter a valid location, "${location}" needs to be at least 5 characters long.`);
+      alert(`Please enter a valid location, "${location}" needs to be at least 3 characters long.`);
     }
   }
 
@@ -20,6 +20,7 @@ export default function EventLocation({
       <Text>Create an event</Text>
       <Text>Where is your event?</Text>
       <TextInput
+        defaultValue={location}
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={(text) => onChangeLocation(text)}
         location={location}

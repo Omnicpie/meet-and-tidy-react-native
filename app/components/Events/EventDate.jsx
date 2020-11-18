@@ -6,7 +6,7 @@ import { ProgressBar, Colors } from 'react-native-paper';
 // import Request from './request';
 
 export default function EventDate({
-  date, onChangeDate, onNext,
+  date, onChangeDate, onNext, onPrevious
 } = props) {
   function validateInput() {
     if (date.length > 6 && typeof date === 'string') {
@@ -21,9 +21,14 @@ export default function EventDate({
       <Text>Create an event</Text>
       <Text>Date</Text>
       <TextInput
+        defaultValue={date}
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={(text) => onChangeDate(text)}
         date={date}
+      />
+      <Button
+        onPress={onPrevious}
+        title="Previous"
       />
       <Button
         onPress={validateInput}
