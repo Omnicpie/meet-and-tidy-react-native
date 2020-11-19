@@ -20,15 +20,19 @@ function HomeScreen({ navigation }) {
 
       <PopularEventScroll navigation={navigation} />
 
-      {/*
       <Button
+        title="Go to Search results screen"
+        onPress={() => navigation.navigate('EventSearchResult', { name: 'EventSearchResult' })}
+      />
+      {/* <Button
         title="Go to Safety disclaimer screen"
         onPress={() => navigation.navigate('SafetyDisclaimer', { name: 'SafetyDisclaimer' })}
-      />
-      <Button
+      /> */}
+      {/* <Button
         title="Go to Registration screen"
         onPress={() => navigation.navigate('Registration')}
       /> */}
+
         <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
