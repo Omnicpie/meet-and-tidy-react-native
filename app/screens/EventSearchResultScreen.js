@@ -2,14 +2,14 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import SearchResultList from '../components/SearchResultList';
-import SearchBar from '../components/SearchBar';
+// import SearchBar from '../components/SearchBar';
 
 function EventSearchResultScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <Text style={styles.primaryHeading}>Search Results for _____</Text>
-        <SearchBar />
+        {/* <SearchBar /> */}
         <SearchResultList/>
       </View>
       <BottomNavBar navigation={navigation} />
@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
   primaryHeading: {
     textAlign: 'center',
     fontSize: 25,
-    marginBottom: 5,
+    marginBottom: 25,
+    marginTop: 25,
   },
   paragraph: {
     width: '100%',
