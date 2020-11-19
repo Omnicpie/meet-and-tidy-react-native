@@ -10,23 +10,22 @@ function RegistrationScreen({ navigation }) {
       <Text style={styles.subheading}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Text>
       <View>
         <Text style={styles.secondaryHeading}>Username</Text>
-        <TextInput style={styles.textInput}
-          onChangeText={text => onChangeText(text)}
+        <TextInput
+          style={styles.textInput}
         />
       </View>
       <View>
         <Text style={styles.secondaryHeading}>Email</Text>
         <TextInput
           style={styles.textInput}
-          onChangeText={text => onChangeText(text)}
         />
       </View>
       <View style={styles.buttonStyle}>
-          <Button
-            title="Submit"
-            onPress={() => navigation.navigate('SafetyDisclaimer')}
-          />
-        </View>
+        <Button
+          title="Submit"
+          onPress={() => navigation.navigate('SafetyDisclaimer')}
+        />
+      </View>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
