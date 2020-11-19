@@ -44,11 +44,9 @@ const styles = StyleSheet.create({
   locationContainer: {
     flex: 1,
     backgroundColor: '#fff',
-
   },
   progressBar: {
     marginTop: 25,
-
   },
   centeredText: {
     textAlign: 'center',
@@ -66,7 +64,6 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1,
     marginBottom: 50,
-
   },
   infoTile: {
     height: 150,
