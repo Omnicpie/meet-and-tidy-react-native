@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 
-function MyActivitiesScreen(navigation) {
+function MyActivitiesScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View>

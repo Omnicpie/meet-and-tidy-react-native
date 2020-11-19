@@ -3,7 +3,7 @@ import { StyleSheet, SafeAreaView, Text, View, Button } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 
 
-function SafetyDisclaimerScreen(navigation) {
+function SafetyDisclaimerScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View>

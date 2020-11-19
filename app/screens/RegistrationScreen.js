@@ -3,7 +3,7 @@ import { StyleSheet, SafeAreaView, TextInput, Text, View, Button } from 'react-n
 import BottomNavBar from '../components/BottomNavBar';
 
 
-function RegistrationScreen(navigation) {
+function RegistrationScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.primaryHeading}>Registration</Text>
