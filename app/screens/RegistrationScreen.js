@@ -1,7 +1,9 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text } from 'react-native';
+import { StyleSheet, SafeAreaView, TextInput, Text, View, Button } from 'react-native';
+import BottomNavBar from '../components/BottomNavBar';
 
-function RegistrationScreen(props) {
+
+function RegistrationScreen(navigation) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.primaryHeading}>Registration</Text>
@@ -11,7 +13,6 @@ function RegistrationScreen(props) {
         <TextInput
           style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
           onChangeText={text => onChangeText(text)}
-          value={value}
         />
       </View>
       <View>
@@ -19,12 +20,12 @@ function RegistrationScreen(props) {
         <TextInput
           style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
           onChangeText={text => onChangeText(text)}
-          value={value}
         />
       </View>
       <View style={styles.buttonStyle}>
           <Button
             title="Submit"
+            onPress={() => navigation.navigate('SafetyDisclaimer')}
           />
         </View>
       <BottomNavBar navigation={navigation} />
