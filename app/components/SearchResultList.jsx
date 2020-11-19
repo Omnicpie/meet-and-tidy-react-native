@@ -29,20 +29,20 @@ export default function SearchResultList({ navigation }) {
             verticle
             keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
-              <Text
-                onPress={() => navigation.navigate('Event', item.id)}
-                style={styles.tile}
-              >
-                {item.title}
-                ,
-                {item.description}
-                ,
-                {item.image}
-              </Text>
+              <View >
+                <Text style={styles.subHeading}>
+                  {item.title}
+                </Text>
+                <Text style={styles.paragraph}>
+                  {item.description}
+                </Text>
+                <Text style={styles.tile} onPress ={() => navigation.navigate('Event', item.id)} >
+                  {item.image}
+                </Text>
+              </View>
             )}
           />
         )}
-
       </ScrollView>
     </View>
   );
@@ -58,15 +58,25 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 20,
     fontWeight: 'bold',
-    paddingBottom: 15,
+    paddingBottom: 5,
     paddingTop: 10,
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  paragraph: {
+    width: '85',
+    marginLeft: 15,
+    marginRight: 15,
+    paddingBottom: 5,
   },
   tile: {
-    width: '100',
+    width: '85',
     height: 150,
-    marginBottom: 10,
-    marginRight: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
     marginLeft: 15,
+    marginRight: 15,
     backgroundColor: '#54AE33',
   },
 });
