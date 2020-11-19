@@ -9,6 +9,7 @@ import SafetyDisclaimerScreen from './app/screens/SafetyDisclaimerScreen';
 import CreateFlagScreen from './app/screens/CreateFlagScreen';
 import RegistrationScreen from './app/screens/RegistrationScreen';
 import MyActivitiesScreen from './app/screens/MyActivitiesScreen';
+import EventSearchResultScreen from './app/screens/EventSearchResultScreen';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,11 @@ export default function App() {
           name="CreateEvent"
           component={CreateEventScreen}
           options={{ title: 'Create Event Screen' }}
+        />
+        <Stack.Screen
+          name="EventSearchResult"
+          component={EventSearchResultScreen}
+          options={{ title: 'Event Search Result Screen' }}
         />
         <Stack.Screen
           name="SafetyDisclaimer"
