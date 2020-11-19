@@ -1,13 +1,16 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text, View, Button } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
-
+import SearchResultList from '../components/SearchResultList';
+import SearchBar from '../components/SearchBar';
 
 function EventSearchResultScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <Text style={styles.primaryHeading}>Search Results</Text>
+        <Text style={styles.primaryHeading}>Search Results for _____</Text>
+        <SearchBar />
+        <SearchResultList/>
       </View>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
@@ -27,7 +30,7 @@ const styles = StyleSheet.create({
   primaryHeading: {
     textAlign: 'center',
     fontSize: 25,
-    marginBottom: 60,
+    marginBottom: 5,
   },
   paragraph: {
     width: '100%',
