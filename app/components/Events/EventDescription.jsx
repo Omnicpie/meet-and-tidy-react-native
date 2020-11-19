@@ -17,6 +17,7 @@ export default function EventDescription({
       <TextInput
         style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={(text) => onChangeDescription(text)}
+        multiline={true}
         description={description}
       />
       <NextPreviousButtons
