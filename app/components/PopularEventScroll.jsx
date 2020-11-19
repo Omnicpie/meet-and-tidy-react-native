@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 20,
     fontWeight: 'bold',
-    paddingBottom: 12,
+    paddingBottom: 15,
+    paddingTop: 10,
   },
   tile: {
     width: 200,
