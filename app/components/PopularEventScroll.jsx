@@ -28,7 +28,7 @@ export default function PopularEventScroll({ navigation }) {
           <FlatList
             data={data}
             horizontal
-            keyExtractor={({ id }, index) => id}
+            keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
               <Text
                 onPress={() => navigation.navigate('Event', item.id)}
