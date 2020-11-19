@@ -7,18 +7,17 @@ function RegistrationScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.primaryHeading}>Registration</Text>
-      <Text style={styles.subheading}>Explanation of why we need this info and how we use it.</Text>
+      <Text style={styles.subheading}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Text>
       <View>
-        <Text style={styles.subheading}>Name</Text>
-        <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+        <Text style={styles.secondaryHeading}>Username</Text>
+        <TextInput style={styles.textInput}
           onChangeText={text => onChangeText(text)}
         />
       </View>
       <View>
-        <Text style={styles.subheading}>Email</Text>
+        <Text style={styles.secondaryHeading}>Email</Text>
         <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          style={styles.textInput}
           onChangeText={text => onChangeText(text)}
         />
       </View>
@@ -43,18 +42,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 25,
   },
+  textInput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    width: '100%',
+  },
   primaryHeading: {
     textAlign: 'center',
-    fontSize: 23,
-    paddingTop: 10,
+    fontSize: 25,
+    marginBottom: 28,
+  },
+  secondaryHeading: {
+    textAlign: 'center',
+    width: '100%',
+    paddingLeft: 15,
+    paddingRight: 15,
+    fontSize: 15,
+    marginBottom: 5,
+    marginTop: 10,
   },
   subheading: {
     textAlign: 'center',
+    marginTop: 5,
     width: '100%',
     fontSize: 15,
     fontWeight: "bold",
-    paddingTop: 20,
-    paddingLeft: 15,
+    padding: 10,
+    marginBottom: 25,
   },
   buttonStyle: {
     display: 'flex',
@@ -62,6 +77,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 50,
+    paddingBottom: 75,
   },
 });
 
