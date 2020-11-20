@@ -2,14 +2,12 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import SearchResultList from '../components/SearchResultList';
-// import SearchBar from '../components/SearchBar';
 
 function EventSearchResultScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <Text style={styles.primaryHeading}>Search Results for _____</Text>
-        {/* <SearchBar /> */}
         <SearchResultList/>
       </View>
       <BottomNavBar navigation={navigation} />
