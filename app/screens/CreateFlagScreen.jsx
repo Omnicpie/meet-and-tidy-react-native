@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, StyleSheet, SafeAreaView, Button,
+  View, SafeAreaView, Button,
 } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import FlagLocation from '../components/Flags/FlagLocation';
@@ -9,6 +9,8 @@ import FlagDescription from '../components/Flags/FlagDescription';
 import FlagImage from '../components/Flags/FlagImage';
 import FlagPreview from '../components/Flags/FlagPreview';
 import Request from '../helpers/Request';
+import CreateFlag from '../assets/stylesheets/CreateFlag';
+
 
 function CreateFlagScreen({ navigation }) {
   const [description, onChangeDescription] = useState('');
@@ -94,7 +96,7 @@ function CreateFlagScreen({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={CreateFlag.mainContainer}>
       <View>
         {currentScreen()}
       </View>
@@ -104,12 +106,3 @@ function CreateFlagScreen({ navigation }) {
 }
 
 export default CreateFlagScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-
-});
