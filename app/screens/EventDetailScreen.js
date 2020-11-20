@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button
+  StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button, Platform
 } from 'react-native';
 import Request from '../helpers/Request';
 import BottomNavBar from '../components/BottomNavBar';
+import Events from '../assets/stylesheets/Events';
 
 function EventDetailScreen(props) {
   const eventId = props.route.params;
@@ -21,39 +22,39 @@ function EventDetailScreen(props) {
       .finally(() => setLoading(false));
   }, []);
   return (
-    <SafeAreaView style={styles.eventContainer}>
+    <SafeAreaView style={Events.container}>
       {isLoading ? <ActivityIndicator /> : (
         <View>
           <View>
-            <Text style={styles.topTile}>Image</Text>
+            <Text style={Events.topTile}>Image</Text>
             <Button
               title="Attend"
               mode="contained"
             />
           </View>
           <View>
-            <Text style={styles.primaryHeading}>{data.title}</Text>
-            <Text style={styles.secondaryHeading}>{data.eventType}</Text>
+            <Text style={Events.detailPrimaryHeading}>{data.title}</Text>
+            <Text style={Events.detailSecondaryHeading}>{data.eventType}</Text>
           </View>
           <View>
-            <Text style={styles.subheading}>Date:</Text>
-            <Text style={styles.paragraph}>{data.date}</Text>
+            <Text style={Events.subheading}>Date:</Text>
+            <Text style={Events.paragraph}>{data.date}</Text>
           </View>
           <View>
-            <Text style={styles.subheading}>Facilities available:</Text>
-            <Text style={styles.paragraph}>{data.facilityType}</Text>
+            <Text style={Events.subheading}>Facilities available:</Text>
+            <Text style={Events.paragraph}>{data.facilityType}</Text>
           </View>
           <View>
-            <Text style={styles.subheading}>Description:</Text>
-            <Text style={styles.paragraph}>{data.description}</Text>
+            <Text style={Events.subheading}>Description:</Text>
+            <Text style={Events.paragraph}>{data.description}</Text>
           </View>
           <View>
-            <Text style={styles.subheading}>Images:</Text>
-            <Text style={styles.infoTile}>{data.image}</Text>
+            <Text style={Events.subheading}>Images:</Text>
+            <Text style={Events.infoTile}>{data.image}</Text>
           </View>
           <View>
-            <Text style={styles.subheading}>Location:</Text>
-            <Text style={styles.infoTile}>{data.location}</Text>
+            <Text style={Events.subheading}>Location:</Text>
+            <Text style={Events.infoTile}>{data.location}</Text>
           </View>
         </View>
       )}
@@ -62,53 +63,3 @@ function EventDetailScreen(props) {
 }
 
 export default EventDetailScreen;
-
-const styles = StyleSheet.create({
-  eventContainer: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 23,
-    paddingTop: 10
-  },
-  secondaryHeading: {
-    textAlign: 'center',
-    width: '100%',
-    paddingLeft: 15,
-  },
-  paragraph: {
-    textAlign: 'left',
-    width: '100%',
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  subheading: {
-    textAlign: 'left',
-    width: '100%',
-    fontSize: 15,
-    fontWeight: "bold",
-    paddingTop: 20,
-    paddingLeft: 15,
-  },
-  topTile: {
-    width: '100%',
-    height: 150,
-    backgroundColor: 'rgb(84, 174, 51)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-  },
-  infoTile: {
-    width: '85',
-    height: 150,
-    backgroundColor: 'rgb(84, 174, 51)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    marginLeft: 15,
-    marginRight: 15,
-    marginTop: 5,
-  },
-});

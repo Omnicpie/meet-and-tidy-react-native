@@ -12,7 +12,7 @@ import EventDescription from '../components/Events/EventDescription';
 import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
-import CreateEvent from '../assets/stylesheets/CreateEvent';
+import Events from '../assets/stylesheets/Events';
 
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');
@@ -72,7 +72,7 @@ function CreateEventScreen({ navigation }) {
       case 2:
         return (
           <EventDate
-            StyleSheets={CreateEvent}
+            StyleSheets={Events}
             date={date}
             onChangeDate={onChangeDate}
             onNext={onNext}
@@ -159,7 +159,7 @@ function CreateEventScreen({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={CreateEvent.mainContainer}>
+    <SafeAreaView style={Events.mainContainer}>
       <View>
         {currentScreen()}
       </View>

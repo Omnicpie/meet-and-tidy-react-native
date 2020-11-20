@@ -32,6 +32,7 @@ export default {
     textAlign: 'center',
     width: '100%',
     paddingLeft: 15,
+    paddingRight: 15,
   },
   subheading: {
     textAlign: 'center',
