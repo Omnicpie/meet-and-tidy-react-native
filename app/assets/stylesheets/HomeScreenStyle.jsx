@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 export default {
   container: {
     flex: 1,
@@ -5,8 +7,6 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 25,
-  },
-  progressBar: {
-    marginTop: 50,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
 };
