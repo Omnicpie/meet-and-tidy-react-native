@@ -13,7 +13,7 @@ import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
 
-import StyleSheets from '../helpers/Stylesheets';
+import StyleSheets from '../assets/stylesheets/Stylesheets';
 
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');

@@ -1,13 +1,14 @@
 import React from 'react';
-import { Button, SafeAreaView, StyleSheet } from 'react-native';
+import { Button, SafeAreaView, StyleSheets } from 'react-native';
 import PopularEventScroll from '../components/PopularEventScroll';
 import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
 import BottomNavBar from '../components/BottomNavBar';
+import HomeScreenStyle from '../assets/stylesheets/HomeScreenStyle';
 
 function HomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={HomeScreenStyle.container}>
       <Button
         title="+ Create"
         color="rgb(84, 174, 51)"
@@ -39,16 +40,3 @@ function HomeScreen({ navigation }) {
 }
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
-  progressBar: {
-    marginTop: 50,
-  }
-});
