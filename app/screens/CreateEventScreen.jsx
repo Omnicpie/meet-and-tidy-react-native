@@ -12,8 +12,7 @@ import EventDescription from '../components/Events/EventDescription';
 import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
-
-import StyleSheets from '../assets/stylesheets/Stylesheets';
+import CreateEvent from '../assets/stylesheets/CreateEvent';
 
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');
@@ -73,7 +72,7 @@ function CreateEventScreen({ navigation }) {
       case 2:
         return (
           <EventDate
-            StyleSheets={StyleSheets}
+            StyleSheets={CreateEvent}
             date={date}
             onChangeDate={onChangeDate}
             onNext={onNext}
@@ -160,7 +159,7 @@ function CreateEventScreen({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={CreateEvent.mainContainer}>
       <View>
         {currentScreen()}
       </View>
@@ -170,12 +169,3 @@ function CreateEventScreen({ navigation }) {
 }
 
 export default CreateEventScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-
-});
