@@ -14,6 +14,7 @@ export default function EventPreview({
       <View>
         <Text style={styles.subheading}>Preview event</Text>
         <Text>
+          Image:
           <Image source={{ uri: image }} style={styles.imageSelected} />
         </Text>
         <Text style={styles.primaryHeading}>{title}</Text>
