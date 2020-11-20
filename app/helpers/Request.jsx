@@ -5,6 +5,23 @@ class Request {
   }
 
   async make(body = {}) {
+    const selectedImage = {
+      uri: body.image,
+      type: 'image/jpeg',
+      name: 'some-img.jpg',
+    };
+
+    console.log(selectedImage);
+    const formData = new FormData();
+    formData.append('authToken', 'secret');
+    formData.append('title', body.title);
+    formData.append('description', body.description);
+    formData.append('location', body.location);
+    formData.append('startsOn', body.startsOn);
+    formData.append('eventType', body.eventType);
+
+    formData.append('image', selectedImage.uri);
+
     if (this.method === 'GET') {
       try {
         const response = await fetch(this.url);
@@ -21,10 +38,8 @@ class Request {
       try {
         const response = await fetch(this.url, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(body),
+
+          body: formData,
         });
 
         const data = await response;

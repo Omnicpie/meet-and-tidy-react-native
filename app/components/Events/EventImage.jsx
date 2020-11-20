@@ -31,7 +31,6 @@ export default function EventImage({
       quality: 1,
     });
 
-    console.log(result);
     onChangeImage(result.uri);
 
     if (!result.cancelled) {
