@@ -5,23 +5,6 @@ class Request {
   }
 
   async make(body = {}) {
-    const selectedImage = {
-      uri: body.image,
-      type: 'image/jpeg',
-      name: 'some-img.jpg',
-    };
-
-    console.log(selectedImage);
-    const formData = new FormData();
-    formData.append('authToken', 'secret');
-    formData.append('title', body.title);
-    formData.append('description', body.description);
-    formData.append('location', body.location);
-    formData.append('startsOn', body.startsOn);
-    formData.append('eventType', body.eventType);
-
-    formData.append('image', selectedImage.uri);
-
     if (this.method === 'GET') {
       try {
         const response = await fetch(this.url);
@@ -35,6 +18,22 @@ class Request {
       }
     }
     if (this.method === 'POST') {
+      // TODO this should only run when trying to create an event / flag
+      const selectedImage = {
+        uri: body.image,
+        type: 'image/jpeg',
+        name: 'some-img.jpg',
+      };
+
+      const formData = new FormData();
+      formData.append('authToken', 'secret');
+      formData.append('title', body.title);
+      formData.append('description', body.description);
+      formData.append('location', body.location);
+      formData.append('startsOn', body.startsOn);
+      formData.append('eventType', body.eventType);
+
+      formData.append('image', selectedImage.uri);
       try {
         const response = await fetch(this.url, {
           method: 'POST',

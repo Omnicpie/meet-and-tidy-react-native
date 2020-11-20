@@ -3,11 +3,13 @@ import {
   StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button, Platform
 } from 'react-native';
 import Request from '../helpers/Request';
+import ApiImage from '../helpers/ApiImage';
 import BottomNavBar from '../components/BottomNavBar';
 import Events from '../assets/stylesheets/Events';
 
 function EventDetailScreen(props) {
   const eventId = props.route.params;
+
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -16,6 +18,7 @@ function EventDetailScreen(props) {
       .then((response) => response.json())
       .then((json) => {
         setData(json[0]);
+        console.log(json[0].image[0].fileName);
         console.log(json);
       })
       .catch((error) => console.error(error))
@@ -50,7 +53,6 @@ function EventDetailScreen(props) {
           </View>
           <View>
             <Text style={Events.subheading}>Images:</Text>
-            <Text style={Events.infoTile}>{data.image}</Text>
           </View>
           <View>
             <Text style={Events.subheading}>Location:</Text>
