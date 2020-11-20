@@ -4,11 +4,11 @@ import PopularEventScroll from '../components/PopularEventScroll';
 import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
 import BottomNavBar from '../components/BottomNavBar';
-import HomeScreenStyle from '../assets/stylesheets/HomeScreenStyle';
+import Main from '../assets/stylesheets/Main';
 
 function HomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={HomeScreenStyle.container}>
+    <SafeAreaView style={Main.mainContainer}>
       <Button
         title="+ Create"
         color="rgb(84, 174, 51)"
