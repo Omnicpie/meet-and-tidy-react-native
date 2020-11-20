@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, StyleSheet, SafeAreaView, Button,
+  View, SafeAreaView, Button,
 } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import EventLocation from '../components/Events/EventLocation';
