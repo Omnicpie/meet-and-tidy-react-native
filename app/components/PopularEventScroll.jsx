@@ -9,7 +9,7 @@ export default function PopularEventScroll({ navigation }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    new Request('GET', 'http://192.168.0.6:1337/events/').make()
+  new Request('GET', 'http://localhost:1337/events/').make()
       .then((response) => response.json())
       .then((json) => {
         setData(json);
