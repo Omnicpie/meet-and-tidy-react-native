@@ -17,7 +17,7 @@ function RegistrationScreen({ navigation }) {
       <View>
         <Text style={Main.regSecondaryHeading}>Email</Text>
         <TextInput
-          style={Main.textInput}
+          style={Main.regTextInput}
         />
       </View>
       <View style={Main.regButtonStyle}>
