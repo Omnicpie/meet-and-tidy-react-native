@@ -35,9 +35,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 10,
+    marginBottom: 15,
     position: 'absolute',
     bottom: 0,
+    backgroundColor: '#efefef',
   },
   icon: {
     backgroundColor: '#54AE33',
