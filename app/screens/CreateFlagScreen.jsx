@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View, SafeAreaView, Button, ScrollView
-} from 'react-native';
+import { View, SafeAreaView, Button, ScrollView } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import FlagLocation from '../components/Flags/FlagLocation';
 import FlagType from '../components/Flags/FlagType';
