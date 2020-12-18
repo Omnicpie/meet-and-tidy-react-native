@@ -149,8 +149,10 @@ function CreateEventScreen({ navigation }) {
               onPrevious={onPrevious}
             />
             <Button
+              style={Events.nextButton}
               onPress={saveEvent}
               title="Save"
+              marginBottom={100}
             />
           </View>
         );

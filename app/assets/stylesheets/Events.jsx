@@ -7,18 +7,19 @@ export default {
     width: '100%',
     paddingHorizontal: 25,
     justifyContent: 'center',
-
+    backgroundColor: '#fff',
   },
   progressBar: {
     marginTop: 50,
   },
   textInput: {
     height: 40,
-    width: '50%',
+    width: '80%',
     textAlign: 'center',
     borderColor: 'gray',
     borderWidth: 1,
     marginBottom: 50,
+    marginLeft: 40,
   },
   buttonContianer: {
     display: 'flex',
@@ -38,10 +39,16 @@ export default {
     marginTop: 50,
     marginBottom: 50,
   },
+  previewHeading: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginTop: 15,
+    marginBottom: 15,
+  },
   detailPrimaryHeading: {
     textAlign: 'center',
     fontSize: 23,
-    paddingTop: 10
+    paddingTop: 10,
   },
   detailSecondaryHeading: {
     textAlign: 'center',
@@ -81,9 +88,17 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    marginLeft: 15,
-    marginRight: 15,
-    marginTop: 5,
+    marginLeft: 30,
+  },
+  mapPreviewTile: {
+    width: '95%',
+    height: 175,
+    backgroundColor: 'rgb(84, 174, 51)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginTop: 10,
+    marginLeft: 8,
   },
   // next and previous
   buttonContianer: {

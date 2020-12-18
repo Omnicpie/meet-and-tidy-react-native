@@ -12,9 +12,9 @@ export default function EventFacility({
 } = props) {
   return (
     <View style={Events.mainContainer}>
-      <ProgressBar style={styles.progressBar} progress={0.625} color={Colors.green500} />
-      <Text>5 of 8</Text>
-      <Text>What facilities are available?</Text>
+      <ProgressBar style={Events.progressBar} progress={0.625} color={Colors.green500} />
+      <Text style={Events.centeredText}>5 of 8</Text>
+      <Text style={Events.primaryHeading}>What facilities are available?</Text>
       <FacilityTypeSelectButtons
         facilityType={facilityType}
         onChangeFacilityType={onChangeFacilityType}
