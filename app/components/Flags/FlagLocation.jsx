@@ -1,8 +1,7 @@
 import React from 'react';
-import {
-  StyleSheet, Text, SafeAreaView, TextInput, Button,
-} from 'react-native';
+import { StyleSheet, Text, SafeAreaView, TextInput, Button, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
+import Flags from '../../assets/stylesheets/Flags';
 
 export default function FlagLocation({
   location, onChangeLocation, onNext,
@@ -16,34 +15,23 @@ export default function FlagLocation({
   }
 
   return (
-    <SafeAreaView>
-      <Text>Create a flag</Text>
-      <Text>Where is your flag?</Text>
-      <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeLocation(text)}
-        location={location}
-      />
-      <Button
-        onPress={validateInput}
-        title="Next"
-      />
-      <ProgressBar style={styles.progressBar} progress={0.2} color={Colors.green500} />
-      <Text>1 of 5</Text>
+    <SafeAreaView style={Flags.container}>
+      <View>
+        <Text>Create a flag</Text>
+        <Text>Where is your flag?</Text>
+        <TextInput
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          onChangeText={(text) => onChangeLocation(text)}
+          location={location}
+        />
+        <Button
+          onPress={validateInput}
+          title="Next"
+        />
+        <ProgressBar style={Flags.progressBar} progress={0.2} color={Colors.green500} />
+        <Text>1 of 5</Text>
+      </View>
     </SafeAreaView>
 
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
-  progressBar: {
-    marginTop: 50,
-  },
-});

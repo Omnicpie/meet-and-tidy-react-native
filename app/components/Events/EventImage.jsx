@@ -4,8 +4,8 @@ import {
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
-
 import NextPreviousButtons from './NextPreviousButtons';
+import Events from '../../assets/stylesheets/Events';
 
 export default function EventImage({
   image, onChangeImage, onNext, onPrevious,
@@ -39,7 +39,7 @@ export default function EventImage({
   };
   // TODO call onChangeImage and make it equal to imageSelect
   return (
-    <View>
+    <View style={Events.mainContainer}>
       <ProgressBar style={styles.progressBar} progress={0.875} color={Colors.green500} />
       <Text style={styles.centeredText}>7 of 8</Text>
       <Text style={styles.primaryHeading}>Upload an event image</Text>

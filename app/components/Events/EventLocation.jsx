@@ -1,8 +1,7 @@
 import React from 'react';
-import {
-  StyleSheet, Text, View, TextInput, Button,
-} from 'react-native';
+import { Text, View, TextInput, Button } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
+import Events from '../../assets/stylesheets/Events';
 
 export default function EventLocation({
   location, onChangeLocation, onNext,
@@ -16,21 +15,19 @@ export default function EventLocation({
   }
 
   return (
-    <View>
-      <View style={styles.locationContainer}>
-        <ProgressBar style={styles.progressBar} progress={0.1} color={Colors.green500} />
-        <Text style={styles.centeredText}>1 of 8</Text>
-        <Text style={styles.primaryHeading}>Where is your event?</Text>
-        <TextInput
-          defaultValue={location}
-          style={styles.textInput}
-          onChangeText={(text) => onChangeLocation(text)}
-          location={location}
-        />
-      </View>
-      <View style={styles.infoTile}><Text>Map</Text></View>
+    <View >
+      <ProgressBar style={Events.progressBar} progress={0.1} color={Colors.green500} />
+      <Text style={Events.centeredText}>1 of 8</Text>
+      <Text style={Events.primaryHeading}>Where is your event?</Text>
+      <TextInput
+        defaultValue={location}
+        style={Events.textInput}
+        onChangeText={(text) => onChangeLocation(text)}
+        location={location}
+      />
+      <View style={Events.infoTile}><Text>Map</Text></View>
 
-      <View style={styles.nextButton}>
+      <View style={Events.nextButton}>
         <Button
           onPress={validateInput}
           title="Next"
@@ -39,39 +36,3 @@ export default function EventLocation({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  locationContainer: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  progressBar: {
-    marginTop: 25,
-  },
-  centeredText: {
-    textAlign: 'center',
-    marginTop: 5,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 50,
-  },
-  textInput: {
-    height: 40,
-    width: '100%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 50,
-  },
-  infoTile: {
-    height: 150,
-    backgroundColor: 'rgb(84, 174, 51)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    marginBottom: 50,
-
-  },
-});

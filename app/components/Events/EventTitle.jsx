@@ -4,18 +4,20 @@ import {
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import NextPreviousButtons from './NextPreviousButtons';
+import Events from '../../assets/stylesheets/Events';
 
 export default function EventTitle({
   title, onChangeTitle, onNext, onPrevious,
 } = props) {
   return (
-    <View>
-      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
+    <View style={Events.mainContainer}>
+      <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
       <Text>4 of 8</Text>
-      <Text style={styles.primaryHeading}>Name your event</Text>
+      <Text style={Events.primaryHeading}>Name your event</Text>
       <TextInput
         style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={(text) => onChangeTitle(text)}
+        style={Events.textInput}
         title={title}
       />
       <NextPreviousButtons

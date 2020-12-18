@@ -3,19 +3,18 @@ import { Platform, StatusBar } from 'react-native';
 export default {
   mainContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'stretch',
+    width: '100%',
+    paddingHorizontal: 25,
     justifyContent: 'center',
-    paddingVertical: 25,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    paddingBottom: 150,
+
   },
   progressBar: {
     marginTop: 50,
   },
   textInput: {
     height: 40,
-    width: '100%',
+    width: '50%',
     textAlign: 'center',
     borderColor: 'gray',
     borderWidth: 1,
@@ -85,5 +84,17 @@ export default {
     marginLeft: 15,
     marginRight: 15,
     marginTop: 5,
+  },
+  // next and previous
+  buttonContianer: {
+    display: 'flex',
+    alignContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonElement: {
+    marginRight: 5,
+    marginLeft: 5,
   },
 };

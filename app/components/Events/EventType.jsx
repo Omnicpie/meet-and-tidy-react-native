@@ -5,6 +5,7 @@ import {
 import { ProgressBar, Colors } from 'react-native-paper';
 import EventTypeSelectButtons from './EventTypeSelectButtons';
 import NextPreviousButtons from './NextPreviousButtons';
+import Events from '../../assets/stylesheets/Events';
 
 export default function EventType({
   eventType, onChangeEventType, onNext, onPrevious,
@@ -17,10 +18,10 @@ export default function EventType({
     }
   }
   return (
-    <View>
-      <ProgressBar style={styles.progressBar} progress={0.375} color={Colors.green500} />
+    <View style={Events.mainContainer}>
+      <ProgressBar style={Events.progressBar} progress={0.375} color={Colors.green500} />
       <Text>3 of 8</Text>
-      <Text style={styles.primaryHeading}>What type of event is it?</Text>
+      <Text style={Events.primaryHeading}>What type of event is it?</Text>
       <EventTypeSelectButtons
         eventType={eventType}
         onChangeEventType={onChangeEventType}

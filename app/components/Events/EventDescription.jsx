@@ -4,50 +4,28 @@ import {
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import NextPreviousButtons from './NextPreviousButtons';
+import Events from '../../assets/stylesheets/Events';
 
 export default function EventDescription({
   description, onChangeDescription, onNext, onPrevious
 } = props) {
   return (
-    <View>
-      <ProgressBar style={styles.progressBar} progress={0.5} color={Colors.green500} />
+    <View style={Events.mainContainer}>
+      <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
       <Text>6 of 8</Text>
-      <Text style={styles.primaryHeading}>Tell us more about your event</Text>
+      <Text style={Events.primaryHeading}>Tell us about your event</Text>
 
       <TextInput
-        style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
+        // style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
         onChangeText={(text) => onChangeDescription(text)}
         multiline={true}
+        style={Events.textInput}
         description={description}
       />
       <NextPreviousButtons
         onNext={onNext}
         onPrevious={onPrevious}
       />
-
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
-  progressBar: {
-    marginTop: 50,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 50,
-  },
-  centeredText: {
-    textAlign: 'center',
-    marginTop: 5,
-  },
-});

@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import NextPreviousButtons from './NextPreviousButtons';
-// import Events from '../assets/stylesheets/Events';
+import Events from '../../assets/stylesheets/Events';
 
 export default function EventDate({
   date, onChangeDate, onNext, onPrevious
@@ -18,13 +18,13 @@ export default function EventDate({
   }
 
   return (
-    <View>
-      <ProgressBar /*style={Events.progressBar}*/ progress={0.25} color={Colors.green500} />
-      <Text /*style={Events.centeredText}*/ >2 of 8</Text>
-      <Text /*style={Events.primaryHeading}*/ >When is your event?</Text>
+    <View style={Events.mainContainer}>
+      <ProgressBar style={Events.progressBar} progress={0.25} color={Colors.green500} />
+      <Text style={Events.centeredText} >2 of 8</Text>
+      <Text style={Events.primaryHeading} >When is your event?</Text>
       <TextInput
         defaultValue={date}
-        /*style={Events.textInput}*/
+        style={Events.textInput}
         onChangeText={(text) => onChangeDate(text)}
         date={date}
       />
