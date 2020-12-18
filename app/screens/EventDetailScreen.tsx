@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {
-  StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button, ScrollView
-} from 'react-native';
+import { Image, StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button, ScrollView } from 'react-native';
 import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
-import BottomNavBar from '../components/BottomNavBar';
 import Events from '../assets/stylesheets/Events';
 
 function EventDetailScreen(props) {
@@ -30,7 +27,7 @@ function EventDetailScreen(props) {
         {isLoading ? <ActivityIndicator /> : (
           <View>
             <View>
-              <Text style={Events.topTile}>Image</Text>
+              <ApiImage eventId={data.id}/>
               <Button
                 title="Attend"
                 mode="contained"
