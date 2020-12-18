@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  StyleSheet, Text, View, TextInput, Button,
+  Text, View, TextInput, Button,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import NextPreviousButtons from './NextPreviousButtons';
+// import Events from '../assets/stylesheets/Events';
 
 export default function EventDate({
   date, onChangeDate, onNext, onPrevious
@@ -18,12 +19,12 @@ export default function EventDate({
 
   return (
     <View>
-      <ProgressBar style={styles.progressBar} progress={0.25} color={Colors.green500} />
-      <Text style={styles.centeredText}>2 of 8</Text>
-      <Text style={styles.primaryHeading}>When is your event?</Text>
+      <ProgressBar /*style={Events.progressBar}*/ progress={0.25} color={Colors.green500} />
+      <Text /*style={Events.centeredText}*/ >2 of 8</Text>
+      <Text /*style={Events.primaryHeading}*/ >When is your event?</Text>
       <TextInput
         defaultValue={date}
-        style={styles.textInput}
+        /*style={Events.textInput}*/
         onChangeText={(text) => onChangeDate(text)}
         date={date}
       />
@@ -33,27 +34,4 @@ export default function EventDate({
       />
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  progressBar: {
-    marginTop: 50,
-  },
-  textInput: {
-    height: 40,
-    width: '100%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 50,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 50,
-  },
-  centeredText: {
-    textAlign: 'center',
-    marginTop: 5,
-  },
-});
+};
