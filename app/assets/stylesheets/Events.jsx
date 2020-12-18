@@ -76,7 +76,7 @@ export default {
     textAlign: 'center',
   },
   infoTile: {
-    width: '85',
+    width: '85%',
     height: 150,
     backgroundColor: 'rgb(84, 174, 51)',
     alignItems: 'center',
