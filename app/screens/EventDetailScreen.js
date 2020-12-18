@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button, Platform
+  StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button, ScrollView
 } from 'react-native';
 import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
@@ -26,40 +26,42 @@ function EventDetailScreen(props) {
   }, []);
   return (
     <SafeAreaView style={Events.container}>
-      {isLoading ? <ActivityIndicator /> : (
-        <View>
+        <ScrollView>
+        {isLoading ? <ActivityIndicator /> : (
           <View>
-            <Text style={Events.topTile}>Image</Text>
-            <Button
-              title="Attend"
-              mode="contained"
-            />
+            <View>
+              <Text style={Events.topTile}>Image</Text>
+              <Button
+                title="Attend"
+                mode="contained"
+              />
+            </View>
+            <View>
+              <Text style={Events.detailPrimaryHeading}>{data.title}</Text>
+              <Text style={Events.detailSecondaryHeading}>{data.eventType}</Text>
+            </View>
+            <View>
+              <Text style={Events.subheading}>Date:</Text>
+              <Text style={Events.paragraph}>{data.date}</Text>
+            </View>
+            <View>
+              <Text style={Events.subheading}>Facilities available:</Text>
+              <Text style={Events.paragraph}>{data.facilityType}</Text>
+            </View>
+            <View>
+              <Text style={Events.subheading}>Description:</Text>
+              <Text style={Events.paragraph}>{data.description}</Text>
+            </View>
+            <View>
+              <Text style={Events.subheading}>Images:</Text>
+            </View>
+            <View>
+              <Text style={Events.subheading}>Location:</Text>
+              <Text style={Events.infoTile}>{data.location}</Text>
+            </View>
           </View>
-          <View>
-            <Text style={Events.detailPrimaryHeading}>{data.title}</Text>
-            <Text style={Events.detailSecondaryHeading}>{data.eventType}</Text>
-          </View>
-          <View>
-            <Text style={Events.subheading}>Date:</Text>
-            <Text style={Events.paragraph}>{data.date}</Text>
-          </View>
-          <View>
-            <Text style={Events.subheading}>Facilities available:</Text>
-            <Text style={Events.paragraph}>{data.facilityType}</Text>
-          </View>
-          <View>
-            <Text style={Events.subheading}>Description:</Text>
-            <Text style={Events.paragraph}>{data.description}</Text>
-          </View>
-          <View>
-            <Text style={Events.subheading}>Images:</Text>
-          </View>
-          <View>
-            <Text style={Events.subheading}>Location:</Text>
-            <Text style={Events.infoTile}>{data.location}</Text>
-          </View>
-        </View>
-      )}
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 }

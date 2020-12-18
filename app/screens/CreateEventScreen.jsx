@@ -13,6 +13,7 @@ import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
+import { ScrollView } from 'react-native-gesture-handler';
 
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');
@@ -160,9 +161,9 @@ function CreateEventScreen({ navigation }) {
 
   return (
     <SafeAreaView style={Events.mainContainer}>
-      <View>
+      <ScrollView>
         {currentScreen()}
-      </View>
+      </ScrollView>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );

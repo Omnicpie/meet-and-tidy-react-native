@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, SafeAreaView, Button,
+  View, SafeAreaView, Button, ScrollView
 } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import FlagLocation from '../components/Flags/FlagLocation';
@@ -97,9 +97,11 @@ function CreateFlagScreen({ navigation }) {
 
   return (
     <SafeAreaView style={CreateFlag.mainContainer}>
-      <View>
-        {currentScreen()}
-      </View>
+      <ScrollView>
+        <View>
+          {currentScreen()}
+        </View>
+      </ScrollView>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );

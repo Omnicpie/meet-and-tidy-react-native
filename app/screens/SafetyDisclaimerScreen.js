@@ -6,14 +6,16 @@ import BottomNavBar from '../components/BottomNavBar';
 function SafetyDisclaimerScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={styles.primaryHeading}>Safety Disclaimer</Text>
-        <Text style={styles.paragraph}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </Text>
-      </View>
-      <View style={styles.buttonStyle}>
-        <Button
-          title="I Agree"/>
-      </View>
+      <ScrollView>
+        <View>
+          <Text style={styles.primaryHeading}>Safety Disclaimer</Text>
+          <Text style={styles.paragraph}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </Text>
+        </View>
+        <View style={styles.buttonStyle}>
+          <Button
+            title="I Agree"/>
+        </View>
+      </ScrollView>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );

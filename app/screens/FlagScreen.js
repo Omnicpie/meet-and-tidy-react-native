@@ -21,12 +21,14 @@ function FlagScreen(props) {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      {isLoading ? <ActivityIndicator /> : (
-        <View>
-          <Text style={styles.primaryHeading}>{data.title}</Text>
-          <Text style={styles.paragraph}>{data.description}</Text>
-        </View>
-      )}
+      <ScrollView>
+        {isLoading ? <ActivityIndicator /> : (
+          <View>
+            <Text style={styles.primaryHeading}>{data.title}</Text>
+            <Text style={styles.paragraph}>{data.description}</Text>
+          </View>
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 }
