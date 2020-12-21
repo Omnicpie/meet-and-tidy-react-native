@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, SafeAreaView, TextInput, Button, View, ScrollView } from 'react-native';
+import { Text, SafeAreaView, TextInput, StyleSheet, View, ScrollView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Flags from '../../assets/stylesheets/Flags';
+import MapView from 'react-native-maps';
 
 export default function FlagLocation({
   location, onChangeLocation, onNext,
@@ -25,7 +26,7 @@ export default function FlagLocation({
           onChangeText={(text) => onChangeLocation(text)}
           location={location}
         />
-        <View style={Flags.mapPreviewTile} />
+        <MapView />
       </ScrollView>
     </SafeAreaView>
   );
