@@ -17,21 +17,10 @@ export default {
     width: '80%',
     textAlign: 'center',
     borderColor: 'gray',
+    borderRadius: 6,
     borderWidth: 1,
     marginBottom: 50,
     marginLeft: 40,
-  },
-  buttonContianer: {
-    display: 'flex',
-    alignContent: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonElement: {
-    width: '48%',
-    marginRight: 5,
-    marginLeft: 5,
   },
   primaryHeading: {
     textAlign: 'center',
