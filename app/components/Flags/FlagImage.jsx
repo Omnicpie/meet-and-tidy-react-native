@@ -43,9 +43,9 @@ export default function FlagImage({
       <ScrollView>
         <ProgressBar style={Flags.progressBar} progress={0.6} color={Colors.green500} />
         <Text style={Flags.centeredText} >3 of 5</Text>
-        <Text style={Flags.primaryHeading}>Upload an event image</Text>
+        <Text style={Flags.primaryHeading}>Upload a flag image</Text>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
-        {/* {imageSelect && <Image source={{ uri: imageSelect }} style={Flags.imageSelected} />} */}
+        {imageSelect && <Image source={{ uri: imageSelect }} style={Flags.imageSelected} />}
       </ScrollView>
     </SafeAreaView>
   );
