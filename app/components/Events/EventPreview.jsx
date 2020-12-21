@@ -11,6 +11,8 @@ export default function EventPreview({
 } = props) {
   return (
     <SafeAreaView style={Events.mainContainer}>
+      <ProgressBar style={Events.progressBar} progress={1} color={Colors.green500} />
+      <Text>8 of 8</Text>
       <Text style={Events.previewHeading}>Preview event</Text>
       <Image source={{ uri: image }} style={Events.imageSelected} />
       <Text style={Events.primaryHeading}>{title}</Text>
@@ -31,8 +33,6 @@ export default function EventPreview({
         <Text style={Events.subheading}>Location</Text>
         <Text style={Events.mapPreviewTile}>{location}</Text>
       </View>
-      <ProgressBar style={Events.progressBar} progress={1} color={Colors.green500} />
-      <Text>8 of 8</Text>
     </SafeAreaView>
   );
 }
