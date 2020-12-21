@@ -28,6 +28,7 @@ export default {
   imageSelected: {
     width: '100%',
     height: 200,
+    margin: 0,
   },
   infoTile: {
     width: '85%',
@@ -85,7 +86,6 @@ export default {
   secondaryHeading: {
     textAlign: 'center',
     width: '100%',
-    paddingLeft: 15,
   },
   subheading: {
     textAlign: 'left',

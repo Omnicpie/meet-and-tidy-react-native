@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, SafeAreaView, Button } from 'react-native';
+import { Text, Image, SafeAreaView, Button } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import Flags from '../../assets/stylesheets/Flags';
