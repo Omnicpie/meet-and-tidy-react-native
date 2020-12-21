@@ -64,21 +64,41 @@ function CreateEventScreen({ navigation }) {
     switch (screen) {
       case 1:
         return (
-          <EventLocation
-            location={location}
-            onChangeLocation={onChangeLocation}
-            onNext={onNext}
-          />
+          <View>
+            <EventLocation
+              location={location}
+              onChangeLocation={onChangeLocation}
+              onNext={onNext}
+            />
+            <View style={Events.buttonContianer} marginBottom={75}>
+            <Button
+              onPress={onNext}
+              title="Next"
+            />
+          </View>
+      </View>
         );
       case 2:
         return (
-          <EventDate
-            StyleSheets={Events}
-            date={date}
-            onChangeDate={onChangeDate}
-            onNext={onNext}
-            onPrevious={onPrevious}
-          />
+          <View>
+            <EventDate
+              StyleSheets={Events}
+              date={date}
+              onChangeDate={onChangeDate}
+              onNext={onNext}
+              onPrevious={onPrevious}
+            />
+            <View style={Events.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
+          </View>
         );
       case 3:
         return (
@@ -89,6 +109,16 @@ function CreateEventScreen({ navigation }) {
               onNext={onNext}
               onPrevious={onPrevious}
             />
+            <View style={Events.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
         );
       case 4:
@@ -100,6 +130,16 @@ function CreateEventScreen({ navigation }) {
               onNext={onNext}
               onPrevious={onPrevious}
             />
+            <View style={Events.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
         );
       case 5:
@@ -111,6 +151,16 @@ function CreateEventScreen({ navigation }) {
               onNext={onNext}
               onPrevious={onPrevious}
             />
+            <View style={Events.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
         );
       case 6:
@@ -122,6 +172,16 @@ function CreateEventScreen({ navigation }) {
               onNext={onNext}
               onPrevious={onPrevious}
             />
+            <View style={Events.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
         );
       case 7:
@@ -132,8 +192,17 @@ function CreateEventScreen({ navigation }) {
               onChangeImage={onChangeImage}
               onNext={onNext}
               onPrevious={onPrevious}
-
             />
+            <View style={Events.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
         );
       case 8:
