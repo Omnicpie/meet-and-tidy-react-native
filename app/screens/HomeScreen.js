@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, SafeAreaView, Platform } from 'react-native';
+import { Button, SafeAreaView, Platform, TouchableOpacity, Text } from 'react-native';
 import PopularEventScroll from '../components/PopularEventScroll';
 import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
@@ -16,13 +16,9 @@ function HomeScreen({ navigation }) {
     headerStyle,
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
-        <Button
-          title="+ Create"
-          color="#54ae33"
-          mode="contained"
-          icon="plus"
-          onPress={() => navigation.navigate('CreateEvent')}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('CreateEvent')} style={Main.createButton}>
+          <Text style={Main.createButtonText}>+ Create</Text>
+        </TouchableOpacity>
         <Logo />
         <SearchBar />
 

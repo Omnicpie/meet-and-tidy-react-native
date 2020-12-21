@@ -1,6 +1,20 @@
 import { Platform, StatusBar } from 'react-native';
 
 export default {
+  createButton: {
+    marginTop: 25,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: '#54ae33',
+    width: 108,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  createButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
   mainContainer: {
     flex: 1,
     backgroundColor: '#fff',
