@@ -4,7 +4,7 @@ export default {
   mainContainer: {
     flex: 1,
     alignItems: 'stretch',
-    width: 300,
+    width: '100%',
     paddingHorizontal: 25,
     justifyContent: 'center',
     backgroundColor: '#fff',
@@ -19,8 +19,46 @@ export default {
   flagTypeContainer: {
     marginBottom: 50,
   },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginTop: 50,
+    marginBottom: 40,
+  },
+  secondaryHeading: {
+    textAlign: 'center',
+    width: '100%',
+    paddingLeft: 15,
+  },
+  previewHeading: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  subheading: {
+    textAlign: 'left',
+    width: '100%',
+    fontSize: 15,
+    fontWeight: "bold",
+    paddingTop: 10,
+    paddingLeft: 15,
+    marginBottom: 5,
+  },
+  centeredText: {
+    textAlign: 'center',
+    marginTop: 5,
+  },
+  paragraph: {
+    textAlign: 'left',
+    width: '100%',
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
   progressBar: {
     marginTop: 50,
+    width: 250,
+    textAlign: 'center',
   },
   textInput: {
     height: 40,
@@ -33,49 +71,14 @@ export default {
     marginLeft: 22,
   },
   descInput: {
-    height: 100,
+    height: 130,
     width: 300,
     padding: 10,
-    marginHorizontal: '15%',
-    marginBottom: '7%',
+    marginBottom: 30,
     textAlign: 'left',
     borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 6,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 40,
-  },
-  paragraph: {
-    textAlign: 'center',
-    width: '100%',
-  },
-  previewHeading: {
-    textAlign: 'center',
-    fontSize: 20,
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  centeredText: {
-    textAlign: 'center',
-    marginTop: 5,
-  },
-  paragraph: {
-    textAlign: 'left',
-    width: '100%',
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  subheading: {
-    textAlign: 'left',
-    width: '100%',
-    fontSize: 15,
-    fontWeight: "bold",
-    paddingTop: 20,
-    paddingLeft: 15,
   },
   mapPreviewTile: {
     width: '95%',
@@ -91,5 +94,19 @@ export default {
     marginRight: 5,
     marginLeft: 5,
     backgroundColor: '#54ae33',
+  },
+  infoTile: {
+    width: '85',
+    height: 150,
+    backgroundColor: '#54ae33',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  imageSelected: {
+    width: '100%',
+    height: 200,
   },
 };
