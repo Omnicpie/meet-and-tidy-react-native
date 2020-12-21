@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text, View, Button } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, Button, ScrollView } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
-
 
 function SafetyDisclaimerScreen({ navigation }) {
   return (

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Image, Button, Platform, SafeAreaView } from 'react-native';
+import { Text, Image, Button, Platform, SafeAreaView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
-import NextPreviousButtons from './NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
 import { ScrollView } from 'react-native-gesture-handler';
 

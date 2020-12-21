@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, StyleSheet, ActivityIndicator, SafeAreaView, Text, View, Button, ScrollView } from 'react-native';
+import { ActivityIndicator, SafeAreaView, Text, View, Button, ScrollView } from 'react-native';
 import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
 import Events from '../assets/stylesheets/Events';

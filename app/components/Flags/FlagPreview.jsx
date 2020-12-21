@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, SafeAreaView, View, Image} from 'react-native';
+import { Text, SafeAreaView, View, ScrollView} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Flags from '../../assets/stylesheets/Flags';
 

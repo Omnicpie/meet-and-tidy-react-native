@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
+import { Text, SafeAreaView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import FacilityTypeSelectButtons from './FacilityTypeSelectButtons';
-import NextPreviousButtons from './NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
 import { ScrollView } from 'react-native-gesture-handler';
 
