@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {
-  StyleSheet, ActivityIndicator, SafeAreaView, Text, View,
-} from 'react-native';
+import { ActivityIndicator, SafeAreaView, Text, View, ScrollView} from 'react-native';
 import Request from '../helpers/Request';
+import Flags from '../assets/stylesheets/Flags';
+
 
 function FlagScreen(props) {
   const flagId = props.route.params;
@@ -19,34 +19,17 @@ function FlagScreen(props) {
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         {isLoading ? <ActivityIndicator /> : (
           <View>
-            <Text style={styles.primaryHeading}>{data.title}</Text>
-            <Text style={styles.paragraph}>{data.description}</Text>
+            <Text style={Flags.primaryHeading}>{data.title}</Text>
+            <Text style={Flags.paragraph}>{data.description}</Text>
           </View>
         )}
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-export default FlagScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 20,
-  },
-  paragraph: {
-    textAlign: 'center',
-    width: '100%',
-  },
-});
