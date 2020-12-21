@@ -76,7 +76,7 @@ export default {
   topTile: {
     width: '100%',
     height: 150,
-    backgroundColor: 'rgb(84, 174, 51)',
+    backgroundColor: '#54ae33',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
@@ -84,7 +84,7 @@ export default {
   infoTile: {
     width: '85%',
     height: 150,
-    backgroundColor: 'rgb(84, 174, 51)',
+    backgroundColor: '#54ae33',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
@@ -93,7 +93,7 @@ export default {
   mapPreviewTile: {
     width: '95%',
     height: 175,
-    backgroundColor: 'rgb(84, 174, 51)',
+    backgroundColor: '#54ae33',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',

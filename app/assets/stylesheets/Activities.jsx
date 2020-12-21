@@ -31,14 +31,14 @@ export default {
   even: {
     padding: 10,
     marginVertical: 10,
-    backgroundColor: 'rgb(84, 174, 51)',
+    backgroundColor: '#54ae33',
     height: 110,
   },
   odd: {
     padding: 10,
     marginVertical: 10,
     borderWidth: 2,
-    borderColor: 'rgb(84, 174, 51)',
+    borderColor: '#54ae33',
     height: 110,
   },
 };

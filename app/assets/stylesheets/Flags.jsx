@@ -65,11 +65,16 @@ export default {
   mapPreviewTile: {
     width: '95%',
     height: 175,
-    backgroundColor: 'rgb(84, 174, 51)',
+    backgroundColor: '#54ae33',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
     marginVertical: 10,
     marginLeft: 8,
+  },
+  typeElement: {
+    marginRight: 5,
+    marginLeft: 5,
+    backgroundColor: '#54ae33',
   },
 };

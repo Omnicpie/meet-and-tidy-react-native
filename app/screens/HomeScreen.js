@@ -18,7 +18,7 @@ function HomeScreen({ navigation }) {
       <ScrollView>
         <Button
           title="+ Create"
-          color="rgb(84, 174, 51)"
+          color="#54ae33"
           mode="contained"
           icon="plus"
           onPress={() => navigation.navigate('CreateEvent')}

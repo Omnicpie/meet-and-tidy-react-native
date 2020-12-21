@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   infoTile: {
     width: '85',
     height: 150,
-    backgroundColor: 'rgb(84, 174, 51)',
+    backgroundColor: '#54ae33',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',

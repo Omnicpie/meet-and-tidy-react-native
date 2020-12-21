@@ -7,7 +7,7 @@ function CreateEventButton() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Button icon="plus" color= "rgb(84, 174, 51)" mode="contained" onPress={() => console.log('Pressed')}>
+      <Button icon="plus" color= "#54ae33" mode="contained" onPress={() => console.log('Pressed')}>
         Create
       </Button>
     </SafeAreaView>
