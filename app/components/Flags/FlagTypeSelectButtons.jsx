@@ -27,11 +27,7 @@ export default function FlagTypeSelectButtons({
       </View>
       <View style={Flags.buttonContianer}>
         <Button
-<<<<<<< Updated upstream
           style={Flags.typeElement}
-=======
-          backgroundColor={rgb(84, 174, 51)}
->>>>>>> Stashed changes
           onPress={onChangeFlagType('Street')}
           flagType="Street"
           title="Street"
