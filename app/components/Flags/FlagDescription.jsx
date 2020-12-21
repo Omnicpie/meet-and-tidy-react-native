@@ -10,8 +10,8 @@ export default function FlagDescription({
 } = props) {
   return (
     <SafeAreaView style={Flags.mainContainer}>
-      <ProgressBar style={Flags.progressBar} progress={0.8} color={Colors.green500} />
       <ScrollView>
+      <ProgressBar style={Flags.progressBar} progress={0.8} color={Colors.green500} />
         <Text style={Flags.centeredText}>4 of 5</Text>
         <Text style={Flags.primaryHeading}>Description</Text>
         <TextInput
