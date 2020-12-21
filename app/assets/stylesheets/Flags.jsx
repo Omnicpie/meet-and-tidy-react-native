@@ -96,7 +96,7 @@ export default {
     backgroundColor: '#54ae33',
   },
   infoTile: {
-    width: '85',
+    width: '85%',
     height: 150,
     backgroundColor: '#54ae33',
     alignItems: 'center',
