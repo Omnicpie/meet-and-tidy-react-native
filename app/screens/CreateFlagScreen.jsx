@@ -8,7 +8,7 @@ import FlagImage from '../components/Flags/FlagImage';
 import FlagPreview from '../components/Flags/FlagPreview';
 import Request from '../helpers/Request';
 import CreateFlag from '../assets/stylesheets/CreateFlag';
-
+import Flags from '../assets/stylesheets/Flags';
 
 function CreateFlagScreen({ navigation }) {
   const [description, onChangeDescription] = useState('');
@@ -33,15 +33,27 @@ function CreateFlagScreen({ navigation }) {
     setScreen(screen + 1);
   }
 
+  function onPrevious() {
+    setScreen(screen - 1);
+  }
+
   function currentScreen() {
     switch (screen) {
       case 1:
         return (
+          <View>
           <FlagLocation
             location={location}
             onChangeLocation={onChangeLocation}
             onNext={onNext}
           />
+          <View style={Flags.buttonContianer} marginBottom={75}>
+          <Button
+            onPress={onNext}
+            title="Next"
+          />
+          </View>
+        </View>
         );
       case 2:
         return (
@@ -51,6 +63,16 @@ function CreateFlagScreen({ navigation }) {
               onChangeFlagType={onChangeFlagType}
               onNext={onNext}
             />
+            <View style={Flags.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
         );
       case 3:
@@ -61,6 +83,16 @@ function CreateFlagScreen({ navigation }) {
               onChangeImage={onChangeImage}
               onNext={onNext}
             />
+            <View style={Flags.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
         );
       case 4:
@@ -71,6 +103,16 @@ function CreateFlagScreen({ navigation }) {
               onChangeDescription={onChangeDescription}
               onNext={onNext}
             />
+            <View style={Flags.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
         );
       case 5:
@@ -82,10 +124,17 @@ function CreateFlagScreen({ navigation }) {
               flagType={flagType}
               image={image}
             />
-            <Button
-              onPress={saveFlag}
-              title="Save"
-            />
+            <View style={Flags.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onPrevious}
+                title="Previous"
+              />
+              <Button
+                onPress={saveFlag}
+                title="Save"
+                marginBottom={100}
+              />
+            </View>
           </View>
         );
       default:
