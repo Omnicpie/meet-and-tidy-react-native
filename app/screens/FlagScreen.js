@@ -3,7 +3,6 @@ import { ActivityIndicator, SafeAreaView, Text, View, ScrollView} from 'react-na
 import Request from '../helpers/Request';
 import Flags from '../assets/stylesheets/Flags';
 
-
 function FlagScreen(props) {
   const flagId = props.route.params;
   const [isLoading, setLoading] = useState(true);
