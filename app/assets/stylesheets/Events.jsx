@@ -1,38 +1,20 @@
 import { Platform, StatusBar } from 'react-native';
 
 export default {
-  mainContainer: {
-    flex: 1,
-    alignItems: 'stretch',
-    width: '100%',
-    paddingHorizontal: 25,
+  buttonContianer: {
+    display: 'flex',
+    alignContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
   },
-  progressBar: {
-    marginTop: 50,
+  buttonElement: {
+    marginRight: 5,
+    marginLeft: 5,
   },
-  textInput: {
-    height: 40,
-    width: '80%',
+  centeredText: {
     textAlign: 'center',
-    borderColor: 'gray',
-    borderRadius: 6,
-    borderWidth: 1,
-    marginBottom: 50,
-    marginLeft: 40,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 50,
-  },
-  previewHeading: {
-    textAlign: 'center',
-    fontSize: 20,
-    marginTop: 15,
-    marginBottom: 15,
+    marginTop: 5,
   },
   detailPrimaryHeading: {
     textAlign: 'center',
@@ -44,32 +26,6 @@ export default {
     width: '100%',
     paddingLeft: 15,
   },
-  centeredText: {
-    textAlign: 'center',
-    marginTop: 5,
-  },
-  paragraph: {
-    textAlign: 'left',
-    width: '100%',
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  subheading: {
-    textAlign: 'left',
-    width: '100%',
-    fontSize: 15,
-    fontWeight: "bold",
-    paddingTop: 20,
-    paddingLeft: 15,
-  },
-  topTile: {
-    width: '100%',
-    height: 150,
-    backgroundColor: '#54ae33',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-  },
   infoTile: {
     width: '85%',
     height: 150,
@@ -78,6 +34,14 @@ export default {
     justifyContent: 'center',
     textAlign: 'center',
     marginLeft: 30,
+  },
+  mainContainer: {
+    flex: 1,
+    alignItems: 'stretch',
+    width: '100%',
+    paddingHorizontal: 25,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
   },
   mapPreviewTile: {
     width: '95%',
@@ -89,16 +53,51 @@ export default {
     marginTop: 10,
     marginLeft: 8,
   },
-  // next and previous
-  buttonContianer: {
-    display: 'flex',
-    alignContent: 'center',
-    flexDirection: 'row',
+  paragraph: {
+    textAlign: 'left',
+    width: '100%',
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  previewHeading: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginTop: 50,
+    marginBottom: 50,
+  },
+  progressBar: {
+    marginTop: 50,
+  },
+  subheading: {
+    textAlign: 'left',
+    width: '100%',
+    fontSize: 15,
+    fontWeight: "bold",
+    paddingTop: 20,
+    paddingLeft: 15,
+  },
+  textInput: {
+    height: 40,
+    width: '80%',
+    textAlign: 'center',
+    borderColor: 'gray',
+    borderRadius: 6,
+    borderWidth: 1,
+    marginBottom: 50,
+    marginLeft: 40,
+  },
+  topTile: {
+    width: '100%',
+    height: 150,
+    backgroundColor: '#54ae33',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  buttonElement: {
-    marginRight: 5,
-    marginLeft: 5,
+    textAlign: 'center',
   },
 };

@@ -1,14 +1,6 @@
 import { Platform, StatusBar } from 'react-native';
 
 export default {
-  mainContainer: {
-    flex: 1,
-    alignItems: 'stretch',
-    width: '100%',
-    paddingHorizontal: 25,
-    justifyContent: 'center',
-    backgroundColor: '#fff',
-  },
   buttonContianer: {
     display: 'flex',
     alignContent: 'center',
@@ -16,59 +8,9 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  flagTypeContainer: {
-    marginBottom: 50,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 40,
-  },
-  secondaryHeading: {
-    textAlign: 'center',
-    width: '100%',
-    paddingLeft: 15,
-  },
-  previewHeading: {
-    textAlign: 'center',
-    fontSize: 20,
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  subheading: {
-    textAlign: 'left',
-    width: '100%',
-    fontSize: 15,
-    fontWeight: "bold",
-    paddingTop: 10,
-    paddingLeft: 15,
-    marginBottom: 5,
-  },
   centeredText: {
     textAlign: 'center',
     marginTop: 5,
-  },
-  paragraph: {
-    textAlign: 'left',
-    width: '100%',
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  progressBar: {
-    marginTop: 50,
-    width: 250,
-    textAlign: 'center',
-  },
-  textInput: {
-    height: 40,
-    width: '80%',
-    textAlign: 'center',
-    borderColor: 'gray',
-    borderRadius: 6,
-    borderWidth: 1,
-    marginBottom: 50,
-    marginLeft: 20,
   },
   descInput: {
     height: 130,
@@ -80,21 +22,12 @@ export default {
     borderWidth: 1,
     borderRadius: 6,
   },
-  mapPreviewTile: {
-    width: '95%',
-    height: 175,
-    backgroundColor: '#54ae33',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    marginVertical: 10,
-    marginLeft: 8,
-    borderRadius: 6,
+  flagTypeContainer: {
+    marginBottom: 50,
   },
-  typeElement: {
-    marginRight: 5,
-    marginLeft: 5,
-    backgroundColor: '#54ae33',
+  imageSelected: {
+    width: '100%',
+    height: 200,
   },
   infoTile: {
     width: '85%',
@@ -107,9 +40,75 @@ export default {
     marginRight: 15,
     borderRadius: 6,
   },
-  imageSelected: {
+  mainContainer: {
+    flex: 1,
+    alignItems: 'stretch',
     width: '100%',
-    height: 200,
+    paddingHorizontal: 25,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
   },
-
+  mapPreviewTile: {
+    width: '95%',
+    height: 175,
+    backgroundColor: '#54ae33',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginVertical: 10,
+    marginLeft: 8,
+    borderRadius: 6,
+  },
+  paragraph: {
+    textAlign: 'left',
+    width: '100%',
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  previewHeading: {
+    textAlign: 'center',
+    fontSize: 20,
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginTop: 50,
+    marginBottom: 40,
+  },
+  progressBar: {
+    marginTop: 50,
+    width: 250,
+    textAlign: 'center',
+  },
+  secondaryHeading: {
+    textAlign: 'center',
+    width: '100%',
+    paddingLeft: 15,
+  },
+  subheading: {
+    textAlign: 'left',
+    width: '100%',
+    fontSize: 15,
+    fontWeight: "bold",
+    paddingTop: 10,
+    paddingLeft: 15,
+    marginBottom: 5,
+  },
+  textInput: {
+    height: 40,
+    width: '80%',
+    textAlign: 'center',
+    borderColor: 'gray',
+    borderRadius: 6,
+    borderWidth: 1,
+    marginBottom: 50,
+    marginLeft: 20,
+  },
+  typeElement: {
+    marginRight: 5,
+    marginLeft: 5,
+    backgroundColor: '#54ae33',
+  },
 };

@@ -9,10 +9,25 @@ export default {
     paddingVertical: 25,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   },
+  paragraph: {
+    textAlign: 'center',
+    width: '100%',
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
   primaryHeading: {
     textAlign: 'center',
     fontSize: 23,
     paddingTop: 10,
+  },
+  regButtonStyle: {
+    display: 'flex',
+    alignContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 50,
+    paddingBottom: 75,
   },
   regHeading: {
     textAlign: 'center',
@@ -27,20 +42,6 @@ export default {
     fontSize: 15,
     marginBottom: 5,
     marginTop: 10,
-  },
-  paragraph: {
-    textAlign: 'center',
-    width: '100%',
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  subheading: {
-    textAlign: 'center',
-    width: '100%',
-    fontSize: 15,
-    fontWeight: "bold",
-    paddingTop: 20,
-    paddingLeft: 15,
   },
   regSubheading: {
     textAlign: 'center',
@@ -57,13 +58,12 @@ export default {
     borderWidth: 1,
     width: '100%',
   },
-  regButtonStyle: {
-    display: 'flex',
-    alignContent: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 50,
-    paddingBottom: 75,
+  subheading: {
+    textAlign: 'center',
+    width: '100%',
+    fontSize: 15,
+    fontWeight: "bold",
+    paddingTop: 20,
+    paddingLeft: 15,
   },
 };

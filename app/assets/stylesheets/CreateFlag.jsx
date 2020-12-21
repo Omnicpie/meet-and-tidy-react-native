@@ -1,9 +1,19 @@
 export default {
+  centeredText: {
+    textAlign: 'center',
+    marginTop: 5,
+  },
   mainContainer: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     paddingBottom: 150,
+  },
+  primaryHeading: {
+    textAlign: 'center',
+    fontSize: 25,
+    marginTop: 50,
+    marginBottom: 50,
   },
   progressBar: {
     marginTop: 50,
@@ -14,15 +24,5 @@ export default {
     borderColor: 'gray',
     borderWidth: 1,
     marginBottom: 50,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 50,
-  },
-  centeredText: {
-    textAlign: 'center',
-    marginTop: 5,
   },
 };
