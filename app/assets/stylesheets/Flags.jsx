@@ -65,10 +65,10 @@ export default {
     width: '80%',
     textAlign: 'center',
     borderColor: 'gray',
-    borderWidth: 1,
     borderRadius: 6,
-    marginBottom: 25,
-    marginLeft: 22,
+    borderWidth: 1,
+    marginBottom: 50,
+    marginLeft: 20,
   },
   descInput: {
     height: 130,
@@ -89,6 +89,7 @@ export default {
     textAlign: 'center',
     marginVertical: 10,
     marginLeft: 8,
+    borderRadius: 6,
   },
   typeElement: {
     marginRight: 5,
@@ -104,9 +105,11 @@ export default {
     textAlign: 'center',
     marginLeft: 15,
     marginRight: 15,
+    borderRadius: 6,
   },
   imageSelected: {
     width: '100%',
     height: 200,
   },
+
 };
