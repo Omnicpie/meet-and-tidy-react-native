@@ -1,15 +1,8 @@
 import React from 'react';
-<<<<<<< Updated upstream
 import { ScrollView, Text, SafeAreaView, TextInput, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Flags from '../../assets/stylesheets/Flags';
-import NextPreviousFlagButtons from './NextPreviousFlagButtons';
 
-=======
-import { ScrollView, Text, SafeAreaView, TextInput, Button, View } from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
-import Flags from '../../assets/stylesheets/Flags';
->>>>>>> Stashed changes
 // import Request from './request';
 
 export default function FlagImage({
@@ -26,12 +19,6 @@ export default function FlagImage({
           onChangeText={(text) => onChangeImage(text)}
           image={image}
         />
-        <View style={Flags.buttonContianer}>
-          <NextPreviousFlagButtons
-            onNext={onNext}
-            onPrevious={onPrevious}
-          />
-        </View>
       </ScrollView>
     </SafeAreaView>
   );

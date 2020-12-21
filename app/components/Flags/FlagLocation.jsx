@@ -26,13 +26,6 @@ export default function FlagLocation({
           location={location}
         />
         <View style={Flags.mapPreviewTile} />
-        <View style={Flags.buttonContianer}>
-          <Button
-            style={Flags.nextButton}
-            onPress={validateInput}
-            title="Next"
-          />
-        </View>
       </ScrollView>
     </SafeAreaView>
   );
