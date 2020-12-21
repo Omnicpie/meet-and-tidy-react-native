@@ -9,7 +9,7 @@ export default function PopularEventScroll({ navigation }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-  new Request('GET', 'http://localhost:1337/events/').make()
+    new Request('GET', 'http://localhost:1337/events/').make()
       .then((response) => response.json())
       .then((json) => {
         setData(json);
@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 10,
     marginRight: 10,
-    backgroundColor: 'rgb(84, 174, 51)',
+    backgroundColor: '#54ae33',
   },
 });
