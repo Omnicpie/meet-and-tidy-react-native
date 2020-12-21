@@ -13,7 +13,7 @@ export default {
   primaryHeading: {
     textAlign: 'center',
     fontSize: 25,
-    marginTop: 50,
+    marginTop: 25,
     marginBottom: 20,
   },
   subheading: {
