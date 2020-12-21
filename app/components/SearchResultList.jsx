@@ -64,13 +64,13 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   paragraph: {
-    width: '85',
+    width: '85%',
     marginLeft: 15,
     marginRight: 15,
     paddingBottom: 5,
   },
   tile: {
-    width: '85',
+    width: '85%',
     height: 150,
     alignItems: 'center',
     justifyContent: 'center',
