@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, SafeAreaView, TextInput, StyleSheet, View, ScrollView } from 'react-native';
+import { Text, SafeAreaView, TextInput, ScrollView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Flags from '../../assets/stylesheets/Flags';
 import MapView from 'react-native-maps';
@@ -22,6 +22,7 @@ export default function FlagLocation({
         <Text style={Flags.centeredText}>1 of 5</Text>
         <Text style={Flags.primaryHeading}>Where is your flag?</Text>
         <TextInput
+          defaultValue={location}
           style={Flags.textInput}
           onChangeText={(text) => onChangeLocation(text)}
           location={location}

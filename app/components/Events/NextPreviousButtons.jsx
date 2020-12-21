@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  StyleSheet, View, Button,
-} from 'react-native';
+import { View, Button, SafeAreaView } from 'react-native';
 import Events from '../../assets/stylesheets/Events';
 
 export default function NextPreviousButtons({
   onNext, onPrevious
 } = props) {
   return (
-    <View>
+    <SafeAreaView>
       <View style={Events.buttonContianer}>
         <View style={Events.buttonElement}>
           <Button
@@ -23,6 +21,6 @@ export default function NextPreviousButtons({
           />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

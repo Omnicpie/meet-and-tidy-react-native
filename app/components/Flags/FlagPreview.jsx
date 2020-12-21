@@ -10,9 +10,11 @@ export default function FlagPreview({
 } = props) {
   return (
     <SafeAreaView style={Flags.flagContainer}>
-      <View>
+      <ScrollView>
+        <ProgressBar style={Flags.progressBar} progress={1} color={Colors.green500} />
+        <Text style={Flags.centeredText}>5 of 5</Text>
         <Text style={Flags.previewHeading}>Preview flag</Text>
-         {/* <Image>{image}</Image> */}
+        {/* <Image source={{ uri: image }} style={Events.imageSelected} /> */}
         <Text style={Flags.primaryHeading}>{title}</Text>
         <Text style={Flags.secondaryHeading}>{flagType}</Text>
         <View>
@@ -27,9 +29,7 @@ export default function FlagPreview({
           <Text style={Flags.subheading}>Location</Text>
           <Text style={Flags.infoTile}>{location}</Text>
         </View>
-      </View>
-      <ProgressBar style={Flags.progressBar} progress={1} color={Colors.green500} />
-      <Text style={Flags.centeredText}>5 of 5</Text>
+      </ScrollView>
     </SafeAreaView>
   );
 }
