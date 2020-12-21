@@ -4,7 +4,7 @@ export default {
   mainContainer: {
     flex: 1,
     alignItems: 'stretch',
-    width: '100%',
+    width: 300,
     paddingHorizontal: 25,
     justifyContent: 'center',
     backgroundColor: '#fff',
@@ -16,6 +16,9 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  flagTypeContainer: {
+    marginBottom: 50,
+  },
   progressBar: {
     marginTop: 50,
   },
@@ -25,14 +28,26 @@ export default {
     textAlign: 'center',
     borderColor: 'gray',
     borderWidth: 1,
-    marginBottom: 50,
+    borderRadius: 6,
+    marginBottom: 25,
     marginLeft: 22,
+  },
+  descInput: {
+    height: 100,
+    width: 300,
+    padding: 10,
+    marginHorizontal: '15%',
+    marginBottom: '7%',
+    textAlign: 'left',
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 6,
   },
   primaryHeading: {
     textAlign: 'center',
     fontSize: 25,
     marginTop: 50,
-    marginBottom: 50,
+    marginBottom: 40,
   },
   paragraph: {
     textAlign: 'center',
