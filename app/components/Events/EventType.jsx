@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  StyleSheet, Text, View, Button,
-} from 'react-native';
+import { Text, View, SafeAreaView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import EventTypeSelectButtons from './EventTypeSelectButtons';
-import NextPreviousButtons from './NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function EventType({
-  eventType, onChangeEventType, onNext, onPrevious,
+  eventType, onChangeEventType, onNext,
 } = props) {
   function validateInput() {
     if (eventType.length > 3 && typeof eventType === 'string') {
@@ -18,34 +16,16 @@ export default function EventType({
     }
   }
   return (
-    <View style={Events.mainContainer}>
-      <ProgressBar style={Events.progressBar} progress={0.375} color={Colors.green500} />
-      <Text>3 of 8</Text>
-      <Text style={Events.primaryHeading}>What type of event is it?</Text>
-      <EventTypeSelectButtons
-        eventType={eventType}
-        onChangeEventType={onChangeEventType}
-      />
-      <NextPreviousButtons
-        onNext={onNext}
-        onPrevious={onPrevious}
-      />
-    </View>
+    <SafeAreaView style={Events.mainContainer}>
+      <ScrollView>
+        <ProgressBar style={Events.progressBar} progress={0.375} color={Colors.green500} />
+        <Text>3 of 8</Text>
+        <Text style={Events.primaryHeading}>What type of event is it?</Text>
+        <EventTypeSelectButtons
+          eventType={eventType}
+          onChangeEventType={onChangeEventType}
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  progressBar: {
-    marginTop: 50,
-  },
-  centeredText: {
-    textAlign: 'center',
-    marginTop: 5,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 50,
-  },
-});

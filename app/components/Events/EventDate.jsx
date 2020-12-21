@@ -7,7 +7,7 @@ import NextPreviousButtons from './NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
 
 export default function EventDate({
-  date, onChangeDate, onNext, onPrevious
+  date, onChangeDate, onNext,
 } = props) {
   function validateInput() {
     if (date.length > 6 && typeof date === 'string') {
@@ -27,10 +27,6 @@ export default function EventDate({
         style={Events.textInput}
         onChangeText={(text) => onChangeDate(text)}
         date={date}
-      />
-      <NextPreviousButtons
-        onNext={onNext}
-        onPrevious={onPrevious}
       />
     </View>
   );

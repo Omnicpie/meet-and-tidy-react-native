@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
+import { Text, View, TextInput, SafeAreaView } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
 
@@ -15,24 +16,19 @@ export default function EventLocation({
   }
 
   return (
-    <View >
-      <ProgressBar style={Events.progressBar} progress={0.1} color={Colors.green500} />
-      <Text style={Events.centeredText}>1 of 8</Text>
-      <Text style={Events.primaryHeading}>Where is your event?</Text>
-      <TextInput
-        defaultValue={location}
-        style={Events.textInput}
-        onChangeText={(text) => onChangeLocation(text)}
-        location={location}
-      />
-      <View style={Events.infoTile}><Text>Map</Text></View>
-
-      <View style={Events.nextButton}>
-        <Button
-          onPress={validateInput}
-          title="Next"
+    <SafeAreaView>
+      <ScrollView>
+        <ProgressBar style={Events.progressBar} progress={0.1} color={Colors.green500} />
+        <Text style={Events.centeredText}>1 of 8</Text>
+        <Text style={Events.primaryHeading}>Where is your event?</Text>
+        <TextInput
+          defaultValue={location}
+          style={Events.textInput}
+          onChangeText={(text) => onChangeLocation(text)}
+          location={location}
         />
-      </View>
-    </View>
+        <View style={Events.infoTile}><Text>Map</Text></View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }

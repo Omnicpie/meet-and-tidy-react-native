@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {
-  StyleSheet, Text, View, Image, TextInput, Button, Platform,
-} from 'react-native';
+import { Text, View, Image, Button, Platform, SafeAreaView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import NextPreviousButtons from './NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function EventImage({
   image, onChangeImage, onNext, onPrevious,
@@ -39,43 +38,14 @@ export default function EventImage({
   };
   // TODO call onChangeImage and make it equal to imageSelect
   return (
-    <View style={Events.mainContainer}>
-      <ProgressBar style={styles.progressBar} progress={0.875} color={Colors.green500} />
-      <Text style={styles.centeredText}>7 of 8</Text>
-      <Text style={styles.primaryHeading}>Upload an event image</Text>
-      <Button title="Pick an image from camera roll" onPress={pickImage} />
-      {imageSelect && <Image source={{ uri: imageSelect }} style={styles.imageSelected} />}
-      <NextPreviousButtons
-        onNext={onNext}
-        onPrevious={onPrevious}
-      />
-    </View>
+    <SafeAreaView style={Events.mainContainer}>
+      <ScrollView>
+        <ProgressBar style={Events.progressBar} progress={0.875} color={Colors.green500} />
+        <Text style={Events.centeredText}>7 of 8</Text>
+        <Text style={Events.primaryHeading}>Upload an event image</Text>
+        <Button title="Pick an image from camera roll" onPress={pickImage} />
+        {imageSelect && <Image source={{ uri: imageSelect }} style={Events.imageSelected} />}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
-  progressBar: {
-    marginTop: 50,
-  },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 50,
-    marginBottom: 50,
-  },
-  centeredText: {
-    textAlign: 'center',
-    marginTop: 5,
-  },
-  imageSelected: {
-    width: '100%',
-    height: 200,
-  },
-});
