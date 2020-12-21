@@ -1,42 +1,32 @@
 import React from 'react';
-import {
-  StyleSheet, Text, SafeAreaView, TextInput, Button,
-} from 'react-native';
+import { ScrollView, Text, SafeAreaView, TextInput, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
+import Flags from '../../assets/stylesheets/Flags';
+import NextPreviousFlagButtons from './NextPreviousFlagButtons';
+
 // import Request from './request';
 
 export default function FlagImage({
-  image, onChangeImage, onNext,
+  image, onChangeImage, onNext, onPrevious,
 } = props) {
+
   return (
     <SafeAreaView>
-      <Text>Create a flag</Text>
-      <Text>Images</Text>
-
-      <TextInput
-        style={{ height: 100, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => onChangeImage(text)}
-        image={image}
-      />
-      <Button
-        onPress={onNext}
-        title="Next"
-      />
-      <ProgressBar style={styles.progressBar} progress={0.6} color={Colors.green500} />
-      <Text>3 of 5</Text>
+      <ScrollView>
+        <ProgressBar style={Flags.progressBar} progress={0.6} color={Colors.green500} />
+        <Text style={Flags.centeredText} >3 of 5</Text>
+        <Text style={Flags.primaryHeading} >Images</Text>
+        <TextInput
+          onChangeText={(text) => onChangeImage(text)}
+          image={image}
+        />
+        <View style={Flags.buttonContianer}>
+          <NextPreviousFlagButtons
+            onNext={onNext}
+            onPrevious={onPrevious}
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 25,
-  },
-  progressBar: {
-    marginTop: 50,
-  },
-});
