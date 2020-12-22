@@ -38,7 +38,7 @@ export default function SearchResultList({ navigation, props}) {
                 <Text style={styles.paragraph}>
                   {item.description}
                 </Text>
-                <Text style={styles.tile} onPress ={() => navigation.navigate('Event', item.id)} >
+                <Text style={styles.tile} onPress ={() => props.navigation.navigate('Event', item.id)} >
                   {item.image}
                 </Text>
               </View>

@@ -4,11 +4,12 @@ import BottomNavBar from '../components/BottomNavBar';
 import SearchResultList from '../components/SearchResultList';
 
 function EventSearchResultScreen(props) {
+  const searchQuery = props.route.params;
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View>
-          <Text style={styles.primaryHeading}>Search Results for _____</Text>
+          <Text style={styles.primaryHeading}>Search Results for {searchQuery}</Text>
           <SearchResultList props={props} />
         </View>
       </ScrollView>
