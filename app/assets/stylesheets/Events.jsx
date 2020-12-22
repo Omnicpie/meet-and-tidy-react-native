@@ -50,8 +50,6 @@ export default {
   mainContainer: {
     flex: 1,
     alignItems: 'stretch',
-    width: '100%',
-    paddingHorizontal: 25,
     justifyContent: 'center',
     backgroundColor: '#fff',
   },
@@ -90,7 +88,7 @@ export default {
     textAlign: 'left',
     width: '100%',
     fontSize: 15,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingTop: 20,
     paddingLeft: 15,
   },

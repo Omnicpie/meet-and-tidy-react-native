@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import {
   View, SafeAreaView, Button,
 } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+
 import BottomNavBar from '../components/BottomNavBar';
 import EventLocation from '../components/Events/EventLocation';
 import EventDate from '../components/Events/EventDate';
@@ -13,7 +15,6 @@ import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
-import { ScrollView } from 'react-native-gesture-handler';
 
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');
@@ -71,12 +72,12 @@ function CreateEventScreen({ navigation }) {
               onNext={onNext}
             />
             <View style={Events.buttonContianer} marginBottom={75}>
-            <Button
-              onPress={onNext}
-              title="Next"
-            />
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
-      </View>
         );
       case 2:
         return (
