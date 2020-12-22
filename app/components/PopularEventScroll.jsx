@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView, SafeAreaView,
+  StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView,
 } from 'react-native';
 import Request from '../helpers/Request';
 
@@ -28,7 +28,7 @@ export default function PopularEventScroll({ navigation }) {
           <FlatList
             data={data}
             horizontal
-            keyExtractor={({ id }, index) => id.toString()}
+            keyExtractor={({ id }) => id.toString()}
             renderItem={({ item }) => (
               <Text
                 onPress={() => navigation.navigate('Event', item.id)}
@@ -50,7 +50,7 @@ export default function PopularEventScroll({ navigation }) {
 const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
-    width: "95%",
+    width: '95%',
     backgroundColor: '#fff',
   },
   subHeading: {

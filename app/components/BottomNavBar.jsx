@@ -5,19 +5,22 @@ import { IconButton } from 'react-native-paper';
 function BottomNavBar({ navigation }) {
   return (
     <SafeAreaView style={styles.navContainer}>
-      <IconButton style={styles.icon}
+      <IconButton
+        style={styles.icon}
         icon="home"
         name="home"
         size={35}
         onPress={() => navigation.navigate('Home')}
       />
-      <IconButton style={styles.icon}
+      <IconButton
+        style={styles.icon}
         icon="flag-outline"
         name="flag"
         size={35}
         onPress={() => navigation.navigate('CreateFlag')}
       />
-      <IconButton style={styles.icon}
+      <IconButton
+        style={styles.icon}
         icon="account"
         name="activities"
         size={35}
@@ -34,15 +37,13 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 15,
+    justifyContent: 'space-evenly',
+    padding: 5,
     position: 'absolute',
     bottom: 0,
     backgroundColor: '#efefef',
   },
   icon: {
     backgroundColor: '#54AE33',
-    marginLeft: '7%',
-    marginRight: '7%',
   },
 });

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, SafeAreaView, Platform, TouchableOpacity, Text } from 'react-native';
+import {
+  Button, SafeAreaView, TouchableOpacity, Text,
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import PopularEventScroll from '../components/PopularEventScroll';
@@ -29,7 +31,7 @@ function HomeScreen({ navigation }) {
           onPress={() => navigation.navigate('EventSearchResult', { name: 'EventSearchResult' })}
         />
       </ScrollView>
-        <BottomNavBar navigation={navigation} />
+      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }
