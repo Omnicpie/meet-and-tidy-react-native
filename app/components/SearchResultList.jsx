@@ -8,10 +8,10 @@ export default function SearchResultList({ navigation, props}) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   // const searchQuery = props.route.params;
-  console.log(props)
+  const searchQuery = props.route.params;
 
   useEffect(() => {
-    new Request('GET', 'http://192.168.0.7:1337/event-search/bu').make()
+    new Request('GET', `http://192.168.1.139:1337/event-search/${searchQuery}`).make()
       .then((response) => response.json())
       .then((json) => {
         setData(json);
