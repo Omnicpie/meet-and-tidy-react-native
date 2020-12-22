@@ -3,10 +3,10 @@ import { Platform, StatusBar } from 'react-native';
 export default {
   createButton: {
     marginTop: 25,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     paddingVertical: 10,
     backgroundColor: '#54ae33',
-    width: 108,
+    width: 100,
     borderRadius: 8,
     alignItems: 'center',
   },

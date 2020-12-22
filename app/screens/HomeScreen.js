@@ -17,7 +17,7 @@ function HomeScreen({ navigation }) {
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
         <TouchableOpacity onPress={() => navigation.navigate('CreateEvent')} style={Main.createButton}>
-          <Text style={Main.createButtonText}>+ Create</Text>
+          <Text style={Main.createButtonText}>+ CREATE</Text>
         </TouchableOpacity>
         <Logo />
         <SearchBar />
