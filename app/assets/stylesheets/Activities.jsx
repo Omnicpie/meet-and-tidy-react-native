@@ -1,10 +1,7 @@
-import { Platform, StatusBar } from 'react-native';
-
 export default {
   Container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   even: {
     padding: 10,

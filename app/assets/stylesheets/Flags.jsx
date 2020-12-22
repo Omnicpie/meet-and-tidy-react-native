@@ -1,5 +1,3 @@
-import { Platform, StatusBar } from 'react-native';
-
 export default {
   buttonContianer: {
     display: 'flex',
