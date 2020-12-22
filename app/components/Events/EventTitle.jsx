@@ -11,7 +11,7 @@ export default function EventTitle({
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
-        <Text>4 of 8</Text>
+        <Text style={Events.centeredText}>4 of 8</Text>
         <Text style={Events.primaryHeading}>Name your event</Text>
         <TextInput
           style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}

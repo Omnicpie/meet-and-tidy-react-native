@@ -19,7 +19,7 @@ export default function EventType({
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.375} color={Colors.green500} />
-        <Text>3 of 8</Text>
+        <Text style={Events.centeredText}>3 of 8</Text>
         <Text style={Events.primaryHeading}>What type of event is it?</Text>
         <EventTypeSelectButtons
           eventType={eventType}
