@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Button, View } from 'react-native';
+import { SafeAreaView, Button, View, TouchableOpacity, Text } from 'react-native';
 import Flags from '../../assets/stylesheets/Flags';
 
 export default function FlagTypeSelectButtons({
@@ -9,45 +9,44 @@ export default function FlagTypeSelectButtons({
     // TODO this currently only selects the last one from the list
     <SafeAreaView style={Flags.flagTypeContainer}>
       <View style={Flags.buttonContianer}>
-        <Button
-          color="#54ae33"
-          onPress={onChangeFlagType(flagType)}
+        <TouchableOpacity
+          onPress={onChangeFlagType('Park')}
           flagType="Park"
-          title="Park"
-        />
-        <Button
-          color="#54ae33"
-          onPress={onChangeFlagType('Canal')}
+          style={Flags.flagTypeButton}>
+            <Text style={Flags.flagTypeButtonText}>Park</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+        onPress={onChangeFlagType('Canal')}
           flagType="Canal"
-          title="Canal"
-        />
-        <Button
-          color="#54ae33"
+          style={Flags.flagTypeButton}>
+            <Text style={Flags.flagTypeButtonText}>Canal</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={onChangeFlagType('Beach')}
           flagType="Beach"
-          title="Beach"
-        />
+          style={Flags.flagTypeButton}>
+            <Text style={Flags.flagTypeButtonText}>Beach</Text>
+        </TouchableOpacity>
       </View>
       <View style={Flags.buttonContianer}>
-        <Button
-          color="#54ae33"
-          style={Flags.typeElement}
+        <TouchableOpacity
           onPress={onChangeFlagType('Street')}
           flagType="Street"
-          title="Street"
-        />
-        <Button
-          color="#54ae33"
+          style={Flags.flagTypeButton}>
+            <Text style={Flags.flagTypeButtonText}>Street</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={onChangeFlagType('Woodland')}
           flagType="Woodland"
-          title="Woodland"
-        />
-        <Button
-          color="#54ae33"
+          style={Flags.flagTypeButton}>
+            <Text style={Flags.flagTypeButtonText}>Woodland</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={onChangeFlagType('Cemetery')}
           flagType="Cemetery"
-          title="Cemetery"
-        />
+          style={Flags.flagTypeButton}>
+            <Text style={Flags.flagTypeButtonText}>Cemetery</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

@@ -22,6 +22,18 @@ export default {
     borderWidth: 1,
     borderRadius: 6,
   },
+  flagTypeButton: {
+    margin: 5,
+    padding: 10,
+    backgroundColor: '#54ae33',
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  flagTypeButtonText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
   flagTypeContainer: {
     marginBottom: 50,
   },
