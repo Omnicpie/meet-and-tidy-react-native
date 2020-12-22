@@ -15,6 +15,7 @@ const SearchBar = () => {
       <Searchbar
         placeholder="Find an event..."
         onChangeText={onChangeSearch}
+        style={{backgroundColor: 'white', borderRadius: 23, width: 375}}
         value={searchQuery}
       />
     </View>
