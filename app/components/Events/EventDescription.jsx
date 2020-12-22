@@ -11,14 +11,18 @@ export default function EventDescription({
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
-        <Text>6 of 8</Text>
+        <Text style={Events.centeredText}>6 of 8</Text>
         <Text style={Events.primaryHeading}>Tell us about your event</Text>
         <TextInput
           onChangeText={(text) => onChangeDescription(text)}
           multiline={true}
-          style={Events.textInput}
+          style={Events.descInput}
           description={description}
         />
+        <View>
+          <Text style={Events.urlHeading}>Do you have a website? (optional)</Text>
+          <TextInput style={Events.textInput}/>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
