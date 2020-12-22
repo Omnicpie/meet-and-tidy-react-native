@@ -7,7 +7,7 @@ import Request from '../helpers/Request';
 export default function SearchResultList({ navigation, props}) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  // const searchQuery = props.route.params;
+
   const searchQuery = props.route.params;
 
   useEffect(() => {

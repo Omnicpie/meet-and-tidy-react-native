@@ -3,16 +3,16 @@ import { StyleSheet, SafeAreaView, Text, View, ScrollView } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import SearchResultList from '../components/SearchResultList';
 
-function EventSearchResultScreen({ navigation }) {
+function EventSearchResultScreen(props) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View>
           <Text style={styles.primaryHeading}>Search Results for _____</Text>
-          <SearchResultList navigation={navigation} />
+          <SearchResultList props={props} />
         </View>
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
+      <BottomNavBar navigation={props.navigation} />
     </SafeAreaView>
   );
 }

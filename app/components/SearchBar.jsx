@@ -11,7 +11,7 @@ const SearchBar = ({navigation}) => {
   };
 
   const onSubmitSearch = () => {
-    navigation.navigate('EventSearchResult', searchQuery)
+    navigation.navigate('EventSearchResult', searchQuery);
   };
 
   return (
