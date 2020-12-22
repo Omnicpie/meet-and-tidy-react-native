@@ -14,6 +14,17 @@ export default {
     textAlign: 'center',
     marginTop: 5,
   },
+  descInput: {
+    height: 130,
+    width: '80%',
+    padding: 10,
+    marginBottom: 30,
+    textAlign: 'center',
+    borderColor: 'gray',
+    borderRadius: 6,
+    borderWidth: 1,
+    marginLeft: 40,
+  },
   detailPrimaryHeading: {
     textAlign: 'center',
     fontSize: 23,
@@ -107,5 +118,13 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
+  },
+  urlHeading: {
+    textAlign: 'left',
+    width: '100%',
+    fontSize: 15,
+    fontWeight: 'bold',
+    paddingLeft: '10%',
+    paddingBottom: 10,
   },
 };
