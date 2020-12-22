@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    marginBottom: 15,
+    padding: 5,
     position: 'absolute',
     bottom: 0,
     backgroundColor: '#efefef',
