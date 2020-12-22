@@ -11,12 +11,10 @@ function EventDetailScreen(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    new Request('GET', `http://localhost:1337/events/${eventId}`).make()
+    new Request('GET', `http://192.168.1.139:1337/events/${eventId}`).make()
       .then((response) => response.json())
       .then((json) => {
         setData(json[0]);
-        console.log(json[0].image[0].fileName);
-        console.log(json);
       })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
@@ -27,7 +25,7 @@ function EventDetailScreen(props) {
         {isLoading ? <ActivityIndicator /> : (
           <View>
             <View>
-              <ApiImage eventId={data.id} />
+              <ApiImage eventId={data.id} eventImage={data.image} />
               <Button
                 title="Attend"
                 mode="contained"

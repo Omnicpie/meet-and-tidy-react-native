@@ -4,12 +4,12 @@ import {
 } from 'react-native';
 import Request from './Request';
 
-export default function EventImage({eventId} = props) {
+export default function EventImage({eventId, eventImage} = props) {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
+  const imageUrl = eventImage[0].fileName;
   useEffect(() => {
-    new Request('GET', 'http://localhost:1337/images/uploads/new_event_1_1605873222416.jpeg').make()
+    new Request('GET', `http://192.168.1.139:1337/images/uploads/${imageUrl}.jpeg`).make()
       .then((json) => {
         setData(json);
       })
@@ -24,7 +24,7 @@ export default function EventImage({eventId} = props) {
         <View>
           <View>
             <Image
-              style={styles.eventImage}
+              style={styles.image}
               source={{ uri: data.url }}
             />
           </View>
@@ -35,7 +35,7 @@ export default function EventImage({eventId} = props) {
 }
 
 const styles = StyleSheet.create({
-  eventImage: {
+  image: {
     height: 200,
     width: '100%',
   },
