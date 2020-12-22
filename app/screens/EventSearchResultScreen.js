@@ -9,7 +9,7 @@ function EventSearchResultScreen({ navigation }) {
       <ScrollView>
         <View>
           <Text style={styles.primaryHeading}>Search Results for _____</Text>
-          <SearchResultList/>
+          <SearchResultList navigation={navigation} />
         </View>
       </ScrollView>
       <BottomNavBar navigation={navigation} />

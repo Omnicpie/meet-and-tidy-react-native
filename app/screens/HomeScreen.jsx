@@ -3,7 +3,6 @@ import {
   Button, SafeAreaView, TouchableOpacity, Text,
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
 import PopularEventScroll from '../components/PopularEventScroll';
 import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
@@ -22,7 +21,7 @@ function HomeScreen({ navigation }) {
           <Text style={Main.createButtonText}>+ CREATE</Text>
         </TouchableOpacity>
         <Logo />
-        <SearchBar />
+        <SearchBar navigation={navigation} />
 
         <PopularEventScroll navigation={navigation} />
 

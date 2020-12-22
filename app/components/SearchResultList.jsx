@@ -4,12 +4,14 @@ import {
 } from 'react-native';
 import Request from '../helpers/Request';
 
-export default function SearchResultList({ navigation }) {
+export default function SearchResultList({ navigation, props}) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  // const searchQuery = props.route.params;
+  console.log(props)
 
   useEffect(() => {
-    new Request('GET', 'http://192.168.0.6:1337/events/').make()
+    new Request('GET', 'http://192.168.0.7:1337/event-search/bu').make()
       .then((response) => response.json())
       .then((json) => {
         setData(json);
@@ -51,7 +53,7 @@ export default function SearchResultList({ navigation }) {
 const styles = StyleSheet.create({
   resultsContainer: {
     flex: 1,
-    width: '100',
+    width: '100%',
     backgroundColor: '#fff',
   },
   subHeading: {
