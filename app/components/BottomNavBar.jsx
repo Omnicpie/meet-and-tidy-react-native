@@ -5,13 +5,15 @@ import { IconButton } from 'react-native-paper';
 function BottomNavBar({ navigation }) {
   return (
     <SafeAreaView style={styles.navContainer}>
-      <IconButton style={styles.icon}
+      <IconButton
+        style={styles.icon}
         icon="home"
         name="home"
         size={35}
         onPress={() => navigation.navigate('Home')}
       />
-      <IconButton style={styles.icon}
+      <IconButton
+        style={styles.icon}
         icon="flag-outline"
         name="flag"
         size={35}

@@ -23,11 +23,11 @@ function EventDetailScreen(props) {
   }, []);
   return (
     <SafeAreaView style={Events.container}>
-        <ScrollView>
+      <ScrollView>
         {isLoading ? <ActivityIndicator /> : (
           <View>
             <View>
-              <ApiImage eventId={data.id}/>
+              <ApiImage eventId={data.id} />
               <Button
                 title="Attend"
                 mode="contained"
