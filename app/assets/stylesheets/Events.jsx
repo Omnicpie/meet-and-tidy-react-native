@@ -26,6 +26,18 @@ export default {
     width: '100%',
     paddingLeft: 15,
   },
+  eventTypeButton: {
+    margin: 5,
+    padding: 10,
+    backgroundColor: '#54ae33',
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  eventTypeButtonText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
   infoTile: {
     width: '85%',
     height: 150,

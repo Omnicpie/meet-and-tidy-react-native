@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, SafeAreaView } from 'react-native';
+import { View, Button, SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import Events from '../../assets/stylesheets/Events'
 
 export default function EventTypeSelectButtons({
@@ -9,44 +9,44 @@ export default function EventTypeSelectButtons({
     // TODO this currently only selects the last one from the list
     <SafeAreaView style={Events.flagTypeContainer}>
       <View style={Events.buttonContianer}>
-        <Button
-          color="#54ae33"
-          onPress={onChangeEventType(eventType)}
+        <TouchableOpacity
+          onPress={onChangeEventType('Park')}
           eventType="Park"
-          title="Park"
-        />
-        <Button
-          color="#54ae33"
+          style={Events.eventTypeButton}>
+            <Text style={Events.eventTypeButtonText}>Park</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={onChangeEventType('Canal')}
           eventType="Canal"
-          title="Canal"
-        />
-        <Button
-          color="#54ae33"
+          style={Events.eventTypeButton}>
+            <Text style={Events.eventTypeButtonText}>Canal</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={onChangeEventType('Beach')}
           eventType="Beach"
-          title="Beach"
-        />
+          style={Events.eventTypeButton}>
+            <Text style={Events.eventTypeButtonText}>Beach</Text>
+        </TouchableOpacity>
       </View>
       <View style={Events.buttonContianer}>
-        <Button
-          color="#54ae33"
+        <TouchableOpacity
           onPress={onChangeEventType('Street')}
           eventType="Street"
-          title="Street"
-        />
-        <Button
-          color="#54ae33"
+          style={Events.eventTypeButton}>
+            <Text style={Events.eventTypeButtonText}>Street</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={onChangeEventType('Woodland')}
           eventType="Woodland"
-          title="Woodland"
-        />
-        <Button
-          color="#54ae33"
+          style={Events.eventTypeButton}>
+            <Text style={Events.eventTypeButtonText}>Woodland</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={onChangeEventType('Cemetery')}
           eventType="Cemetery"
-          title="Cemetery"
-        />
+          style={Events.eventTypeButton}>
+            <Text style={Events.eventTypeButtonText}>Cemetery</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

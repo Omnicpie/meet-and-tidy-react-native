@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, SafeAreaView } from 'react-native';
+import { View, Button, SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import Events from '../../assets/stylesheets/Events'
 
 export default function FacilityTypeSelectButtons({
@@ -9,54 +9,54 @@ export default function FacilityTypeSelectButtons({
   // TODO this currently only selects the last one from the list
     <SafeAreaView style={Events.flagTypeContainer}>
     <View style={Events.buttonContianer}>
-      <Button
-        color="#54ae33"
+      <TouchableOpacity
         onPress={onChangeFacilityType('Disabled Access')}
         facilityType="Disabled Access"
-        title="Disabled Access"
-      />
-      <Button
-        color="#54ae33"
+        style={Events.eventTypeButton}>
+          <Text style={Events.eventTypeButtonText}>Disabled Access</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={onChangeFacilityType('Child Friendly')}
         facilityType="Child Friendly"
-        title="Child Friendly"
-      />
+        style={Events.eventTypeButton}>
+          <Text style={Events.eventTypeButtonText}>Child Friendly</Text>
+      </TouchableOpacity>
     </View>
     <View style={Events.buttonContianer}>
-      <Button
-        color="#54ae33"
+      <TouchableOpacity
         onPress={onChangeFacilityType('Toilets Nearby')}
         facilityType="Toilets Nearby"
-        title="Toilets Nearby"
-      />
-      <Button
-        color="#54ae33"
+        style={Events.eventTypeButton}>
+          <Text style={Events.eventTypeButtonText}>Toilets Nearby</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={onChangeFacilityType('Parking Nearby')}
         facilityType="Parking Nearby"
-        title="Parking Nearby"
-      />
+        style={Events.eventTypeButton}>
+          <Text style={Events.eventTypeButtonText}>Parking Nearby</Text>
+      </TouchableOpacity>
     </View>
     <View style={Events.buttonContianer}>
-      <Button
-        color="#54ae33"
+      <TouchableOpacity
         onPress={onChangeFacilityType('First Aiders')}
         facilityType="First Aiders"
-        title="First Aiders"
-      />
-      <Button
-        color="#54ae33"
+        style={Events.eventTypeButton}>
+          <Text style={Events.eventTypeButtonText}>First Aiders</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={onChangeFacilityType('Transport Routes Nearby')}
         facilityType="Transport Routes Nearby"
-        title="Transport Routes Nearby"
-      />
+        style={Events.eventTypeButton}>
+          <Text style={Events.eventTypeButtonText}>Transport Routes Nearby</Text>
+      </TouchableOpacity>
     </View>
     <View style={Events.buttonContianer}>
-      <Button
-        color="#54ae33"
+      <TouchableOpacity
         onPress={onChangeFacilityType('Other')}
         facilityType="Other"
-        title="Other"
-      />
+        style={Events.eventTypeButton}>
+          <Text style={Events.eventTypeButtonText}>Other</Text>
+      </TouchableOpacity>
     </View>
   </SafeAreaView>
   );
