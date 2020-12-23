@@ -20,7 +20,7 @@ export default {
     width: 200,
     padding: 10,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
   },
   dateInputContainer: {
     width: '100%',
