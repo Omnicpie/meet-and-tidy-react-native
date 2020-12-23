@@ -115,6 +115,8 @@ function CreateEventScreen({ navigation }) {
               onChangeTitle={onChangeTitle}
               onNext={onNext}
               onPrevious={onPrevious}
+              location={location}
+              eventType={eventType}
             />
             <View style={Events.buttonContianer} marginBottom={75}>
               <Button

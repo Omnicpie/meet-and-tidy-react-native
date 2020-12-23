@@ -5,8 +5,12 @@ import Events from '../../assets/stylesheets/Events';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function EventTitle({
-  title, onChangeTitle, onNext,
+  title, onChangeTitle, onNext, eventType, location
 } = props) {
+  const suggestedTitle = `${location} ${eventType} Clean Up`;
+  const [value, onChangeValue] = React.useState(suggestedTitle);
+  onChangeTitle(value);
+
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
@@ -14,10 +18,15 @@ export default function EventTitle({
         <Text style={Events.centeredText}>4 of 8</Text>
         <Text style={Events.primaryHeading}>Name your event</Text>
         <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-          onChangeText={(text) => onChangeTitle(text)}
+          onChangeText={(text) => {
+            onChangeTitle(text);
+            onChangeValue(text);
+          }}
           style={Events.textInput}
+          value={value}
           title={title}
+          clearButtonMode
+          defaultValue="Something"
         />
       </ScrollView>
     </SafeAreaView>
