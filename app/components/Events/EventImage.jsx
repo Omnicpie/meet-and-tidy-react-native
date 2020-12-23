@@ -5,9 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Events from '../../assets/stylesheets/Events';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default function EventImage({
-  image, onChangeImage, onNext, onPrevious,
-} = props) {
+export default function EventImage({ onChangeImage, onChangeImagePreview} = props) {
   const [imageSelect, setImage] = useState(null);
 
   useEffect(() => {
@@ -21,22 +19,23 @@ export default function EventImage({
     })();
   }, []);
 
-  const pickImage = async (response) => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+  const pickImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: false,
       base64: true,
       aspect: [4, 3],
       quality: 1,
     });
-    //console.warn(result.base64);
     onChangeImage(result.base64);
+
 
     if (!result.cancelled) {
       setImage(result.uri);
     }
   };
-  // TODO call onChangeImage and make it equal to imageSelect
+  onChangeImagePreview(imageSelect);
+  console.warn(imageSelect);
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>

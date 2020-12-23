@@ -24,6 +24,7 @@ function CreateEventScreen({ navigation }) {
   const [eventType, onChangeEventType] = useState('');
   const [facilityType, onChangeFacilityType] = useState('');
   const [image, onChangeImage] = useState('');
+  const [imagePreview, onChangeImagePreview] = useState('');
 
   const [screen, setScreen] = useState(1);
 
@@ -178,6 +179,7 @@ function CreateEventScreen({ navigation }) {
             <EventImage
               image={image}
               onChangeImage={onChangeImage}
+              onChangeImagePreview={onChangeImagePreview}
               onNext={onNext}
               onPrevious={onPrevious}
             />
@@ -203,6 +205,7 @@ function CreateEventScreen({ navigation }) {
               location={location}
               eventType={eventType}
               image={image}
+              imagePreview={imagePreview}
               onPrevious={onPrevious}
             />
             <View style={Events.buttonContianer} marginBottom={75}>

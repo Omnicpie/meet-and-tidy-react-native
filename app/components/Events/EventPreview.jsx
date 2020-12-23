@@ -6,15 +6,16 @@ import Events from '../../assets/stylesheets/Events';
 // Preview event before saving
 
 export default function EventPreview({
-  location, title, description, eventType, image, date, facilityType,
+  location, title, description, eventType, image, imagePreview, date, facilityType,
 } = props) {
+  console.warn(imagePreview);
   return (
-    <SafeAreaView style={Events.mainContainer}>
+    <SafeAreaView>
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={1} color={Colors.green500} />
         <Text style={Events.centeredText}>8 of 8</Text>
         <Text style={Events.previewHeading}>Preview event</Text>
-        <Image source={{ uri: image }} style={Events.imageSelected} />
+        <Image source={{ uri: imagePreview }} style={Events.imageSelected} />
         <Text style={Events.primaryHeading}>{title}</Text>
         <Text style={Events.centeredText}>{eventType}</Text>
         <View>
