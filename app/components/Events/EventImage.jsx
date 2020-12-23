@@ -21,15 +21,16 @@ export default function EventImage({
     })();
   }, []);
 
-  const pickImage = async () => {
+  const pickImage = async (response) => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
+      allowsEditing: false,
+      base64: true,
       aspect: [4, 3],
       quality: 1,
     });
-
-    onChangeImage(result.uri);
+    //console.warn(result.base64);
+    onChangeImage(result.base64);
 
     if (!result.cancelled) {
       setImage(result.uri);

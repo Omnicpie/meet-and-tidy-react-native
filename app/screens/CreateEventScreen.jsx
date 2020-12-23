@@ -38,7 +38,7 @@ function CreateEventScreen({ navigation }) {
       image,
     };
     console.log("sending to api");
-    console.log(event);
+    console.warn(event);
     new Request('POST', 'http://192.168.1.139:1337/events/').make(event);
   }
 
