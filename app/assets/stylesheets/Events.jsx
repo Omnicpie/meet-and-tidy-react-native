@@ -1,4 +1,17 @@
 export default {
+  attendEventButton: {
+    fontSize: 15,
+    color: '54ae33',
+  },
+  attendEventButtonContainer: {
+    margin: 5,
+    padding: 10,
+    backgroundColor: '#fff',
+    borderColor: '#54ae33',
+    borderRadius: 8,
+    borderWidth: 2,
+    alignItems: 'center',
+  },
   buttonContianer: {
     display: 'flex',
     alignContent: 'center',
@@ -17,6 +30,7 @@ export default {
   dateInputButton: {
     borderWidth: 1,
     borderRadius: 10,
+    borderColor: 'gray',
     width: 200,
     padding: 10,
     textAlign: 'center',
