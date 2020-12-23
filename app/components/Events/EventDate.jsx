@@ -27,7 +27,10 @@ export default function EventDate({
   };
 
   const handleConfirm = (date) => {
-    setDatePickerText(date.toLocaleDateString('en-GB'));
+    const formattedDate = date.toLocaleDateString('en-GB');
+
+    setDatePickerText(formattedDate);
+    onChangeDate(formattedDate);
     hideDatePicker();
   };
 
@@ -45,25 +48,14 @@ export default function EventDate({
         <Pressable onPress={showDatePicker}>
           <Text style={Events.dateInputButton}>{datePickerText}</Text>
         </Pressable>
-
-        {/* <Button title="Show Date Picker" onPress={showDatePicker} style={Events.dateInputButton} /> */}
-        {/* <TextInput
-          defaultValue={date}
-          style={Events.textInput}
-          onFocus={showDatePicker}
-          onChangeText={(text) => onChangeDate(text)}
-          date={date}
-        /> */}
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="datetime"
           onConfirm={handleConfirm}
           onCancel={handleCancel}
           locale="en_GB"
-          onChange={ date => onChange.setState({ date }) }
         />
       </View>
-
     </View>
   );
 };
