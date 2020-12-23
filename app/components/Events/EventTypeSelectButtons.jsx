@@ -1,53 +1,50 @@
-import React from 'react';
-import { View, Button, SafeAreaView, Text, TouchableOpacity } from 'react-native';
-import Events from '../../assets/stylesheets/Events'
+import React, { useEffect, useState } from 'react';
+import {
+  ActivityIndicator, View, FlatList, SafeAreaView, Text, TouchableOpacity,
+} from 'react-native';
+import Events from '../../assets/stylesheets/Events';
+import Request from '../../helpers/Request';
 
 export default function EventTypeSelectButtons({
   eventType, onChangeEventType,
 } = props) {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    new Request('GET', 'http://192.168.1.139:1337/eventtype/').make()
+      .then((response) => response.json())
+      .then((json) => {
+        setData(json);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
-    // TODO this currently only selects the last one from the list
     <SafeAreaView style={Events.flagTypeContainer}>
-      <View style={Events.buttonContianer}>
-        <TouchableOpacity
-          onPress={onChangeEventType('Park')}
-          eventType="Park"
-          style={Events.eventTypeButton}>
-            <Text style={Events.eventTypeButtonText}>Park</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onChangeEventType('Canal')}
-          eventType="Canal"
-          style={Events.eventTypeButton}>
-            <Text style={Events.eventTypeButtonText}>Canal</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onChangeEventType('Beach')}
-          eventType="Beach"
-          style={Events.eventTypeButton}>
-            <Text style={Events.eventTypeButtonText}>Beach</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={Events.buttonContianer}>
-        <TouchableOpacity
-          onPress={onChangeEventType('Street')}
-          eventType="Street"
-          style={Events.eventTypeButton}>
-            <Text style={Events.eventTypeButtonText}>Street</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onChangeEventType('Woodland')}
-          eventType="Woodland"
-          style={Events.eventTypeButton}>
-            <Text style={Events.eventTypeButtonText}>Woodland</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onChangeEventType('Cemetery')}
-          eventType="Cemetery"
-          style={Events.eventTypeButton}>
-            <Text style={Events.eventTypeButtonText}>Cemetery</Text>
-        </TouchableOpacity>
-      </View>
+      {isLoading ? <ActivityIndicator /> : (
+        <View style={Events.buttonContianer}>
+          <FlatList
+            data={data}
+            horizontal
+            keyExtractor={({ id }) => id.toString()}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={onChangeEventType(item.title)}
+                eventType={item.title}
+                style={Events.eventTypeButton}
+              >
+                <Text style={Events.eventTypeButtonText}>
+                  {item.title}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      )}
     </SafeAreaView>
   );
 }
