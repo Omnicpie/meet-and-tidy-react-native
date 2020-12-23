@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TextInput, SafeAreaView } from 'react-native';
+import { Button, Text, View, TextInput, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
@@ -11,7 +11,7 @@ export default function EventLocation({
     if (location.length > 2) {
       onNext();
     } else {
-      alert(`Please enter a valid location, "${location}" needs to be at least 3 characters long.`);
+      alert(`Please enter a location name that is at least 3 characters long.`);
     }
   }
 
@@ -28,6 +28,12 @@ export default function EventLocation({
           location={location}
         />
         <View style={Events.infoTile}><Text>Map</Text></View>
+        <View style={Events.buttonContianer} marginBottom={75}>
+          <Button
+            onPress={validateInput}
+            title="Next"
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

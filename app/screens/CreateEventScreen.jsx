@@ -37,8 +37,9 @@ function CreateEventScreen({ navigation }) {
       facilityType,
       image,
     };
-
-    new Request('POST', 'http://localhost:1337/events/').make(event);
+    console.log("sending to api");
+    console.log(event);
+    new Request('POST', 'http://192.168.1.139:1337/events/').make(event);
   }
 
   function onNext() {
@@ -71,12 +72,6 @@ function CreateEventScreen({ navigation }) {
               onChangeLocation={onChangeLocation}
               onNext={onNext}
             />
-            <View style={Events.buttonContianer} marginBottom={75}>
-              <Button
-                onPress={onNext}
-                title="Next"
-              />
-            </View>
           </View>
         );
       case 2:
