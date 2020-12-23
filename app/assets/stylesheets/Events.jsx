@@ -69,6 +69,11 @@ export default {
     textAlign: 'center',
     marginLeft: 30,
   },
+  imageSelected: {
+    width: '100%',
+    height: 200,
+    margin: 0,
+  },
   mainContainer: {
     flex: 1,
     alignItems: 'stretch',
