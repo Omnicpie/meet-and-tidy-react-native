@@ -14,6 +14,19 @@ export default {
     textAlign: 'center',
     marginTop: 5,
   },
+  dateInputButton: {
+    borderWidth: 1,
+    borderRadius: 10,
+    width: 200,
+    padding: 10,
+    textAlign: 'center',
+    fontSize: 18,
+  },
+  dateInputContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 25,
+  },
   descInput: {
     height: 130,
     width: '80%',

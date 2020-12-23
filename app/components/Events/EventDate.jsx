@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { TextInput, Text, View, Button } from 'react-native';
+import { TextInput, Text, View, Button, Pressable, Keyboard  } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 export default function EventDate({
-  date, onChangeDate, onNext,
+  date, onChangeDate, onNext, onChange,
 } = props) {
   function validateInput() {
     if (date.length > 6 && typeof date === 'string') {
@@ -16,6 +16,7 @@ export default function EventDate({
   }
 
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [datePickerText, setDatePickerText] = useState('Select a date');
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -26,7 +27,12 @@ export default function EventDate({
   };
 
   const handleConfirm = (date) => {
-    console.warn("A date has been picked: ", date);
+    setDatePickerText(date.toLocaleDateString('en-GB'));
+    hideDatePicker();
+  };
+
+  const handleCancel = () => {
+    Keyboard.dismiss();
     hideDatePicker();
   };
 
@@ -35,22 +41,29 @@ export default function EventDate({
       <ProgressBar style={Events.progressBar} progress={0.25} color={Colors.green500} />
       <Text style={Events.centeredText} >2 of 8</Text>
       <Text style={Events.primaryHeading} >When is your event?</Text>
-      <View>
-        <Button title="Show Date Picker" onPress={showDatePicker} />
+      <View style={Events.dateInputContainer}>
+        <Pressable onPress={showDatePicker}>
+          <Text style={Events.dateInputButton}>{datePickerText}</Text>
+        </Pressable>
+
+        {/* <Button title="Show Date Picker" onPress={showDatePicker} style={Events.dateInputButton} /> */}
+        {/* <TextInput
+          defaultValue={date}
+          style={Events.textInput}
+          onFocus={showDatePicker}
+          onChangeText={(text) => onChangeDate(text)}
+          date={date}
+        /> */}
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="datetime"
           onConfirm={handleConfirm}
-          onCancel={hideDatePicker}
+          onCancel={handleCancel}
           locale="en_GB"
+          onChange={ date => onChange.setState({ date }) }
         />
       </View>
-      <TextInput
-        defaultValue={date}
-        style={Events.textInput}
-        onChangeText={(text) => onChangeDate(text)}
-        date={date}
-      />
+
     </View>
   );
 };
