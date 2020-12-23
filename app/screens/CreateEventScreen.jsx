@@ -81,19 +81,9 @@ function CreateEventScreen({ navigation }) {
               StyleSheets={Events}
               date={date}
               onChangeDate={onChangeDate}
-              onNext={onNext}
               onPrevious={onPrevious}
+              onNext={onNext}
             />
-            <View style={Events.buttonContianer} marginBottom={75}>
-              <Button
-                onPress={onPrevious}
-                title="Previous"
-              />
-              <Button
-                onPress={onNext}
-                title="Next"
-              />
-            </View>
           </View>
         );
       case 3:

@@ -5,18 +5,18 @@ import Events from '../../assets/stylesheets/Events';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 export default function EventDate({
-  date, onChangeDate, onNext, onChange,
+  date, onChangeDate, onNext, onPrevious, onChange,
 } = props) {
-  function validateInput() {
-    if (date.length > 6 && typeof date === 'string') {
-      onNext();
-    } else {
-      alert(`Please enter a valid date, "${date}" needs to be at least 5 characters long.`);
-    }
-  }
-
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [datePickerText, setDatePickerText] = useState('Select a date');
+
+  const validateInput = () => {
+    if (datePickerText !== 'Select a date') {
+      onNext();
+    } else {
+      alert(`Please enter a valid date.`);
+    }
+  };
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -54,6 +54,16 @@ export default function EventDate({
           onConfirm={handleConfirm}
           onCancel={handleCancel}
           locale="en_GB"
+        />
+      </View>
+      <View style={Events.buttonContianer} marginBottom={75}>
+        <Button
+          onPress={onPrevious}
+          title="Previous"
+        />
+        <Button
+          onPress={validateInput}
+          title="Next"
         />
       </View>
     </View>
