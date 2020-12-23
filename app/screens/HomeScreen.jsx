@@ -22,13 +22,7 @@ function HomeScreen({ navigation }) {
         </TouchableOpacity>
         <Logo />
         <SearchBar navigation={navigation} />
-
         <PopularEventScroll navigation={navigation} />
-
-        <Button
-          title="Go to Search results screen"
-          onPress={() => navigation.navigate('EventSearchResult', { name: 'EventSearchResult' })}
-        />
       </ScrollView>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
