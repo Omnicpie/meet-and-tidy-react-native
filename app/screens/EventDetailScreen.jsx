@@ -36,8 +36,7 @@ function EventDetailScreen(props) {
               <Text style={Events.detailSecondaryHeading}>{data.eventType}</Text>
             </View>
             <View>
-              <Text style={Events.subheading}>Date:</Text>
-              <Text style={Events.paragraph}>{data.date}</Text>
+              <Text style={Events.subheading}>Date: {data.startsOn}</Text>
             </View>
             <View>
               <Text style={Events.subheading}>Facilities available:</Text>
