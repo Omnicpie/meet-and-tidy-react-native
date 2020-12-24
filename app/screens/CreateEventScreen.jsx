@@ -21,6 +21,7 @@ function CreateEventScreen({ navigation }) {
   const [description, onChangeDescription] = useState('');
   const [location, onChangeLocation] = useState('');
   const [date, onChangeDate] = useState('');
+  const [time, onChangeTime] = useState('');
   const [eventType, onChangeEventType] = useState('');
   const [facilityType, onChangeFacilityType] = useState('');
   const [image, onChangeImage] = useState('');
@@ -34,13 +35,15 @@ function CreateEventScreen({ navigation }) {
       description,
       location,
       startsOn: date,
+      startsAt: time,
       eventType,
       facilityType,
       image,
     };
     console.log("sending to api");
-    console.warn(event);
-    new Request('POST', 'http://192.168.1.139:1337/events/').make(event);
+    console.log(event.startsAt);
+    console.log(time);
+    new Request('POST', 'http://192.168.0.7:1337/events/').make(event);
   }
 
   function onNext() {
@@ -80,8 +83,8 @@ function CreateEventScreen({ navigation }) {
           <View>
             <EventDate
               StyleSheets={Events}
-              date={date}
               onChangeDate={onChangeDate}
+              onChangeTime={onChangeTime}
               onPrevious={onPrevious}
               onNext={onNext}
             />
@@ -201,6 +204,7 @@ function CreateEventScreen({ navigation }) {
             <EventPreview
               title={title}
               date={date}
+              time={time}
               description={description}
               location={location}
               eventType={eventType}

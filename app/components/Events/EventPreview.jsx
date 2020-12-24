@@ -6,7 +6,7 @@ import Events from '../../assets/stylesheets/Events';
 // Preview event before saving
 
 export default function EventPreview({
-  location, title, description, eventType, image, imagePreview, date, facilityType,
+  location, title, description, eventType, time, imagePreview, date, facilityType,
 } = props) {
   console.warn(imagePreview);
   return (
@@ -20,7 +20,7 @@ export default function EventPreview({
         <Text style={Events.centeredText}>{eventType}</Text>
         <View>
           <Text style={Events.subheading}>Date</Text>
-          <Text style={Events.paragraph}>{date}</Text>
+          <Text style={Events.paragraph}>{date} {time}</Text>
         </View>
         <View>
           <Text style={Events.subheading}>Facilities</Text>

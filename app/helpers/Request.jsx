@@ -31,6 +31,7 @@ class Request {
       formData.append('description', body.description);
       formData.append('location', body.location);
       formData.append('startsOn', body.startsOn);
+      formData.append('startsAt', body.startsAt);
       formData.append('eventType', body.eventType);
 
       formData.append('image', selectedImage.uri);
