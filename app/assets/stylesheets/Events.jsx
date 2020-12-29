@@ -1,16 +1,19 @@
 export default {
   attendEventButton: {
-    fontSize: 15,
+    fontSize: 16,
     color: '#54ae33',
+    fontWeight: 'bold',
   },
   attendEventButtonContainer: {
-    margin: 5,
+    marginHorizontal: '33.33%',
+    marginVertical: 5,
     padding: 10,
     backgroundColor: '#fff',
     borderColor: '#54ae33',
     borderRadius: 8,
     borderWidth: 2,
     alignItems: 'center',
+    width: 150,
   },
   buttonContianer: {
     display: 'flex',
