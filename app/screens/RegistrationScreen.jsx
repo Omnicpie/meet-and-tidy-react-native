@@ -8,18 +8,14 @@ function RegistrationScreen({ navigation }) {
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
         <Text style={Main.regHeading}>Registration</Text>
-        <Text style={Main.regSubheading}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Text>
+        <Text stle={Main.regSubheading}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Text>
         <View>
           <Text style={Main.regSecondaryHeading}>Username</Text>
-          <TextInput
-            style={Main.regTextInput}
-          />
+          <TextInput style={Main.regTextInput} />
         </View>
         <View>
           <Text style={Main.regSecondaryHeading}>Email</Text>
-          <TextInput
-            style={Main.regTextInput}
-          />
+          <TextInput style={Main.regTextInput} />
         </View>
         <View style={Main.regButtonStyle}>
           <Button
