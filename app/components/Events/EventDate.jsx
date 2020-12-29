@@ -52,6 +52,7 @@ export default function EventDate({
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="datetime"
+          minimumDate={new Date()}
           onConfirm={handleConfirm}
           onCancel={handleCancel}
           locale="en_GB"
