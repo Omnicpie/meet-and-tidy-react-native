@@ -6,12 +6,10 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import Events from '../../assets/stylesheets/Events';
 
 export default function EventDate({
-  onChangeDate, onChangeTime, onNext, onPrevious,
+  onChangeDate, onNext, onPrevious,
 } = props) {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-  const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
   const [datePickerText, setDatePickerText] = useState('Select a date');
-  const [timePickerText, setTimePickerText] = useState('Select a time');
 
   const validateInput = () => {
     if (datePickerText !== 'Select a date') {
@@ -25,42 +23,21 @@ export default function EventDate({
     setDatePickerVisibility(true);
   };
 
-  const showTimePicker = () => {
-    setTimePickerVisibility(true);
-  };
-
   const hideDatePicker = () => {
     setDatePickerVisibility(false);
   };
 
-  const hideTimePicker = () => {
-    setTimePickerVisibility(false);
-  };
-
   const handleConfirm = (date) => {
-    const formattedDate = date.toLocaleDateString('en-GB');
+    const formattedDate = String(date);
 
     setDatePickerText(formattedDate);
     onChangeDate(formattedDate);
     hideDatePicker();
   };
 
-  const handleTimeConfirm = (time) => {
-    const formattedTime = time.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-
-    setTimePickerText(formattedTime);
-    onChangeTime(formattedTime);
-    hideTimePicker();
-  };
-
   const handleCancel = () => {
     Keyboard.dismiss();
     hideDatePicker();
-  };
-
-  const handleTimeCancel = () => {
-    Keyboard.dismiss();
-    hideTimePicker();
   };
 
   return (
@@ -74,21 +51,9 @@ export default function EventDate({
         </Pressable>
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
-          mode="date"
+          mode="datetime"
           onConfirm={handleConfirm}
           onCancel={handleCancel}
-          locale="en_GB"
-        />
-      </View>
-      <View style={Events.dateInputContainer}>
-        <Pressable onPress={showTimePicker}>
-          <Text style={Events.dateInputButton}>{timePickerText}</Text>
-        </Pressable>
-        <DateTimePickerModal
-          isVisible={isTimePickerVisible}
-          mode="time"
-          onConfirm={handleTimeConfirm}
-          onCancel={handleTimeCancel}
           locale="en_GB"
         />
       </View>
