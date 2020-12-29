@@ -1,7 +1,7 @@
 export default {
   attendEventButton: {
     fontSize: 15,
-    color: '54ae33',
+    color: '#54ae33',
   },
   attendEventButtonContainer: {
     margin: 5,
