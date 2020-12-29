@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Text, View, Button, Pressable, Keyboard  } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Button, Pressable, Keyboard } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+
 import Events from '../../assets/stylesheets/Events';
-import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 export default function EventDate({
   onChangeDate, onChangeTime, onNext, onPrevious,
@@ -16,7 +17,7 @@ export default function EventDate({
     if (datePickerText !== 'Select a date') {
       onNext();
     } else {
-      alert(`Please enter a valid date.`);
+      alert('Please enter a valid date.');
     }
   };
 
@@ -103,4 +104,4 @@ export default function EventDate({
       </View>
     </View>
   );
-};
+}
