@@ -26,7 +26,7 @@ function CreateFlagScreen({ navigation }) {
       image,
     };
 
-    new Request('POST', 'http://localhost:1337/flags/').make(flag);
+    new Request('POST', 'http://192.168.0.7:1337/flags/').make(flag);
   }
 
   function onNext() {
@@ -124,14 +124,21 @@ function CreateFlagScreen({ navigation }) {
               flagType={flagType}
               image={image}
             />
-            <View style={Flags.buttonContianer} marginBottom={75}>
+            <View style={Flags.buttonContianer} >
               <Button
                 onPress={onPrevious}
                 title="Previous"
               />
+            </View>
+            <View style={Flags.buttonContianer} marginBottom={75}>
               <Button
                 onPress={saveFlag}
-                title="Save"
+                title="Publish flag"
+                marginBottom={100}
+              />
+              <Button
+                // onPress={claimFlag}
+                title="Create Event"
                 marginBottom={100}
               />
             </View>
