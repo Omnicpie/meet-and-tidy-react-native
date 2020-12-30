@@ -11,7 +11,7 @@ function EventDetailScreen(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    new Request('GET', `http://192.168.0.7:1337/events/${eventId}`).make()
+    new Request('GET', `http://192.168.1.139:1337/events/${eventId}`).make()
       .then((response) => response.json())
       .then((json) => {
         setData(json[0]);
@@ -38,7 +38,7 @@ function EventDetailScreen(props) {
               <Text style={Events.detailSecondaryHeading}>{data.eventType}</Text>
             </View>
             <View>
-              <Text style={Events.subheading}>Date: {data.startsOn} {data.startsAt}</Text>
+              <Text style={Events.subheading}>Date: {data.startsOn}</Text>
             </View>
             <View>
               <Text style={Events.subheading}>Facilities available:</Text>
