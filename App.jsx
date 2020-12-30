@@ -25,27 +25,27 @@ export default function App() {
         <Stack.Screen
           name="Event"
           component={EventDetailScreen}
-          options={{ title: 'Event Screen' }}
+          options={{ title: 'Event' }}
         />
         <Stack.Screen
           name="CreateEvent"
           component={CreateEventScreen}
-          options={{ title: 'Create Event Screen' }}
+          options={{ title: 'New Event' }}
         />
         <Stack.Screen
           name="EventSearchResult"
           component={EventSearchResultScreen}
-          options={{ title: 'Event Search Result Screen' }}
+          options={{ title: 'Search Results' }}
         />
         <Stack.Screen
           name="SafetyDisclaimer"
           component={SafetyDisclaimerScreen}
-          options={{ title: 'Safety Disclaimer Screen' }}
+          options={{ title: 'Safety Disclaimer' }}
         />
         <Stack.Screen
           name="CreateFlag"
           component={CreateFlagScreen}
-          options={{ title: 'Flag Create Screen' }}
+          options={{ title: 'Flag Create' }}
         />
         <Stack.Screen
           name="Registration"
@@ -55,7 +55,7 @@ export default function App() {
         <Stack.Screen
           name="MyActivities"
           component={MyActivitiesScreen}
-          options={{ title: 'My Activities Screen' }}
+          options={{ title: 'My Activities' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
