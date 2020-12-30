@@ -18,7 +18,6 @@ export default {
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 25,
   },
   paragraph: {
     textAlign: 'center',
