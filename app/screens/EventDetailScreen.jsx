@@ -47,6 +47,8 @@ function EventDetailScreen(props) {
             <View>
               <Text style={Events.subheading}>Description:</Text>
               <Text style={Events.paragraph}>{data.description}</Text>
+              <Text style={Events.subheading}>Event URL:</Text>
+              <Text style={Events.paragraph}>{data.url}</Text>
             </View>
             <View>
               <Text style={Events.subheading}>Images:</Text>

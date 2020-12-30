@@ -5,7 +5,7 @@ import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
 
 export default function EventDescription({
-  description, onChangeDescription, onNext, onPrevious
+  description, url, onChangeDescription, onChangeUrl, onNext, onPrevious
 } = props) {
   return (
     <SafeAreaView style={Events.mainContainer}>
@@ -21,7 +21,10 @@ export default function EventDescription({
         />
         <View>
           <Text style={Events.urlHeading}>Do you have a website? (optional)</Text>
-          <TextInput style={Events.textInput}/>
+          <TextInput style={Events.textInput}
+            onChangeText={(url) => onChangeUrl(url)}
+            url={url}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

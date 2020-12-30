@@ -6,7 +6,7 @@ import Events from '../../assets/stylesheets/Events';
 // Preview event before saving
 
 export default function EventPreview({
-  location, title, description, eventType, imagePreview, date, facilityType,
+  location, title, description, url, eventType, imagePreview, date, facilityType,
 } = props) {
   console.warn(imagePreview);
   return (
@@ -29,6 +29,8 @@ export default function EventPreview({
         <View>
           <Text style={Events.subheading}>Description</Text>
           <Text style={Events.paragraph}>{description}</Text>
+          <Text style={Events.subheading}>Event URL</Text>
+          <Text style={Events.paragraph}>{url}</Text>
         </View>
         <View>
           <Text style={Events.subheading}>Location</Text>

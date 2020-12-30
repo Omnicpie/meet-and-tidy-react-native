@@ -19,6 +19,7 @@ import Events from '../assets/stylesheets/Events';
 function CreateEventScreen({ navigation }) {
   const [title, onChangeTitle] = useState('');
   const [description, onChangeDescription] = useState('');
+  const [url, onChangeUrl] = useState('');
   const [location, onChangeLocation] = useState('');
   const [date, onChangeDate] = useState('');
   const [time, onChangeTime] = useState('');
@@ -33,6 +34,7 @@ function CreateEventScreen({ navigation }) {
     const event = {
       title,
       description,
+      url,
       location,
       startsOn: date,
       startsAt: time,
@@ -161,6 +163,8 @@ function CreateEventScreen({ navigation }) {
             <EventDescription
               description={description}
               onChangeDescription={onChangeDescription}
+              url={url}
+              onChangeUrl={onChangeUrl}
               onNext={onNext}
               onPrevious={onPrevious}
             />
@@ -206,6 +210,7 @@ function CreateEventScreen({ navigation }) {
               date={date}
               time={time}
               description={description}
+              url={url}
               location={location}
               eventType={eventType}
               image={image}

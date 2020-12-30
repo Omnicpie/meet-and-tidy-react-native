@@ -29,6 +29,7 @@ class Request {
       formData.append('authToken', 'secret');
       formData.append('title', body.title);
       formData.append('description', body.description);
+      formData.append('url', body.url);
       formData.append('location', body.location);
       formData.append('startsOn', body.startsOn);
       formData.append('startsAt', body.startsAt);
