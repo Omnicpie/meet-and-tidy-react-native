@@ -1,6 +1,5 @@
 import React from 'react';
 import MapView from 'react-native-maps';
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { Button, Text, View, TextInput, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
