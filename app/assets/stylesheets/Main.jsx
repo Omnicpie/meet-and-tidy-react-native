@@ -1,3 +1,5 @@
+import { Platform, StatusBar } from 'react-native';
+
 export default {
   createButton: {
     marginTop: 25,
@@ -18,6 +20,7 @@ export default {
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   paragraph: {
     textAlign: 'center',

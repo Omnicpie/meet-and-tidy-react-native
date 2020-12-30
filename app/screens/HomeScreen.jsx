@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, SafeAreaView, TouchableOpacity, Text,
+  SafeAreaView, TouchableOpacity, Text, View,
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import PopularEventScroll from '../components/PopularEventScroll';
@@ -8,10 +8,6 @@ import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
 import BottomNavBar from '../components/BottomNavBar';
 import Main from '../assets/stylesheets/Main';
-
-//const headerStyle = {
-//  paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
-//};
 
 function HomeScreen({ navigation }) {
   return (
