@@ -22,7 +22,7 @@ export default function PopularEventScroll({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 5 }}>Popular events</Text>
+      <Text style={styles.title}>Popular events</Text>
       <View>
         {isLoading ? <ActivityIndicator /> : (
           <FlatList
@@ -32,14 +32,26 @@ export default function PopularEventScroll({ navigation }) {
             renderItem={({ item }) => (
               <View style={styles.tile}>
                 <ApiImage eventId={item.id} eventImage={item.image} />
-                <Text
-                  onPress={() => navigation.navigate('Event', item.id)}
-                >
-                  {item.title}
-                </Text>
-                <Text>
-                  {item.description}
-                </Text>
+                <View style={styles.tileLower}>
+                  <View style={styles.tileLeft}>
+                    <Text style={styles.month}>JAN</Text>
+                    <Text style={styles.date}>26</Text>
+                  </View>
+                  <View style={styles.tileRight}>
+                    <Text
+                      style={styles.eventTitle}
+                      onPress={() => navigation.navigate('Event', item.id)}
+                    >
+                      {item.title}
+                    </Text>
+                    <Text
+                      style={styles.eventDescription}
+                      numberOfLines={1}
+                    >
+                      {item.description}
+                    </Text>
+                  </View>
+                </View>
               </View>
             )}
           />
@@ -51,10 +63,30 @@ export default function PopularEventScroll({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: '95%',
+    flex: 1,
+    paddingHorizontal: 15,
     backgroundColor: '#fff',
     marginBottom: 100,
     height: 300,
+  },
+  date: {
+    fontSize: 20,
+    color: '#000',
+    textAlign: 'center',
+  },
+  month: {
+    fontSize: 16,
+    color: '#54ae33',
+    textAlign: 'center',
+
+  },
+  eventDescription: {
+    fontWeight: '500',
+    color: '#555',
+
+  },
+  eventTitle: {
+    fontSize: 20,
   },
   subHeading: {
     color: 'black',
@@ -64,7 +96,25 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   tile: {
-    width: 200,
-    paddingHorizontal: 10,
+    width: 250,
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: '#efefef',
+  },
+  tileLeft: {
+    width: '25%',
+  },
+  tileLower: {
+    paddingVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  tileRight: {
+    width: '70%',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
 });
