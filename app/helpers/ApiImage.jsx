@@ -9,7 +9,7 @@ export default function EventImage({eventId, eventImage} = props) {
   const [isLoading, setLoading] = useState(true);
   const imageUrl = eventImage[0].fileName;
   useEffect(() => {
-    new Request('GET', `http://192.168.1.139:1337/images/uploads/${imageUrl}.jpeg`).make()
+    new Request('GET', `http://192.168.0.7:1337/images/uploads/${imageUrl}.jpg`).make()
       .then((json) => {
         setData(json);
       })

@@ -40,10 +40,10 @@ export default function EventLocation({
               longitudeDelta: 9,
 
             }}
-            onRegionChange={(region) => {
-              console.warn(region);
-              onChangeLocation(region);
-            }}
+            // onRegionChange={(region) => {
+            //   console.warn(region);
+            //   onChangeLocation(region);
+            // }}
           />
         </View>
         <View style={Events.buttonContianer} marginBottom={75}>
