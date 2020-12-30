@@ -97,6 +97,16 @@ export default {
     justifyContent: 'center',
     backgroundColor: '#fff',
   },
+  map: {
+    width: '100%',
+    height: 200,
+  },
+  mapContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   mapPreviewTile: {
     width: '95%',
     height: 175,
