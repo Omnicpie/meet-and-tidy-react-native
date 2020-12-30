@@ -34,8 +34,8 @@ export default function PopularEventScroll({ navigation }) {
                 <ApiImage eventId={item.id} eventImage={item.image} />
                 <View style={styles.tileLower}>
                   <View style={styles.tileLeft}>
-                    <Text style={styles.month}>JAN</Text>
-                    <Text style={styles.date}>26</Text>
+                    <Text style={styles.month}>{item.startMonth}</Text>
+                    <Text style={styles.date}>{item.startDate}</Text>
                   </View>
                   <View style={styles.tileRight}>
                     <Text
