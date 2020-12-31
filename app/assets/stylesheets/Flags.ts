@@ -1,4 +1,6 @@
-export default {
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
   buttonContianer: {
     display: 'flex',
     alignContent: 'center',
@@ -121,4 +123,4 @@ export default {
     marginLeft: 5,
     backgroundColor: '#54ae33',
   },
-};
+});
