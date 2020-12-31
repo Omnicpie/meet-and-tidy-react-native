@@ -41,8 +41,6 @@ function CreateEventScreen({ navigation }): ReactElement {
       image,
     };
     console.log('sending to api');
-    console.log(event.startsAt);
-    console.log(time);
     new Request('POST', '/events/').make(event);
   }
 
@@ -155,7 +153,6 @@ function CreateEventScreen({ navigation }): ReactElement {
             <EventPreview
               title={title}
               date={date}
-              time={time}
               description={description}
               url={url}
               location={location}
