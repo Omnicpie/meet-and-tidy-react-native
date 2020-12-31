@@ -47,6 +47,8 @@ export default function EventDate({
     hideDatePicker();
   };
 
+  const pickerDate = date === '' ? new Date() : new Date(date);
+
   return (
     <View style={Events.mainContainer}>
       <ProgressBar style={Events.progressBar} progress={0.25} color={Colors.green500} />
@@ -57,7 +59,7 @@ export default function EventDate({
           <Text style={Events.dateInputButton}>{datePickerText}</Text>
         </Pressable>
         <DateTimePickerModal
-          date={new Date(date)}
+          date={pickerDate}
           isVisible={isDatePickerVisible}
           mode="datetime"
           minimumDate={new Date()}
