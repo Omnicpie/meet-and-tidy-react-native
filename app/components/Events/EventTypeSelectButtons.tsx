@@ -24,7 +24,7 @@ export default function EventTypeSelectButtons({
   }, []);
 
   return (
-    <SafeAreaView style={Events.flagTypeContainer}>
+    <SafeAreaView style={Events.mainContainer}>
       {isLoading ? <ActivityIndicator /> : (
         <View style={Events.buttonContainer}>
           <FlatList
@@ -34,10 +34,13 @@ export default function EventTypeSelectButtons({
             renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => onChangeEventType(item.title)}
-                eventType={item.title}
-                style={eventType === item.title ? Events.eventTypeButtonSelected : Events.eventTypeButton}
+                style={eventType === item.title
+                  ? Events.eventTypeButtonSelected : Events.eventTypeButton}
               >
-                <Text style={eventType === item.title ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}>
+                <Text
+                  style={eventType === item.title
+                    ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}
+                >
                   {item.title}
                 </Text>
               </TouchableOpacity>

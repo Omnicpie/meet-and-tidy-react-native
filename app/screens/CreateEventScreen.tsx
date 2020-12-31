@@ -122,16 +122,6 @@ function CreateEventScreen({ navigation }): ReactElement {
               onNext={onNext}
               onPrevious={onPrevious}
             />
-            <View style={Events.buttonContianer} marginBottom={75}>
-              <Button
-                onPress={onPrevious}
-                title="Previous"
-              />
-              <Button
-                onPress={onNext}
-                title="Next"
-              />
-            </View>
           </View>
         );
       case 6:
