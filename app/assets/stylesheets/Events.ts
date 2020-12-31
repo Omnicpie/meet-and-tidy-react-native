@@ -71,11 +71,27 @@ export default StyleSheet.create({
   eventTypeButton: {
     margin: 5,
     padding: 10,
-    backgroundColor: '#54ae33',
+    backgroundColor: '#fff',
+    borderColor: '#000',
     borderRadius: 8,
+    borderWidth: 2,
     alignItems: 'center',
   },
   eventTypeButtonText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  eventTypeButtonSelected: {
+    margin: 5,
+    padding: 10,
+    backgroundColor: '#54ae33',
+    borderColor: '#54ae33',
+    borderRadius: 8,
+    borderWidth: 2,
+    alignItems: 'center',
+  },
+  eventTypeButtonTextSelected: {
     fontSize: 15,
     fontWeight: 'bold',
     color: '#fff',

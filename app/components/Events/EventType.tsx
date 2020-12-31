@@ -1,13 +1,21 @@
-import React from 'react';
-import { Text, View, SafeAreaView } from 'react-native';
+import React, { ReactElement } from 'react';
+import { Text, SafeAreaView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
+import { ScrollView } from 'react-native-gesture-handler';
 import EventTypeSelectButtons from './EventTypeSelectButtons';
 import Events from '../../assets/stylesheets/Events';
-import { ScrollView } from 'react-native-gesture-handler';
+import NextPreviousButtons from './NextPreviousButtons';
+
+type EventTypeProps = {
+  eventType: string;
+  onChangeEventType: (eventType: string) => void;
+  onNext: () => void;
+  onPrevious: () => void;
+};
 
 export default function EventType({
-  eventType, onChangeEventType, onNext,
-} = props) {
+  eventType, onChangeEventType, onNext, onPrevious,
+}: EventTypeProps): ReactElement {
   function validateInput() {
     if (eventType.length > 3 && typeof eventType === 'string') {
       onNext();
@@ -25,6 +33,7 @@ export default function EventType({
           eventType={eventType}
           onChangeEventType={onChangeEventType}
         />
+        <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} />
       </ScrollView>
     </SafeAreaView>
   );

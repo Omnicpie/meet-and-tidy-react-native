@@ -12,7 +12,7 @@ export default function EventTypeSelectButtons({
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    new Request('GET', 'http://192.168.1.139:1337/eventtype/').make()
+    new Request('GET', '/eventtype/').make()
       .then((response) => response.json())
       .then((json) => {
         setData(json);
@@ -26,18 +26,18 @@ export default function EventTypeSelectButtons({
   return (
     <SafeAreaView style={Events.flagTypeContainer}>
       {isLoading ? <ActivityIndicator /> : (
-        <View style={Events.buttonContianer}>
+        <View style={Events.buttonContainer}>
           <FlatList
             data={data}
             horizontal
             keyExtractor={({ id }) => id.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={onChangeEventType(item.title)}
+                onPress={() => onChangeEventType(item.title)}
                 eventType={item.title}
-                style={Events.eventTypeButton}
+                style={eventType === item.title ? Events.eventTypeButtonSelected : Events.eventTypeButton}
               >
-                <Text style={Events.eventTypeButtonText}>
+                <Text style={eventType === item.title ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}>
                   {item.title}
                 </Text>
               </TouchableOpacity>
