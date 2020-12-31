@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
+import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
 
 const styles = StyleSheet.create({
   container: {
@@ -92,8 +93,8 @@ export default function PopularEventScroll({ navigation }): ReactElement {
                 <ApiImage eventId={item.id} eventImage={item.image} />
                 <View style={styles.tileLower}>
                   <View style={styles.tileLeft}>
-                    <Text style={styles.month}>{item.startMonth}</Text>
-                    <Text style={styles.date}>{item.startDate}</Text>
+                    <Text style={styles.date}>{dayOfMonth(item.startsOn)}</Text>
+                    <Text style={styles.month}>{shortMonthName(item.startsOn)}</Text>
                   </View>
                   <View style={styles.tileRight}>
                     <Text
