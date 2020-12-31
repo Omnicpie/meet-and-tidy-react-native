@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {
-  SafeAreaView, TouchableOpacity, Text, View,
+  SafeAreaView, TouchableOpacity, Text,
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import PopularEventScroll from '../components/PopularEventScroll';
@@ -9,7 +9,11 @@ import SearchBar from '../components/SearchBar';
 import BottomNavBar from '../components/BottomNavBar';
 import Main from '../assets/stylesheets/Main';
 
-function HomeScreen({ navigation }) {
+type HomeScreenProps = {
+  navigation: any;
+};
+
+function HomeScreen({ navigation }: HomeScreenProps): ReactElement {
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
