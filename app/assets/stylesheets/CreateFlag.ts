@@ -1,4 +1,6 @@
-export default {
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
   centeredText: {
     textAlign: 'center',
     marginTop: 5,
@@ -25,4 +27,4 @@ export default {
     borderWidth: 1,
     marginBottom: 50,
   },
-};
+});
