@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Text, View, Image, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
@@ -7,7 +7,7 @@ import Events from '../../assets/stylesheets/Events';
 
 export default function EventPreview({
   location, title, description, url, eventType, imagePreview, date, facilityType,
-} = props) {
+} = props): ReactElement {
   console.warn(imagePreview);
   return (
     <SafeAreaView>
