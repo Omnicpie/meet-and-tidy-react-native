@@ -157,6 +157,7 @@ function CreateEventScreen({ navigation }): ReactElement {
               url={url}
               location={location}
               eventType={eventType}
+              facilityType={facilityType}
               image={image}
               imagePreview={imagePreview}
               onPrevious={onPrevious}
