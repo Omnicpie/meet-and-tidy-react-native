@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Text, Image, Button, Platform, SafeAreaView } from 'react-native';
+import {
+  Text, Image, Button, Platform, SafeAreaView
+} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
-import Events from '../../assets/stylesheets/Events';
 import { ScrollView } from 'react-native-gesture-handler';
+import NextPreviousButtons from './NextPreviousButtons';
+import Events from '../../assets/stylesheets/Events';
 
-export default function EventImage({ onChangeImage, onChangeImagePreview} = props) {
+export default function EventImage({ onChangeImage, onChangeImagePreview, onNext, onPrevious } = props) {
   const [imageSelect, setImage] = useState(null);
 
   useEffect(() => {
@@ -29,12 +32,11 @@ export default function EventImage({ onChangeImage, onChangeImagePreview} = prop
     });
     onChangeImage(result.base64);
 
-
     if (!result.cancelled) {
       setImage(result.uri);
     }
   };
-  onChangeImagePreview(imageSelect);
+
   console.warn(imageSelect);
   return (
     <SafeAreaView style={Events.mainContainer}>
@@ -44,6 +46,7 @@ export default function EventImage({ onChangeImage, onChangeImagePreview} = prop
         <Text style={Events.primaryHeading}>Upload an event image</Text>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
         {imageSelect && <Image source={{ uri: imageSelect }} style={Events.imageSelected} />}
+        <NextPreviousButtons onPrevious={onPrevious} onNext={onNext} />
       </ScrollView>
     </SafeAreaView>
   );
