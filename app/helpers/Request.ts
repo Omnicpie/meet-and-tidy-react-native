@@ -10,14 +10,14 @@ class Request {
     this.path = path;
   }
 
-  async make(body = {}) {
+  async make(body = {}): Promise<unknown> {
     if (this.method === 'GET') {
       try {
         const url = this.apiBase + this.path;
         const response = await fetch(url);
-        const data = await response;
+        const data = response;
 
-        return await Promise.resolve(data);
+        return Promise.resolve(data);
       } catch (e) {
         console.log(`ERROR${e}`);
 
@@ -51,15 +51,16 @@ class Request {
           body: formData,
         });
 
-        const data = await response;
+        const data = response;
 
-        return await Promise.resolve(data);
+        return Promise.resolve(data);
       } catch (e) {
         console.log(`ERROR${e}`);
 
         return Promise.reject();
       }
     }
+    return Promise.reject();
   }
 }
 
