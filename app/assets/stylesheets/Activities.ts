@@ -1,8 +1,6 @@
-export default {
-  Container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
   even: {
     padding: 10,
     marginVertical: 10,
@@ -21,12 +19,6 @@ export default {
     width: '100%',
     fontSize: 18,
   },
-  primaryHeading: {
-    textAlign: 'center',
-    fontSize: 25,
-    marginTop: 25,
-    marginBottom: 20,
-  },
   scrollContainer: {
     backgroundColor: '#fff',
     marginHorizontal: 20,
@@ -35,7 +27,7 @@ export default {
     textAlign: 'left',
     width: '100%',
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingBottom: 15,
   },
-};
+});

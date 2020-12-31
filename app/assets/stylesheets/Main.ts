@@ -31,8 +31,9 @@ export default StyleSheet.create({
   },
   primaryHeading: {
     textAlign: 'center',
-    fontSize: 23,
-    paddingTop: 10,
+    fontSize: 25,
+    marginTop: 25,
+    marginBottom: 20,
   },
   regButtonStyle: {
     display: 'flex',
