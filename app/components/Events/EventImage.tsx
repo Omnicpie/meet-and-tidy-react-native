@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactElement } from 'react';
 import {
   Text, Image, Button, Platform, SafeAreaView
 } from 'react-native';
@@ -8,9 +8,9 @@ import { ScrollView } from 'react-native-gesture-handler';
 import NextPreviousButtons from './NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
 
-export default function EventImage({ onChangeImage, onChangeImagePreview, onNext, onPrevious } = props) {
-  const [imageSelect, setImage] = useState(null);
-
+export default function EventImage({
+  image, onChangeImage, onChangeImagePreview, onNext, onPrevious,
+} = props): ReactElement {
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -30,14 +30,12 @@ export default function EventImage({ onChangeImage, onChangeImagePreview, onNext
       aspect: [4, 3],
       quality: 1,
     });
-    onChangeImage(result.base64);
 
     if (!result.cancelled) {
-      setImage(result.uri);
+      onChangeImage(result.base64);
     }
   };
 
-  console.warn(imageSelect);
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
@@ -45,7 +43,7 @@ export default function EventImage({ onChangeImage, onChangeImagePreview, onNext
         <Text style={Events.centeredText}>7 of 8</Text>
         <Text style={Events.primaryHeading}>Upload an event image</Text>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
-        {imageSelect && <Image source={{ uri: imageSelect }} style={Events.imageSelected} />}
+        {image !== '' && <Image source={{ uri: `data:image/jpeg;base64,${image}` }} style={Events.imageSelected} />}
         <NextPreviousButtons onPrevious={onPrevious} onNext={onNext} />
       </ScrollView>
     </SafeAreaView>
