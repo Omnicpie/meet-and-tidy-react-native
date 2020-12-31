@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, SafeAreaView, Image, View } from 'react-native';
+import {
+  Text, SafeAreaView, Image, View,
+} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Flags from '../../assets/stylesheets/Flags';
 import { ScrollView } from 'react-native-gesture-handler';

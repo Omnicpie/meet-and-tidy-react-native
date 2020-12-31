@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Text, Image, SafeAreaView, Button } from 'react-native';
+import {
+  Platform, Text, Image, SafeAreaView, Button,
+} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
-import Flags from '../../assets/stylesheets/Flags';
 import { ScrollView } from 'react-native-gesture-handler';
+import Flags from '../../assets/stylesheets/Flags';
 
 // import Request from './request';
 

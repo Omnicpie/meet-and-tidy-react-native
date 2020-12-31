@@ -9,7 +9,7 @@ function FlagScreen(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    new Request('GET', `http://192.168.0.7:1337/flags/${flagId}`).make()
+    new Request('GET', `/flags/${flagId}`).make()
       .then((response) => response.json())
       .then((json) => {
         setData(json[0]);

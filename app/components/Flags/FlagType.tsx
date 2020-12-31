@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, SafeAreaView, ScrollView } from 'react-native';
+import {
+  View, Text, SafeAreaView, ScrollView,
+} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import FlagTypeSelectButtons from './FlagTypeSelectButtons';
 import Flags from '../../assets/stylesheets/Flags';
@@ -11,7 +13,7 @@ export default function FlagType({
     if (flagType.length > 3 && typeof flagType === 'string') {
       onNext();
     } else {
-      alert('Please select an flag type.');
+      alert('Please select a flag type.');
     }
   }
   return (

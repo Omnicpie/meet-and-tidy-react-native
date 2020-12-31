@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet, View, Button,
-} from 'react-native';
+import { View, Button } from 'react-native';
 import Flags from '../../assets/stylesheets/Flags';
 
 export default function NextPreviousButtons({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, SafeAreaView, TextInput, View } from 'react-native';
+import { Text, SafeAreaView, TextInput } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Flags from '../../assets/stylesheets/Flags';
@@ -17,7 +17,7 @@ export default function FlagDescription({
         <TextInput
           style={Flags.descInput}
           onChangeText={(text) => onChangeDescription(text)}
-          multiline={true}
+          multiline
           description={description}
         />
       </ScrollView>

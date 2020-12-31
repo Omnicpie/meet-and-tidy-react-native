@@ -4,7 +4,12 @@ import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
 import Events from '../assets/stylesheets/Events';
 
-function EventDetailScreen(props) {
+type EventDetailScreenProps = {
+  navigation: any;
+  route: any;
+}
+
+function EventDetailScreen(props : EventDetailScreenProps) {
   const eventId = props.route.params;
 
   const [isLoading, setLoading] = useState(true);
@@ -12,21 +17,21 @@ function EventDetailScreen(props) {
 
   const confirmRedirect = () => {
     Alert.alert(
-      "Meet and Tidy affiliate link",
-      "This link will take you to an affiliate / sponsored site. Doing so helps support Meet and Tidy!",
+      'Meet and Tidy affiliate link',
+      'This link will take you to an affiliate / sponsored site. Doing so helps support Meet and Tidy!',
       [
         {
-          text: "Cancel",
+          text: 'Cancel',
           onPress: () => {return;}
         },
-        { text: "OK", onPress: () =>  Linking.openURL(`https://${data.url}`)}
+        { text: 'OK', onPress: () => Linking.openURL(`https://${data.url}`) },
       ],
-      { cancelable: false }
+      { cancelable: false },
     );
-  }
+  };
 
   useEffect(() => {
-    new Request('GET', `http://192.168.0.7:1337/events/${eventId}`).make()
+    new Request('GET', `/events/${eventId}`).make()
       .then((response) => response.json())
       .then((json) => {
         setData(json[0]);
@@ -65,15 +70,11 @@ function EventDetailScreen(props) {
             </View>
             <View>
               <Text style={Events.subheading}>Event URL</Text>
-                <Pressable
-                  onPress={() =>
-                    confirmRedirect()
-                    }
-                  >
-                  <View>
-                    <Text style={Events.paragraph}>{data.url}</Text>
-                  </View>
-                </Pressable>
+              <Pressable onPress={() => confirmRedirect()}>
+                <View>
+                  <Text style={Events.paragraph}>{data.url}</Text>
+                </View>
+              </Pressable>
             </View>
             <View>
               <Text style={Events.subheading}>Location</Text>

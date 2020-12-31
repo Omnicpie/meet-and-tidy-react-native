@@ -26,7 +26,7 @@ function CreateFlagScreen({ navigation }) {
       image,
     };
 
-    new Request('POST', 'http://192.168.0.7:1337/flags/').make(flag);
+    new Request('POST', '/flags/').make(flag);
   }
 
   function onNext() {
@@ -42,18 +42,18 @@ function CreateFlagScreen({ navigation }) {
       case 1:
         return (
           <View>
-          <FlagLocation
-            location={location}
-            onChangeLocation={onChangeLocation}
-            onNext={onNext}
-          />
-          <View style={Flags.buttonContianer} marginBottom={75}>
-          <Button
-            onPress={onNext}
-            title="Next"
-          />
+            <FlagLocation
+              location={location}
+              onChangeLocation={onChangeLocation}
+              onNext={onNext}
+            />
+            <View style={Flags.buttonContianer} marginBottom={75}>
+              <Button
+                onPress={onNext}
+                title="Next"
+              />
+            </View>
           </View>
-        </View>
         );
       case 2:
         return (

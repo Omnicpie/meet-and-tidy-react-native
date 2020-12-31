@@ -16,7 +16,7 @@ export default function FlagTypeSelectButtons({
             <Text style={Flags.flagTypeButtonText}>Park</Text>
         </TouchableOpacity>
         <TouchableOpacity
-        onPress={onChangeFlagType('Canal')}
+          onPress={onChangeFlagType('Canal')}
           flagType="Canal"
           style={Flags.flagTypeButton}>
             <Text style={Flags.flagTypeButtonText}>Canal</Text>

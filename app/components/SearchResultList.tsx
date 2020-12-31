@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView, SafeAreaView,
+  StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView,
 } from 'react-native';
 import Request from '../helpers/Request';
 
-export default function SearchResultList({ navigation, props}) {
+export default function SearchResultList({ navigation, route }) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   const searchQuery = props.route.params;
 
   useEffect(() => {
-    new Request('GET', `http://192.168.1.139:1337/event-search/${searchQuery}`).make()
+    new Request('GET', `/event-search/${searchQuery}`).make()
       .then((response) => response.json())
       .then((json) => {
         setData(json);

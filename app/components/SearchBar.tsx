@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { StyleSheet, View } from 'react-native';
 
-const SearchBar = ({navigation}) => {
+type SearchBarProps = {
+  navigation: any;
+};
+
+const SearchBar = ({ navigation       }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const onChangeSearch = (query) => {
+  const onChangeSearch = (query: string) => {
     setSearchQuery(query);
     console.log(query);
   };
