@@ -1,9 +1,11 @@
 import React from 'react';
-import MapView from 'react-native-maps';
-import { Button, Text, View, TextInput, SafeAreaView } from 'react-native';
+import {
+  Button, Text, View, TextInput, SafeAreaView,
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
+import PossibleMapView from '../PossibleMapView';
 
 export default function EventLocation({
   location, onChangeLocation, onNext,
@@ -12,9 +14,16 @@ export default function EventLocation({
     if (location.length > 2) {
       onNext();
     } else {
-      alert(`Please enter a location name that is at least 3 characters long.`);
+      alert('Please enter a location name that is at least 3 characters long.');
     }
   }
+
+  const region = {
+    latitude: 54.3781,
+    longitude: -3,
+    latitudeDelta: 9,
+    longitudeDelta: 9,
+  };
 
   return (
     <SafeAreaView>
@@ -31,22 +40,9 @@ export default function EventLocation({
           clearButtonMode="while-editing"
         />
         <View style={Events.container}>
-          <MapView
-            style={Events.map}
-            region={{
-              latitude: 54.3781,
-              longitude: -3,
-              latitudeDelta: 9,
-              longitudeDelta: 9,
-
-            }}
-            // onRegionChange={(region) => {
-            //   console.warn(region);
-            //   onChangeLocation(region);
-            // }}
-          />
+          <PossibleMapView region={region}></PossibleMapView>
         </View>
-        <View style={Events.buttonContianer} marginBottom={75}>
+        <View style={Events.buttonContainer} marginBottom={75}>
           <Button
             onPress={validateInput}
             title="Next"
