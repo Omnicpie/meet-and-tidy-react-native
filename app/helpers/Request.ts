@@ -1,13 +1,20 @@
 class Request {
-  constructor(method, url) {
+  method: string;
+
+  path: string;
+
+  readonly apiBase = 'http://192.168.178.47:1337';
+
+  constructor(method: string, path: string) {
     this.method = method;
-    this.url = url;
+    this.path = path;
   }
 
   async make(body = {}) {
     if (this.method === 'GET') {
       try {
-        const response = await fetch(this.url);
+        const url = this.apiBase + this.path;
+        const response = await fetch(url);
         const data = await response;
 
         return await Promise.resolve(data);
@@ -37,7 +44,8 @@ class Request {
 
       formData.append('image', selectedImage.uri);
       try {
-        const response = await fetch(this.url, {
+        const url = this.apiBase + this.path;
+        const response = await fetch(url, {
           method: 'POST',
 
           body: formData,
