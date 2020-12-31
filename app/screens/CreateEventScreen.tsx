@@ -82,7 +82,6 @@ function CreateEventScreen({ navigation }): ReactElement {
         return (
           <View>
             <EventDate
-              StyleSheets={Events}
               date={date}
               onChangeDate={onChangeDate}
               onPrevious={onPrevious}
