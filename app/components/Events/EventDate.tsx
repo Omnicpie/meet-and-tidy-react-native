@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { Text, View, Button, Pressable, Keyboard } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 import Events from '../../assets/stylesheets/Events';
 
+type EventDateProps = {
+  date: string;
+  onChangeDate: (date: string) => void;
+  onNext: () => void;
+  onPrevious: () => void;
+};
+
 export default function EventDate({
-  onChangeDate, onNext, onPrevious,
-} = props) {
+  date, onChangeDate, onNext, onPrevious,
+}: EventDateProps): ReactElement {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-  const [datePickerText, setDatePickerText] = useState('Select a date');
+  const [datePickerText, setDatePickerText] = useState(date || 'Select a date');
 
   const validateInput = () => {
     if (datePickerText !== 'Select a date') {
@@ -27,8 +34,8 @@ export default function EventDate({
     setDatePickerVisibility(false);
   };
 
-  const handleConfirm = (date) => {
-    const formattedDate = String(date);
+  const handleConfirm = (newDate: Date): void => {
+    const formattedDate = String(newDate);
 
     setDatePickerText(formattedDate);
     onChangeDate(formattedDate);
@@ -50,6 +57,7 @@ export default function EventDate({
           <Text style={Events.dateInputButton}>{datePickerText}</Text>
         </Pressable>
         <DateTimePickerModal
+          date={new Date(date)}
           isVisible={isDatePickerVisible}
           mode="datetime"
           minimumDate={new Date()}
@@ -58,7 +66,7 @@ export default function EventDate({
           locale="en_GB"
         />
       </View>
-      <View style={Events.buttonContianer} marginBottom={75}>
+      <View style={Events.buttonContainer}>
         <Button
           onPress={onPrevious}
           title="Previous"
