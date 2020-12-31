@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {
-  StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView,
-} from 'react-native';
+import { StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView, SafeAreaView } from 'react-native';
 import Request from '../helpers/Request';
+import ApiImage from '../helpers/ApiImage';
+import Events from '../assets/stylesheets/Events';
 
 export default function SearchResultList({ navigation, route }) {
   const [isLoading, setLoading] = useState(true);
@@ -23,7 +23,6 @@ export default function SearchResultList({ navigation, route }) {
 
   return (
     <View style={styles.resultsContainer}>
-
       <ScrollView style={styles.resultList}>
         {isLoading ? <ActivityIndicator /> : (
           <FlatList
@@ -31,16 +30,12 @@ export default function SearchResultList({ navigation, route }) {
             verticle
             keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
-              <View >
-                <Text style={styles.subHeading}>
-                  {item.title}
-                </Text>
-                <Text style={styles.paragraph}>
-                  {item.description}
-                </Text>
-                <Text style={styles.tile} onPress ={() => props.navigation.navigate('Event', item.id)} >
-                  {item.image}
-                </Text>
+              <View style={styles.tile}>
+                <ApiImage eventId={data.id} eventImage={data.image} />
+                <View>
+                  <Text style={styles.subHeading}>{item.title}</Text>
+                  <Text style={Events.subHeading} numberOfLines={1}>{item.description}</Text>
+                </View>
               </View>
             )}
           />
@@ -56,29 +51,22 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#fff',
   },
-  subHeading: {
-    color: 'black',
-    fontSize: 20,
-    fontWeight: 'bold',
-    paddingBottom: 5,
-    paddingTop: 10,
-    marginLeft: 15,
-    marginRight: 15,
-  },
   paragraph: {
     width: '85%',
     marginLeft: 15,
     marginRight: 15,
     paddingBottom: 5,
   },
+  subHeading: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingBottom: 15,
+    paddingTop: 10,
+  },
   tile: {
-    width: '85%',
-    height: 150,
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    marginLeft: 15,
-    marginRight: 15,
-    backgroundColor: '#54AE33',
+    width: 250,
+    borderWidth: 1,
+    borderColor: '#efefef',
   },
 });
