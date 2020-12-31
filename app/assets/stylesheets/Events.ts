@@ -1,4 +1,6 @@
-export default {
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
   attendEventButton: {
     fontSize: 16,
     color: '#54ae33',
@@ -172,4 +174,4 @@ export default {
     paddingLeft: '10%',
     paddingBottom: 10,
   },
-};
+});
