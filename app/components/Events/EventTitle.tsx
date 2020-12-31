@@ -22,6 +22,8 @@ export default function EventTitle({
 
   function validateInput() {
     if (value.length > 3) {
+      // Handle case of user never changing the title.
+      onChangeTitle(value);
       onNext();
     } else {
       alert('Please enter a title for your event that is at least four letters long.');
