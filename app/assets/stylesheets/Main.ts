@@ -1,7 +1,8 @@
-import { Platform, StatusBar } from 'react-native';
+import { Platform, StatusBar, StyleSheet } from 'react-native';
 
-export default {
+export default StyleSheet.create({
   createButton: {
+    marginLeft: 15,
     marginTop: 25,
     paddingHorizontal: 10,
     paddingVertical: 10,
@@ -82,4 +83,4 @@ export default {
     paddingTop: 20,
     paddingLeft: 15,
   },
-};
+});
