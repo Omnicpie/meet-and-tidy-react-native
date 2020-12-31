@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import {
   View, SafeAreaView, Button,
 } from 'react-native';
@@ -16,13 +16,12 @@ import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
 
-function CreateEventScreen({ navigation }) {
+function CreateEventScreen({ navigation }): ReactElement {
   const [title, onChangeTitle] = useState('');
   const [description, onChangeDescription] = useState('');
   const [url, onChangeUrl] = useState('');
   const [location, onChangeLocation] = useState('');
   const [date, onChangeDate] = useState('');
-  const [time, onChangeTime] = useState('');
   const [eventType, onChangeEventType] = useState('');
   const [facilityType, onChangeFacilityType] = useState('');
   const [image, onChangeImage] = useState('');
@@ -37,15 +36,14 @@ function CreateEventScreen({ navigation }) {
       url,
       location,
       startsOn: date,
-      startsAt: time,
       eventType,
       facilityType,
       image,
     };
-    console.log("sending to api");
+    console.log('sending to api');
     console.log(event.startsAt);
     console.log(time);
-    new Request('POST', 'http://192.168.0.7:1337/events/').make(event);
+    new Request('POST', '/events/').make(event);
   }
 
   function onNext() {
@@ -85,8 +83,8 @@ function CreateEventScreen({ navigation }) {
           <View>
             <EventDate
               StyleSheets={Events}
+              date={date}
               onChangeDate={onChangeDate}
-              onChangeTime={onChangeTime}
               onPrevious={onPrevious}
               onNext={onNext}
             />

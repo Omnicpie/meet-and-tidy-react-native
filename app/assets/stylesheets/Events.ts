@@ -17,12 +17,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     width: 150,
   },
-  buttonContianer: {
+  buttonContainer: {
     display: 'flex',
     alignContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 75,
   },
   buttonElement: {
     marginRight: 5,
