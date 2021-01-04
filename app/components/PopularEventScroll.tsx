@@ -31,7 +31,7 @@ export default function PopularEventScroll({ navigation }): ReactElement {
             keyExtractor={({ id }) => id.toString()}
             renderItem={({ item }) => (
               <View style={Main.popularEventsTile}>
-                <ApiImage eventId={item.id} eventImage={item.image} />
+                <ApiImage eventId={item.id} eventImage={item.images} />
                 <View style={Main.popularEventsTileLower}>
                   <View style={Main.popularEventsTileLeft}>
                     <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>

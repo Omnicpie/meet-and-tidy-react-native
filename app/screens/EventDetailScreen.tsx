@@ -46,7 +46,7 @@ function EventDetailScreen(props : EventDetailScreenProps) {
         {isLoading ? <ActivityIndicator /> : (
           <View>
             <View>
-              <ApiImage eventId={data.id} eventImage={data.image} />
+              <ApiImage eventId={data.id} eventImage={data.images} />
               <View style={Events.attendEventButtonContainer}>
                 <Pressable onPress={() => props.navigation.navigate('Registration')}>
                   <Text style={Events.attendEventButton}>Attend</Text>
