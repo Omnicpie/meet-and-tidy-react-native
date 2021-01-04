@@ -46,11 +46,11 @@ export default function EventTypeSelectButtons({
             renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => updateSelected(item)}
-                style={eventType === item.title
+                style={isSelected(item.id)
                   ? Events.eventTypeButtonSelected : Events.eventTypeButton}
               >
                 <Text
-                  style={eventType === item.title
+                  style={isSelected(item.id)
                     ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}
                 >
                   {item.title}
