@@ -16,7 +16,11 @@ import EventPreview from '../components/Events/EventPreview';
 import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
 
-function CreateEventScreen({ navigation }): ReactElement {
+type CreateEventScreenProps = {
+  navigation: any;
+};
+
+function CreateEventScreen({ navigation }: CreateEventScreenProps): ReactElement {
   const [title, onChangeTitle] = useState('');
   const [description, onChangeDescription] = useState('');
   const [url, onChangeUrl] = useState('');
