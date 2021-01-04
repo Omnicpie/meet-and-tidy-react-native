@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import {
-  StyleSheet, SafeAreaView, Text, View, ScrollView,
+  StyleSheet, SafeAreaView, Text, View,
 } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import SearchResultList from '../components/SearchResultList';
