@@ -57,20 +57,21 @@ const styles = StyleSheet.create({
 
 type SearchResultListProps = {
   navigation: any;
+  route: any;
 };
 
-export default function SearchResultList({ navigation }: SearchResultListProps): ReactElement {
+export default function SearchResultList({ navigation, route }: SearchResultListProps): ReactElement {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
-  const searchQuery = props.route.params;
+  const searchQuery = route.params;
 
   useEffect(() => {
     new Request('GET', `/event-search/${searchQuery}`).make()
       .then((response) => response.json())
       .then((json) => {
         setData(json);
-        console.log(json);
+        console.warn(json);
       })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
@@ -82,10 +83,9 @@ export default function SearchResultList({ navigation }: SearchResultListProps):
         {isLoading ? <ActivityIndicator /> : (
           <FlatList
             data={data}
-            vertical
             keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
-              <View onPress ={() => props.navigation.navigate('Event', item.id)}>
+              <View onPress ={() => navigation.navigate('Event', item.id)}>
                 <ApiImage eventId={item.id} eventImage={item.image} />
                 <View style={styles.tileLower}>
                   <View style={styles.tileLeft}>
@@ -93,10 +93,7 @@ export default function SearchResultList({ navigation }: SearchResultListProps):
                     <Text style={styles.month}>{shortMonthName(item.startsOn)}</Text>
                   </View>
                   <View style={styles.tileRight}>
-                    <Text
-                      style={styles.eventTitle}
-                      onPress={() => navigation.navigate('Event', item.id)}
-                    >
+                    <Text style={styles.eventTitle}>
                       {item.title}
                     </Text>
                     <Text
