@@ -1,46 +1,31 @@
 import React, { ReactElement } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { IconButton } from 'react-native-paper';
+import Main from '../assets/stylesheets/Main';
 
 type BottomNavBarProps = {
   navigation: any;
 };
 
-const styles = StyleSheet.create({
-  navContainer: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    padding: 5,
-    position: 'absolute',
-    bottom: 0,
-    backgroundColor: '#efefef',
-  },
-  icon: {
-    backgroundColor: '#54AE33',
-  },
-});
-
 function BottomNavBar({ navigation }: BottomNavBarProps): ReactElement {
   return (
-    <SafeAreaView style={styles.navContainer}>
+    <SafeAreaView style={Main.navContainer}>
       <IconButton
-        style={styles.icon}
+        style={Main.navBarIcon}
         icon="home"
         accessibilityLabel="home"
         size={35}
         onPress={() => navigation.navigate('Home')}
       />
       <IconButton
-        style={styles.icon}
+        style={Main.navBarIcon}
         icon="flag-outline"
         accessibilityLabel="flag"
         size={35}
         onPress={() => navigation.navigate('CreateFlag')}
       />
       <IconButton
-        style={styles.icon}
+        style={Main.navBarIcon}
         icon="account"
         accessibilityLabel="activities"
         size={35}

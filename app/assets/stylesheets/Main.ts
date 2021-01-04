@@ -24,6 +24,11 @@ export default StyleSheet.create({
   eventTitle: {
     fontSize: 20,
   },
+  logo: {
+    width: 250,
+    height: 125,
+    marginTop: 25,
+  },
   mainContainer: {
     flex: 1,
     backgroundColor: '#fff',
@@ -35,6 +40,19 @@ export default StyleSheet.create({
     fontSize: 16,
     color: '#54ae33',
     textAlign: 'center',
+  },
+  navBarIcon: {
+    backgroundColor: '#54AE33',
+  },
+  navContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    padding: 5,
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: '#efefef',
   },
   paragraph: {
     textAlign: 'center',
@@ -135,5 +153,9 @@ export default StyleSheet.create({
     fontWeight: "bold",
     paddingTop: 20,
     paddingLeft: 15,
+  },
+  tagLine: {
+    color: '#888',
+    fontSize: 15,
   },
 });
