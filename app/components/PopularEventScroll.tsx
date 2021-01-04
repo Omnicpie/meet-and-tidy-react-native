@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native';
 import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
 import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
@@ -30,29 +30,25 @@ export default function PopularEventScroll({ navigation }): ReactElement {
             horizontal
             keyExtractor={({ id }) => id.toString()}
             renderItem={({ item }) => (
-              <View style={Main.popularEventsTile}>
-                <ApiImage eventId={item.id} eventImage={item.images} />
-                <View style={Main.popularEventsTileLower}>
-                  <View style={Main.popularEventsTileLeft}>
-                    <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>
-                    <Text style={Main.month}>{shortMonthName(item.startsOn)}</Text>
-                  </View>
-                  <View style={Main.popularEventsTileRight}>
-                    <Text
-                      style={Main.eventTitle}
-                      onPress={() => navigation.navigate('Event', item.id)}
-                    >
-                      {item.title}
-                    </Text>
-                    <Text
-                      style={Main.eventDescription}
-                      numberOfLines={1}
-                    >
-                      {item.description}
-                    </Text>
+              <Pressable onPress={() => navigation.navigate('Event', item.id)}>
+                <View style={Main.popularEventsTile}>
+                  <ApiImage eventId={item.id} eventImage={item.images} />
+                  <View style={Main.popularEventsTileLower}>
+                    <View style={Main.popularEventsTileLeft}>
+                      <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>
+                      <Text style={Main.month}>{shortMonthName(item.startsOn)}</Text>
+                    </View>
+                    <View style={Main.popularEventsTileRight}>
+                      <Text style={Main.eventTitle}>
+                        {item.title}
+                      </Text>
+                      <Text style={Main.eventDescription} numberOfLines={1}>
+                        {item.description}
+                      </Text>
+                    </View>
                   </View>
                 </View>
-              </View>
+              </Pressable>
             )}
           />
         )}
