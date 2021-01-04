@@ -37,15 +37,12 @@ function EventSearchResultScreen({ navigation, route }:
   const searchQuery = route.params;
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View>
-          <Text style={styles.primaryHeading}>
-            Search Results for
-            {searchQuery}
-          </Text>
-          <SearchResultList navigation={navigation} route={route} />
-        </View>
-      </ScrollView>
+      <View>
+        <Text style={styles.primaryHeading}>
+          Search Results for {searchQuery}
+        </Text>
+        <SearchResultList navigation={navigation} route={route} />
+      </View>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
