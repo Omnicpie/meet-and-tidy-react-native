@@ -10,6 +10,7 @@ export default function EventTypeSelectButtons({
 } = props) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]);
 
   useEffect(() => {
     new Request('GET', '/eventtype/').make()
@@ -23,6 +24,17 @@ export default function EventTypeSelectButtons({
       .finally(() => setLoading(false));
   }, []);
 
+  const isSelected = (eventTypeId : number) => selectedTypes.some(x => x === eventTypeId);
+
+  const updateSelected = (selectedType : any) => {
+    if (isSelected(selectedType.id)) {
+      setSelectedTypes(selectedTypes.filter(x => x !== selectedType.id));
+    } else {
+      selectedTypes.push(selectedType.id);
+    }
+    onChangeEventType(selectedType.title);
+  };
+
   return (
     <SafeAreaView style={Events.mainContainer}>
       {isLoading ? <ActivityIndicator /> : (
@@ -33,7 +45,7 @@ export default function EventTypeSelectButtons({
             keyExtractor={({ id }) => id.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity
-                onPress={() => onChangeEventType(item.title)}
+                onPress={() => updateSelected(item)}
                 style={eventType === item.title
                   ? Events.eventTypeButtonSelected : Events.eventTypeButton}
               >
