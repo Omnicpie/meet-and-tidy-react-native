@@ -16,6 +16,14 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  date: {
+    fontSize: 20,
+    color: '#000',
+    textAlign: 'center',
+  },
+  eventTitle: {
+    fontSize: 20,
+  },
   mainContainer: {
     flex: 1,
     backgroundColor: '#fff',
@@ -23,11 +31,49 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
+  month: {
+    fontSize: 16,
+    color: '#54ae33',
+    textAlign: 'center',
+  },
   paragraph: {
     textAlign: 'center',
     width: '100%',
     paddingLeft: 15,
     paddingRight: 15,
+  },
+  popularEventsContainer: {
+    flex: 1,
+    paddingHorizontal: 15,
+    backgroundColor: '#fff',
+    marginBottom: 100,
+    height: 300,
+  },
+  popularEventsDescription: {
+    fontWeight: '500',
+    color: '#555',
+  },
+  popularEventsTile: {
+    width: 250,
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: '#efefef',
+  },
+  popularEventsTileLeft: {
+    width: '25%',
+  },
+  popularEventsTileLower: {
+    paddingVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  popularEventsTileRight: {
+    width: '70%',
+  },
+  popularEventsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   primaryHeading: {
     textAlign: 'center',
@@ -75,6 +121,12 @@ export default StyleSheet.create({
     borderRadius: 8,
     width: '50%',
     marginHorizontal: '25%',
+  },
+  searchArea: {
+    alignItems: 'center',
+    paddingTop: 35,
+    paddingBottom: 25,
+    backgroundColor: 'white',
   },
   subheading: {
     textAlign: 'center',
