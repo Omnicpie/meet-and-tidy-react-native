@@ -1,10 +1,65 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ActivityIndicator, FlatList, Text, View, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, ActivityIndicator, FlatList, Text, View } from 'react-native';
 import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
-import Events from '../assets/stylesheets/Events';
+import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
 
-export default function SearchResultList({ navigation, route }) {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 15,
+    backgroundColor: '#fff',
+    marginBottom: 100,
+  },
+  date: {
+    fontSize: 20,
+    color: '#000',
+    textAlign: 'left',
+    marginLeft: 10,
+  },
+  month: {
+    fontSize: 16,
+    color: '#54ae33',
+    textAlign: 'left',
+    marginLeft: 10,
+  },
+  eventDescription: {
+    fontWeight: '500',
+    color: '#555',
+  },
+  eventTitle: {
+    fontSize: 20,
+  },
+  subHeading: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingBottom: 15,
+    paddingTop: 10,
+  },
+  tileLeft: {
+    width: '25%',
+  },
+  tileLower: {
+    paddingVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  tileRight: {
+    width: '70%',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+});
+
+type SearchResultListProps = {
+  navigation: any;
+};
+
+export default function SearchResultList({ navigation }: SearchResultListProps): ReactElement {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -22,51 +77,41 @@ export default function SearchResultList({ navigation, route }) {
   }, []);
 
   return (
-    <View style={styles.resultsContainer}>
-      <ScrollView style={styles.resultList}>
+    <View style={styles.container}>
+      <View>
         {isLoading ? <ActivityIndicator /> : (
           <FlatList
             data={data}
-            verticle
+            vertical
             keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
-              <View style={styles.tile}>
-                <ApiImage eventId={data.id} eventImage={data.image} />
-                <View>
-                  <Text style={styles.subHeading}>{item.title}</Text>
-                  <Text style={Events.subHeading} numberOfLines={1}>{item.description}</Text>
+              <View onPress ={() => props.navigation.navigate('Event', item.id)}>
+                <ApiImage eventId={item.id} eventImage={item.image} />
+                <View style={styles.tileLower}>
+                  <View style={styles.tileLeft}>
+                    <Text style={styles.date}>{dayOfMonth(item.startsOn)}</Text>
+                    <Text style={styles.month}>{shortMonthName(item.startsOn)}</Text>
+                  </View>
+                  <View style={styles.tileRight}>
+                    <Text
+                      style={styles.eventTitle}
+                      onPress={() => navigation.navigate('Event', item.id)}
+                    >
+                      {item.title}
+                    </Text>
+                    <Text
+                      style={styles.eventDescription}
+                      numberOfLines={1}
+                    >
+                      {item.description}
+                    </Text>
+                  </View>
                 </View>
               </View>
             )}
           />
         )}
-      </ScrollView>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  resultsContainer: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: '#fff',
-  },
-  paragraph: {
-    width: '85%',
-    marginLeft: 15,
-    marginRight: 15,
-    paddingBottom: 5,
-  },
-  subHeading: {
-    color: 'black',
-    fontSize: 20,
-    fontWeight: 'bold',
-    paddingBottom: 15,
-    paddingTop: 10,
-  },
-  tile: {
-    width: 250,
-    borderWidth: 1,
-    borderColor: '#efefef',
-  },
-});
