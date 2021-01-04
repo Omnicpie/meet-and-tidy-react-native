@@ -36,10 +36,10 @@ export default function EventDate({
 
   const handleConfirm = (newDate: Date): void => {
     const formattedDate = String(newDate);
+    hideDatePicker();
 
     setDatePickerText(formattedDate);
     onChangeDate(formattedDate);
-    hideDatePicker();
   };
 
   const handleCancel = () => {
