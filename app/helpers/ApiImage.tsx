@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {
-  StyleSheet, ActivityIndicator, View, Image,
-} from 'react-native';
+import { ActivityIndicator, View, Image } from 'react-native';
 import Request from './Request';
+import Main from '../assets/stylesheets/Main';
 
 export default function EventImage({eventId, eventImage} = props) {
   const [data, setData] = useState([]);
@@ -24,7 +23,7 @@ export default function EventImage({eventId, eventImage} = props) {
         <View>
           <View>
             <Image
-              style={styles.image}
+              style={Main.apiImage}
               source={{ uri: data.url }}
             />
           </View>
@@ -33,14 +32,3 @@ export default function EventImage({eventId, eventImage} = props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  image: {
-    height: 200,
-    width: '100%',
-  },
-  logo: {
-    height: 200,
-    width: 300,
-  },
-});

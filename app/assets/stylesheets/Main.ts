@@ -1,6 +1,10 @@
 import { Platform, StatusBar, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  apiImage:  {
+    height: 200,
+    width: '100%',
+  },
   createButton: {
     marginLeft: 15,
     marginTop: 25,
