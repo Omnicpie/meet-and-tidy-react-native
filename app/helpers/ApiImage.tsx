@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {
-  StyleSheet, ActivityIndicator, View, Image,
-} from 'react-native';
+import { ActivityIndicator, View, Image } from 'react-native';
 import Request from './Request';
+import Main from '../assets/stylesheets/Main';
 
 import { ApiEventImage } from '../../ApiTypes';
 
@@ -42,7 +41,7 @@ export default function EventImage({eventId, eventImage}: EventImageProps): JSX.
         <View>
           <View>
             <Image
-              style={styles.image}
+              style={Main.apiImage}
               source={{ uri: data.url }}
             />
           </View>

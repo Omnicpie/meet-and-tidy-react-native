@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet, ActivityIndicator, FlatList, Text, View
+  StyleSheet, ActivityIndicator, FlatList, Text, View, Pressable,
 } from 'react-native';
 import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
 import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
+import Main from '../assets/stylesheets/Main';
 
 import { ApiEvent } from '../../ApiTypes';
 
@@ -94,28 +95,31 @@ export default function SearchResultList({ navigation, route }: SearchResultList
         {isLoading ? <ActivityIndicator /> : (
           <FlatList<ApiEvent>
             data={data}
-            keyExtractor={({ id }, index) => id.toString()}
+            keyExtractor={({ id }) => id.toString()}
             renderItem={({ item }) => (
-              <View onPress={() => navigation.navigate('Event', item.id)}>
+              <Pressable onPress={() => navigation.navigate('Event', item.id)}>
                 {firstImage(item)}
                 <View style={styles.tileLower}>
                   <View style={styles.tileLeft}>
-                    <Text style={styles.date}>{dayOfMonth(item.startsOn)}</Text>
-                    <Text style={styles.month}>{shortMonthName(item.startsOn)}</Text>
+                    <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>
+                    <Text style={Main.month}>{shortMonthName(item.startsOn)}</Text>
                   </View>
                   <View style={styles.tileRight}>
-                    <Text style={styles.eventTitle}>
+                    <Text
+                      style={styles.eventTitle}
+                      numberOfLines={1}
+                    >
                       {item.title}
                     </Text>
                     <Text
                       style={styles.eventDescription}
-                      numberOfLines={1}
+                      numberOfLines={2}
                     >
                       {item.description}
                     </Text>
                   </View>
                 </View>
-              </View>
+              </Pressable>
             )}
           />
         )}
