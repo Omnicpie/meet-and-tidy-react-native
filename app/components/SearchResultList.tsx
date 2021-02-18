@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ActivityIndicator, FlatList, Text, View } from 'react-native';
+import {
+  StyleSheet, ActivityIndicator, FlatList, Text, View
+} from 'react-native';
 import Request from '../helpers/Request';
 import ApiImage from '../helpers/ApiImage';
 import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
+
+import { ApiEvent } from '../../ApiTypes';
 
 const styles = StyleSheet.create({
   container: {
@@ -77,16 +81,23 @@ export default function SearchResultList({ navigation, route }: SearchResultList
       .finally(() => setLoading(false));
   }, []);
 
+  function firstImage(item: ApiEvent) {
+    if (item.images.length) {
+      return <ApiImage eventId={item.id} eventImage={item.images[0]} />;
+    }
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <View>
         {isLoading ? <ActivityIndicator /> : (
-          <FlatList
+          <FlatList<ApiEvent>
             data={data}
             keyExtractor={({ id }, index) => id.toString()}
             renderItem={({ item }) => (
-              <View onPress ={() => navigation.navigate('Event', item.id)}>
-                <ApiImage eventId={item.id} eventImage={item.image} />
+              <View onPress={() => navigation.navigate('Event', item.id)}>
+                {firstImage(item)}
                 <View style={styles.tileLower}>
                   <View style={styles.tileLeft}>
                     <Text style={styles.date}>{dayOfMonth(item.startsOn)}</Text>

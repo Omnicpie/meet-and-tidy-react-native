@@ -10,7 +10,7 @@ class Request {
     this.path = path;
   }
 
-  async make(body = {}): Promise<unknown> {
+  async make(): Promise<unknown> {
     if (this.method === 'GET') {
       try {
         const url = this.apiBase + this.path;
@@ -24,8 +24,11 @@ class Request {
         return Promise.reject();
       }
     }
+    return Promise.reject();
+  }
+
+  async createEventOrFlag(body = {}): Promise<unknown> {
     if (this.method === 'POST') {
-      // TODO this should only run when trying to create an event / flag
       const selectedImage = {
         uri: body.image,
         type: 'image/jpeg',
@@ -52,9 +55,7 @@ class Request {
           body: formData,
         });
 
-        const data = response;
-
-        return Promise.resolve(data);
+        return Promise.resolve(response);
       } catch (e) {
         console.log(`ERROR${e}`);
 

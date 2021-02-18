@@ -5,6 +5,8 @@ import ApiImage from '../helpers/ApiImage';
 import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
 import Main from '../assets/stylesheets/Main';
 
+import { ApiEvent } from '../../ApiTypes';
+
 export default function PopularEventScroll({ navigation }): ReactElement {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -20,19 +22,26 @@ export default function PopularEventScroll({ navigation }): ReactElement {
       .finally(() => setLoading(false));
   }, []);
 
+  function firstImage(item: ApiEvent) {
+    if (item.images.length) {
+      return <ApiImage eventId={item.id} eventImage={item.images[0]} />;
+    }
+    return null;
+  }
+
   return (
     <View style={Main.popularEventsContainer}>
       <Text style={Main.popularEventsTitle}>Popular events</Text>
       <View>
         {isLoading ? <ActivityIndicator /> : (
-          <FlatList
+          <FlatList<ApiEvent>
             data={data}
             horizontal
             keyExtractor={({ id }) => id.toString()}
             renderItem={({ item }) => (
               <Pressable onPress={() => navigation.navigate('Event', item.id)}>
                 <View style={Main.popularEventsTile}>
-                  <ApiImage eventId={item.id} eventImage={item.images} />
+                  {firstImage(item)}
                   <View style={Main.popularEventsTileLower}>
                     <View style={Main.popularEventsTileLeft}>
                       <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>

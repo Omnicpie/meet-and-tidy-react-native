@@ -40,13 +40,21 @@ function EventDetailScreen(props : EventDetailScreenProps) {
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
+
+  function firstImage(item: ApiEvent) {
+    if (item.images.length) {
+      return <ApiImage eventId={item.id} eventImage={item.images[0]} />;
+    }
+    return null;
+  }
+
   return (
     <SafeAreaView style={Events.container}>
       <ScrollView>
         {isLoading ? <ActivityIndicator /> : (
           <View>
             <View>
-              <ApiImage eventId={data.id} eventImage={data.images} />
+              {firstImage(data)}
               <View style={Events.attendEventButtonContainer}>
                 <Pressable onPress={() => props.navigation.navigate('Registration')}>
                   <Text style={Events.attendEventButton}>Attend</Text>

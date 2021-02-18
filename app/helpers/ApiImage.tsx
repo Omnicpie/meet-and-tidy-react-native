@@ -4,10 +4,28 @@ import {
 } from 'react-native';
 import Request from './Request';
 
-export default function EventImage({eventId, eventImage} = props) {
+import { ApiEventImage } from '../../ApiTypes';
+
+type EventImageProps = {
+  eventId: number,
+  eventImage: ApiEventImage
+};
+
+const styles = StyleSheet.create({
+  image: {
+    height: 200,
+    width: '100%',
+  },
+  logo: {
+    height: 200,
+    width: 300,
+  },
+});
+
+export default function EventImage({eventId, eventImage}: EventImageProps): JSX.Element {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
-  const imageUrl = eventImage[0].fileName;
+  const imageUrl = eventImage.fileName;
   useEffect(() => {
     new Request('GET', `/images/uploads/${imageUrl}.jpg`).make()
       .then((json) => {
@@ -33,14 +51,3 @@ export default function EventImage({eventId, eventImage} = props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  image: {
-    height: 200,
-    width: '100%',
-  },
-  logo: {
-    height: 200,
-    width: 300,
-  },
-});

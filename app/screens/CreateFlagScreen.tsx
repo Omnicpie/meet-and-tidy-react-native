@@ -26,7 +26,7 @@ function CreateFlagScreen({ navigation }) {
       image,
     };
 
-    new Request('POST', '/flags/').make(flag);
+    new Request('POST', '/flags/').createEventOrFlag(flag);
   }
 
   function onNext() {
@@ -47,7 +47,7 @@ function CreateFlagScreen({ navigation }) {
               onChangeLocation={onChangeLocation}
               onNext={onNext}
             />
-            <View style={Flags.buttonContianer} marginBottom={75}>
+            <View style={Flags.buttonContianer}>
               <Button
                 onPress={onNext}
                 title="Next"
@@ -63,7 +63,7 @@ function CreateFlagScreen({ navigation }) {
               onChangeFlagType={onChangeFlagType}
               onNext={onNext}
             />
-            <View style={Flags.buttonContianer} marginBottom={75}>
+            <View style={Flags.buttonContianer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -83,7 +83,7 @@ function CreateFlagScreen({ navigation }) {
               onChangeImage={onChangeImage}
               onNext={onNext}
             />
-            <View style={Flags.buttonContianer} marginBottom={75}>
+            <View style={Flags.buttonContianer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -103,7 +103,7 @@ function CreateFlagScreen({ navigation }) {
               onChangeDescription={onChangeDescription}
               onNext={onNext}
             />
-            <View style={Flags.buttonContianer} marginBottom={75}>
+            <View style={Flags.buttonContianer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -124,22 +124,20 @@ function CreateFlagScreen({ navigation }) {
               flagType={flagType}
               image={image}
             />
-            <View style={Flags.buttonContianer} >
+            <View style={Flags.buttonContianer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
               />
             </View>
-            <View style={Flags.buttonContianer} marginBottom={75}>
+            <View style={Flags.buttonContianer}>
               <Button
                 onPress={saveFlag}
                 title="Publish flag"
-                marginBottom={100}
               />
               <Button
                 // onPress={claimFlag}
                 title="Create Event"
-                marginBottom={100}
               />
             </View>
           </View>

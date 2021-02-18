@@ -27,10 +27,6 @@ function MyActivitiesScreen({ navigation }: MyActivitiesScreenProps): ReactEleme
           <Text style={Activities.subheading}>Messes I’ve Flagged</Text>
           <Text style={Activities.paragraph}>1</Text>
         </View>
-        <View style={Activities.odd}>
-          <Text style={Activities.subheading}>Your badges</Text>
-          <Text style={Activities.paragraph}>You don’t have any badges at the moment</Text>
-        </View>
       </ScrollView>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>

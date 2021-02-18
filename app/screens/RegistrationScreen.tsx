@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
-import { ScrollView, SafeAreaView, TextInput, Text, View } from 'react-native';
+import {
+  Button, ScrollView, SafeAreaView, TextInput, Text, View,
+} from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import Main from '../assets/stylesheets/Main';
 
