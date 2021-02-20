@@ -21,6 +21,7 @@ const EVENT_QUERY = gql`
       description
       startsOn
       imageUrls
+      url
     }
   }
 `;
