@@ -1,3 +1,4 @@
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -13,51 +14,58 @@ import EventSearchResultScreen from './app/screens/EventSearchResultScreen';
 
 const Stack = createStackNavigator();
 
+const client = new ApolloClient({
+  uri: 'https://meet-and-tidy.commit.digital/graphql',
+  cache: new InMemoryCache(),
+});
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Welcome', headerShown: false }}
-        />
-        <Stack.Screen
-          name="Event"
-          component={EventDetailScreen}
-          options={{ title: 'Event' }}
-        />
-        <Stack.Screen
-          name="CreateEvent"
-          component={CreateEventScreen}
-          options={{ title: 'New Event' }}
-        />
-        <Stack.Screen
-          name="EventSearchResult"
-          component={EventSearchResultScreen}
-          options={{ title: 'Search Results' }}
-        />
-        <Stack.Screen
-          name="SafetyDisclaimer"
-          component={SafetyDisclaimerScreen}
-          options={{ title: 'Safety Disclaimer' }}
-        />
-        <Stack.Screen
-          name="CreateFlag"
-          component={CreateFlagScreen}
-          options={{ title: 'Flag Create' }}
-        />
-        <Stack.Screen
-          name="Registration"
-          component={RegistrationScreen}
-          options={{ title: 'Registration Screen' }}
-        />
-        <Stack.Screen
-          name="MyActivities"
-          component={MyActivitiesScreen}
-          options={{ title: 'My Activities' }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ApolloProvider client={client}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'Welcome', headerShown: false }}
+          />
+          <Stack.Screen
+            name="Event"
+            component={EventDetailScreen}
+            options={{ title: 'Event' }}
+          />
+          <Stack.Screen
+            name="CreateEvent"
+            component={CreateEventScreen}
+            options={{ title: 'New Event' }}
+          />
+          <Stack.Screen
+            name="EventSearchResult"
+            component={EventSearchResultScreen}
+            options={{ title: 'Search Results' }}
+          />
+          <Stack.Screen
+            name="SafetyDisclaimer"
+            component={SafetyDisclaimerScreen}
+            options={{ title: 'Safety Disclaimer' }}
+          />
+          <Stack.Screen
+            name="CreateFlag"
+            component={CreateFlagScreen}
+            options={{ title: 'Flag Create' }}
+          />
+          <Stack.Screen
+            name="Registration"
+            component={RegistrationScreen}
+            options={{ title: 'Registration Screen' }}
+          />
+          <Stack.Screen
+            name="MyActivities"
+            component={MyActivitiesScreen}
+            options={{ title: 'My Activities' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ApolloProvider>
   );
 }

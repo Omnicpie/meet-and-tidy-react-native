@@ -9,6 +9,7 @@
     "lint": "yarn run eslint --ext .js --ext .jsx --ext .ts --ext .tsx app/* --fix"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.11",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
@@ -22,6 +23,7 @@
     "expo": "^40.0.0",
     "expo-image-picker": "^9.1.1",
     "expo-status-bar": "~1.0.2",
+    "graphql": "^15.5.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",

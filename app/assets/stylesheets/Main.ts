@@ -1,7 +1,7 @@
 import { Platform, StatusBar, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  apiImage:  {
+  apiImage: {
     height: 200,
     width: '100%',
   },
@@ -24,6 +24,10 @@ export default StyleSheet.create({
     fontSize: 20,
     color: '#000',
     textAlign: 'center',
+  },
+  eventDescription: {
+    fontSize: 16,
+    color: '#000',
   },
   eventTitle: {
     fontSize: 20,
