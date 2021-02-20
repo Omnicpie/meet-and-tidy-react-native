@@ -58,19 +58,33 @@ export default function RegistrationScreen({ navigation }: RegistrationScreenPro
         </Text>
         <View>
           <Text style={Main.regSecondaryHeading}>Your name</Text>
-          <TextInput value={name} style={Main.regTextInput} onChangeText={(t) => setName(t)} />
+          <TextInput
+            autoCompleteType="name"
+            style={Main.regTextInput}
+            textContentType="name"
+            onChangeText={(t) => setName(t)}
+            value={name}
+          />
         </View>
         <View>
           <Text style={Main.regSecondaryHeading}>Your email</Text>
-          <TextInput value={email} style={Main.regTextInput} onChangeText={(t) => setEmail(t)} />
+          <TextInput
+            autoCompleteType="email"
+            keyboardType="email-address"
+            onChangeText={(t) => setEmail(t)}
+            style={Main.regTextInput}
+            textContentType="emailAddress"
+            value={email}
+          />
         </View>
         <View>
           <Text style={Main.regSecondaryHeading}>Password</Text>
           <TextInput
-            value={password}
+            onChangeText={(t) => setPassword(t)}
             secureTextEntry
             style={Main.regTextInput}
-            onChangeText={(t) => setPassword(t)}
+            textContentType="password"
+            value={password}
           />
         </View>
         <View style={Main.regButtonStyle}>
