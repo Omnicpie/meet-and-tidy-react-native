@@ -10,17 +10,6 @@ type EventImageProps = {
   eventImage: ApiEventImage
 };
 
-const styles = StyleSheet.create({
-  image: {
-    height: 200,
-    width: '100%',
-  },
-  logo: {
-    height: 200,
-    width: 300,
-  },
-});
-
 export default function EventImage({eventId, eventImage}: EventImageProps): JSX.Element {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
