@@ -40,15 +40,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function (props: ErrorPanelProps) {
+export default function ({ message, reload }: ErrorPanelProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Oops!</Text>
       <Text style={styles.errorText}>
-        Application message: {props.message}
+        Application message:
+        {message}
       </Text>
       <Text style={styles.errorText}>Please check your internet connection.</Text>
-      <Pressable onPress={() => props.reload()}>
+      <Pressable onPress={() => reload()}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>Try again</Text>
         </View>

@@ -10,6 +10,10 @@ import Main from '../assets/stylesheets/Main';
 import { ApiEvent } from '../../ApiTypes';
 import ErrorPanel from './ErrorPanel';
 
+type PopularEventScrollProps = {
+  navigation: any;
+};
+
 const POPULAR_EVENTS_QUERY = gql`
   query PopularEvents {
     events {
@@ -22,7 +26,7 @@ const POPULAR_EVENTS_QUERY = gql`
   }
 `;
 
-export default function PopularEventScroll({ navigation }): ReactElement {
+export default function PopularEventScroll({ navigation }: PopularEventScrollProps): ReactElement {
   const {
     data, error, loading, refetch,
   } = useQuery(POPULAR_EVENTS_QUERY);
@@ -47,11 +51,11 @@ export default function PopularEventScroll({ navigation }): ReactElement {
       <Text style={Main.popularEventsTitle}>Popular events</Text>
       <View>
         <FlatList<ApiEvent>
-          data={data}
+          data={data.events}
           horizontal
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
-            <Pressable onPress={() => navigation.navigate('Event', item.id)}>
+            <Pressable onPress={() => navigation.navigate('Event', { id: item.id })}>
               <View style={Main.popularEventsTile}>
                 {firstImage(item)}
                 <View style={Main.popularEventsTileLower}>

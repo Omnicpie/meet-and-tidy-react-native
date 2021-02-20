@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { View, Image } from 'react-native';
 import Main from '../assets/stylesheets/Main';
 
@@ -6,7 +6,7 @@ type EventImageProps = {
   imageUrl: string
 };
 
-export default function EventImage({ imageUrl }: EventImageProps): JSX.Element {
+export default function EventImage({ imageUrl }: EventImageProps): ReactElement {
   return (
     <View>
       <Image
