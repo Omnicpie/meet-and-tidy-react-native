@@ -20,7 +20,7 @@ const POPULAR_EVENTS_QUERY = gql`
       id
       title
       description
-      startsOn
+      startsAt
       imageUrls
     }
   }
@@ -60,8 +60,8 @@ export default function PopularEventScroll({ navigation }: PopularEventScrollPro
                 {firstImage(item)}
                 <View style={Main.popularEventsTileLower}>
                   <View style={Main.popularEventsTileLeft}>
-                    <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>
-                    <Text style={Main.month}>{shortMonthName(item.startsOn)}</Text>
+                    <Text style={Main.date}>{dayOfMonth(item.startsAt)}</Text>
+                    <Text style={Main.month}>{shortMonthName(item.startsAt)}</Text>
                   </View>
                   <View style={Main.popularEventsTileRight}>
                     <Text style={Main.eventTitle}>

@@ -39,7 +39,7 @@ function CreateEventScreen({ navigation }: CreateEventScreenProps): ReactElement
       description,
       url,
       location,
-      startsOn: date,
+      startsAt: date,
       eventType,
       facilityType,
       image,

@@ -71,7 +71,7 @@ const SEARCH_QUERY = gql`
     searchEvents(query: $query) {
       id
       description
-      startsOn
+      startsAt
       title
       imageUrls
     },
@@ -112,8 +112,8 @@ export default function SearchResultList(
             {firstImage(item)}
             <View style={styles.tileLower}>
               <View style={styles.tileLeft}>
-                <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>
-                <Text style={Main.month}>{shortMonthName(item.startsOn)}</Text>
+                <Text style={Main.date}>{dayOfMonth(item.startsAt)}</Text>
+                <Text style={Main.month}>{shortMonthName(item.startsAt)}</Text>
               </View>
               <View style={styles.tileRight}>
                 <Text

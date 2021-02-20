@@ -41,7 +41,6 @@ class Request {
       formData.append('description', body.description);
       formData.append('url', body.url);
       formData.append('location', body.location);
-      formData.append('startsOn', body.startsOn);
       formData.append('startsAt', body.startsAt);
       formData.append('eventType', body.eventType);
       formData.append('facilityType', body.facilityType);

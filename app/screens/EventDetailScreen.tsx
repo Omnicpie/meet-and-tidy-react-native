@@ -19,7 +19,7 @@ const EVENT_QUERY = gql`
       id
       title
       description
-      startsOn
+      startsAt
       imageUrls
       url
     }
@@ -68,7 +68,7 @@ function EventDetailScreen({ navigation, route } : EventDetailScreenProps) {
           <View>
             <Text style={Events.subheading}>
               Date:
-              {event.startsOn}
+              {event.startsAt}
             </Text>
           </View>
           <View>
