@@ -132,13 +132,12 @@ export default StyleSheet.create({
     marginTop: 15,
   },
   regSubheading: {
-    textAlign: 'center',
-    marginTop: 5,
-    marginBottom: 25,
-    padding: 10,
-    width: '75%',
+    color: '#555',
     fontSize: 15,
-    fontWeight: "bold",
+    lineHeight: 22.5,
+    marginBottom: 25,
+    marginTop: 5,
+    padding: 10,
   },
   regTextInput: {
     height: 40,

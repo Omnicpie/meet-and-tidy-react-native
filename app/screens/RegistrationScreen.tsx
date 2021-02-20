@@ -1,46 +1,83 @@
-import React, { ReactElement } from 'react';
+import { ApolloError, gql, useMutation } from '@apollo/client';
+import React, { ReactElement, useState } from 'react';
 import {
-  Button, ScrollView, SafeAreaView, TextInput, Text, View,
+  Button, SafeAreaView, ScrollView, TextInput,
 } from 'react-native';
+import { Text, View } from '../components/Themed';
 import BottomNavBar from '../components/BottomNavBar';
 import Main from '../assets/stylesheets/Main';
 
-type UserProps = {
-  username: string;
-  email: string;
-  // onChangeUsername: (username: string) => void;
-  // onChangeEmail: (email: string) => void;
-  // onSubmit: () => void;
+type RegistrationScreenProps = {
+  navigation: any;
 };
 
-export default function RegistrationScreen({
-  email, navigation, onChangeEmail, onChangeUsername, onSubmit, username }: UserProps): ReactElement {
-    // function validateInput = (email) => {
-    //   if (typeof email === 'string') {
-    //     onNext();
-    //   } else {
-    //     alert('Please enter a valid email address.');
-    //   }
-    // }
-  // };
+const CREATE_ACCOUNT = gql`
+mutation CreateAccount($name: String, $email: String!, $password: String!) {
+  createAccount(name: $name, email: $email, password: $password) {
+    errors
+  }
+}
+`;
+
+export default function RegistrationScreen({ navigation }: RegistrationScreenProps): ReactElement {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const responses = {
+    onCompleted() {
+      navigation.navigate('SafetyDisclaimer');
+    },
+    onError(error: ApolloError) {
+      console.log(error);
+    },
+  };
+
+  const [createAccount, createAccountResult] = useMutation(CREATE_ACCOUNT, responses);
+
+  function formValid(): boolean {
+    return email.length >= 1 && name.length >= 1 && password.length >= 6;
+  }
+
+  const onSubmit = () => {
+    if (formValid()) {
+      createAccount({
+        variables: { name, email, password },
+      });
+    }
+  };
 
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
-        <Text style={Main.regHeading}>Registration</Text>
-        <Text stle={Main.regSubheading}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</Text>
+        <Text style={Main.regHeading}>Hello there!</Text>
+        <Text style={Main.regSubheading}>
+          Introduce yourself so the organiser and other attendees can see who is attending.
+          Your email address is used to let you know about any changes to this event.
+          We won’t share your details or send you any marketing without your permission.
+        </Text>
         <View>
-          <Text style={Main.regSecondaryHeading}>Username</Text>
-          <TextInput style={Main.regTextInput} />
+          <Text style={Main.regSecondaryHeading}>Your name</Text>
+          <TextInput value={name} style={Main.regTextInput} onChangeText={(t) => setName(t)} />
         </View>
         <View>
-          <Text style={Main.regSecondaryHeading}>Email</Text>
-          <TextInput style={Main.regTextInput} />
+          <Text style={Main.regSecondaryHeading}>Your email</Text>
+          <TextInput value={email} style={Main.regTextInput} onChangeText={(t) => setEmail(t)} />
+        </View>
+        <View>
+          <Text style={Main.regSecondaryHeading}>Password</Text>
+          <TextInput
+            value={password}
+            secureTextEntry
+            style={Main.regTextInput}
+            onChangeText={(t) => setPassword(t)}
+          />
         </View>
         <View style={Main.regButtonStyle}>
           <Button
+            disabled={!formValid()}
             title="Submit"
-            onPress={() => navigation.navigate('SafetyDisclaimer')}
+            onPress={onSubmit}
           />
         </View>
       </ScrollView>
@@ -48,4 +85,3 @@ export default function RegistrationScreen({
     </SafeAreaView>
   );
 }
-
