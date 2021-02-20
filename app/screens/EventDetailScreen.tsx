@@ -27,7 +27,6 @@ const EVENT_QUERY = gql`
 
 function EventDetailScreen({ navigation, route } : EventDetailScreenProps) {
   const { id } = route.params;
-  console.log('id', id);
   const {
     data, error, loading, refetch,
   } = useQuery(EVENT_QUERY, { variables: { id } });
