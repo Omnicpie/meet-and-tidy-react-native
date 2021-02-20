@@ -34,12 +34,12 @@ type EventSearchResultScreenProps = {
 
 function EventSearchResultScreen({ navigation, route }:
   EventSearchResultScreenProps): ReactElement {
-  const searchQuery = route.params;
+  const { query } = route.params;
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <Text style={styles.primaryHeading}>
-          Search Results for {searchQuery}
+          {`Search Results for ${query}`}
         </Text>
         <SearchResultList navigation={navigation} route={route} />
       </View>

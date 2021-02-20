@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement } from 'react';
 import {
   StyleSheet, ActivityIndicator, FlatList, Text, View, Pressable,
 } from 'react-native';
-import Request from '../helpers/Request';
+import { gql, useQuery } from '@apollo/client';
 import ApiImage from '../helpers/ApiImage';
 import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
 import Main from '../assets/stylesheets/Main';
 
 import { ApiEvent } from '../../ApiTypes';
+import ErrorPanel from './ErrorPanel';
 
 const styles = StyleSheet.create({
   container: {
@@ -65,65 +66,73 @@ type SearchResultListProps = {
   route: any;
 };
 
-export default function SearchResultList({ navigation, route }: SearchResultListProps): ReactElement {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+const SEARCH_QUERY = gql`
+  query SearchQuery($query: String!) {
+    searchEvents(query: $query) {
+      id
+      description
+      startsOn
+      title
+      imageUrls
+    },
+  }
+`;
 
-  const searchQuery = route.params;
+export default function SearchResultList(
+  { navigation, route }: SearchResultListProps,
+): ReactElement {
+  const { query } = route.params;
 
-  useEffect(() => {
-    new Request('GET', `/event-search/${searchQuery}`).make()
-      .then((response) => response.json())
-      .then((json) => {
-        setData(json);
-        console.warn(json);
-      })
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
+  const {
+    data, error, loading, refetch,
+  } = useQuery(SEARCH_QUERY, { variables: { query } });
 
-  function firstImage(item: ApiEvent) {
-    if (item.images.length) {
-      return <ApiImage eventId={item.id} eventImage={item.images[0]} />;
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
+  if (error) {
+    return <ErrorPanel message={error.message} reload={refetch} />;
+  }
+
+  function firstImage(event: ApiEvent) {
+    if (event.imageUrls.length) {
+      return <ApiImage imageUrl={event.imageUrls[0]} />;
     }
     return null;
   }
 
   return (
     <View style={styles.container}>
-      <View>
-        {isLoading ? <ActivityIndicator /> : (
-          <FlatList<ApiEvent>
-            data={data}
-            keyExtractor={({ id }) => id.toString()}
-            renderItem={({ item }) => (
-              <Pressable onPress={() => navigation.navigate('Event', item.id)}>
-                {firstImage(item)}
-                <View style={styles.tileLower}>
-                  <View style={styles.tileLeft}>
-                    <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>
-                    <Text style={Main.month}>{shortMonthName(item.startsOn)}</Text>
-                  </View>
-                  <View style={styles.tileRight}>
-                    <Text
-                      style={styles.eventTitle}
-                      numberOfLines={1}
-                    >
-                      {item.title}
-                    </Text>
-                    <Text
-                      style={styles.eventDescription}
-                      numberOfLines={2}
-                    >
-                      {item.description}
-                    </Text>
-                  </View>
-                </View>
-              </Pressable>
-            )}
-          />
+      <FlatList<ApiEvent>
+        data={data.searchEvents}
+        keyExtractor={({ id }) => id.toString()}
+        renderItem={({ item }) => (
+          <Pressable onPress={() => navigation.navigate('Event', { id: item.id })}>
+            {firstImage(item)}
+            <View style={styles.tileLower}>
+              <View style={styles.tileLeft}>
+                <Text style={Main.date}>{dayOfMonth(item.startsOn)}</Text>
+                <Text style={Main.month}>{shortMonthName(item.startsOn)}</Text>
+              </View>
+              <View style={styles.tileRight}>
+                <Text
+                  style={styles.eventTitle}
+                  numberOfLines={1}
+                >
+                  {item.title}
+                </Text>
+                <Text
+                  style={styles.eventDescription}
+                  numberOfLines={2}
+                >
+                  {item.description}
+                </Text>
+              </View>
+            </View>
+          </Pressable>
         )}
-      </View>
+      />
     </View>
   );
 }
