@@ -29,6 +29,10 @@ export default StyleSheet.create({
     marginRight: 5,
     marginLeft: 5,
   },
+  container: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
   centeredText: {
     textAlign: 'center',
     marginTop: 5,
