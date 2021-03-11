@@ -3,6 +3,7 @@ import {
   StyleSheet, SafeAreaView, Text, View, Button, ScrollView,
 } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
+import Main from '../assets/stylesheets/Main';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,11 +37,11 @@ const styles = StyleSheet.create({
 
 function SafetyDisclaimerScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={Main.container}>
       <ScrollView>
         <View>
-          <Text style={styles.primaryHeading}>Safety Disclaimer</Text>
-          <Text style={styles.paragraph}>
+          <Text style={Main.regHeading}>Safety Disclaimer</Text>
+          <Text style={Main.regSubheading}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
             do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco
