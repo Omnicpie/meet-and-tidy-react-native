@@ -1,65 +1,71 @@
-import React, { useEffect, useState } from 'react';
+import { gql, useQuery } from '@apollo/client';
+import React, { useState } from 'react';
 import {
   ActivityIndicator, View, FlatList, SafeAreaView, Text, TouchableOpacity,
 } from 'react-native';
 import Events from '../../assets/stylesheets/Events';
-import Request from '../../helpers/Request';
+import ErrorPanel from '../ErrorPanel';
+
+const EVENT_TYPES_QUERY = gql`
+  query EventTypes {
+    eventTypes {
+      id
+      name
+    }
+  }
+`;
 
 export default function EventTypeSelectButtons({
-  eventType, onChangeEventType,
+  eventTypes, onChangeEventTypes,
 } = props) {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
 
-  useEffect(() => {
-    new Request('GET', '/eventtype/').make()
-      .then((response) => response.json())
-      .then((json) => {
-        setData(json);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  const {
+    data, error, loading, refetch,
+  } = useQuery(EVENT_TYPES_QUERY);
 
-  const isSelected = (eventTypeId : number) => selectedTypes.some(x => x === eventTypeId);
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
+  if (error) {
+    return <ErrorPanel message={error.message} reload={refetch} />;
+  }
+
+  const isSelected = (eventTypeId : number) => eventTypes.some(id => id === eventTypeId);
 
   const updateSelected = (selectedType : any) => {
-    if (isSelected(selectedType.id)) {
-      setSelectedTypes(selectedTypes.filter(x => x !== selectedType.id));
+    const id = selectType.id;
+    if (isSelected(id)) {
+      onChangeEventTypes(eventTypes.filter(x => x !== id));
     } else {
-      selectedTypes.push(selectedType.id);
+      onChangeEventTypes(eventTypes.push(id));
     }
-    onChangeEventType(selectedType.title);
   };
 
   return (
     <SafeAreaView style={Events.mainContainer}>
-      {isLoading ? <ActivityIndicator /> : (
-        <View style={Events.buttonContainer}>
-          <FlatList
-            data={data}
-            horizontal
-            keyExtractor={({ id }) => id.toString()}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => updateSelected(item)}
+      <View style={Events.buttonContainer}>
+        <FlatList
+          data={data.eventTypes}
+          horizontal
+          keyExtractor={({ id }) => id.toString()}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() => updateSelected(item)}
+              style={isSelected(item.id)
+                ? Events.eventTypeButtonSelected : Events.eventTypeButton}
+            >
+              <Text
                 style={isSelected(item.id)
-                  ? Events.eventTypeButtonSelected : Events.eventTypeButton}
+                  ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}
               >
-                <Text
-                  style={isSelected(item.id)
-                    ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}
-                >
-                  {item.title}
-                </Text>
-              </TouchableOpacity>
-            )}
-          />
-        </View>
-      )}
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
     </SafeAreaView>
   );
 }

@@ -30,8 +30,8 @@ export default function EventType({
         <Text style={Events.centeredText}>3 of 8</Text>
         <Text style={Events.primaryHeading}>What type of event is it?</Text>
         <EventTypeSelectButtons
-          eventType={eventType}
-          onChangeEventType={onChangeEventType}
+          eventTypes={eventTypes}
+          onChangeEventTypes={onChangeEventType}
         />
         <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} />
       </ScrollView>

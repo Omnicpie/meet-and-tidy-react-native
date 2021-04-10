@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, Button, ScrollView } from 'react-native';
+import {
+  View, SafeAreaView, Button, ScrollView
+} from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
 import FlagLocation from '../components/Flags/FlagLocation';
 import FlagType from '../components/Flags/FlagType';
@@ -13,7 +15,7 @@ import Flags from '../assets/stylesheets/Flags';
 function CreateFlagScreen({ navigation }) {
   const [description, onChangeDescription] = useState('');
   const [location, onChangeLocation] = useState('');
-  const [flagType, onChangeFlagType] = useState('');
+  const [eventTypes, onChangeEventTypes] = useState([]);
   const [image, onChangeImage] = useState('');
 
   const [screen, setScreen] = useState(1);
@@ -22,7 +24,7 @@ function CreateFlagScreen({ navigation }) {
     const flag = {
       description,
       location,
-      flagType,
+      eventTypes,
       image,
     };
 
@@ -59,8 +61,8 @@ function CreateFlagScreen({ navigation }) {
         return (
           <View>
             <FlagType
-              flagType={flagType}
-              onChangeFlagType={onChangeFlagType}
+              eventTypes={eventTypes}
+              onChangeEventTypes={onChangeEventTypes}
               onNext={onNext}
             />
             <View style={Flags.buttonContianer}>
@@ -121,7 +123,7 @@ function CreateFlagScreen({ navigation }) {
             <FlagPreview
               description={description}
               location={location}
-              flagType={flagType}
+              eventTypes={eventTypes}
               image={image}
             />
             <View style={Flags.buttonContianer}>
