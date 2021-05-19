@@ -30,6 +30,7 @@ export default function RegistrationScreen({
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [formValid, setFormValid] = useState(true);
 
   const responses = {
     onError(error: ApolloError) {
@@ -41,10 +42,6 @@ export default function RegistrationScreen({
     CREATE_ACCOUNT,
     responses
   );
-
-  function formValid(): boolean {
-    return email.length >= 1 && name.length >= 1 && password.length >= 6;
-  }
 
   let initialDisclaimerValues = {
     title: "Safety Disclaimer",
@@ -75,6 +72,29 @@ export default function RegistrationScreen({
     );
   };
 
+  //function formValid(): boolean {
+  //  return email.length >= 1 && name.length >= 1 && password.length >= 6;
+  //}
+
+  const handleValidation = () => {
+    //Name
+    if (!name || !name.match(/^[a-zA-Z]+$/) || !name.length >= 3) {
+      setFormValid(false);
+      return (<Text>Please enter your name with letters only</Text>);
+    }
+
+    //Email
+    if (!email || !email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/) || !email.length >= 8 ) {
+      setFormValid(false);
+      return (<Text>Please enter a valid email address</Text>);
+    }
+
+    //Password coming soon
+    } else {
+      return (<Text>Please enter your name with letters only</Text>);
+
+  }
+
   const onSubmit = () => {
     if (formValid()) {
       confirmDisclaimer();
@@ -101,6 +121,42 @@ export default function RegistrationScreen({
             value={name}
           />
         </View>
+        <View>
+          <Text style={Main.regSecondaryHeading}>Your email</Text>
+          <TextInput
+            autoCompleteType="email"
+            keyboardType="email-address"
+            onChangeText={(t) => setEmail(t)}
+            style={Main.regTextInput}
+            textContentType="emailAddress"
+            value={email}
+          />
+        </View>
+        <View>
+          <Text style={Main.regSecondaryHeading}>Password</Text>
+          <TextInput
+            onChangeText={(t) => setPassword(t)}
+            secureTextEntry
+            style={Main.regTextInput}
+            textContentType="password"
+            value={password}
+          />
+        </View>
+        <View>
+          <Pressable onPress={() => navigation.navigate("SafetyDisclaimer")}>
+            <Text style={Main.safetyDisText}>
+              Please read Safety Disclaimer {"\n"}before continuing
+            </Text>
+          </Pressable>
+        </View>
+        <View style={Main.regButtonStyle}>
+          <Button disabled={!formValid()} title="Submit" onPress={onSubmit} />
+        </View>
+      </ScrollView>
+      <BottomNavBar navigation={navigation} />
+    </SafeAreaView>
+  );
+}
         <View>
           <Text style={Main.regSecondaryHeading}>Your email</Text>
           <TextInput
