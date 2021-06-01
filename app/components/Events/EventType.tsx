@@ -13,9 +13,7 @@ type EventTypeProps = {
   onPrevious: () => void;
 };
 
-export default function EventType({
-  eventType, onChangeEventType, onNext, onPrevious,
-}: EventTypeProps): ReactElement {
+export default function EventType({ eventType, onChangeEventType, onNext, onPrevious }: EventTypeProps): ReactElement {
   function validateInput() {
     if (eventType.length > 3 && typeof eventType === 'string') {
       onNext();
@@ -23,6 +21,7 @@ export default function EventType({
       alert('Please select an event type.');
     }
   }
+
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
