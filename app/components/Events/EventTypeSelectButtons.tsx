@@ -1,8 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import React, { useState } from 'react';
-import {
-  ActivityIndicator, View, FlatList, SafeAreaView, Text, TouchableOpacity,
-} from 'react-native';
+import { ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import Events from '../../assets/stylesheets/Events';
 import ErrorPanel from '../ErrorPanel';
 
@@ -16,8 +14,9 @@ const EVENT_TYPES_QUERY = gql`
 `;
 
 export default function EventTypeSelectButtons({
-  eventTypes, onChangeEventTypes,
-} = props) {
+    eventTypes, onChangeEventTypes,
+  } = props) {
+
   const [selectedTypes, setSelectedTypes] = useState([]);
 
   const {
@@ -35,7 +34,7 @@ export default function EventTypeSelectButtons({
   const isSelected = (eventTypeId : number) => eventTypes.some(id => id === eventTypeId);
 
   const updateSelected = (selectedType : any) => {
-    const id = selectType.id;
+    const id = selectedType.id;
     if (isSelected(id)) {
       onChangeEventTypes(eventTypes.filter(x => x !== id));
     } else {
