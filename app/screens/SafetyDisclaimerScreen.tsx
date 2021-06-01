@@ -5,7 +5,7 @@ import Main from "../assets/stylesheets/Main";
 
 function SafetyDisclaimerScreen({ navigation }) {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
         <View>
           <Text style={Main.regHeading}>Safety Disclaimer</Text>
