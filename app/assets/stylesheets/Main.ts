@@ -49,6 +49,13 @@ export default StyleSheet.create({
     color: "#54ae33",
     textAlign: "center",
   },
+  mutation: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    paddingVertical: 10,
+    color: '#ffffff',
+    textAlign: 'center',
+  },
   navBarIcon: {
     backgroundColor: "#54AE33",
   },
