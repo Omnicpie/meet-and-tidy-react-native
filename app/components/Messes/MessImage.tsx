@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
 import { Button, Image, Platform, SafeAreaView, Text } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import { ScrollView } from 'react-native-gesture-handler';
-import Messes from '../../assets/stylesheets/Messes';
+import Events from '../../assets/stylesheets/Events';
 
 // import Request from './request';
 
-export default function MessImage({
-  image, onChangeImage, onNext, onPrevious,
-} = props) {
+type MessImageProps = {
+  image: string;
+  onChangeImage: (image: string) => void;
+};
+
+export default function MessImage({ image, onChangeImage }: MessImageProps): ReactElement {
   const [imageSelect, setImage] = useState(null);
 
   useEffect(() => {
@@ -41,11 +44,11 @@ export default function MessImage({
   return (
     <SafeAreaView>
       <ScrollView>
-        <ProgressBar style={Messes.progressBar} progress={0.6} color={Colors.green500} />
-        <Text style={Messes.centeredText} >3 of 5</Text>
-        <Text style={Messes.primaryHeading}>Upload a mess image</Text>
+        <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
+        <Text style={Events.centeredText} >3 of 6</Text>
+        <Text style={Events.primaryHeading}>Upload a mess image</Text>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
-        {imageSelect && <Image source={{ uri: imageSelect }} style={Messes.imageSelected} />}
+        {imageSelect && <Image source={{ uri: imageSelect }} style={Events.imageSelected} />}
       </ScrollView>
     </SafeAreaView>
   );

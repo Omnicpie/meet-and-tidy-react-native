@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Image, SafeAreaView, Text, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-import Messes from '../../assets/stylesheets/Messes';
+import Events from '../../assets/stylesheets/Events';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default function MessPreview({
-  location, name, description, messType, image,
-} = props) {
+type MessPreviewProps = {
+  navigation: any;
+  location: string;
+  name: string;
+  description: string;
+  image: string;
+  messType: string;
+};
+
+export default function MessPreview({ location, name, description, messType, image, navigation }: MessPreviewProps): ReactElement {
   return (
-    <SafeAreaView style={Messes.mainContainer}>
+    <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
-        <ProgressBar style={Messes.progressBar} progress={1} color={Colors.green500} />
-        <Text style={Messes.centeredText}>5 of 5</Text>
-        <Text style={Messes.previewHeading}>Preview mess</Text>
-        <Image source={{ uri: image }} style={Messes.imageSelected} />
-        <Text style={Messes.previewHeading}>{name}</Text>
-        <Text style={Messes.secondaryHeading}>{messType}</Text>
+        <ProgressBar style={Events.progressBar} progress={1} color={Colors.green500} />
+        <Text style={Events.centeredText}>6 of 6</Text>
+        <Text style={Events.previewHeading}>Preview mess</Text>
+        <Image source={{ uri: image }} style={Events.imageSelected} />
+        <Text style={Events.previewHeading}>{name}</Text>
+        <Text style={Events.secondaryHeading}>{messType}</Text>
         <View>
-          <Text style={Messes.subheading}>Description</Text>
-          <Text style={Messes.paragraph}>{description}</Text>
+          <Text style={Events.subheading}>Description</Text>
+          <Text style={Events.paragraph}>{description}</Text>
         </View>
         <View>
-          <Text style={Messes.subheading}>Location</Text>
-          <Text style={Messes.infoTile}>{location}</Text>
+          <Text style={Events.subheading}>Location</Text>
+          <Text style={Events.infoTile}>{location}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

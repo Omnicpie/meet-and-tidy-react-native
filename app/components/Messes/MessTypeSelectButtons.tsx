@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import Events from '../../assets/stylesheets/Events';
 import ErrorPanel from '../ErrorPanel';
@@ -13,8 +13,12 @@ const MESS_TYPES_QUERY = gql`
   }
 `;
 
-export default function MessTypeSelectButtons({ messTypes, onChangeMessTypes } = props) {
+type MessTypeSelectButtonsProps = {
+  messType: string;
+  onChangeMessType: (messType: string) => void;
+};
 
+export default function MessTypeSelectButtons({ messType, onChangeMessType }: MessTypeSelectButtonsProps): ReactElement {
   const [selectedTypes, setSelectedTypes] = useState([]);
 
   const { data, error, loading, refetch } = useQuery(MESS_TYPES_QUERY);

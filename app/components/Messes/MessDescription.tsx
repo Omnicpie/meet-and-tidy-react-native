@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Text, SafeAreaView, TextInput } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
-import Messes from '../../assets/stylesheets/Messes';
+import Events from '../../assets/stylesheets/Events';
 
-export default function MessDescription({
-  description, onChangeDescription,
-} = props) {
+type MessDescriptionProps = {
+  description: string;
+  onChangeDescription: (description: string) => void;
+};
+
+export default function MessDescription({ description, onChangeDescription }: MessDescriptionProps): ReactElement {
   return (
-    <SafeAreaView style={Messes.mainContainer}>
+    <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
-      <ProgressBar style={Messes.progressBar} progress={0.8} color={Colors.green500} />
-        <Text style={Messes.centeredText}>4 of 5</Text>
-        <Text style={Messes.primaryHeading}>Description</Text>
+      <ProgressBar style={Events.progressBar} progress={0.833} color={Colors.green500} />
+        <Text style={Events.centeredText}>5 of 6</Text>
+        <Text style={Events.primaryHeading}>Description</Text>
         <TextInput
-          style={Messes.descInput}
+          style={Events.descInput}
           onChangeText={(text) => onChangeDescription(text)}
           multiline
           description={description}
