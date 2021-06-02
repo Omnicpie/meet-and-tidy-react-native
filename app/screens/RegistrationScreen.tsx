@@ -24,6 +24,9 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
   `;
 
   const responses = {
+    onCompleted(_data: any) {
+      navigation.navigate('Home')
+    },
     onError(_error: ApolloError) {
       setMutationFailed(true);
       setTimeout(() => {
@@ -38,6 +41,11 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
 
   const [createAccount, _accountResult] = useMutation(CREATE_ACCOUNT, responses);
 
+  function createAccountAndNavigate() {
+    console.log('createAccountAndNavigate')
+    createAccount({variables: { name, email, password }})
+  }
+
   const confirmSubmit = () => {
     if (formValid()) {
       Alert.alert(
@@ -50,7 +58,7 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
           },
           {
             text: "OK",
-            onPress: () => navigation.navigate('Registration') && createAccount({variables: { name, email, password }})
+            onPress: createAccountAndNavigate
           }
         ],
         { cancelable: false }

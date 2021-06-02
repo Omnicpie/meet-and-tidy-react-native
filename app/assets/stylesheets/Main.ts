@@ -153,6 +153,7 @@ export default StyleSheet.create({
     borderRadius: 8,
     width: "50%",
     marginHorizontal: "25%",
+    paddingHorizontal: 8,
   },
   safetyDisText: {
     color: "#0a84ff",
