@@ -79,8 +79,8 @@ export default StyleSheet.create({
     flex: 1,
     paddingHorizontal: 15,
     backgroundColor: "#fff",
-    marginBottom: 100,
-    height: 300,
+    height: 160,
+    marginTop: 10,
   },
   popularEventsDescription: {
     fontWeight: "500",

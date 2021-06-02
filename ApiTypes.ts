@@ -5,3 +5,11 @@ export type ApiEvent = {
   startsAt: string;
   title: string;
 };
+
+export type ApiMess = {
+  description: string;
+  id: number;
+  imageUrls: Array<string>;
+  location: string;
+  name: string;
+};
