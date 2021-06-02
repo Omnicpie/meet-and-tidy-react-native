@@ -1,51 +1,70 @@
 import { ApolloError, gql, useMutation } from '@apollo/client';
 import React, { ReactElement, useState } from 'react';
-import {
-  Button, SafeAreaView, ScrollView, TextInput,
-} from 'react-native';
+import { Alert, Button, Pressable, SafeAreaView, ScrollView, TextInput } from 'react-native';
 import { Text, View } from '../components/Themed';
 import BottomNavBar from '../components/BottomNavBar';
 import Main from '../assets/stylesheets/Main';
 
-type RegistrationScreenProps = {
+type RegScreenProps = {
   navigation: any;
 };
 
-const CREATE_ACCOUNT = gql`
-mutation CreateAccount($name: String, $email: String!, $password: String!) {
-  createAccount(name: $name, email: $email, password: $password) {
-    errors
-  }
-}
-`;
-
-export default function RegistrationScreen({ navigation }: RegistrationScreenProps): ReactElement {
-  const [email, setEmail] = useState('');
+export default function RegistrationScreen({ navigation }: RegScreenProps): ReactElement {
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [mutationFailed, setMutationFailed] = useState(false);
+
+  const CREATE_ACCOUNT = gql`
+  mutation CreateAccount($name: String, $email: String!, $password: String!) {
+    createAccount(name: $name, email: $email, password: $password) {
+      errors
+    }
+  }
+  `;
 
   const responses = {
-    onCompleted() {
-      navigation.navigate('SafetyDisclaimer');
+    onCompleted(_data: any) {
+      navigation.navigate('Home')
     },
-    onError(error: ApolloError) {
-      console.log(error);
+    onError(_error: ApolloError) {
+      setMutationFailed(true);
+      setTimeout(() => {
+        setMutationFailed(false);
+      }, 3000);
     },
   };
-
-  const [createAccount, createAccountResult] = useMutation(CREATE_ACCOUNT, responses);
 
   function formValid(): boolean {
-    return email.length >= 1 && name.length >= 1 && password.length >= 6;
+    return email.length >= 10 && name.length >= 1 && password.length >= 6;
   }
 
-  const onSubmit = () => {
+  const [createAccount, _accountResult] = useMutation(CREATE_ACCOUNT, responses);
+
+  function createAccountAndNavigate() {
+    console.log('createAccountAndNavigate')
+    createAccount({variables: { name, email, password }})
+  }
+
+  const confirmSubmit = () => {
     if (formValid()) {
-      createAccount({
-        variables: { name, email, password },
-      });
+      Alert.alert(
+        "Safety Disclaimer",
+        "By agreeing to create an account, you confrim that you have read our safety disclaimer. If you have not done so, press cancel and click the link below before progressing forward.",
+        [
+          {
+            text: "Cancel",
+            onPress: () => {return;}
+          },
+          {
+            text: "OK",
+            onPress: createAccountAndNavigate
+          }
+        ],
+        { cancelable: false }
+      );
     }
-  };
+  }
 
   return (
     <SafeAreaView style={Main.mainContainer}>
@@ -87,13 +106,17 @@ export default function RegistrationScreen({ navigation }: RegistrationScreenPro
             value={password}
           />
         </View>
-        <View style={Main.regButtonStyle}>
-          <Button
-            disabled={!formValid()}
-            title="Submit"
-            onPress={onSubmit}
-          />
+        <View>
+          <Pressable onPress={() => navigation.navigate("SafetyDisclaimer")}>
+            <Text style={Main.safetyDisText}>
+              Please read Safety Disclaimer {"\n"}before continuing
+            </Text>
+          </Pressable>
         </View>
+        <View style={Main.regButtonStyle}>
+          <Button disabled={!formValid()} title="Submit" onPress={() => confirmSubmit()}/>
+        </View>
+        {mutationFailed && <View><Text style={Main.mutation}>Unable to create account, please try again.</Text></View>}
       </ScrollView>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>
