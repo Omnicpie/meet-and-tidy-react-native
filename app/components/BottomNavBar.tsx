@@ -12,17 +12,17 @@ function BottomNavBar({ navigation }: BottomNavBarProps): ReactElement {
     <SafeAreaView style={Main.navContainer}>
       <IconButton
         style={Main.navBarIcon}
-        icon="home"
-        accessibilityLabel="home"
-        size={35}
-        onPress={() => navigation.navigate('Home')}
-      />
-      <IconButton
-        style={Main.navBarIcon}
         icon="flag-outline"
         accessibilityLabel="flag"
         size={35}
         onPress={() => navigation.navigate('CreateFlag')}
+      />
+      <IconButton
+        style={Main.navBarIcon}
+        icon="home"
+        accessibilityLabel="home"
+        size={35}
+        onPress={() => navigation.navigate('Home')}
       />
       <IconButton
         style={Main.navBarIcon}
