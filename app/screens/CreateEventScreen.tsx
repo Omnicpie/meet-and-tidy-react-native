@@ -44,7 +44,6 @@ function CreateEventScreen({ navigation }: CreateEventScreenProps): ReactElement
       facilityType,
       image,
     };
-    console.log('sending to api');
     new Request('POST', '/events/').createEventOrFlag(event);
   }
 

@@ -13,7 +13,6 @@ function FlagScreen(props) {
       .then((response) => response.json())
       .then((json) => {
         setData(json[0]);
-        console.log(json);
       })
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));

@@ -56,8 +56,6 @@ class Request {
 
         return Promise.resolve(response);
       } catch (e) {
-        console.log(`ERROR${e}`);
-
         return Promise.reject();
       }
     }

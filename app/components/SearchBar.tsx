@@ -12,7 +12,6 @@ const SearchBar = ({ navigation       }: SearchBarProps) => {
 
   const onChangeSearch = (query: string) => {
     setQuery(query);
-    console.log(query);
   };
 
   const onSubmitSearch = () => {

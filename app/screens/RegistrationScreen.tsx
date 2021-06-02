@@ -42,7 +42,6 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
   const [createAccount, _accountResult] = useMutation(CREATE_ACCOUNT, responses);
 
   function createAccountAndNavigate() {
-    console.log('createAccountAndNavigate')
     createAccount({variables: { name, email, password }})
   }
 
