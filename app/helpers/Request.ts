@@ -27,7 +27,7 @@ class Request {
     return Promise.reject();
   }
 
-  async createEventOrFlag(body = {}): Promise<unknown> {
+  async createEventOrMess(body = {}): Promise<unknown> {
     if (this.method === 'POST') {
       const selectedImage = {
         uri: body.image,
@@ -38,6 +38,7 @@ class Request {
       const formData = new FormData();
       formData.append('authToken', 'secret');
       formData.append('title', body.title);
+      formData.append('name', body.name);
       formData.append('description', body.description);
       formData.append('url', body.url);
       formData.append('location', body.location);

@@ -16,6 +16,10 @@ const AppStack = () => (
         name="Event"
         component={EventDetailScreen}
       />
+      <Stack.Screen
+        name="Mess"
+        component={MessDetailScreen}
+      />
     </Stack.Navigator>
   </NavigationContainer>
 );

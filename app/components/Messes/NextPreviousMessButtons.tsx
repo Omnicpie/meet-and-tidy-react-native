@@ -1,20 +1,20 @@
 import React from 'react';
 import { View, Button } from 'react-native';
-import Flags from '../../assets/stylesheets/Flags';
+import Messes from '../../assets/stylesheets/Messes';
 
 export default function NextPreviousButtons({
   onNext, onPrevious
 } = props) {
   return (
     <View>
-      <View style={Flags.buttonContianer}>
-        <View style={Flags.buttonElement}>
+      <View style={Messes.buttonContianer}>
+        <View style={Messes.buttonElement}>
           <Button
             onPress={onPrevious}
             title="Previous"
           />
         </View>
-        <View style={Flags.buttonElement}>
+        <View style={Messes.buttonElement}>
           <Button
             onPress={onNext}
             title="Next"

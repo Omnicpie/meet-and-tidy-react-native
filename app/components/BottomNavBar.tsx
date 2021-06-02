@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import Main from '../assets/stylesheets/Main';
 
@@ -13,9 +13,9 @@ function BottomNavBar({ navigation }: BottomNavBarProps): ReactElement {
       <IconButton
         style={Main.navBarIcon}
         icon="delete-outline"
-        accessibilityLabel="flag"
+        accessibilityLabel="mess"
         size={35}
-        onPress={() => navigation.navigate('CreateFlag')}
+        onPress={() => navigation.navigate('CreateMess')}
       />
       <IconButton
         style={Main.navBarIcon}

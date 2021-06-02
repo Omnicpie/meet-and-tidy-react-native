@@ -44,7 +44,7 @@ function CreateEventScreen({ navigation }: CreateEventScreenProps): ReactElement
       facilityType,
       image,
     };
-    new Request('POST', '/events/').createEventOrFlag(event);
+    new Request('POST', '/events/').createEventOrMess(event);
   }
 
   function onNext() {

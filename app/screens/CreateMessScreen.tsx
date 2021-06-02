@@ -3,16 +3,16 @@ import {
   View, SafeAreaView, Button, ScrollView
 } from 'react-native';
 import BottomNavBar from '../components/BottomNavBar';
-import FlagLocation from '../components/Flags/FlagLocation';
-import FlagType from '../components/Flags/FlagType';
-import FlagDescription from '../components/Flags/FlagDescription';
-import FlagImage from '../components/Flags/FlagImage';
-import FlagPreview from '../components/Flags/FlagPreview';
+import MessLocation from '../components/Messes/MessLocation';
+import MessType from '../components/Messes/MessType';
+import MessDescription from '../components/Messes/MessDescription';
+import MessImage from '../components/Messes/MessImage';
+import MessPreview from '../components/Messes/MessPreview';
 import Request from '../helpers/Request';
-import CreateFlag from '../assets/stylesheets/CreateFlag';
-import Flags from '../assets/stylesheets/Flags';
+import CreateMess from '../assets/stylesheets/CreateMess';
+import Messes from '../assets/stylesheets/Messes';
 
-function CreateFlagScreen({ navigation }) {
+function CreateMessScreen({ navigation }) {
   const [description, onChangeDescription] = useState('');
   const [location, onChangeLocation] = useState('');
   const [eventTypes, onChangeEventTypes] = useState([]);
@@ -20,15 +20,15 @@ function CreateFlagScreen({ navigation }) {
 
   const [screen, setScreen] = useState(1);
 
-  async function saveFlag() {
-    const flag = {
+  async function saveMess() {
+    const mess = {
       description,
       location,
       eventTypes,
       image,
     };
 
-    new Request('POST', '/flags/').createEventOrFlag(flag);
+    new Request('POST', '/messes/').createEventOrMess(mess);
   }
 
   function onNext() {
@@ -44,12 +44,12 @@ function CreateFlagScreen({ navigation }) {
       case 1:
         return (
           <View>
-            <FlagLocation
+            <MessLocation
               location={location}
               onChangeLocation={onChangeLocation}
               onNext={onNext}
             />
-            <View style={Flags.buttonContianer}>
+            <View style={Messes.buttonContianer}>
               <Button
                 onPress={onNext}
                 title="Next"
@@ -60,12 +60,12 @@ function CreateFlagScreen({ navigation }) {
       case 2:
         return (
           <View>
-            <FlagType
+            <MessType
               eventTypes={eventTypes}
               onChangeEventTypes={onChangeEventTypes}
               onNext={onNext}
             />
-            <View style={Flags.buttonContianer}>
+            <View style={Messes.buttonContianer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -80,12 +80,12 @@ function CreateFlagScreen({ navigation }) {
       case 3:
         return (
           <View>
-            <FlagImage
+            <MessImage
               image={image}
               onChangeImage={onChangeImage}
               onNext={onNext}
             />
-            <View style={Flags.buttonContianer}>
+            <View style={Messes.buttonContianer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -100,12 +100,12 @@ function CreateFlagScreen({ navigation }) {
       case 4:
         return (
           <View>
-            <FlagDescription
+            <MessDescription
               description={description}
               onChangeDescription={onChangeDescription}
               onNext={onNext}
             />
-            <View style={Flags.buttonContianer}>
+            <View style={Messes.buttonContianer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -120,25 +120,25 @@ function CreateFlagScreen({ navigation }) {
       case 5:
         return (
           <View>
-            <FlagPreview
+            <MessPreview
               description={description}
               location={location}
               eventTypes={eventTypes}
               image={image}
             />
-            <View style={Flags.buttonContianer}>
+            <View style={Messes.buttonContianer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
               />
             </View>
-            <View style={Flags.buttonContianer}>
+            <View style={Messes.buttonContianer}>
               <Button
-                onPress={saveFlag}
-                title="Publish flag"
+                onPress={saveMess}
+                title="Publish mess"
               />
               <Button
-                // onPress={claimFlag}
+                // onPress={claimMess}
                 title="Create Event"
               />
             </View>
@@ -150,7 +150,7 @@ function CreateFlagScreen({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={CreateFlag.mainContainer}>
+    <SafeAreaView style={CreateMess.mainContainer}>
       <ScrollView>
         <View>
           {currentScreen()}
@@ -161,4 +161,4 @@ function CreateFlagScreen({ navigation }) {
   );
 }
 
-export default CreateFlagScreen;
+export default CreateMessScreen;

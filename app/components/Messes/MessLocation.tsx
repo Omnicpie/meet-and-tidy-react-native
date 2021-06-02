@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, SafeAreaView, TextInput, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, Text, TextInput } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 //import MapView from 'react-native-maps';
 
-import Flags from '../../assets/stylesheets/Flags';
+import Messes from '../../assets/stylesheets/Messes';
 
-export default function FlagLocation({
+export default function MessLocation({
   location, onChangeLocation, onNext,
 } = props) {
   function validateInput() {
@@ -17,14 +17,14 @@ export default function FlagLocation({
   }
 
   return (
-    <SafeAreaView style={Flags.mainContainer}>
+    <SafeAreaView style={Messes.mainContainer}>
       <ScrollView>
-        <ProgressBar style={Flags.progressBar} progress={0.2} color={Colors.green500} />
-        <Text style={Flags.centeredText}>1 of 5</Text>
-        <Text style={Flags.primaryHeading}>Where is your flag?</Text>
+        <ProgressBar style={Messes.progressBar} progress={0.2} color={Colors.green500} />
+        <Text style={Messes.centeredText}>1 of 5</Text>
+        <Text style={Messes.primaryHeading}>Where is your mess?</Text>
         <TextInput
           defaultValue={location}
-          style={Flags.textInput}
+          style={Messes.textInput}
           onChangeText={(text) => onChangeLocation(text)}
           location={location}
         />

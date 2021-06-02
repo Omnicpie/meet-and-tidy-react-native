@@ -22,19 +22,19 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 6,
   },
-  flagTypeButton: {
+  messTypeButton: {
     margin: 5,
     padding: 10,
     backgroundColor: '#54ae33',
     borderRadius: 8,
     alignItems: 'center',
   },
-  flagTypeButtonText: {
+  messTypeButtonText: {
     fontSize: 15,
     fontWeight: 'bold',
     color: '#fff',
   },
-  flagTypeContainer: {
+  messTypeContainer: {
     marginBottom: 50,
   },
   imageSelected: {
