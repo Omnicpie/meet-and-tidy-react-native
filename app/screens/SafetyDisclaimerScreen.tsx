@@ -1,9 +1,13 @@
-import React from "react";
+import React, { ReactElement } from 'react';
 import { SafeAreaView, Text, View, ScrollView } from "react-native";
 import BottomNavBar from "../components/BottomNavBar";
 import Main from "../assets/stylesheets/Main";
 
-function SafetyDisclaimerScreen({ navigation }) {
+type SafetyDisclaimerScreenProps = {
+  navigation: any;
+};
+
+export default function SafetyDisclaimerScreen({ navigation }: SafetyDisclaimerScreenProps): ReactElement {
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
@@ -21,5 +25,3 @@ function SafetyDisclaimerScreen({ navigation }) {
     </SafeAreaView>
   );
 }
-
-export default SafetyDisclaimerScreen;
