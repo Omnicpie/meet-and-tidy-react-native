@@ -13,10 +13,10 @@ type LocalMessesScrollProps = {
 };
 
 const LOCAL_MESSES_QUERY = gql`
-  query LocalMessess {
+  query LocalMesses {
     messes {
       id
-      name
+      title
       description
       location
       imageUrls
@@ -38,7 +38,7 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  function firstImage(mess: ApiEvent) {
+  function firstImage(mess: ApiMess) {
     if (mess.imageUrls.length) {
       return <ApiImage imageUrl={mess.imageUrls[0]} />;
     }
@@ -54,7 +54,7 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
           horizontal
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
-            <Pressable onPress={() => navigation.navigate('Mess', { id: item.id })}>
+            <Pressable onPress={() => navigation.navigate('MessDetailScreen', { id: item.id })}>
               <View style={Main.popularEventsTile}>
                 {firstImage(item)}
                 <View style={Main.popularEventsTileLower}>
@@ -64,7 +64,7 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
                   </View>
                   <View style={Main.popularEventsTileRight}>
                     <Text style={Main.eventTitle}>
-                      {item.name}
+                      {item.title}
                     </Text>
                     <Text style={Main.eventDescription} numberOfLines={1}>
                       {item.description}

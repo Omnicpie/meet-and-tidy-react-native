@@ -61,10 +61,11 @@ export default StyleSheet.create({
   },
   navContainer: {
     width: "100%",
+    height: 90,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
-    padding: 5,
+    paddingBottom: 5,
     position: "absolute",
     bottom: 0,
     backgroundColor: "#efefef",

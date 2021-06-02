@@ -1,52 +1,65 @@
-import React from 'react';
-import { SafeAreaView, View, TouchableOpacity, Text } from 'react-native';
-import Messes from '../../assets/stylesheets/Messes';
+import { gql, useQuery } from '@apollo/client';
+import React, { useState } from 'react';
+import { ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import Events from '../../assets/stylesheets/Events';
+import ErrorPanel from '../ErrorPanel';
 
-export default function MessTypeSelectButtons({
-  messType, onChangeMessType
-} = props) {
+const MESS_TYPES_QUERY = gql`
+  query MessTypes {
+    messTypes {
+      id
+      name
+    }
+  }
+`;
+
+export default function MessTypeSelectButtons({ messTypes, onChangeMessTypes } = props) {
+
+  const [selectedTypes, setSelectedTypes] = useState([]);
+
+  const { data, error, loading, refetch } = useQuery(MESS_TYPES_QUERY);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
+  if (error) {
+    return <ErrorPanel message={error.message} reload={refetch} />;
+  }
+
+  const isSelected = (messTypeId : number) => messTypes.some(id => id === messTypeId);
+
+  const updateSelected = (selectedType : any) => {
+    const id = selectedType.id;
+    if (isSelected(id)) {
+      onChangeMessTypes(messTypes.filter(x => x !== id));
+    } else {
+      onChangeMessTypes(messTypes.push(id));
+    }
+  };
+
   return (
-    // TODO this currently only selects the last one from the list
-    <SafeAreaView style={Messes.messTypeContainer}>
-      <View style={Messes.buttonContianer}>
-        <TouchableOpacity
-          onPress={onChangeMessType('Park')}
-          messType="Park"
-          style={Messes.messTypeButton}>
-            <Text style={Messes.messTypeButtonText}>Park</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onChangeMessType('Canal')}
-          messType="Canal"
-          style={Messes.messTypeButton}>
-            <Text style={Messes.messTypeButtonText}>Canal</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onChangeMessType('Beach')}
-          messType="Beach"
-          style={Messes.messTypeButton}>
-            <Text style={Messes.messTypeButtonText}>Beach</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={Messes.buttonContianer}>
-        <TouchableOpacity
-          onPress={onChangeMessType('Street')}
-          messType="Street"
-          style={Messes.messTypeButton}>
-            <Text style={Messes.messTypeButtonText}>Street</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onChangeMessType('Woodland')}
-          messType="Woodland"
-          style={Messes.messTypeButton}>
-            <Text style={Messes.messTypeButtonText}>Woodland</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={onChangeMessType('Cemetery')}
-          messType="Cemetery"
-          style={Messes.messTypeButton}>
-            <Text style={Messes.messTypeButtonText}>Cemetery</Text>
-        </TouchableOpacity>
+    <SafeAreaView style={Events.mainContainer}>
+      <View style={Events.buttonContainer}>
+        <FlatList
+          data={data.messTypes}
+          horizontal
+          keyExtractor={({ id }) => id.toString()}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() => updateSelected(item)}
+              style={isSelected(item.id)
+                ? Events.eventTypeButtonSelected : Events.eventTypeButton}
+            >
+              <Text
+                style={isSelected(item.id)
+                  ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}
+              >
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          )}
+        />
       </View>
     </SafeAreaView>
   );
