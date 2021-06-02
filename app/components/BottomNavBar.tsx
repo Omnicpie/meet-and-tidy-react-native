@@ -12,7 +12,7 @@ function BottomNavBar({ navigation }: BottomNavBarProps): ReactElement {
     <SafeAreaView style={Main.navContainer}>
       <IconButton
         style={Main.navBarIcon}
-        icon="flag-outline"
+        icon="delete-outline"
         accessibilityLabel="flag"
         size={35}
         onPress={() => navigation.navigate('CreateFlag')}
