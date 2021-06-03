@@ -13,10 +13,10 @@ type LocalMessesScrollProps = {
 };
 
 const LOCAL_MESSES_QUERY = gql`
-  query LocalMessess {
+  query LocalMesses {
     messes {
       id
-      name
+      title
       description
       location
       imageUrls
@@ -38,7 +38,7 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  function firstImage(mess: ApiEvent) {
+  function firstImage(mess: ApiMess) {
     if (mess.imageUrls.length) {
       return <ApiImage imageUrl={mess.imageUrls[0]} />;
     }
@@ -46,8 +46,8 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
   }
 
   return (
-    <View style={Main.popularEventsContainer}>
-      <Text style={Main.popularEventsTitle}>Local messes</Text>
+    <View style={Main.scrollerContainer}>
+      <Text style={Main.scrollerTitle}>Local messes</Text>
       <View>
         <FlatList<ApiMess>
           data={data.messes}
@@ -55,16 +55,16 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
             <Pressable onPress={() => navigation.navigate('Mess', { id: item.id })}>
-              <View style={Main.popularEventsTile}>
+              <View style={Main.scrollerTile}>
                 {firstImage(item)}
-                <View style={Main.popularEventsTileLower}>
-                  <View style={Main.popularEventsTileLeft}>
+                <View style={Main.scrollerTileLower}>
+                  <View style={Main.scrollerTileLeft}>
                     <Text style={Main.date}>{dayOfMonth(item.createdAt)}</Text>
                     <Text style={Main.month}>{shortMonthName(item.createdAt)}</Text>
                   </View>
-                  <View style={Main.popularEventsTileRight}>
-                    <Text style={Main.eventTitle}>
-                      {item.name}
+                  <View style={Main.scrollerTileRight}>
+                    <Text style={Main.eventTitle} numberOfLines={2}>
+                      {item.title}
                     </Text>
                     <Text style={Main.eventDescription} numberOfLines={1}>
                       {item.description}

@@ -11,5 +11,6 @@ export type ApiMess = {
   id: number;
   imageUrls: Array<string>;
   location: string;
-  name: string;
+  title: string;
+  createdAt: string;
 };

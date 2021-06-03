@@ -1,31 +1,35 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import React, { ReactElement } from 'react';
+import { Text, SafeAreaView } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-import EventTypeSelectButtons from '../Events/EventTypeSelectButtons';
-import Messes from '../../assets/stylesheets/Messes';
+import { ScrollView } from 'react-native-gesture-handler';
+import MessTypeSelectButtons from './MessTypeSelectButtons';
+import Events from '../../assets/stylesheets/Events';
 
-export default function MessType({
-  messTypes, onChangeEventTypes, onNext,
-} = props) {
+type MessTypeProps = {
+  messType: string;
+  onChangeMessType: (messType: string) => void;
+  onNext: () => void;
+};
+
+export default function MessType({ messType, onChangeMessType, onNext }: MessTypeProps): ReactElement {
   function validateInput() {
     if (messType.length > 3 && typeof messType === 'string') {
       onNext();
     } else {
-      alert('Please select a flag type.');
+      alert('Please select a mess type.');
     }
   }
+
   return (
-    <SafeAreaView style={Messes.mainContainer}>
+    <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
-        <ProgressBar style={Messes.progressBar} progress={0.4} color={Colors.green500} />
-        <Text style={Messes.centeredText}>2 of 5</Text>
-        <Text style={Messes.primaryHeading}>Mess Type</Text>
-        <View style={Messes.buttonContianer}>
-          <EventTypeSelectButtons
-            messTypes={messTypes}
-            onChangeEventType={onChangeEventTypes}
-          />
-        </View>
+        <ProgressBar style={Events.progressBar} progress={0.333} color={Colors.green500} />
+        <Text style={Events.centeredText}>2 of 6</Text>
+        <Text style={Events.primaryHeading}>What type of mess is it?</Text>
+        <MessTypeSelectButtons
+          messTypes={messType}
+          onChangeMessTypes={onChangeMessType}
+        />
       </ScrollView>
     </SafeAreaView>
   );

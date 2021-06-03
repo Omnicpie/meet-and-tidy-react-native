@@ -47,8 +47,8 @@ export default function PopularEventScroll({ navigation }: PopularEventScrollPro
   }
 
   return (
-    <View style={Main.popularEventsContainer}>
-      <Text style={Main.popularEventsTitle}>Popular events</Text>
+    <View style={Main.scrollerContainer}>
+      <Text style={Main.scrollerTitle}>Popular events</Text>
       <View>
         <FlatList<ApiEvent>
           data={data.events}
@@ -56,14 +56,14 @@ export default function PopularEventScroll({ navigation }: PopularEventScrollPro
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
             <Pressable onPress={() => navigation.navigate('Event', { id: item.id })}>
-              <View style={Main.popularEventsTile}>
+              <View style={Main.scrollerTile}>
                 {firstImage(item)}
-                <View style={Main.popularEventsTileLower}>
-                  <View style={Main.popularEventsTileLeft}>
+                <View style={Main.scrollerTileLower}>
+                  <View style={Main.scrollerTileLeft}>
                     <Text style={Main.date}>{dayOfMonth(item.startsAt)}</Text>
                     <Text style={Main.month}>{shortMonthName(item.startsAt)}</Text>
                   </View>
-                  <View style={Main.popularEventsTileRight}>
+                  <View style={Main.scrollerTileRight}>
                     <Text style={Main.eventTitle}>
                       {item.title}
                     </Text>

@@ -12,3 +12,8 @@ export const shortMonthName = (isoDateString: string): string => {
   ];
   return months[monthIndex];
 };
+
+export const fullYear = (isoDateString: string): number => {
+  const d = new Date(isoDateString);
+  return d.getFullYear();
+};

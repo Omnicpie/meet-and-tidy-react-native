@@ -1,13 +1,16 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, Text, TextInput } from 'react-native';
+import React, { ReactElement } from 'react';
+import { Button, SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-//import MapView from 'react-native-maps';
+import PossibleMapView from '../PossibleMapView';
+import Events from '../../assets/stylesheets/Events';
 
-import Messes from '../../assets/stylesheets/Messes';
+type MessLocationProps = {
+  location: string;
+  onNext: () => void;
+  onChangeLocation: (location: string) => void;
+};
 
-export default function MessLocation({
-  location, onChangeLocation, onNext,
-} = props) {
+export default function MessLocation({ location, onChangeLocation, onNext }: MessLocationProps): ReactElement {
   function validateInput() {
     if (location.length > 3) {
       onNext();
@@ -16,19 +19,30 @@ export default function MessLocation({
     }
   }
 
+  const region = {
+    latitude: 54.3781,
+    longitude: -3,
+    latitudeDelta: 9,
+    longitudeDelta: 9,
+  };
+
   return (
-    <SafeAreaView style={Messes.mainContainer}>
+    <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
-        <ProgressBar style={Messes.progressBar} progress={0.2} color={Colors.green500} />
-        <Text style={Messes.centeredText}>1 of 5</Text>
-        <Text style={Messes.primaryHeading}>Where is your mess?</Text>
+        <ProgressBar style={Events.progressBar} progress={0.166} color={Colors.green500} />
+        <Text style={Events.centeredText}>1 of 6</Text>
+        <Text style={Events.primaryHeading}>Where is your mess?</Text>
         <TextInput
           defaultValue={location}
-          style={Messes.textInput}
+          style={Events.textInput}
           onChangeText={(text) => onChangeLocation(text)}
           location={location}
+          value={location}
+          clearButtonMode="while-editing"
         />
-
+        <View style={Events.container}>
+          <PossibleMapView region={region}></PossibleMapView>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

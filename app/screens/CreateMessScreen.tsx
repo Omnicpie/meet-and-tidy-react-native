@@ -1,33 +1,38 @@
-import React, { useState } from 'react';
-import {
-  View, SafeAreaView, Button, ScrollView
-} from 'react-native';
+import React, { ReactElement, useState } from 'react';
+import { Button, SafeAreaView, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+
 import BottomNavBar from '../components/BottomNavBar';
 import MessLocation from '../components/Messes/MessLocation';
 import MessType from '../components/Messes/MessType';
-import MessDescription from '../components/Messes/MessDescription';
+import MessTitle from '../components/Messes/MessTitle';
 import MessImage from '../components/Messes/MessImage';
+import MessDescription from '../components/Messes/MessDescription';
 import MessPreview from '../components/Messes/MessPreview';
 import Request from '../helpers/Request';
-import CreateMess from '../assets/stylesheets/CreateMess';
-import Messes from '../assets/stylesheets/Messes';
+import Events from '../assets/stylesheets/Events';
 
-function CreateMessScreen({ navigation }) {
-  const [description, onChangeDescription] = useState('');
+type CreateMessScreenProps = {
+  navigation: any;
+};
+
+function CreateMessScreen({ navigation }: CreateMessScreenProps): ReactElement {
   const [location, onChangeLocation] = useState('');
-  const [eventTypes, onChangeEventTypes] = useState([]);
+  const [messType, onChangeMessType] = useState('');
   const [image, onChangeImage] = useState('');
-
+  const [imagePreview, onChangeImagePreview] = useState('');
+  const [title, onChangeTitle] = useState('');
+  const [description, onChangeDescription] = useState('');
   const [screen, setScreen] = useState(1);
 
   async function saveMess() {
     const mess = {
+      title,
       description,
       location,
-      eventTypes,
+      messType,
       image,
     };
-
     new Request('POST', '/messes/').createEventOrMess(mess);
   }
 
@@ -49,7 +54,7 @@ function CreateMessScreen({ navigation }) {
               onChangeLocation={onChangeLocation}
               onNext={onNext}
             />
-            <View style={Messes.buttonContianer}>
+            <View style={Events.buttonContainer}>
               <Button
                 onPress={onNext}
                 title="Next"
@@ -61,11 +66,11 @@ function CreateMessScreen({ navigation }) {
         return (
           <View>
             <MessType
-              eventTypes={eventTypes}
-              onChangeEventTypes={onChangeEventTypes}
+              messType={messType}
+              onChangeMessType={onChangeMessType}
               onNext={onNext}
             />
-            <View style={Messes.buttonContianer}>
+            <View style={Events.buttonContainer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -80,12 +85,16 @@ function CreateMessScreen({ navigation }) {
       case 3:
         return (
           <View>
-            <MessImage
-              image={image}
-              onChangeImage={onChangeImage}
-              onNext={onNext}
-            />
-            <View style={Messes.buttonContianer}>
+            <View>
+              <MessImage
+                image={image}
+                onChangeImage={onChangeImage}
+                onChangeImagePreview={onChangeImagePreview}
+                onNext={onNext}
+                onPrevious={onPrevious}
+              />
+            </View>
+            <View style={Events.buttonContainer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -100,12 +109,37 @@ function CreateMessScreen({ navigation }) {
       case 4:
         return (
           <View>
+          <View>
+            <MessTitle
+              title={title}
+              onChangeTitle={onChangeTitle}
+              onNext={onNext}
+              onPrevious={onPrevious}
+              location={location}
+              messType={messType}
+            />
+          </View>
+          <View style={Events.buttonContainer}>
+            <Button
+              onPress={onPrevious}
+              title="Previous"
+            />
+            <Button
+              onPress={onNext}
+              title="Next"
+            />
+          </View>
+        </View>
+        );
+      case 5:
+        return (
+          <View>
             <MessDescription
               description={description}
               onChangeDescription={onChangeDescription}
               onNext={onNext}
             />
-            <View style={Messes.buttonContianer}>
+            <View style={Events.buttonContainer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
@@ -117,25 +151,25 @@ function CreateMessScreen({ navigation }) {
             </View>
           </View>
         );
-      case 5:
+      case 6:
         return (
           <View>
             <MessPreview
               description={description}
               location={location}
-              eventTypes={eventTypes}
+              messTypes={messType}
               image={image}
             />
-            <View style={Messes.buttonContianer}>
+            <View style={Events.buttonContainer}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
               />
             </View>
-            <View style={Messes.buttonContianer}>
+            <View style={Events.buttonContainer}>
               <Button
                 onPress={saveMess}
-                title="Publish mess"
+                title="Publish"
               />
               <Button
                 // onPress={claimMess}
@@ -149,12 +183,12 @@ function CreateMessScreen({ navigation }) {
     }
   }
 
+  console.log('saveMess')
+
   return (
-    <SafeAreaView style={CreateMess.mainContainer}>
+    <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
-        <View>
-          {currentScreen()}
-        </View>
+        {currentScreen()}
       </ScrollView>
       <BottomNavBar navigation={navigation} />
     </SafeAreaView>

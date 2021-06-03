@@ -1,16 +1,47 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  buttonContianer: {
+  attendMessButton: {
+    fontSize: 16,
+    color: '#54ae33',
+    fontWeight: 'bold',
+  },
+  attendMessButtonContainer: {
+    marginHorizontal: '33.33%',
+    marginVertical: 5,
+    padding: 10,
+    backgroundColor: '#fff',
+    borderColor: '#54ae33',
+    borderRadius: 8,
+    borderWidth: 2,
+    alignItems: 'center',
+    width: 150,
+  },
+  buttonContainer: {
     display: 'flex',
     alignContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 75,
+  },
+  buttonElement: {
+    marginRight: 5,
+    marginLeft: 5,
   },
   centeredText: {
     textAlign: 'center',
     marginTop: 5,
+  },
+  detailPrimaryHeading: {
+    textAlign: 'center',
+    fontSize: 23,
+    paddingTop: 10,
+  },
+  detailSecondaryHeading: {
+    textAlign: 'center',
+    width: '100%',
+    paddingLeft: 15,
   },
   descInput: {
     height: 130,
@@ -58,6 +89,14 @@ export default StyleSheet.create({
     alignItems: 'stretch',
     width: '100%',
     paddingHorizontal: 25,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  mainPreviewContainer: {
+    flex: 1,
+    alignItems: 'stretch',
+    padding: 25,
+    width: '100%',
     justifyContent: 'center',
     backgroundColor: '#fff',
   },
