@@ -56,7 +56,9 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
           renderItem={({ item }) => (
             <Pressable onPress={() => navigation.navigate('Mess', { id: item.id })}>
               <View style={Main.scrollerTile}>
+                <View>
                 {firstImage(item)}
+                </View>
                 <View style={Main.scrollerTileLower}>
                   <View style={Main.scrollerTileLeft}>
                     <Text style={Main.date}>{dayOfMonth(item.createdAt)}</Text>
@@ -66,7 +68,7 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
                     <Text style={Main.eventTitle} numberOfLines={2}>
                       {item.title}
                     </Text>
-                    <Text style={Main.eventDescription} numberOfLines={1}>
+                    <Text style={Main.eventOrMessDescription} numberOfLines={1}>
                       {item.description}
                     </Text>
                   </View>

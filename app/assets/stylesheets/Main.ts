@@ -25,7 +25,7 @@ export default StyleSheet.create({
     color: "#000",
     textAlign: "center",
   },
-  eventDescription: {
+  eventOrMessDescription: {
     fontSize: 16,
     color: "#000",
     paddingTop: 4,
@@ -37,6 +37,16 @@ export default StyleSheet.create({
     width: 250,
     height: 125,
     marginTop: 25,
+  },
+  mapPreviewTile: {
+    width: '95%',
+    height: 175,
+    backgroundColor: '#54ae33',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginTop: 10,
+    marginLeft: 8,
   },
   mainContainer: {
     flex: 1,
@@ -81,7 +91,7 @@ export default StyleSheet.create({
     flex: 1,
     paddingHorizontal: 15,
     backgroundColor: "#fff",
-    height: 160,
+    height: 360,
     marginTop: 10,
   },
   scrollerDescription: {
@@ -186,5 +196,12 @@ export default StyleSheet.create({
   tagLine: {
     color: "#888",
     fontSize: 15,
+  },
+  tellUsMore: {
+    textAlign: 'center',
+    width: '95%',
+    fontSize: 15,
+    paddingBottom: 15,
+    paddingLeft: 15,
   },
 });
