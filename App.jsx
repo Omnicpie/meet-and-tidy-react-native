@@ -15,7 +15,7 @@ import EventSearchResultScreen from './app/screens/EventSearchResultScreen';
 const Stack = createStackNavigator();
 
 const client = new ApolloClient({
-  uri: 'https://meet-and-tidy.commit.digital/graphql',
+  uri: 'http://192.168.1.117:3000/graphql',
   cache: new InMemoryCache(),
 });
 
