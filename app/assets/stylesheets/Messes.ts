@@ -29,13 +29,6 @@ export default StyleSheet.create({
     marginRight: 5,
     marginLeft: 5,
   },
-  buttonContianer: {
-    display: 'flex',
-    alignContent: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   centeredText: {
     textAlign: 'center',
     marginTop: 5,
