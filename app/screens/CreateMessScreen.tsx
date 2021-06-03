@@ -2,7 +2,6 @@ import React, { ReactElement, useState } from 'react';
 import { Button, SafeAreaView, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import BottomNavBar from '../components/BottomNavBar';
 import MessLocation from '../components/Messes/MessLocation';
 import MessType from '../components/Messes/MessType';
 import MessTitle from '../components/Messes/MessTitle';
@@ -183,14 +182,11 @@ function CreateMessScreen({ navigation }: CreateMessScreenProps): ReactElement {
     }
   }
 
-  console.log('saveMess')
-
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
         {currentScreen()}
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }

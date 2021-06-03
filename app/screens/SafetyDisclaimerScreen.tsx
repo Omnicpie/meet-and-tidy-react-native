@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import { SafeAreaView, Text, View, ScrollView } from "react-native";
-import BottomNavBar from "../components/BottomNavBar";
 import Main from "../assets/stylesheets/Main";
 
 type SafetyDisclaimerScreenProps = {
@@ -21,7 +20,6 @@ export default function SafetyDisclaimerScreen({ navigation }: SafetyDisclaimerS
           </Text>
         </View>
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }

@@ -5,7 +5,6 @@ import PopularEventScroll from '../components/PopularEventScroll';
 import LocalMessesScroll from '../components/LocalMessesScroll';
 import Logo from '../components/Logo';
 import SearchBar from '../components/SearchBar';
-import BottomNavBar from '../components/BottomNavBar';
 import Main from '../assets/stylesheets/Main';
 
 type HomeScreenProps = {
@@ -24,7 +23,6 @@ function HomeScreen({ navigation }: HomeScreenProps): ReactElement {
         <PopularEventScroll navigation={navigation} />
         <LocalMessesScroll navigation={navigation} />
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }

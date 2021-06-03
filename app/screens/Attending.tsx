@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react';
-import { SafeAreaView, Text, View, ScrollView } from "react-native";
-import BottomNavBar from "../components/BottomNavBar";
-import Main from "../assets/stylesheets/Main";
+import {
+  SafeAreaView, Text, View, ScrollView,
+} from 'react-native';
+import Main from '../assets/stylesheets/Main';
+import AttendingEvent from '../components/AttendingEvent';
 
 type AttendingScreenProps = {
   navigation: any;
@@ -13,9 +15,9 @@ function AttendingScreen({ navigation }: AttendingScreenProps): ReactElement {
       <ScrollView>
         <View>
           <Text style={Main.regHeading}>Attending</Text>
+          <AttendingEvent />
         </View>
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }

@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import { SafeAreaView, Text, View, ScrollView } from "react-native";
-import BottomNavBar from "../components/BottomNavBar";
 import Main from "../assets/stylesheets/Main";
 
 type MyMessesScreenProps = {
@@ -15,7 +14,6 @@ function MyMessesScreen({ navigation }: MyMessesScreenProps): ReactElement {
           <Text style={Main.regHeading}>MyMesses</Text>
         </View>
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }

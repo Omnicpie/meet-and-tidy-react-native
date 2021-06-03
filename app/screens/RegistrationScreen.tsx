@@ -2,7 +2,6 @@ import { ApolloError, gql, useMutation } from '@apollo/client';
 import React, { ReactElement, useState } from 'react';
 import { Alert, Button, Pressable, SafeAreaView, ScrollView, TextInput } from 'react-native';
 import { Text, View } from '../components/Themed';
-import BottomNavBar from '../components/BottomNavBar';
 import Main from '../assets/stylesheets/Main';
 
 type RegScreenProps = {
@@ -117,7 +116,6 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
         </View>
         {mutationFailed && <View><Text style={Main.mutation}>Unable to create account, please try again.</Text></View>}
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }

@@ -4,7 +4,6 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import BottomNavBar from '../components/BottomNavBar';
 import EventLocation from '../components/Events/EventLocation';
 import EventDate from '../components/Events/EventDate';
 import EventType from '../components/Events/EventType';
@@ -188,7 +187,6 @@ function CreateEventScreen({ navigation }: CreateEventScreenProps): ReactElement
       <ScrollView>
         {currentScreen()}
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }

@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import { Pressable, ScrollView, SafeAreaView, Text, View } from 'react-native';
-import BottomNavBar from '../components/BottomNavBar';
 import Activities from '../assets/stylesheets/Activities';
 import Main from '../assets/stylesheets/Main';
 
@@ -41,7 +40,6 @@ function MyActivitiesScreen({ navigation }: MyActivitiesScreenProps): ReactEleme
           </View>
         </Pressable>
       </ScrollView>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }

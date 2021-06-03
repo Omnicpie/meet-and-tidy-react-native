@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import {
   StyleSheet, SafeAreaView, Text, View,
 } from 'react-native';
-import BottomNavBar from '../components/BottomNavBar';
 import SearchResultList from '../components/SearchResultList';
 
 const styles = StyleSheet.create({
@@ -43,7 +42,6 @@ function EventSearchResultScreen({ navigation, route }:
         </Text>
         <SearchResultList navigation={navigation} route={route} />
       </View>
-      <BottomNavBar navigation={navigation} />
     </SafeAreaView>
   );
 }
