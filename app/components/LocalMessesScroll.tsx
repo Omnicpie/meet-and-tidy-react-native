@@ -54,7 +54,7 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
           horizontal
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
-            <Pressable onPress={() => navigation.navigate('MessDetailScreen', { id: item.id })}>
+            <Pressable onPress={() => navigation.navigate('Mess', { id: item.id })}>
               <View style={Main.scrollerTile}>
                 {firstImage(item)}
                 <View style={Main.scrollerTileLower}>

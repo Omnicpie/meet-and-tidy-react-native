@@ -6,6 +6,7 @@ import Messes from '../assets/stylesheets/Messes';
 import Events from '../assets/stylesheets/Events';
 import ErrorPanel from '../components/ErrorPanel';
 import { ApiMess } from '../../ApiTypes';
+import { dayOfMonth, shortMonthName, fullYear} from '../helpers/DateHelpers';
 
 type MessDetailScreenProps = {
   navigation: any;
@@ -54,6 +55,7 @@ function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
         <View>
           <View>
             {firstImage(mess)}
+            <Text style={Messes.paragraph}>{mess.mess_type}</Text>
           </View>
           <View>
             <Text style={Events.detailPrimaryHeading}>{mess.title}</Text>
@@ -61,13 +63,8 @@ function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
           </View>
           <View>
             <Text style={Messes.subheading}>
-              Date:
-              {mess.createdAt}
+              Logged on: {dayOfMonth(mess.createdAt)} {shortMonthName(mess.createdAt)} {fullYear(mess.createdAt)}
             </Text>
-          </View>
-          <View>
-            <Text style={Messes.subheading}>Facilities available</Text>
-            <Text style={Messes.paragraph}>{mess.facilityType}</Text>
           </View>
           <View>
             <Text style={Messes.subheading}>Description</Text>
