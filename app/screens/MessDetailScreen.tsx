@@ -59,15 +59,12 @@ function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
           <View>
             <Text style={Messes.detailPrimaryHeading}>{mess.title}</Text>
             <Text style={Messes.detailSecondaryHeading}>{mess.messType}</Text>
+            <Text style={Messes.paragraph}>{mess.description}</Text>
           </View>
           <View>
             <Text style={Messes.subheading}>
               Logged on: {dayOfMonth(mess.createdAt)} {shortMonthName(mess.createdAt)} {fullYear(mess.createdAt)}
             </Text>
-          </View>
-          <View>
-            <Text style={Messes.subheading}>Description</Text>
-            <Text style={Messes.paragraph}>{mess.description}</Text>
           </View>
           <View>
             <Text style={Messes.subheading}>Location</Text>

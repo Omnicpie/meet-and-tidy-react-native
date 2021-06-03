@@ -3,6 +3,7 @@ import { Text, View, Image, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 // Preview event before saving
 
 export default function EventPreview({
@@ -33,7 +34,7 @@ export default function EventPreview({
         </View>
         <View>
           <Text style={Events.subheading}>Location</Text>
-          <Text style={Events.mapPreviewTile}>{location}</Text>
+          <Text style={Main.mapPreviewTile}>{location}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -66,6 +66,9 @@ function EventDetailScreen({ navigation, route } : EventDetailScreenProps) {
             <Text style={Events.detailSecondaryHeading}>{event.eventType}</Text>
           </View>
           <View>
+            <Text style={Events.paragraph}>{event.description}</Text>
+          </View>
+          <View>
             <Text style={Events.subheading}>
               Date:
               {event.startsAt}
@@ -74,10 +77,6 @@ function EventDetailScreen({ navigation, route } : EventDetailScreenProps) {
           <View>
             <Text style={Events.subheading}>Facilities available</Text>
             <Text style={Events.paragraph}>{event.facilityType}</Text>
-          </View>
-          <View>
-            <Text style={Events.subheading}>Description</Text>
-            <Text style={Events.paragraph}>{event.description}</Text>
           </View>
           <View>
             <Text style={Events.subheading}>Event URL</Text>

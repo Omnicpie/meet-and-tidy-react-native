@@ -130,16 +130,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  mapPreviewTile: {
-    width: '95%',
-    height: 175,
-    backgroundColor: '#54ae33',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-    marginTop: 10,
-    marginLeft: 8,
-  },
   paragraph: {
     textAlign: 'left',
     width: '100%',
