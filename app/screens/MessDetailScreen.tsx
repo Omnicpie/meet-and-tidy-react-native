@@ -3,7 +3,6 @@ import { ActivityIndicator, Pressable, SafeAreaView, ScrollView, Text, View } fr
 import { gql, useQuery } from '@apollo/client';
 import ApiImage from '../helpers/ApiImage';
 import Messes from '../assets/stylesheets/Messes';
-import Events from '../assets/stylesheets/Events';
 import ErrorPanel from '../components/ErrorPanel';
 import { ApiMess } from '../../ApiTypes';
 import { dayOfMonth, shortMonthName, fullYear} from '../helpers/DateHelpers';
@@ -50,7 +49,7 @@ function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
   const { mess } = data;
 
   return (
-    <SafeAreaView style={Messes.mainContainer}>
+    <SafeAreaView style={Messes.mainPreviewContainer}>
       <ScrollView>
         <View>
           <View>
@@ -58,8 +57,8 @@ function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
             <Text style={Messes.paragraph}>{mess.mess_type}</Text>
           </View>
           <View>
-            <Text style={Events.detailPrimaryHeading}>{mess.title}</Text>
-            <Text style={Events.detailSecondaryHeading}>{mess.messType}</Text>
+            <Text style={Messes.detailPrimaryHeading}>{mess.title}</Text>
+            <Text style={Messes.detailSecondaryHeading}>{mess.messType}</Text>
           </View>
           <View>
             <Text style={Messes.subheading}>
@@ -74,9 +73,9 @@ function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
             <Text style={Messes.subheading}>Location</Text>
             <Text style={Messes.infoTile}>{mess.location}</Text>
           </View>
-          <View style={Events.attendEventButtonContainer}>
+          <View style={Messes.attendMessButtonContainer}>
             <Pressable onPress={() => navigation.navigate('Registration')}>
-              <Text style={Events.attendEventButton}>Claim</Text>
+              <Text style={Messes.attendMessButton}>Claim</Text>
             </Pressable>
           </View>
         </View>
