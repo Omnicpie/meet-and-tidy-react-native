@@ -7,7 +7,7 @@ import HomeScreen from './app/screens/HomeScreen';
 import EventDetailScreen from './app/screens/EventDetailScreen';
 import CreateEventScreen from './app/screens/CreateEventScreen';
 import SafetyDisclaimerScreen from './app/screens/SafetyDisclaimerScreen';
-import CreateFlagScreen from './app/screens/CreateFlagScreen';
+import CreateMessScreen from './app/screens/CreateMessScreen';
 import RegistrationScreen from './app/screens/RegistrationScreen';
 import MyActivitiesScreen from './app/screens/MyActivitiesScreen';
 import EventSearchResultScreen from './app/screens/EventSearchResultScreen';
@@ -50,9 +50,9 @@ export default function App() {
             options={{ title: 'Safety Disclaimer' }}
           />
           <Stack.Screen
-            name="CreateFlag"
-            component={CreateFlagScreen}
-            options={{ title: 'Flag Create' }}
+            name="CreateMess"
+            component={CreateMessScreen}
+            options={{ title: 'Mess Create' }}
           />
           <Stack.Screen
             name="Registration"
