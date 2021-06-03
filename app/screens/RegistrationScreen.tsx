@@ -36,7 +36,7 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
   };
 
   function formValid(): boolean {
-    return email.length >= 10 && name.length >= 1 && password.length >= 6;
+    return email.length >= 4 && email.length <= 254 && name.length >= 1 && password.length >= 6;
   }
 
   const [createAccount, _accountResult] = useMutation(CREATE_ACCOUNT, responses);
