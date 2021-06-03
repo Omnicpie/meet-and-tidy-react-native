@@ -6,18 +6,10 @@ import Events from '../../assets/stylesheets/Events';
 
 type MessLocationProps = {
   location: string;
-  onNext: () => void;
   onChangeLocation: (location: string) => void;
 };
 
-export default function MessLocation({ location, onChangeLocation, onNext }: MessLocationProps): ReactElement {
-  function validateInput() {
-    if (location.length > 3) {
-      onNext();
-    } else {
-      alert(`Please enter a valid location, "${location}" needs to be at least 5 characters long.`);
-    }
-  }
+export default function MessLocation({ location, onChangeLocation }: MessLocationProps): ReactElement {
 
   const region = {
     latitude: 54.3781,
