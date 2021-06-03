@@ -1,21 +1,8 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import HomeScreen from './app/screens/HomeScreen';
-import EventDetailScreen from './app/screens/EventDetailScreen';
-import CreateEventScreen from './app/screens/CreateEventScreen';
-import SafetyDisclaimerScreen from './app/screens/SafetyDisclaimerScreen';
-import CreateMessScreen from './app/screens/CreateMessScreen';
-import RegistrationScreen from './app/screens/RegistrationScreen';
-import MyActivitiesScreen from './app/screens/MyActivitiesScreen';
-import Attending from './app/screens/Attending';
-import Organising from './app/screens/Organising';
-import MyMesses from './app/screens/MyMesses';
-import EventSearchResultScreen from './app/screens/EventSearchResultScreen';
-
-const Stack = createStackNavigator();
+import Navigation from './app/navigation';
 
 const client = new ApolloClient({
   uri: 'https://meet-and-tidy.commit.digital/graphql',
@@ -25,65 +12,9 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ title: 'Welcome', headerShown: false }}
-          />
-          <Stack.Screen
-            name="Event"
-            component={EventDetailScreen}
-            options={{ title: 'Event' }}
-          />
-          <Stack.Screen
-            name="CreateEvent"
-            component={CreateEventScreen}
-            options={{ title: 'New Event' }}
-          />
-          <Stack.Screen
-            name="EventSearchResult"
-            component={EventSearchResultScreen}
-            options={{ title: 'Search Results' }}
-          />
-          <Stack.Screen
-            name="SafetyDisclaimer"
-            component={SafetyDisclaimerScreen}
-            options={{ title: 'Safety Disclaimer' }}
-          />
-          <Stack.Screen
-            name="CreateMess"
-            component={CreateMessScreen}
-            options={{ title: 'Mess Create' }}
-          />
-          <Stack.Screen
-            name="Registration"
-            component={RegistrationScreen}
-            options={{ title: 'Registration Screen' }}
-          />
-          <Stack.Screen
-            name="MyActivities"
-            component={MyActivitiesScreen}
-            options={{ title: 'My Activities' }}
-          />
-          <Stack.Screen
-            name="MyMesses"
-            component={MyMesses}
-            options={{ title: 'My Messes' }}
-          />
-          <Stack.Screen
-            name="Attending"
-            component={Attending}
-            options={{ title: 'Attending' }}
-          />
-          <Stack.Screen
-            name="Organising"
-            component={Organising}
-            options={{ title: 'Organising' }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <SafeAreaProvider>
+        <Navigation />
+      </SafeAreaProvider>
     </ApolloProvider>
   );
 }
