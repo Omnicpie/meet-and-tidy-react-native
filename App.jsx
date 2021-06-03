@@ -10,6 +10,9 @@ import SafetyDisclaimerScreen from './app/screens/SafetyDisclaimerScreen';
 import CreateMessScreen from './app/screens/CreateMessScreen';
 import RegistrationScreen from './app/screens/RegistrationScreen';
 import MyActivitiesScreen from './app/screens/MyActivitiesScreen';
+import Attending from './app/screens/Attending';
+import Organising from './app/screens/Organising';
+import MyMesses from './app/screens/MyMesses';
 import EventSearchResultScreen from './app/screens/EventSearchResultScreen';
 
 const Stack = createStackNavigator();
@@ -63,6 +66,21 @@ export default function App() {
             name="MyActivities"
             component={MyActivitiesScreen}
             options={{ title: 'My Activities' }}
+          />
+          <Stack.Screen
+            name="MyMesses"
+            component={MyMesses}
+            options={{ title: 'My Messes' }}
+          />
+          <Stack.Screen
+            name="Attending"
+            component={Attending}
+            options={{ title: 'Attending' }}
+          />
+          <Stack.Screen
+            name="Organising"
+            component={Organising}
+            options={{ title: 'Organising' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
