@@ -63,7 +63,7 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
                     <Text style={Main.month}>{shortMonthName(item.createdAt)}</Text>
                   </View>
                   <View style={Main.popularEventsTileRight}>
-                    <Text style={Main.eventTitle}>
+                    <Text style={Main.eventTitle} numberOfLines={2}>
                       {item.title}
                     </Text>
                     <Text style={Main.eventDescription} numberOfLines={1}>
