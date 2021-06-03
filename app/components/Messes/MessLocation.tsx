@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
-import { Button, SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native';
+import { SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import PossibleMapView from '../PossibleMapView';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 
 type MessLocationProps = {
   location: string;
@@ -23,7 +24,10 @@ export default function MessLocation({ location, onChangeLocation }: MessLocatio
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.166} color={Colors.green500} />
         <Text style={Events.centeredText}>1 of 6</Text>
-        <Text style={Events.primaryHeading}>Where is your mess?</Text>
+        <View>
+          <Text style={Events.primaryHeading}>Where is your mess?</Text>
+          <Text style={Main.tellUsMore}>Tell us where you found this mess</Text>
+        </View>
         <TextInput
           defaultValue={location}
           style={Events.textInput}

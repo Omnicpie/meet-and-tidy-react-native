@@ -1,9 +1,10 @@
 import React, { ReactElement, useState, useEffect } from 'react';
-import { Button, Image, Platform, SafeAreaView, Text } from 'react-native';
+import { Button, Image, Platform, SafeAreaView, Text, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import { ScrollView } from 'react-native-gesture-handler';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 
 // import Request from './request';
 
@@ -46,7 +47,10 @@ export default function MessImage({ image, onChangeImage }: MessImageProps): Rea
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
         <Text style={Events.centeredText} >3 of 6</Text>
-        <Text style={Events.primaryHeading}>Upload a mess image</Text>
+        <View>
+          <Text style={Events.primaryHeading}>Upload a mess image</Text>
+          <Text style={Main.tellUsMore}>Upload an image so the mess is easier to spot!</Text>
+        </View>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
         {imageSelect && <Image source={{ uri: imageSelect }} style={Events.imageSelected} />}
       </ScrollView>

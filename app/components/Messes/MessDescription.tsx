@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
-import { Text, SafeAreaView, TextInput } from 'react-native';
+import { Text, SafeAreaView, TextInput, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 
 type MessDescriptionProps = {
   description: string;
@@ -15,7 +16,10 @@ export default function MessDescription({ description, onChangeDescription }: Me
       <ScrollView>
       <ProgressBar style={Events.progressBar} progress={0.833} color={Colors.green500} />
         <Text style={Events.centeredText}>5 of 6</Text>
-        <Text style={Events.primaryHeading}>Description</Text>
+        <View>
+          <Text style={Events.primaryHeading}>Description</Text>
+          <Text style={Main.tellUsMore}>Tell us a bit about the mess.</Text>
+        </View>
         <TextInput
           style={Events.descInput}
           onChangeText={(text) => onChangeDescription(text)}

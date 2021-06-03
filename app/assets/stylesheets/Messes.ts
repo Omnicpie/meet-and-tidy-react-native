@@ -42,6 +42,7 @@ export default StyleSheet.create({
     textAlign: 'center',
     width: '100%',
     paddingLeft: 15,
+    fontWeight: 'bold',
   },
   descInput: {
     height: 130,

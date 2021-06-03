@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
-import { Text, SafeAreaView } from 'react-native';
+import { SafeAreaView, Text, View} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 import MessTypeSelectButtons from './MessTypeSelectButtons';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 
 type MessTypeProps = {
   messType: string;
@@ -25,7 +26,10 @@ export default function MessType({ messType, onChangeMessType, onNext }: MessTyp
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.333} color={Colors.green500} />
         <Text style={Events.centeredText}>2 of 6</Text>
-        <Text style={Events.primaryHeading}>What type of mess is it?</Text>
+        <View>
+          <Text style={Events.primaryHeading}>What type of mess?</Text>
+          <Text style={Main.tellUsMore}>Don't see the correct type of mess? {"\n"} Select 'Other'.</Text>
+        </View>
         <MessTypeSelectButtons
           messTypes={messType}
           onChangeMessTypes={onChangeMessType}

@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
-import { SafeAreaView, Text, TextInput } from 'react-native';
+import { SafeAreaView, Text, TextInput, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 import Events from '../../assets/stylesheets/Events';
-import NextPreviousButtons from './NextPreviousButtons';
+import Main from '../../assets/stylesheets/Main';
 
 type MessTitleProps = {
   title: string;
@@ -33,7 +33,10 @@ export default function MessTitle({ title, onChangeTitle, onNext, messType, loca
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.666} color={Colors.green500} />
         <Text style={Events.centeredText}>4 of 6</Text>
-        <Text style={Events.primaryHeading}>Name your mess</Text>
+        <View>
+          <Text style={Events.primaryHeading}>Add a title</Text>
+          <Text style={Main.tellUsMore}>Add a title to help others identify the mess.</Text>
+        </View>
         <TextInput
           onChangeText={(text) => {
             onChangeTitle(text);
