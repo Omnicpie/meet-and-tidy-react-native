@@ -98,6 +98,7 @@ export default StyleSheet.create({
   },
   popularEventsTileLower: {
     paddingVertical: 10,
+    minHeight: 95,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
