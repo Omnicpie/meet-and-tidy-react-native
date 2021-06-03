@@ -46,8 +46,8 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
   }
 
   return (
-    <View style={Main.popularEventsContainer}>
-      <Text style={Main.popularEventsTitle}>Local messes</Text>
+    <View style={Main.scrollerContainer}>
+      <Text style={Main.scrollerTitle}>Local messes</Text>
       <View>
         <FlatList<ApiMess>
           data={data.messes}
@@ -55,14 +55,14 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
             <Pressable onPress={() => navigation.navigate('MessDetailScreen', { id: item.id })}>
-              <View style={Main.popularEventsTile}>
+              <View style={Main.scrollerTile}>
                 {firstImage(item)}
-                <View style={Main.popularEventsTileLower}>
-                  <View style={Main.popularEventsTileLeft}>
+                <View style={Main.scrollerTileLower}>
+                  <View style={Main.scrollerTileLeft}>
                     <Text style={Main.date}>{dayOfMonth(item.createdAt)}</Text>
                     <Text style={Main.month}>{shortMonthName(item.createdAt)}</Text>
                   </View>
-                  <View style={Main.popularEventsTileRight}>
+                  <View style={Main.scrollerTileRight}>
                     <Text style={Main.eventTitle} numberOfLines={2}>
                       {item.title}
                     </Text>

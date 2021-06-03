@@ -28,6 +28,7 @@ export default StyleSheet.create({
   eventDescription: {
     fontSize: 16,
     color: "#000",
+    paddingTop: 4,
   },
   eventTitle: {
     fontSize: 20,
@@ -76,35 +77,37 @@ export default StyleSheet.create({
     paddingLeft: 15,
     paddingRight: 15,
   },
-  popularEventsContainer: {
+  scrollerContainer: {
     flex: 1,
     paddingHorizontal: 15,
     backgroundColor: "#fff",
     height: 160,
     marginTop: 10,
   },
-  popularEventsDescription: {
+  scrollerDescription: {
     fontWeight: "500",
     color: "#555",
   },
-  popularEventsTile: {
+  scrollerTile: {
     width: 250,
     marginRight: 10,
     borderWidth: 1,
     borderColor: "#efefef",
   },
-  popularEventsTileLeft: {
-    width: "25%",
+  scrollerTileLeft: {
+    width: "20%",
+    paddingTop: 10,
   },
-  popularEventsTileLower: {
+  scrollerTileLower: {
     paddingVertical: 10,
+    minHeight: 95,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
-  popularEventsTileRight: {
+  scrollerTileRight: {
     width: "70%",
   },
-  popularEventsTitle: {
+  scrollerTitle: {
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
