@@ -1,10 +1,13 @@
 import { gql, useQuery } from '@apollo/client';
-import React, { ReactElement, useState } from 'react';
-import { ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import React, { ReactElement } from 'react';
+import {
+  ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View
+ } from 'react-native';
 import Events from '../../assets/stylesheets/Events';
+import Messes from '../../assets/stylesheets/Messes';
 import ErrorPanel from '../ErrorPanel';
 
-const MESS_TYPES_QUERY = gql`
+const MESS_TYPE_QUERY = gql`
   query MessTypes {
     messTypes {
       id
@@ -13,15 +16,16 @@ const MESS_TYPES_QUERY = gql`
   }
 `;
 
-type MessTypeSelectButtonsProps = {
+type MessTypeSelecProps = {
   messType: string;
   onChangeMessType: (messType: string) => void;
 };
 
-export default function MessTypeSelectButtons({ messType, onChangeMessType }: MessTypeSelectButtonsProps): ReactElement {
-  const [selectedTypes, setSelectedTypes] = useState([]);
-
-  const { data, error, loading, refetch } = useQuery(MESS_TYPES_QUERY);
+export default function MessTypeSelectButtons({ onChangeMessType}:
+  MessTypeSelecProps): ReactElement {
+  const {
+    data, error, loading, refetch,
+  } = useQuery(MESS_TYPE_QUERY);
 
   if (loading) {
     return <ActivityIndicator />;
@@ -31,35 +35,32 @@ export default function MessTypeSelectButtons({ messType, onChangeMessType }: Me
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  const isSelected = (messTypeId : number) => messTypes.some(id => id === messTypeId);
+  const isSelected = (messTypeId : number) => data?.messTypes.some(id => id === messTypeId);
 
   const updateSelected = (selectedType : any) => {
-    const id = selectedType.id;
-    if (isSelected(id)) {
-      onChangeMessTypes(messTypes.filter(x => x !== id));
-    } else {
-      onChangeMessTypes(messTypes.push(id));
-    }
+    const { name } = selectedType;
+    onChangeMessType(name);
+    console.log(name);
   };
 
   return (
     <SafeAreaView style={Events.mainContainer}>
       <View style={Events.buttonContainer}>
         <FlatList
-          data={data.messTypes}
+          data={data?.messTypes}
           horizontal
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => updateSelected(item)}
               style={isSelected(item.id)
-                ? Events.eventTypeButtonSelected : Events.eventTypeButton}
+                ? Messes.messTypeButtonSelected : Messes.messTypeButton}
             >
               <Text
                 style={isSelected(item.id)
-                  ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}
+                  ? Messes.messTypeButtonTextSelected : Messes.messTypeButtonText}
               >
-                {item.title}
+                {item.name}
               </Text>
             </TouchableOpacity>
           )}

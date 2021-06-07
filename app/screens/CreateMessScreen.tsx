@@ -12,10 +12,11 @@ import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
 
 type CreateMessScreenProps = {
-  navigation: any;
+  route: any;
+  onNext: ()  => void;
 };
 
-function CreateMessScreen({ navigation }: CreateMessScreenProps): ReactElement {
+function CreateMessScreen({ route }: CreateMessScreenProps): ReactElement {
   const [location, onChangeLocation] = useState('');
   const [messType, onChangeMessType] = useState('');
   const [image, onChangeImage] = useState('');
@@ -43,6 +44,14 @@ function CreateMessScreen({ navigation }: CreateMessScreenProps): ReactElement {
     setScreen(screen - 1);
   }
 
+  function validateInput() {
+    if (messType.length > 3 && typeof messType === 'string') {
+      onNext();
+    } else {
+      alert('Please select an mess type.');
+    }
+  }
+
   function currentScreen() {
     switch (screen) {
       case 1:
@@ -68,6 +77,7 @@ function CreateMessScreen({ navigation }: CreateMessScreenProps): ReactElement {
               messType={messType}
               onChangeMessType={onChangeMessType}
               onNext={onNext}
+              route={route}
             />
             <View style={Events.buttonContainer}>
               <Button
@@ -154,10 +164,12 @@ function CreateMessScreen({ navigation }: CreateMessScreenProps): ReactElement {
         return (
           <View>
             <MessPreview
+              title={title}
               description={description}
               location={location}
-              messTypes={messType}
+              messType={messType}
               image={image}
+              imagePreview={imagePreview}
             />
             <View style={Events.buttonContainer}>
               <Button
