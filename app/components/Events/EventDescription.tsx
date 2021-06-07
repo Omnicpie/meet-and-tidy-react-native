@@ -5,6 +5,7 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 import NextPreviousButtons from './NextPreviousButtons';
 
 type EventDescriptionProps = {
@@ -24,7 +25,10 @@ export default function EventDescription({
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.75} color={Colors.green500} />
         <Text style={Events.centeredText}>6 of 8</Text>
-        <Text style={Events.primaryHeading}>Tell us about your event</Text>
+        <View>
+          <Text style={Events.primaryHeading}>Description</Text>
+          <Text style={Main.tellUsMore}>Tell us about your event</Text>
+        </View>
         <TextInput
           onChangeText={(text) => onChangeDescription(text)}
           multiline

@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
-import { SafeAreaView, Text, TextInput } from 'react-native';
+import { SafeAreaView, Text, TextInput, View } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 import NextPreviousButtons from './NextPreviousButtons';
 
 type EventTitleProps = {
@@ -35,7 +36,10 @@ export default function EventTitle({
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
         <Text style={Events.centeredText}>4 of 8</Text>
-        <Text style={Events.primaryHeading}>Name your event</Text>
+        <View>
+          <Text style={Events.primaryHeading}>Add a title</Text>
+          <Text style={Main.tellUsMore}>Add a title to help others find the event</Text>
+        </View>
         <TextInput
           onChangeText={(text) => {
             onChangeTitle(text);

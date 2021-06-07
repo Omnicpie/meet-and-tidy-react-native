@@ -1,12 +1,13 @@
-import React, { useState, useEffect, ReactElement } from 'react';
+import React, { useEffect, ReactElement } from 'react';
 import {
-  Text, Image, Button, Platform, SafeAreaView
+  Text, Image, Button, Platform, SafeAreaView, View
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import { ScrollView } from 'react-native-gesture-handler';
 import NextPreviousButtons from './NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 
 export default function EventImage({
   image, onChangeImage, onChangeImagePreview, onNext, onPrevious,
@@ -41,7 +42,10 @@ export default function EventImage({
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.875} color={Colors.green500} />
         <Text style={Events.centeredText}>7 of 8</Text>
-        <Text style={Events.primaryHeading}>Upload an event image</Text>
+        <View>
+          <Text style={Events.primaryHeading}>Upload a event image</Text>
+          <Text style={Main.tellUsMore}>Upload an image for you event.</Text>
+        </View>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
         {image !== '' && <Image source={{ uri: `data:image/jpeg;base64,${image}` }} style={Events.imageSelected} />}
         <NextPreviousButtons onPrevious={onPrevious} onNext={onNext} />

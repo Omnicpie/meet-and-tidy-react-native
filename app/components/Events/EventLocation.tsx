@@ -5,6 +5,7 @@ import {
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
+import Main from '../../assets/stylesheets/Main';
 import PossibleMapView from '../PossibleMapView';
 
 export default function EventLocation({
@@ -30,7 +31,10 @@ export default function EventLocation({
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.1} color={Colors.green500} />
         <Text style={Events.centeredText}>1 of 8</Text>
-        <Text style={Events.primaryHeading}>Where is your event?</Text>
+        <View>
+          <Text style={Events.primaryHeading}>Where is your event?</Text>
+          <Text style={Main.tellUsMore}>Tell us where your event will be held.</Text>
+        </View>
         <TextInput
           defaultValue={location}
           style={Events.textInput}
