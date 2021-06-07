@@ -9,8 +9,8 @@ export default {
           Home: {
             screens: {
               HomeScreen: '',
-              EventSearchResultScreen: 'search-results',
               CreateEventScreen: 'create-event',
+              EventSearchResultScreen: 'search-results',
               EventDetailScreen: 'event',
               MessDetailScreen: 'mess',
             },
