@@ -5,7 +5,6 @@ import Events from '../../assets/stylesheets/Events';
 import { ScrollView } from 'react-native-gesture-handler';
 
 type MessPreviewProps = {
-  navigation: any;
   location: string;
   name: string;
   description: string;
@@ -13,7 +12,9 @@ type MessPreviewProps = {
   messType: string;
 };
 
-export default function MessPreview({ location, name, description, messType, image, navigation }: MessPreviewProps): ReactElement {
+export default function MessPreview({
+  location, name, description, messType, image,
+}: MessPreviewProps): ReactElement {
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
