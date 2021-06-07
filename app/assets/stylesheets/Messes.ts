@@ -57,11 +57,27 @@ export default StyleSheet.create({
   messTypeButton: {
     margin: 5,
     padding: 10,
-    backgroundColor: '#54ae33',
+    backgroundColor: '#fff',
+    borderColor: '#000',
     borderRadius: 8,
+    borderWidth: 2,
     alignItems: 'center',
   },
   messTypeButtonText: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  messTypeButtonSelected: {
+    margin: 5,
+    padding: 10,
+    backgroundColor: '#54ae33',
+    borderColor: '#54ae33',
+    borderRadius: 8,
+    borderWidth: 2,
+    alignItems: 'center',
+  },
+  messTypeButtonTextSelected: {
     fontSize: 15,
     fontWeight: 'bold',
     color: '#fff',
