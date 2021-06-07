@@ -15,7 +15,7 @@ function HomeScreen({ navigation }: HomeScreenProps): ReactElement {
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
-        <TouchableOpacity onPress={() => navigation.navigate('CreateEvent')} style={Main.createButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('CreateEventScreen')} style={Main.createButton}>
           <Text style={Main.createButtonText}>+ CREATE</Text>
         </TouchableOpacity>
         <Logo />
