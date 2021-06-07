@@ -1,10 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
-import React, { useState } from 'react';
-import { ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import React, { ReactElement } from 'react';
+import {
+  ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View
+ } from 'react-native';
 import Events from '../../assets/stylesheets/Events';
 import ErrorPanel from '../ErrorPanel';
 
-const EVENT_TYPES_QUERY = gql`
+const EVENT_TYPE_QUERY = gql`
   query EventTypes {
     eventTypes {
       id
@@ -13,15 +15,16 @@ const EVENT_TYPES_QUERY = gql`
   }
 `;
 
-export default function EventTypeSelectButtons({
-    eventTypes, onChangeEventTypes,
-  } = props) {
+type EventTypeSelecProps = {
+  eventType: string;
+  onChangeEventType: (eventType: string) => void;
+};
 
-  const [selectedTypes, setSelectedTypes] = useState([]);
-
+export default function EventTypeSelectButtons({ onChangeEventType}:
+  EventTypeSelecProps): ReactElement {
   const {
     data, error, loading, refetch,
-  } = useQuery(EVENT_TYPES_QUERY);
+  } = useQuery(EVENT_TYPE_QUERY);
 
   if (loading) {
     return <ActivityIndicator />;
@@ -31,22 +34,19 @@ export default function EventTypeSelectButtons({
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  const isSelected = (eventTypeId : number) => eventTypes.some(id => id === eventTypeId);
+  const isSelected = (eventTypeId : number) => data?.eventTypes.some(id => id === eventTypeId);
 
   const updateSelected = (selectedType : any) => {
-    const id = selectedType.id;
-    if (isSelected(id)) {
-      onChangeEventTypes(eventTypes.filter(x => x !== id));
-    } else {
-      onChangeEventTypes(eventTypes.push(id));
-    }
+    const { name } = selectedType;
+    onChangeEventType(name);
+    console.log(name);
   };
 
   return (
     <SafeAreaView style={Events.mainContainer}>
       <View style={Events.buttonContainer}>
         <FlatList
-          data={data.eventTypes}
+          data={data?.eventTypes}
           horizontal
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
@@ -59,7 +59,7 @@ export default function EventTypeSelectButtons({
                 style={isSelected(item.id)
                   ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}
               >
-                {item.title}
+                {item.name}
               </Text>
             </TouchableOpacity>
           )}

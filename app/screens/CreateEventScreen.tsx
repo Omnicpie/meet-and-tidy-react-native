@@ -17,9 +17,10 @@ import Events from '../assets/stylesheets/Events';
 
 type CreateEventScreenProps = {
   navigation: any;
+  route: any;
 };
 
-function CreateEventScreen({ navigation }: CreateEventScreenProps): ReactElement {
+function CreateEventScreen({ navigation, route }: CreateEventScreenProps): ReactElement {
   const [title, onChangeTitle] = useState('');
   const [description, onChangeDescription] = useState('');
   const [url, onChangeUrl] = useState('');
@@ -97,6 +98,7 @@ function CreateEventScreen({ navigation }: CreateEventScreenProps): ReactElement
               onChangeEventType={onChangeEventType}
               onNext={onNext}
               onPrevious={onPrevious}
+              route={route}
             />
           </View>
         );
@@ -164,7 +166,7 @@ function CreateEventScreen({ navigation }: CreateEventScreenProps): ReactElement
               imagePreview={imagePreview}
               onPrevious={onPrevious}
             />
-            <View style={Events.buttonContianer} marginBottom={75}>
+            <View marginBottom={75}>
               <Button
                 onPress={onPrevious}
                 title="Previous"
