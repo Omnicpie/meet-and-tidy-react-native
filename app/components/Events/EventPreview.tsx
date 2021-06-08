@@ -4,6 +4,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
+import { dayOfMonth, shortMonthName, fullYear} from '../../helpers/DateHelpers';
+
 // Preview event before saving
 
 export default function EventPreview({
@@ -20,7 +22,9 @@ export default function EventPreview({
         <Text style={Events.centeredText}>{eventType}</Text>
         <View>
           <Text style={Events.subheading}>Date</Text>
-          <Text style={Events.paragraph}>{date}</Text>
+          <Text style={Events.paragraph}>
+            {dayOfMonth(date)} {shortMonthName(date)} {fullYear(date)}
+          </Text>
         </View>
         <View>
           <Text style={Events.subheading}>Facilities</Text>
