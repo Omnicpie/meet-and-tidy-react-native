@@ -3,7 +3,6 @@ import {
   View, SafeAreaView, Button,
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
 import EventLocation from '../components/Events/EventLocation';
 import EventDate from '../components/Events/EventDate';
 import EventType from '../components/Events/EventType';
@@ -16,8 +15,8 @@ import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
 
 type CreateEventScreenProps = {
-  navigation: any;
-  route: any;
+  navigation: unknown;
+  route: unknown;
 };
 
 function CreateEventScreen({ navigation, route }: CreateEventScreenProps): ReactElement {
@@ -165,17 +164,19 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               image={image}
               imagePreview={imagePreview}
               onPrevious={onPrevious}
+              navigation={navigation}
             />
-            <View marginBottom={75}>
-              <Button
-                onPress={onPrevious}
-                title="Previous"
-              />
-              <Button
-                onPress={saveEvent}
-                title="Save"
-                marginBottom={100}
-              />
+            <View style={Events.buttonContainer}>
+              <View style={Events.buttonElement}>
+                <Button
+                  onPress={onPrevious}
+                  title="Previous"
+                />
+                <Button
+                  onPress={saveEvent}
+                  title="Save"
+                />
+              </View>
             </View>
           </View>
         );
@@ -183,7 +184,6 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
         return (<> </>);
     }
   }
-
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
