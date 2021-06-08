@@ -63,7 +63,10 @@ function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
           </View>
           <View>
             <Text style={Messes.subheading}>
-              Logged on: {dayOfMonth(mess.createdAt)} {shortMonthName(mess.createdAt)} {fullYear(mess.createdAt)}
+              Logged on:
+              {dayOfMonth(mess.createdAt)}
+              {shortMonthName(mess.createdAt)}
+              {fullYear(mess.createdAt)}
             </Text>
           </View>
           <View>
