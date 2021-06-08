@@ -6,7 +6,7 @@ import Main from '../assets/stylesheets/Main';
 import AttendingEvent from '../components/AttendingEvent';
 
 type AttendingScreenProps = {
-  navigation: any;
+  navigation: unknown;
 };
 
 function AttendingScreen({ navigation }: AttendingScreenProps): ReactElement {
@@ -15,7 +15,9 @@ function AttendingScreen({ navigation }: AttendingScreenProps): ReactElement {
       <ScrollView>
         <View>
           <Text style={Main.regHeading}>Attending</Text>
-          <AttendingEvent />
+          <AttendingEvent
+            navigation={navigation}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

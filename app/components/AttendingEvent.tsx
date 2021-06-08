@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react';
-import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native';
+import {
+  ActivityIndicator, FlatList, Pressable, Text, View,
+} from 'react-native';
 import { gql, useQuery } from '@apollo/client';
 import ApiImage from '../helpers/ApiImage';
 import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
 import Main from '../assets/stylesheets/Main';
-import type { RailsId } from '../types';
 
 import { ApiEvent } from '../../ApiTypes';
 import ErrorPanel from './ErrorPanel';
@@ -23,12 +24,13 @@ const ATTEND_EVENT_QUERY = gql`
 `;
 
 type AttendEventListProps = {
-  eventIds: RailsId[];
   navigation: any;
 };
 
-export default function AttendEventList({ eventIds, navigation }: AttendEventListProps) {
-  const { data, error, loading } = useQuery(ATTEND_EVENT_QUERY, { variables: { ids: eventIds } });
+export default function AttendEventList({ navigation }: AttendEventListProps): ReactElement {
+  const {
+    data, error, loading, refetch,
+  } = useQuery(ATTEND_EVENT_QUERY);
 
   if (loading) {
     return <ActivityIndicator />;
