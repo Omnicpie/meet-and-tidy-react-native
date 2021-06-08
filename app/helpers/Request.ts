@@ -3,7 +3,7 @@ class Request {
 
   path: string;
 
-  readonly apiBase = 'http://192.168.178.47:1337';
+  readonly apiBase = 'http://192.168.0.11:3000/';
 
   constructor(method: string, path: string) {
     this.method = method;
@@ -35,6 +35,7 @@ class Request {
         name: 'some-img.jpg',
       };
 
+
       const formData = new FormData();
       formData.append('authToken', 'secret');
       formData.append('title', body.title);
@@ -54,7 +55,6 @@ class Request {
 
           body: formData,
         });
-
         return Promise.resolve(response);
       } catch (e) {
         return Promise.reject();
@@ -65,3 +65,5 @@ class Request {
 }
 
 export default Request;
+
+
