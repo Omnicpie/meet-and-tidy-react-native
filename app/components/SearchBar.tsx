@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { View } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import Main from '../assets/stylesheets/Main';
+import { HomeParamList } from '../../types';
+
+type HomeScreenNavigationProp = StackNavigationProp<
+  HomeParamList,
+  'HomeScreen'
+>;
 
 type SearchBarProps = {
-  navigation: any;
+  navigation: HomeScreenNavigationProp;
 };
 
-const SearchBar = ({ navigation }: SearchBarProps) => {
+const SearchBar = ({ navigation }: SearchBarProps): ReactElement => {
   const [query, setQuery] = useState('');
 
-  const onChangeSearch = (query: string) => {
-    setQuery(query);
+  const onChangeSearch = (newQuery: string) => {
+    setQuery(newQuery);
   };
 
   const onSubmitSearch = () => {
