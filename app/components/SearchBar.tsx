@@ -7,7 +7,7 @@ type SearchBarProps = {
   navigation: any;
 };
 
-const SearchBar = ({ navigation       }: SearchBarProps) => {
+const SearchBar = ({ navigation }: SearchBarProps) => {
   const [query, setQuery] = useState('');
 
   const onChangeSearch = (query: string) => {
@@ -15,7 +15,7 @@ const SearchBar = ({ navigation       }: SearchBarProps) => {
   };
 
   const onSubmitSearch = () => {
-    navigation.navigate('EventSearchResult', { query });
+    navigation.navigate('EventSearchResultScreen', { query });
   };
 
   return (
@@ -24,7 +24,7 @@ const SearchBar = ({ navigation       }: SearchBarProps) => {
         placeholder="Find an event..."
         onChangeText={onChangeSearch}
         onSubmitEditing={onSubmitSearch}
-        style={{ backgroundColor: 'white', borderRadius: 23, width: 375 }}
+        style={{ backgroundColor: 'white', borderRadius: 23, width: 350 }}
         value={query}
       />
     </View>
