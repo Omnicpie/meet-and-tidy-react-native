@@ -1,6 +1,8 @@
 import { ApolloError, gql, useMutation } from '@apollo/client';
 import React, { ReactElement, useState } from 'react';
-import { Alert, Button, Pressable, SafeAreaView, ScrollView, TextInput } from 'react-native';
+import {
+  Alert, Button, Pressable, SafeAreaView, ScrollView, TextInput,
+} from 'react-native';
 import { Text, View } from '../components/Themed';
 import Main from '../assets/stylesheets/Main';
 
@@ -24,7 +26,7 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
 
   const responses = {
     onCompleted(_data: any) {
-      navigation.navigate('Home')
+      navigation.navigate('Home');
     },
     onError(_error: ApolloError) {
       setMutationFailed(true);
@@ -41,28 +43,28 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
   const [createAccount, _accountResult] = useMutation(CREATE_ACCOUNT, responses);
 
   function createAccountAndNavigate() {
-    createAccount({variables: { name, email, password }})
+    createAccount({ variables: { name, email, password } });
   }
 
   const confirmSubmit = () => {
     if (formValid()) {
       Alert.alert(
-        "Safety Disclaimer",
-        "By agreeing to create an account, you confrim that you have read our safety disclaimer. If you have not done so, press cancel and click the link below before progressing forward.",
+        'Safety Disclaimer',
+        'By agreeing to create an account, you confrim that you have read our safety disclaimer. If you have not done so, press cancel and click the link below before progressing forward.',
         [
           {
-            text: "Cancel",
+            text: 'Cancel',
             onPress: () => {return;}
           },
           {
-            text: "OK",
-            onPress: createAccountAndNavigate
-          }
+            text: 'OK',
+            onPress: createAccountAndNavigate,
+          },
         ],
-        { cancelable: false }
+        { cancelable: false },
       );
     }
-  }
+  };
 
   return (
     <SafeAreaView style={Main.mainContainer}>
@@ -105,14 +107,16 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
           />
         </View>
         <View>
-          <Pressable onPress={() => navigation.navigate("SafetyDisclaimer")}>
+          <Pressable onPress={() => navigation.navigate('SafetyDisclaimer')}>
             <Text style={Main.safetyDisText}>
-              Please read Safety Disclaimer {"\n"}before continuing
+              Please read Safety Disclaimer
+              {'\n'}
+              before continuing
             </Text>
           </Pressable>
         </View>
         <View style={Main.regButtonStyle}>
-          <Button disabled={!formValid()} title="Submit" onPress={() => confirmSubmit()}/>
+          <Button disabled={!formValid()} title="Submit" onPress={() => confirmSubmit()} />
         </View>
         {mutationFailed && <View><Text style={Main.mutation}>Unable to create account, please try again.</Text></View>}
       </ScrollView>
