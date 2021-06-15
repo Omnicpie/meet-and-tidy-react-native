@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+import { ApolloError, gql, useMutation } from '@apollo/client';
 import {
   View, SafeAreaView, Button,
 } from 'react-native';
@@ -15,8 +16,8 @@ import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
 
 type CreateEventScreenProps = {
-  navigation: unknown;
-  route: unknown;
+  navigation: any;
+  route: any;
 };
 
 function CreateEventScreen({ navigation, route }: CreateEventScreenProps): ReactElement {
@@ -25,26 +26,35 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   const [url, onChangeUrl] = useState('');
   const [location, onChangeLocation] = useState('');
   const [date, onChangeDate] = useState('');
-  const [eventType, onChangeEventType] = useState('');
+  const [eventType, onChangeEventType] = useState(null);
   const [facilityType, onChangeFacilityType] = useState('');
   const [image, onChangeImage] = useState('');
   const [imagePreview, onChangeImagePreview] = useState('');
-
   const [screen, setScreen] = useState(1);
 
-  async function saveEvent() {
-    const event = {
-      title,
-      description,
-      url,
-      location,
-      startsAt: date,
-      eventType,
-      facilityType,
-      image,
-    };
-    new Request('POST', '/events/').createEventOrMess(event);
+  const CREATE_EVENT = gql`
+  mutation CreateEvent($date: String, $description: String, $eventTypeId: ID!, $location: String, $title: String!, $url: String) {
+    createEvent(date: $date, description: $description, eventTypeId: $eventTypeId, location: $location, title: $title, url: $url) {
+      errors
+    }
   }
+  `;
+
+  const responses = {
+    onCompleted(_data: any) {
+      console.log('completed');
+      navigation.navigate('Home');
+    },
+    onError(_error: ApolloError) {
+      console.log(_error);
+    },
+  };
+
+  function createEventAndProceed() {
+    createEvent({ variables: { date, description, eventTypeId: eventType.id, location, title, url } });
+  }
+
+  const [createEvent, _eventResult] = useMutation(CREATE_EVENT, responses);
 
   function onNext() {
     setScreen(screen + 1);
@@ -173,7 +183,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
                   title="Previous"
                 />
                 <Button
-                  onPress={saveEvent}
+                  onPress={createEventAndProceed}
                   title="Save"
                 />
               </View>

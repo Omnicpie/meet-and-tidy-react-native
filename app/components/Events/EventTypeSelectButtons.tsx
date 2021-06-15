@@ -1,8 +1,8 @@
 import { gql, useQuery } from '@apollo/client';
 import React, { ReactElement } from 'react';
 import {
-  ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View
- } from 'react-native';
+  ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View,
+} from 'react-native';
 import Events from '../../assets/stylesheets/Events';
 import ErrorPanel from '../ErrorPanel';
 
@@ -16,11 +16,11 @@ const EVENT_TYPE_QUERY = gql`
 `;
 
 type EventTypeSelecProps = {
-  eventType: string;
-  onChangeEventType: (eventType: string) => void;
+  eventType: any;
+  onChangeEventType: (eventType: any) => void;
 };
 
-export default function EventTypeSelectButtons({ onChangeEventType}:
+export default function EventTypeSelectButtons({ onChangeEventType }:
   EventTypeSelecProps): ReactElement {
   const {
     data, error, loading, refetch,
@@ -34,12 +34,17 @@ export default function EventTypeSelectButtons({ onChangeEventType}:
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  const isSelected = (eventTypeId : number) => data?.eventTypes.some(id => id === eventTypeId);
+  function isSelected (eventTypeId : number) {
+    return (
+      data?.eventTypes.some((eventType) => eventType.id === eventTypeId)
+    )
+  };
 
   const updateSelected = (selectedType : any) => {
     const { name } = selectedType;
-    onChangeEventType(name);
+    onChangeEventType(selectedType);
     console.log(name);
+    console.log(selectedType);
   };
 
   return (

@@ -19,8 +19,6 @@ class Request {
 
         return Promise.resolve(data);
       } catch (e) {
-        console.log(`ERROR${e}`);
-
         return Promise.reject();
       }
     }
@@ -34,8 +32,6 @@ class Request {
         type: 'image/jpeg',
         name: 'some-img.jpg',
       };
-
-
       const formData = new FormData();
       formData.append('authToken', 'secret');
       formData.append('title', body.title);
@@ -57,6 +53,7 @@ class Request {
         });
         return Promise.resolve(response);
       } catch (e) {
+        console.log(e)
         return Promise.reject();
       }
     }
@@ -65,5 +62,3 @@ class Request {
 }
 
 export default Request;
-
-
