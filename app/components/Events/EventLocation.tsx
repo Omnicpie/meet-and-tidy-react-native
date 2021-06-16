@@ -44,7 +44,9 @@ export default function EventLocation({
           clearButtonMode="while-editing"
         />
         <View style={Events.container}>
-          <PossibleMapView region={region}></PossibleMapView>
+          <PossibleMapView
+            region={region}
+          />
         </View>
         <View style={Events.buttonContainer} marginBottom={75}>
           <Button
