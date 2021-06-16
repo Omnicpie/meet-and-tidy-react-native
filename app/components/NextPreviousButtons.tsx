@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { View, Button } from 'react-native';
-import Events from '../../assets/stylesheets/Events';
+import Events from '../assets/stylesheets/Events';
 
 type NextPreviousButtonsProps = {
   onNext: () => void;
