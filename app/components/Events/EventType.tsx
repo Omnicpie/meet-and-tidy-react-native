@@ -16,7 +16,9 @@ type EventTypeProps = {
   route: any;
 };
 
-export default function EventType({ eventType, onChangeEventType, onNext, onPrevious, route }: EventTypeProps): ReactElement {
+export default function EventType({
+  eventType, onChangeEventType, onNext, onPrevious, route,
+}: EventTypeProps): ReactElement {
   function validateInput() {
     if (eventType !== null) {
       onNext();
@@ -32,7 +34,9 @@ export default function EventType({ eventType, onChangeEventType, onNext, onPrev
         <Text style={Events.centeredText}>3 of 8</Text>
         <View>
           <Text style={Events.primaryHeading}>What type of event is it?</Text>
-          <Text style={Main.tellUsMore}>Don't see the correct type of event? {"\n"} Select 'Other'.</Text>
+          <Text style={Main.tellUsMore}>
+            Don't see the correct type of event? {'\n'} Select 'Other'.
+          </Text>
         </View>
         <EventTypeSelectButtons
           eventType={eventType}
