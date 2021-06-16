@@ -25,7 +25,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   const [url, onChangeUrl] = useState('');
   const [location, onChangeLocation] = useState('');
   const [date, onChangeDate] = useState('');
-  const [eventType, onChangeEventType] = useState(null);
+  const [eventType, onChangeEventType] = useState('');
   const [facilityType, onChangeFacilityType] = useState('');
   const [image, onChangeImage] = useState('');
   const [imagePreview, onChangeImagePreview] = useState('');
