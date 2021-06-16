@@ -26,7 +26,7 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
 
   const responses = {
     onCompleted(_data: any) {
-      navigation.navigate('Home');
+      navigation.navigate('HomeScreen');
     },
     onError(_error: ApolloError) {
       setMutationFailed(true);
