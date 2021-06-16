@@ -1,21 +1,17 @@
-import React, { ReactElement, useState, useEffect } from 'react';
-import { Button, Image, Platform, SafeAreaView, Text, View } from 'react-native';
+import React, { useEffect, ReactElement } from 'react';
+import {
+  Text, Image, Button, Platform, SafeAreaView, View,
+} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import { ScrollView } from 'react-native-gesture-handler';
+import NextPreviousButtons from '../NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
 
-// import Request from './request';
-
-type MessImageProps = {
-  image: string;
-  onChangeImage: (image: string) => void;
-};
-
-export default function MessImage({ image, onChangeImage }: MessImageProps): ReactElement {
-  const [imageSelect, setImage] = useState(null);
-
+export default function EventImage({
+  image, onChangeImage, onChangeImagePreview, onNext, onPrevious,
+} = props): ReactElement {
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -28,22 +24,21 @@ export default function MessImage({ image, onChangeImage }: MessImageProps): Rea
   }, []);
 
   const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
+      allowsEditing: false,
+      base64: true,
       aspect: [4, 3],
       quality: 1,
     });
 
-    onChangeImage(result.uri);
-
     if (!result.cancelled) {
-      setImage(result.uri);
+      onChangeImage(result.base64);
     }
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
         <Text style={Events.centeredText} >3 of 6</Text>
@@ -52,7 +47,8 @@ export default function MessImage({ image, onChangeImage }: MessImageProps): Rea
           <Text style={Main.tellUsMore}>Upload an image so the mess is easier to spot!</Text>
         </View>
         <Button title="Pick an image from camera roll" onPress={pickImage} />
-        {imageSelect && <Image source={{ uri: imageSelect }} style={Events.imageSelected} />}
+        {image !== '' && <Image source={{ uri: `data:image/jpeg;base64,${image}` }} style={Events.imageSelected} />}
+        <NextPreviousButtons onPrevious={onPrevious} onNext={onNext} />
       </ScrollView>
     </SafeAreaView>
   );
