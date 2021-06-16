@@ -1,39 +1,63 @@
 import React, { ReactElement, useState } from 'react';
-import { Button, SafeAreaView, View } from 'react-native';
+import { ApolloError, gql, useMutation } from '@apollo/client';
+import {
+  View, SafeAreaView, Button,
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
 import MessLocation from '../components/Messes/MessLocation';
 import MessType from '../components/Messes/MessType';
 import MessTitle from '../components/Messes/MessTitle';
-import MessImage from '../components/Messes/MessImage';
 import MessDescription from '../components/Messes/MessDescription';
+import MessImage from '../components/Messes/MessImage';
 import MessPreview from '../components/Messes/MessPreview';
-import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
 
 type CreateMessScreenProps = {
+  navigation: any;
   route: any;
-  onNext: ()  => void;
 };
 
-function CreateMessScreen({ route }: CreateMessScreenProps): ReactElement {
+function CreateMessScreen({ navigation, route }: CreateMessScreenProps): ReactElement {
+  const [title, onChangeTitle] = useState('');
+  const [description, onChangeDescription] = useState('');
   const [location, onChangeLocation] = useState('');
   const [messType, onChangeMessType] = useState('');
   const [image, onChangeImage] = useState('');
   const [imagePreview, onChangeImagePreview] = useState('');
-  const [title, onChangeTitle] = useState('');
-  const [description, onChangeDescription] = useState('');
   const [screen, setScreen] = useState(1);
 
-  async function saveMess() {
-    const mess = {
-      title,
-      description,
-      location,
-      messType,
-      image,
-    };
-    new Request('POST', '/messes/').createEventOrMess(mess);
+  const CREATE_MESS = gql`
+  mutation CreateMess($description: String, $messTypeId: ID!, $location: String, $title: String!) {
+    createMess(description: $description, messTypeId: $messTypeId, location: $location, title: $title) {
+      errors
+    }
+  }
+  `;
+
+  const responses = {
+    onCompleted(data: any) {
+      console.log(data);
+      if (data.createMess.errors.length) {
+        console.log('completed with errors');
+        console.log(data.createMess.errors);
+      } else {
+        console.log('completed without errors');
+        navigation.navigate('HomeScreen');
+      }
+    },
+    onError(_error: ApolloError) {
+      console.log(_error);
+    },
+  };
+
+  const [createMess, _messResult] = useMutation(CREATE_MESS, responses);
+
+  function createMessAndProceed() {
+    createMess({
+      variables: {
+        description, messTypeId: messType.id, location, title,
+      },
+    });
   }
 
   function onNext() {
@@ -42,14 +66,6 @@ function CreateMessScreen({ route }: CreateMessScreenProps): ReactElement {
 
   function onPrevious() {
     setScreen(screen - 1);
-  }
-
-  function validateInput() {
-    if (messType.length > 3 && typeof messType === 'string') {
-      onNext();
-    } else {
-      alert('Please select an mess type.');
-    }
   }
 
   function currentScreen() {
@@ -62,12 +78,6 @@ function CreateMessScreen({ route }: CreateMessScreenProps): ReactElement {
               onChangeLocation={onChangeLocation}
               onNext={onNext}
             />
-            <View style={Events.buttonContainer}>
-              <Button
-                onPress={onNext}
-                title="Next"
-              />
-            </View>
           </View>
         );
       case 2:
@@ -77,47 +87,13 @@ function CreateMessScreen({ route }: CreateMessScreenProps): ReactElement {
               messType={messType}
               onChangeMessType={onChangeMessType}
               onNext={onNext}
+              onPrevious={onPrevious}
               route={route}
             />
-            <View style={Events.buttonContainer}>
-              <Button
-                onPress={onPrevious}
-                title="Previous"
-              />
-              <Button
-                onPress={onNext}
-                title="Next"
-              />
-            </View>
           </View>
         );
       case 3:
         return (
-          <View>
-            <View>
-              <MessImage
-                image={image}
-                onChangeImage={onChangeImage}
-                onChangeImagePreview={onChangeImagePreview}
-                onNext={onNext}
-                onPrevious={onPrevious}
-              />
-            </View>
-            <View style={Events.buttonContainer}>
-              <Button
-                onPress={onPrevious}
-                title="Previous"
-              />
-              <Button
-                onPress={onNext}
-                title="Next"
-              />
-            </View>
-          </View>
-        );
-      case 4:
-        return (
-          <View>
           <View>
             <MessTitle
               title={title}
@@ -128,36 +104,28 @@ function CreateMessScreen({ route }: CreateMessScreenProps): ReactElement {
               messType={messType}
             />
           </View>
-          <View style={Events.buttonContainer}>
-            <Button
-              onPress={onPrevious}
-              title="Previous"
-            />
-            <Button
-              onPress={onNext}
-              title="Next"
-            />
-          </View>
-        </View>
         );
-      case 5:
+      case 4:
         return (
           <View>
             <MessDescription
               description={description}
               onChangeDescription={onChangeDescription}
               onNext={onNext}
+              onPrevious={onPrevious}
             />
-            <View style={Events.buttonContainer}>
-              <Button
-                onPress={onPrevious}
-                title="Previous"
-              />
-              <Button
-                onPress={onNext}
-                title="Next"
-              />
-            </View>
+          </View>
+        );
+      case 5:
+        return (
+          <View>
+            <MessImage
+              image={image}
+              onChangeImage={onChangeImage}
+              onChangeImagePreview={onChangeImagePreview}
+              onNext={onNext}
+              onPrevious={onPrevious}
+            />
           </View>
         );
       case 6:
@@ -170,22 +138,20 @@ function CreateMessScreen({ route }: CreateMessScreenProps): ReactElement {
               messType={messType}
               image={image}
               imagePreview={imagePreview}
+              onPrevious={onPrevious}
+              navigation={navigation}
             />
             <View style={Events.buttonContainer}>
-              <Button
-                onPress={onPrevious}
-                title="Previous"
-              />
-            </View>
-            <View style={Events.buttonContainer}>
-              <Button
-                onPress={saveMess}
-                title="Publish"
-              />
-              <Button
-                // onPress={claimMess}
-                title="Create Event"
-              />
+              <View style={Events.buttonElement}>
+                <Button
+                  onPress={onPrevious}
+                  title="Previous"
+                />
+                <Button
+                  onPress={createMessAndProceed}
+                  title="Save"
+                />
+              </View>
             </View>
           </View>
         );
@@ -193,7 +159,6 @@ function CreateMessScreen({ route }: CreateMessScreenProps): ReactElement {
         return (<> </>);
     }
   }
-
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
