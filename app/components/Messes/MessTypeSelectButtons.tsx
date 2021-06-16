@@ -1,8 +1,9 @@
 import { gql, useQuery } from '@apollo/client';
 import React, { ReactElement } from 'react';
 import {
-  ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View
- } from 'react-native';
+  ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View,
+} from 'react-native';
+import { ApiMessType } from '../../../ApiTypes';
 import Events from '../../assets/stylesheets/Events';
 import Messes from '../../assets/stylesheets/Messes';
 import ErrorPanel from '../ErrorPanel';
@@ -17,11 +18,11 @@ const MESS_TYPE_QUERY = gql`
 `;
 
 type MessTypeSelecProps = {
-  messType: string;
-  onChangeMessType: (messType: string) => void;
+  messType: any;
+  onChangeMessType: (messType: ApiMessType) => void;
 };
 
-export default function MessTypeSelectButtons({ onChangeMessType}:
+export default function MessTypeSelectButtons({ messType, onChangeMessType }:
   MessTypeSelecProps): ReactElement {
   const {
     data, error, loading, refetch,
@@ -35,12 +36,11 @@ export default function MessTypeSelectButtons({ onChangeMessType}:
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  const isSelected = (messTypeId : number) => data?.messTypes.some(id => id === messTypeId);
+  const isSelected = (messTypeId : number) => messType.id === messTypeId;
 
-  const updateSelected = (selectedType : any) => {
-    const { name } = selectedType;
-    onChangeMessType(name);
-    console.log(name);
+  const updateSelected = (selectedType : ApiMessType) => {
+    onChangeMessType(selectedType);
+    console.log(selectedType);
   };
 
   return (

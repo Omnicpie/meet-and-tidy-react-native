@@ -1,21 +1,27 @@
 import React, { ReactElement } from 'react';
-import { SafeAreaView, Text, TextInput, View } from 'react-native';
+import {
+  SafeAreaView, Text, TextInput, View,
+} from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
+import NextPreviousButtons from '../NextPreviousButtons';
+import { ApiMessType } from '../../../ApiTypes';
 
 type MessTitleProps = {
   title: string;
   onChangeTitle: (text: string) => void;
   onNext: () => void;
-  eventType: string;
+  onPrevious: () => void;
+  messType: ApiMessType;
   location: string;
-  messType: string;
 };
 
-export default function MessTitle({ title, onChangeTitle, onNext, messType, location }: MessTitleProps): ReactElement {
-  const suggestedTitle = title === '' ? `${location} ${messType}Mess` : title;
+export default function MessTitle({
+  title, onChangeTitle, onNext, onPrevious, messType, location,
+}: MessTitleProps): ReactElement {
+  const suggestedTitle = title === '' ? `${location} ${messType.name} Mess` : title;
   const [value, onChangeValue] = React.useState(suggestedTitle);
 
   function validateInput() {
@@ -47,7 +53,7 @@ export default function MessTitle({ title, onChangeTitle, onNext, messType, loca
           clearButtonMode="while-editing"
           defaultValue="Something"
         />
-        {/* <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} /> */}
+        <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} />
       </ScrollView>
     </SafeAreaView>
   );
