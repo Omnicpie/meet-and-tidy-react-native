@@ -11,6 +11,11 @@ export type ApiEventType = {
   name: string;
 };
 
+export type ApiMessType = {
+  id: number;
+  name: string;
+};
+
 export type ApiMess = {
   description: string;
   id: number;
