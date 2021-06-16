@@ -12,7 +12,6 @@ import EventFacility from '../components/Events/EventFacility';
 import EventDescription from '../components/Events/EventDescription';
 import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
-import Request from '../helpers/Request';
 import Events from '../assets/stylesheets/Events';
 
 type CreateEventScreenProps = {
@@ -41,20 +40,30 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   `;
 
   const responses = {
-    onCompleted(_data: any) {
-      console.log('completed');
-      navigation.navigate('Home');
+    onCompleted(data: any) {
+      console.log(data);
+      if (data.createEvent.errors.length) {
+        console.log('completed with errors');
+        console.log(data.createEvent.errors);
+      } else {
+        console.log('completed without errors');
+        navigation.navigate('HomeScreen');
+      }
     },
     onError(_error: ApolloError) {
       console.log(_error);
     },
   };
 
-  function createEventAndProceed() {
-    createEvent({ variables: { date, description, eventTypeId: eventType.id, location, title, url } });
-  }
-
   const [createEvent, _eventResult] = useMutation(CREATE_EVENT, responses);
+
+  function createEventAndProceed() {
+    createEvent({
+      variables: {
+        date, description, eventTypeId: eventType.id, location, title, url,
+      },
+    });
+  }
 
   function onNext() {
     setScreen(screen + 1);

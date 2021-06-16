@@ -6,10 +6,11 @@ import EventTypeSelectButtons from './EventTypeSelectButtons';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
 import NextPreviousButtons from './NextPreviousButtons';
+import { ApiEventType } from '../../../ApiTypes';
 
 type EventTypeProps = {
-  eventType: string;
-  onChangeEventType: (eventType: string) => void;
+  eventType: ApiEventType;
+  onChangeEventType: (eventType: ApiEventType) => void;
   onNext: () => void;
   onPrevious: () => void;
   route: any;
@@ -17,7 +18,7 @@ type EventTypeProps = {
 
 export default function EventType({ eventType, onChangeEventType, onNext, onPrevious, route }: EventTypeProps): ReactElement {
   function validateInput() {
-    if (eventType.length > 3 && typeof eventType === 'string') {
+    if (eventType !== null) {
       onNext();
     } else {
       alert('Please select an event type.');

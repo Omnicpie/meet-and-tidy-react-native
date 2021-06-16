@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 import {
   ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View,
 } from 'react-native';
+import { ApiEventType } from '../../../ApiTypes';
 import Events from '../../assets/stylesheets/Events';
 import ErrorPanel from '../ErrorPanel';
 
@@ -17,10 +18,10 @@ const EVENT_TYPE_QUERY = gql`
 
 type EventTypeSelecProps = {
   eventType: any;
-  onChangeEventType: (eventType: any) => void;
+  onChangeEventType: (eventType: ApiEventType) => void;
 };
 
-export default function EventTypeSelectButtons({ onChangeEventType }:
+export default function EventTypeSelectButtons({ eventType, onChangeEventType }:
   EventTypeSelecProps): ReactElement {
   const {
     data, error, loading, refetch,
@@ -34,16 +35,10 @@ export default function EventTypeSelectButtons({ onChangeEventType }:
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  function isSelected (eventTypeId : number) {
-    return (
-      data?.eventTypes.some((eventType) => eventType.id === eventTypeId)
-    )
-  };
+  const isSelected = (eventTypeId : number) => eventType.id === eventTypeId;
 
-  const updateSelected = (selectedType : any) => {
-    const { name } = selectedType;
+  const updateSelected = (selectedType : ApiEventType) => {
     onChangeEventType(selectedType);
-    console.log(name);
     console.log(selectedType);
   };
 

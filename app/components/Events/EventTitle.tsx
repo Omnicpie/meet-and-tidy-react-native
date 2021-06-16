@@ -5,20 +5,21 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
 import NextPreviousButtons from './NextPreviousButtons';
+import { ApiEventType } from '../../../ApiTypes';
 
 type EventTitleProps = {
   title: string;
   onChangeTitle: (text: string) => void;
   onNext: () => void;
   onPrevious: () => void;
-  eventType: string;
+  eventType: ApiEventType;
   location: string;
 };
 
 export default function EventTitle({
   title, onChangeTitle, onNext, onPrevious, eventType, location,
 }: EventTitleProps): ReactElement {
-  const suggestedTitle = title === '' ? `${location} ${eventType} Clean Up` : title;
+  const suggestedTitle = title === '' ? `${location} ${eventType.name} Clean Up` : title;
   const [value, onChangeValue] = React.useState(suggestedTitle);
 
   function validateInput() {
