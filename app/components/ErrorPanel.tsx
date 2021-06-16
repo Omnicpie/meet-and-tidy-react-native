@@ -46,6 +46,7 @@ export default function ({ message, reload }: ErrorPanelProps) {
       <Text style={styles.heading}>Oops!</Text>
       <Text style={styles.errorText}>
         Application message:
+        {'\n'}
         {message}
       </Text>
       <Text style={styles.errorText}>Please check your internet connection.</Text>
