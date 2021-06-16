@@ -4,7 +4,7 @@ import { ProgressBar, Colors } from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 import FacilityTypeSelectButtons from './FacilityTypeSelectButtons';
 import Events from '../../assets/stylesheets/Events';
-import NextPreviousButtons from './NextPreviousButtons';
+import NextPreviousButtons from '../NextPreviousButtons';
 
 type EventFacilityProps = {
   facilityType: string;

@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
-import NextPreviousButtons from './NextPreviousButtons';
+import NextPreviousButtons from '../NextPreviousButtons';
 
 type EventDescriptionProps = {
   description: string;

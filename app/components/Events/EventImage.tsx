@@ -5,7 +5,7 @@ import {
 import { ProgressBar, Colors } from 'react-native-paper';
 import * as ImagePicker from 'expo-image-picker';
 import { ScrollView } from 'react-native-gesture-handler';
-import NextPreviousButtons from './NextPreviousButtons';
+import NextPreviousButtons from '../NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
 
