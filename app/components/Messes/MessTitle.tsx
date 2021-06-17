@@ -37,8 +37,8 @@ export default function MessTitle({
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
-        <ProgressBar style={Events.progressBar} progress={0.666} color={Colors.green500} />
-        <Text style={Events.centeredText}>4 of 6</Text>
+        <ProgressBar style={Events.progressBar} progress={0.5} color={Colors.green500} />
+        <Text style={Events.centeredText}>3 of 6</Text>
         <View>
           <Text style={Events.primaryHeading}>Add a title</Text>
           <Text style={Main.tellUsMore}>Add a title to help others identify the mess.</Text>

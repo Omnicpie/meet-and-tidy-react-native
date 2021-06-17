@@ -32,8 +32,8 @@ export default function MessType({
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
-        <ProgressBar style={Events.progressBar} progress={0.375} color={Colors.green500} />
-        <Text style={Events.centeredText}>3 of 8</Text>
+        <ProgressBar style={Events.progressBar} progress={0.333} color={Colors.green500} />
+        <Text style={Events.centeredText}>2 of 6</Text>
         <View>
           <Text style={Events.primaryHeading}>What type of mess is it?</Text>
           <Text style={Main.tellUsMore}>Don't see the correct type of mess? {"\n"} Select 'Other'.</Text>

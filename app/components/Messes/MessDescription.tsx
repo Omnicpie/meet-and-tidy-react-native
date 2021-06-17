@@ -21,8 +21,8 @@ export default function EventDescription({
   return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
-      <ProgressBar style={Events.progressBar} progress={0.833} color={Colors.green500} />
-        <Text style={Events.centeredText}>5 of 6</Text>
+      <ProgressBar style={Events.progressBar} progress={0.666} color={Colors.green500} />
+        <Text style={Events.centeredText}>4 of 6</Text>
         <View>
           <Text style={Events.primaryHeading}>Description</Text>
           <Text style={Main.tellUsMore}>Tell us a bit about the mess.</Text>
