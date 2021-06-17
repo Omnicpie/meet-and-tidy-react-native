@@ -10,57 +10,6 @@ import Main from '../assets/stylesheets/Main';
 import { ApiEvent } from '../../ApiTypes';
 import ErrorPanel from './ErrorPanel';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 15,
-    backgroundColor: '#fff',
-    marginBottom: 100,
-  },
-  date: {
-    fontSize: 20,
-    color: '#000',
-    textAlign: 'left',
-    marginLeft: 10,
-  },
-  month: {
-    fontSize: 16,
-    color: '#54ae33',
-    textAlign: 'left',
-    marginLeft: 10,
-  },
-  eventDescription: {
-    fontWeight: '500',
-    color: '#555',
-  },
-  eventTitle: {
-    fontSize: 20,
-  },
-  subHeading: {
-    color: 'black',
-    fontSize: 20,
-    fontWeight: 'bold',
-    paddingBottom: 15,
-    paddingTop: 10,
-  },
-  tileLeft: {
-    width: '25%',
-  },
-  tileLower: {
-    paddingVertical: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-  },
-  tileRight: {
-    width: '70%',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-});
-
 type SearchResultListProps = {
   navigation: any;
   route: any;
@@ -136,3 +85,54 @@ export default function SearchResultList(
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 15,
+    backgroundColor: '#fff',
+    marginBottom: 100,
+  },
+  date: {
+    fontSize: 20,
+    color: '#000',
+    textAlign: 'left',
+    marginLeft: 10,
+  },
+  month: {
+    fontSize: 16,
+    color: '#54ae33',
+    textAlign: 'left',
+    marginLeft: 10,
+  },
+  eventDescription: {
+    fontWeight: '500',
+    color: '#555',
+  },
+  eventTitle: {
+    fontSize: 20,
+  },
+  subHeading: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingBottom: 15,
+    paddingTop: 10,
+  },
+  tileLeft: {
+    width: '25%',
+  },
+  tileLower: {
+    paddingVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  tileRight: {
+    width: '70%',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+});
