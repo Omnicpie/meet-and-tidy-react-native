@@ -48,21 +48,21 @@ export default function AttendEventList({ navigation }: AttendEventListProps): R
   }
 
   return (
-    <View style={Main.scrollerContainer}>
+    <View style={Main.attendingScrollerContainer}>
       <View>
         <FlatList<ApiEvent>
           data={data.events}
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
             <Pressable onPress={() => navigation.navigate('Event', { id: item.id })}>
-              <View style={Main.scrollerTile}>
+              <View style={Main.attendingScrollerTile}>
                 {firstImage(item)}
-                <View style={Main.scrollerTileLower}>
-                  <View style={Main.scrollerTileLeft}>
+                <View style={Main.attendingScrollerTileLower}>
+                  <View style={Main.attendingScrollerTileLeft}>
                     <Text style={Main.date}>{dayOfMonth(item.startsAt)}</Text>
                     <Text style={Main.month}>{shortMonthName(item.startsAt)}</Text>
                   </View>
-                  <View style={Main.scrollerTileRight}>
+                  <View style={Main.attendingScrollerTileRight}>
                     <Text style={Main.eventTitle} numberOfLines={2}>
                       {item.title}
                     </Text>

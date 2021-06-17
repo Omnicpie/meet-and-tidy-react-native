@@ -14,7 +14,7 @@ function AttendingScreen({ navigation }: AttendingScreenProps): ReactElement {
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
         <View>
-          <Text style={Main.regHeading}>Attending</Text>
+          <Text style={Main.regHeading}>Events you're attending</Text>
           <AttendingEvent
             navigation={navigation}
           />

@@ -5,6 +5,40 @@ export default StyleSheet.create({
     height: 200,
     width: '100%',
   },
+  attendingScrollerContainer: {
+    flex: 1,
+    paddingHorizontal: 15,
+    backgroundColor: '#fff',
+    marginBottom: 20,
+  },
+  attendingScrollerDescription: {
+    fontWeight: '500',
+    color: '#555',
+  },
+  attendingScrollerTile: {
+    marginRight: 10,
+    marginBottom: 15,
+    borderWidth: 1,
+    borderColor: '#efefef',
+  },
+  attendingScrollerTileLeft: {
+    width: '20%',
+    paddingTop: 10,
+  },
+  attendingScrollerTileLower: {
+    paddingVertical: 15,
+    minHeight: 95,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  attendingScrollerTileRight: {
+    width: '70%',
+  },
+  attendingScrollerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
   createButton: {
     marginLeft: 15,
     marginTop: 25,
