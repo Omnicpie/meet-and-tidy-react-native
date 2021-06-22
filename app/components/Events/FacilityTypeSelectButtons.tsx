@@ -1,40 +1,65 @@
+import { gql, useQuery } from '@apollo/client';
 import React, { ReactElement } from 'react';
 import {
-  FlatList, View, SafeAreaView, Text, TouchableOpacity,
+  ActivityIndicator, FlatList, SafeAreaView, Text, TouchableOpacity, View,
 } from 'react-native';
+import { ApiFacility } from '../../../ApiTypes';
 import Events from '../../assets/stylesheets/Events';
+import ErrorPanel from '../ErrorPanel';
 
-export default function FacilityTypeSelectButtons({
-  facilityType, onChangeFacilityType,
-}): ReactElement {
-  const facilityTypes = [
-    { id: 1, title: 'Disabled Access' },
-    { id: 2, title: 'Child Friendly' },
-    { id: 3, title: 'Toilets Nearby' },
-    { id: 4, title: 'Parking Nearby' },
-    { id: 5, title: 'First Aiders' },
-    { id: 6, title: 'Transport Routes Nearby' },
-    { id: 7, title: 'Other' },
-  ];
+const FACILITY_QUERY = gql`
+  query Facilities {
+    facilities {
+      id
+      name
+    }
+  }
+`;
+
+type FacilitySelectProps = {
+  facility: any;
+  onChangeFacility: (facility: ApiFacility) => void;
+};
+
+export default function FacilitySelectButtons({ facility, onChangeFacility }:
+  FacilitySelectProps): ReactElement {
+  const {
+    data, error, loading, refetch,
+  } = useQuery(FACILITY_QUERY);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+
+  if (error) {
+    return <ErrorPanel message={error.message} reload={refetch} />;
+  }
+
+  const isSelected = (facilityId : number) => facility.id === facilityId;
+
+  const updateSelected = (selectedType : ApiFacility) => {
+    onChangeFacility(selectedType);
+    console.log(selectedType);
+  };
 
   return (
     <SafeAreaView style={Events.mainContainer}>
       <View style={Events.buttonContainer}>
         <FlatList
-          data={facilityTypes}
+          data={data?.facitlities}
           horizontal
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => onChangeFacilityType(item.title)}
-              style={facilityType === item.title
+              onPress={() => updateSelected(item)}
+              style={isSelected(item.id)
                 ? Events.eventTypeButtonSelected : Events.eventTypeButton}
             >
               <Text
-                style={facilityType === item.title
+                style={isSelected(item.id)
                   ? Events.eventTypeButtonTextSelected : Events.eventTypeButtonText}
               >
-                {item.title}
+                {item.name}
               </Text>
             </TouchableOpacity>
           )}

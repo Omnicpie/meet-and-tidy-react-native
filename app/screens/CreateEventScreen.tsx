@@ -26,14 +26,14 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   const [location, onChangeLocation] = useState('');
   const [date, onChangeDate] = useState('');
   const [eventType, onChangeEventType] = useState('');
-  const [facilityType, onChangeFacilityType] = useState('');
+  const [facility, onChangeFacility] = useState('');
   const [image, onChangeImage] = useState('');
   const [imagePreview, onChangeImagePreview] = useState('');
   const [screen, setScreen] = useState(1);
 
   const CREATE_EVENT = gql`
-  mutation CreateEvent($date: String, $description: String, $eventTypeId: ID!, $location: String, $title: String!, $url: String) {
-    createEvent(date: $date, description: $description, eventTypeId: $eventTypeId, location: $location, title: $title, url: $url) {
+  mutation CreateEvent($date: String, $description: String, $eventTypeId: ID!, $facilityId: ID!, $location: String, $title: String!, $url: String) {
+    createEvent(date: $date, description: $description, eventTypeId: $eventTypeId, facilityId: $facilityId, location: $location, title: $title, url: $url) {
       errors
     }
   }
@@ -60,7 +60,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   function createEventAndProceed() {
     createEvent({
       variables: {
-        date, description, eventTypeId: eventType.id, location, title, url,
+        date, description, eventTypeId: eventType.id, facilityId: facility.id, location, title, url,
       },
     });
   }
@@ -137,8 +137,8 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
         return (
           <View>
             <EventFacility
-              facilityType={facilityType}
-              onChangeFacilityType={onChangeFacilityType}
+              facility={facility}
+              onChangeFacility={onChangeFacility}
               onNext={onNext}
               onPrevious={onPrevious}
             />
@@ -179,7 +179,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               url={url}
               location={location}
               eventType={eventType}
-              facilityType={facilityType}
+              facility={facility}
               image={image}
               imagePreview={imagePreview}
               onPrevious={onPrevious}

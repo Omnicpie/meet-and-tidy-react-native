@@ -7,17 +7,17 @@ import Events from '../../assets/stylesheets/Events';
 import NextPreviousButtons from '../NextPreviousButtons';
 
 type EventFacilityProps = {
-  facilityType: string;
-  onChangeFacilityType: (facilityType: string) => void;
+  facility: string;
+  onChangeFacility: (facility: string) => void;
   onNext: () => void;
   onPrevious: () => void;
 };
 
 export default function EventFacility({
-  facilityType, onChangeFacilityType, onNext, onPrevious,
+  facility, onChangeFacility, onNext, onPrevious,
 }: EventFacilityProps): ReactElement {
   function validateInput() {
-    if (facilityType.length > 3 && typeof facilityType === 'string') {
+    if (facility.length > 3 && typeof facility === 'string') {
       onNext();
     } else {
       alert('Please select a facility type.');
@@ -31,8 +31,8 @@ export default function EventFacility({
         <Text style={Events.centeredText}>5 of 8</Text>
         <Text style={Events.primaryHeading}>What facilities are available?</Text>
         <FacilityTypeSelectButtons
-          facilityType={facilityType}
-          onChangeFacilityType={onChangeFacilityType}
+          facilityType={facility}
+          onChangeFacility={onChangeFacility}
         />
         <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} />
       </ScrollView>
