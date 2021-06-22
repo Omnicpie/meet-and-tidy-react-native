@@ -16,13 +16,13 @@ const EVENT_TYPE_QUERY = gql`
   }
 `;
 
-type EventTypeSelecProps = {
+type EventTypeSelectProps = {
   eventType: any;
   onChangeEventType: (eventType: ApiEventType) => void;
 };
 
 export default function EventTypeSelectButtons({ eventType, onChangeEventType }:
-  EventTypeSelecProps): ReactElement {
+  EventTypeSelectProps): ReactElement {
   const {
     data, error, loading, refetch,
   } = useQuery(EVENT_TYPE_QUERY);
