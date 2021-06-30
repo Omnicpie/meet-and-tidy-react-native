@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Events from '../assets/stylesheets/Events';
 
-export default function AttendButton({ attend, setAttend}: {
+export default function AttendButton({ attend, setAttend }: {
   attend: boolean, setAttend: Function,
 }) {
   return (
