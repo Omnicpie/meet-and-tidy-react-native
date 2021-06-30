@@ -6,16 +6,36 @@ export default StyleSheet.create({
     color: '#54ae33',
     fontWeight: 'bold',
   },
-  attendEventButtonContainer: {
-    marginHorizontal: '33.33%',
+  attendEventContainer: {
     marginVertical: 5,
     padding: 10,
+    alignItems: 'center',
+  },
+  attendButtonContainer: {
     backgroundColor: '#fff',
     borderColor: '#54ae33',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 8,
     borderWidth: 2,
-    alignItems: 'center',
     width: 150,
+    height: 50,
+  },
+  attendingEventButton: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  attendingButtonContainer: {
+    backgroundColor: '#54ae33',
+    borderColor: '#54ae33',
+    color: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    borderWidth: 2,
+    width: 150,
+    height: 50,
   },
   buttonContainer: {
     display: 'flex',
@@ -130,6 +150,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  description: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
   paragraph: {
     textAlign: 'left',
     width: '100%',
@@ -137,7 +164,8 @@ export default StyleSheet.create({
     paddingRight: 15,
   },
   previewHeading: {
-    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
     fontSize: 20,
     marginTop: 15,
     marginBottom: 15,
