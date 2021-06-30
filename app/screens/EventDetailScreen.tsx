@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import {
   ActivityIndicator, SafeAreaView, Text, View, ScrollView, Pressable, Linking,
 } from 'react-native';
@@ -7,6 +7,7 @@ import ApiImage from '../helpers/ApiImage';
 import Events from '../assets/stylesheets/Events';
 import ErrorPanel from '../components/ErrorPanel';
 import { ApiEvent } from '../../ApiTypes';
+import AttendButton from '../components/AttendButton';
 
 type EventDetailScreenProps = {
   navigation: any;
@@ -26,11 +27,13 @@ const EVENT_QUERY = gql`
   }
 `;
 
-function EventDetailScreen({ navigation, route } : EventDetailScreenProps) {
+function EventDetailScreen({ navigation, route } : EventDetailScreenProps): ReactElement {
   const { id } = route.params;
   const {
     data, error, loading, refetch,
   } = useQuery(EVENT_QUERY, { variables: { id } });
+
+  const [attend, setAttend] = useState<boolean>(false);
 
   if (loading) {
     return <ActivityIndicator />;
@@ -55,9 +58,12 @@ function EventDetailScreen({ navigation, route } : EventDetailScreenProps) {
         <View>
           <View>
             {firstImage(event)}
-            <View style={Events.attendEventButtonContainer}>
+            <View>
               <Pressable onPress={() => navigation.navigate('Registration')}>
-                <Text style={Events.attendEventButton}>Attend</Text>
+                <AttendButton
+                  attend={attend}
+                  setAttend={setAttend}
+                />
               </Pressable>
             </View>
           </View>
