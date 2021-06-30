@@ -72,7 +72,7 @@ function EventDetailScreen({ navigation, route } : EventDetailScreenProps): Reac
             <Text style={Events.detailSecondaryHeading}>{event.eventType}</Text>
           </View>
           <View>
-            <Text style={Events.paragraph}>{event.description}</Text>
+            <Text style={Events.description}>{event.description}</Text>
           </View>
           <View>
             <Text style={Events.subheading}>
