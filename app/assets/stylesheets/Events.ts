@@ -76,7 +76,7 @@ export default StyleSheet.create({
     margin: 5,
     padding: 10,
     backgroundColor: '#fff',
-    borderColor: '#000',
+    borderColor: '#54ae33',
     borderRadius: 8,
     borderWidth: 2,
     alignItems: 'center',
@@ -84,7 +84,7 @@ export default StyleSheet.create({
   eventTypeButtonText: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#54ae33',
   },
   eventTypeButtonSelected: {
     margin: 5,
