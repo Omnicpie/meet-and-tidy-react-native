@@ -26,7 +26,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   const [location, onChangeLocation] = useState('');
   const [date, onChangeDate] = useState('');
   const [eventType, onChangeEventType] = useState('');
-  const [facility, onChangeFacility] = useState('');
+  const [facilities, onChangeFacilities] = useState([]);
   const [image, onChangeImage] = useState('');
   const [imagePreview, onChangeImagePreview] = useState('');
   const [screen, setScreen] = useState(1);
@@ -137,8 +137,8 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
         return (
           <View>
             <EventFacility
-              facility={facility}
-              onChangeFacility={onChangeFacility}
+              facilities={facilities}
+              onChangeFacilities={onChangeFacilities}
               onNext={onNext}
               onPrevious={onPrevious}
             />

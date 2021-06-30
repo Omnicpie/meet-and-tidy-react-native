@@ -5,23 +5,20 @@ import { ScrollView } from 'react-native-gesture-handler';
 import FacilityTypeSelectButtons from './FacilityTypeSelectButtons';
 import Events from '../../assets/stylesheets/Events';
 import NextPreviousButtons from '../NextPreviousButtons';
+import { ApiFacility } from '../../../ApiTypes';
 
 type EventFacilityProps = {
-  facility: string;
-  onChangeFacility: (facility: string) => void;
+  facilities: Array<ApiFacility>;
+  onChangeFacilities: (facilities: Array<ApiFacility>) => void;
   onNext: () => void;
   onPrevious: () => void;
 };
 
 export default function EventFacility({
-  facility, onChangeFacility, onNext, onPrevious,
+  facilities, onChangeFacilities, onNext, onPrevious,
 }: EventFacilityProps): ReactElement {
   function validateInput() {
-    if (facility.length > 3 && typeof facility === 'string') {
-      onNext();
-    } else {
-      alert('Please select a facility type.');
-    }
+    onNext();
   }
 
   return (
@@ -31,8 +28,8 @@ export default function EventFacility({
         <Text style={Events.centeredText}>5 of 8</Text>
         <Text style={Events.primaryHeading}>What facilities are available?</Text>
         <FacilityTypeSelectButtons
-          facilityType={facility}
-          onChangeFacility={onChangeFacility}
+          facilities={facilities}
+          onChangeFacilities={onChangeFacilities}
         />
         <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} />
       </ScrollView>

@@ -7,7 +7,7 @@ import { ApiFacility } from '../../../ApiTypes';
 import Events from '../../assets/stylesheets/Events';
 import ErrorPanel from '../ErrorPanel';
 
-const FACILITY_QUERY = gql`
+const FACILITIES_QUERY = gql`
   query Facilities {
     facilities {
       id
@@ -17,15 +17,15 @@ const FACILITY_QUERY = gql`
 `;
 
 type FacilitySelectProps = {
-  facility: any;
-  onChangeFacility: (facility: ApiFacility) => void;
+  facilities: Array<ApiFacility>;
+  onChangeFacilities: (facilities: Array<ApiFacility>) => void;
 };
 
-export default function FacilitySelectButtons({ facility, onChangeFacility }:
+export default function FacilitySelectButtons({ facilities, onChangeFacilities }:
   FacilitySelectProps): ReactElement {
   const {
     data, error, loading, refetch,
-  } = useQuery(FACILITY_QUERY);
+  } = useQuery(FACILITIES_QUERY);
 
   if (loading) {
     return <ActivityIndicator />;
@@ -35,10 +35,12 @@ export default function FacilitySelectButtons({ facility, onChangeFacility }:
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  const isSelected = (facilityId : number) => facility.id === facilityId;
+  console.log('DATATATAAT', data);
+
+  const isSelected = (facilityId: number) => facilities.some((facility) => facility.id === facilityId);
 
   const updateSelected = (selectedType : ApiFacility) => {
-    onChangeFacility(selectedType);
+    onChangeFacilities(selectedType);
     console.log(selectedType);
   };
 
@@ -46,7 +48,7 @@ export default function FacilitySelectButtons({ facility, onChangeFacility }:
     <SafeAreaView style={Events.mainContainer}>
       <View style={Events.buttonContainer}>
         <FlatList
-          data={data?.facitlities}
+          data={data.facilities}
           horizontal
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
