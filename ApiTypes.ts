@@ -1,3 +1,8 @@
+export type ApiAttendance = {
+  eventid: number;
+  userId: number;
+};
+
 export type ApiEvent = {
   description: string;
   id: number;
@@ -16,11 +21,6 @@ export type ApiFacility = {
   name: string;
 };
 
-export type ApiMessType = {
-  id: number;
-  name: string;
-};
-
 export type ApiMess = {
   description: string;
   id: number;
@@ -28,4 +28,15 @@ export type ApiMess = {
   location: string;
   title: string;
   createdAt: string;
+};
+
+export type ApiMessType = {
+  id: number;
+  name: string;
+};
+
+export type ApiUser = {
+  id: number;
+  email: string;
+  name: string;
 };
