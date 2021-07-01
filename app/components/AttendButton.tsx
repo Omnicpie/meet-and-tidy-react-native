@@ -4,13 +4,13 @@ import {
 } from 'react-native';
 import Events from '../assets/stylesheets/Events';
 
-export default function AttendButton({ attend, setAttend }: {
-  attend: boolean, setAttend: Function,
+export default function AttendButton({ attending, setAttending }: {
+  attending: boolean, setAttending: Function,
 }) {
   return (
-    <Pressable onPress={() => { setAttend(!attend); }}>
+    <Pressable onPress={() => { setAttending(!attending); }}>
       <View style={Events.attendEventContainer}>
-        { attend ?
+        { attending ?
           <View style={Events.attendingButtonContainer}><Text style={Events.attendingEventButton}>Attending</Text></View>
           :
           <View style={Events.attendButtonContainer}><Text style={Events.attendEventButton}>Attend</Text></View>
