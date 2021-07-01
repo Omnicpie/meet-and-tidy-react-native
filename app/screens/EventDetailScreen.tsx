@@ -2,12 +2,15 @@ import React, { ReactElement, useEffect, useState } from 'react';
 import {
   ActivityIndicator, SafeAreaView, Text, View, ScrollView, Pressable, Linking,
 } from 'react-native';
-import { gql, useQuery } from '@apollo/client';
+import { ApolloError, gql, useQuery, useMutation } from '@apollo/client';
 import ApiImage from '../helpers/ApiImage';
 import Events from '../assets/stylesheets/Events';
 import ErrorPanel from '../components/ErrorPanel';
-import { ApiEvent } from '../../ApiTypes';
+import { ApiAttendance, ApiEvent, ApiUser } from '../../ApiTypes';
 import AttendButton from '../components/AttendButton';
+
+import store from '../redux/Store';
+import { setUser } from '../redux/slices/UserSlice';
 
 type EventDetailScreenProps = {
   navigation: any;
@@ -23,17 +26,79 @@ const EVENT_QUERY = gql`
       startsAt
       imageUrls
       url
+      attendances {
+        eventId
+        userId
+      }
     }
   }
 `;
 
-function EventDetailScreen({ navigation, route } : EventDetailScreenProps): ReactElement {
+function EventDetailScreen(
+  { navigation, route }: EventDetailScreenProps,
+): ReactElement {
   const { id } = route.params;
   const {
     data, error, loading, refetch,
   } = useQuery(EVENT_QUERY, { variables: { id } });
 
+  const { event } = data;
+
+  const CREATE_ATTEND = gql`
+  mutation CreateAttend($userId: ID!, $eventId: ID!) {
+    createAttend(userId: $userId, eventId: $eventId) {
+      errors
+    }
+  }
+`;
+
+  const responses = {
+    onCompleted(data: any) {
+      console.log(data);
+      if (data.createAttend.errors.length) {
+        console.log('completed with errors');
+        console.log(data.createAttend.errors);
+      } else {
+        console.log('completed without errors');
+      }
+    },
+    onError(_error: ApolloError) {
+      console.log(_error);
+    },
+  };
+
+  const [createAttend, _attendResult] = useMutation(CREATE_ATTEND, responses);
+
   const [attend, setAttend] = useState<boolean>(false);
+
+  const [currentUser, setCurrentUser] = useState<ApiUser | null>(store.getState().value);
+
+  if (currentUser !== null) {
+    console.log('current user is: ', currentUser);
+    console.log(data);
+  }
+
+  store.subscribe(() => {
+    setCurrentUser(store.getState().value);
+  });
+
+  const addAttend = () => {
+    if (currentUser !== null) {
+      createAttend({
+        variables: {
+          userId: currentUser.id, eventId: event.id,
+        },
+      })
+      refetch();
+    } else {
+      console.log('failed')
+    }
+  };
+
+  const attending = (): boolean => currentUser !== null
+    && data.event.attendances.some(
+      (attendance: ApiAttendance) => attendance.userId == currentUser.id,
+    );
 
   if (loading) {
     return <ActivityIndicator />;
@@ -50,8 +115,6 @@ function EventDetailScreen({ navigation, route } : EventDetailScreenProps): Reac
     return null;
   }
 
-  const { event } = data;
-
   return (
     <SafeAreaView style={Events.container}>
       <ScrollView>
@@ -61,9 +124,13 @@ function EventDetailScreen({ navigation, route } : EventDetailScreenProps): Reac
             <View>
               <Pressable onPress={() => navigation.navigate('Registration')}>
                 <AttendButton
-                  attend={attend}
-                  setAttend={setAttend}
+                  attending={attending()}
+                  addAttending={addAttend}
+                  setAttending={setAttend}
                 />
+              </Pressable>
+              <Pressable onPress={() => store.dispatch(setUser({ id: 2, name: 'Beth', email: 'beth@example.com' }))}>
+                <Text>Yo!</Text>
               </Pressable>
             </View>
           </View>
