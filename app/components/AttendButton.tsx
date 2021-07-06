@@ -7,11 +7,9 @@ import Events from '../assets/stylesheets/Events';
 export default function AttendButton({ attending, addAttending, setAttending }: {
   attending: boolean, addAttending: Function, setAttending: Function,
 }) {
-  console.log(attending);
-
   const onPressAttend = () => {
     addAttending();
-    setAttending(!attending);
+    setAttending(!attending)
   }
 
   return (

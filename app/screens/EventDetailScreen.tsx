@@ -129,7 +129,7 @@ function EventDetailScreen(
                   setAttending={setAttend}
                 />
               </Pressable>
-              <Pressable onPress={() => store.dispatch(setUser({ id: 2, name: 'Beth', email: 'beth@example.com' }))}>
+              <Pressable onPress={() => store.dispatch(setUser({ id: 3, name: 'Beth', email: 'beth@example.com' }))}>
                 <Text>Yo!</Text>
               </Pressable>
             </View>
