@@ -44,9 +44,9 @@ function EventDetailScreen(
 
   const { event } = data;
 
-  const CREATE_ATTEND = gql`
-  mutation CreateAttend($userId: ID!, $eventId: ID!) {
-    createAttend(userId: $userId, eventId: $eventId) {
+  const CREATE_ATTENDANCE = gql`
+  mutation CreateAttendance($userId: ID!, $eventId: ID!) {
+    createAttendance(userId: $userId, eventId: $eventId) {
       errors
     }
   }
@@ -55,9 +55,10 @@ function EventDetailScreen(
   const responses = {
     onCompleted(data: any) {
       console.log(data);
-      if (data.createAttend.errors.length) {
+      refetch();
+      if (data.createAttendance.errors.length) {
         console.log('completed with errors');
-        console.log(data.createAttend.errors);
+        console.log(data.createAttendance.errors);
       } else {
         console.log('completed without errors');
       }
@@ -67,11 +68,16 @@ function EventDetailScreen(
     },
   };
 
-  const [createAttend, _attendResult] = useMutation(CREATE_ATTEND, responses);
+  const [createAttendance, _attendResult] = useMutation(CREATE_ATTENDANCE, responses);
 
-  const [attend, setAttend] = useState<boolean>(false);
+  const [attendance, setAttendance] = useState<boolean>(false);
 
   const [currentUser, setCurrentUser] = useState<ApiUser | null>(store.getState().value);
+
+  const [currentAttendance, setCurrentAttendance] = useState<ApiAttendance | null>()
+
+  
+  // Replace all currentUser instances with a real user (when coded) and store data in Redux state
 
   if (currentUser !== null) {
     console.log('current user is: ', currentUser);
@@ -82,16 +88,15 @@ function EventDetailScreen(
     setCurrentUser(store.getState().value);
   });
 
-  const addAttend = () => {
+  const addAttendance = () => {
     if (currentUser !== null) {
-      createAttend({
+      createAttendance({
         variables: {
           userId: currentUser.id, eventId: event.id,
         },
       })
-      refetch();
     } else {
-      console.log('failed')
+      navigation.navigate('Registration')
     }
   };
 
@@ -105,7 +110,7 @@ function EventDetailScreen(
   }
 
   if (error) {
-    return <ErrorPanel message={error.message} reload={refetch} />;
+    return <ErrorPanel message={error.message} reload={refetch()} />;
   }
 
   function firstImage(event: ApiEvent) {
@@ -122,14 +127,12 @@ function EventDetailScreen(
           <View>
             {firstImage(event)}
             <View>
-              <Pressable onPress={() => navigation.navigate('Registration')}>
                 <AttendButton
                   attending={attending()}
-                  addAttending={addAttend}
-                  setAttending={setAttend}
+                  addAttending={addAttendance}
+                  setAttending={setAttendance}
                 />
-              </Pressable>
-              <Pressable onPress={() => store.dispatch(setUser({ id: 3, name: 'Beth', email: 'beth@example.com' }))}>
+              <Pressable onPress={() => store.dispatch(setUser({ id: 1, name: 'Beth', email: 'beth@example.com' }))}>
                 <Text>Yo!</Text>
               </Pressable>
             </View>
