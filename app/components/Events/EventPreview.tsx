@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ProgressBar, Colors } from 'react-native-paper';
-import { ApiEventType } from '../../../ApiTypes';
+import { ApiEventType, ApiFacility } from '../../../ApiTypes';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
 import {
@@ -21,11 +21,11 @@ type EventPreviewProps = {
   eventType: ApiEventType,
   image: string,
   date: string,
-  facilityType: string,
+  facilities: ApiFacility,
 }
 
 export default function EventPreview({
-  location, title, description, url, eventType, image, date, facilityType,
+  location, title, description, url, eventType, image, date, facilities,
 }: EventPreviewProps): ReactElement {
   return (
     <SafeAreaView>
@@ -44,7 +44,7 @@ export default function EventPreview({
         </View>
         <View>
           <Text style={Events.subheading}>Facilities</Text>
-          <Text style={Events.paragraph}>{facilityType}</Text>
+          <Text style={Events.paragraph}>{facilities.name}</Text>
         </View>
         <View>
           <Text style={Events.subheading}>Description</Text>

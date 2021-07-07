@@ -60,7 +60,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   function createEventAndProceed() {
     createEvent({
       variables: {
-        date, description, eventTypeId: eventType.id, facilityId: facility.id, location, title, url,
+        date, description, eventTypeId: eventType.id, facilityId: facilities.id, location, title, url,
       },
     });
   }
@@ -179,7 +179,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               url={url}
               location={location}
               eventType={eventType}
-              facility={facility}
+              facilities={facilities}
               image={image}
               imagePreview={imagePreview}
               onPrevious={onPrevious}
@@ -192,7 +192,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
                   title="Previous"
                 />
                 <Button
-                  onPress={createEventAndProceed}
+                  onPress={createEventAndProceed()}
                   title="Save"
                 />
               </View>

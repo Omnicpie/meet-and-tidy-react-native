@@ -35,13 +35,15 @@ export default function FacilitySelectButtons({ facilities, onChangeFacilities }
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  console.log('DATATATAAT', data);
+  console.log(facilities);
 
-  const isSelected = (facilityId: number) => facilities.some((facility) => facility.id === facilityId);
+  const isSelected = (facilityId: number) => {
+    data.facilities.some((facilityType) => facilities.id === facilityId);
+  };
 
-  const updateSelected = (selectedType : ApiFacility) => {
+  const updateSelected = (selectedType: ApiFacility) => {
     onChangeFacilities(selectedType);
-    console.log(selectedType);
+    console.log('THIS IS A', selectedType);
   };
 
   return (
