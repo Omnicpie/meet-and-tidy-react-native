@@ -35,15 +35,23 @@ export default function FacilitySelectButtons({ facilities, onChangeFacilities }
     return <ErrorPanel message={error.message} reload={refetch} />;
   }
 
-  console.log(facilities);
+  console.log('line 38', facilities);
 
-  const isSelected = (facilityId: number) => {
-    data.facilities.some((facilityType) => facilities.id === facilityId);
-  };
+  const isSelected = (facilityId: number) => facilities.some(
+    (facility: ApiFacility) => facility.id === facilityId,
+  );
 
-  const updateSelected = (selectedType: ApiFacility) => {
-    onChangeFacilities(selectedType);
-    console.log('THIS IS A', selectedType);
+  const updateSelected = (selectedFacility: ApiFacility, selected: boolean) => {
+    let newFacilities: Array<ApiFacility>;
+
+    if (selected) {
+      newFacilities = facilities.slice(); // create a clone of facilities
+      newFacilities.push(selectedFacility);
+    } else {
+      newFacilities = facilities.filter((facility) => facility !== selectedFacility);
+    }
+    console.log('THESE ARE NEW FACILITIES', newFacilities);
+    onChangeFacilities(newFacilities);
   };
 
   return (
@@ -55,7 +63,7 @@ export default function FacilitySelectButtons({ facilities, onChangeFacilities }
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => updateSelected(item)}
+              onPress={() => updateSelected(item, !isSelected(item.id))}
               style={isSelected(item.id)
                 ? Events.eventTypeButtonSelected : Events.eventTypeButton}
             >
