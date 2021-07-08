@@ -1,21 +1,27 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from "react";
 import {
-  ActivityIndicator, SafeAreaView, Text, View, ScrollView, Pressable, Linking,
-} from 'react-native';
-import { gql, useQuery } from '@apollo/client';
-import ApiImage from '../helpers/ApiImage';
-import Events from '../assets/stylesheets/Events';
-import ErrorPanel from '../components/ErrorPanel';
-import { ApiAttendance, ApiEvent, ApiUser } from '../../ApiTypes';
-import AttendButton from '../components/AttendButton';
+  ActivityIndicator,
+  SafeAreaView,
+  Text,
+  View,
+  ScrollView,
+  Pressable,
+  Linking,
+} from "react-native";
+import { ApolloError, gql, useQuery, useMutation } from "@apollo/client";
+import ApiImage from "../helpers/ApiImage";
+import Events from "../assets/stylesheets/Events";
+import ErrorPanel from "../components/ErrorPanel";
+import { ApiAttendance, ApiEvent, ApiUser } from "../../ApiTypes";
+import AttendButton from "../components/AttendButton";
 
-import store from '../redux/Store';
-import { setUser } from '../redux/slices/UserSlice';
+import store from "../redux/Store";
+import { setUser } from "../redux/slices/UserSlice";
 
 type EventDetailScreenProps = {
   navigation: any;
   route: any;
-}
+};
 
 const EVENT_QUERY = gql`
   query Event($id: ID!) {
@@ -34,28 +40,100 @@ const EVENT_QUERY = gql`
   }
 `;
 
-function EventDetailScreen(
-  { navigation, route } : EventDetailScreenProps,
-): ReactElement {
+function EventDetailScreen({
+  navigation,
+  route,
+}: EventDetailScreenProps): ReactElement {
   const { id } = route.params;
-  const {
-    data, error, loading, refetch,
-  } = useQuery(EVENT_QUERY, { variables: { id } });
+  const { data, error, loading, refetch } = useQuery(EVENT_QUERY, {
+    variables: { id },
+  });
 
-  const [attend, setAttend] = useState<boolean>(false);
+  const { event } = data;
 
-  const [currentUser, setCurrentUser] = useState<ApiUser | null>(store.getState().value);
+  const CREATE_ATTENDANCE = gql`
+    mutation CreateAttendance($userId: ID!, $eventId: ID!) {
+      createAttendance(userId: $userId, eventId: $eventId) {
+        errors
+      }
+    }
+  `;
 
-  console.log('current user is: ', currentUser);
+  const responses = {
+    onCompleted(data: any) {
+      console.log(data);
+      refetch();
+      if (data.createAttendance.errors.length) {
+        console.log("completed with errors");
+        console.log(data.createAttendance.errors);
+      } else {
+        console.log("completed without errors");
+      }
+    },
+    onError(_error: ApolloError) {
+      console.log(_error);
+    },
+  };
+
+  const [createAttendance, _attendResult] = useMutation(
+    CREATE_ATTENDANCE,
+    responses
+  );
+
+  const [attendance, setAttendance] = useState<boolean>(false);
+
+  const [currentUser, setCurrentUser] = useState<ApiUser | null>(
+    store.getState().value
+  );
+
+  const [currentAttendance, setCurrentAttendance] =
+    useState<ApiAttendance | null>();
+
+  // Replace all currentUser instances with a real user (when coded) and store data in Redux state
+
+  if (currentUser !== null) {
+    console.log("current user is: ", currentUser);
+    console.log(data);
+  }
+
+  store.subscribe(() => {
+    setCurrentUser(store.getState().value);
+  });
+
+  const addAttendance = () => {
+    if (currentUser !== null) {
+      createAttendance({
+        variables: {
+          userId: currentUser.id,
+          eventId: event.id,
+        },
+      });
+    } else {
+      navigation.navigate("Registration");
+    }
+  };
+
+  const attending = (): boolean =>
+    currentUser !== null &&
+    data.event.attendances.some(
+      (attendance: ApiAttendance) => attendance.userId == currentUser.id
+    );
+
+  const [currentUser, setCurrentUser] = useState<ApiUser | null>(
+    store.getState().value
+  );
+
+  console.log("current user is: ", currentUser);
 
   store.subscribe(() => {
     console.log(store.getState().value);
     setCurrentUser(store.getState().value);
   });
 
-  const attending = (): boolean => currentUser !== null
-    && data.event.attendances.some(
-      (attendance: ApiAttendance) => attendance.userId === currentUser.id,
+  const attending = (): boolean =>
+    currentUser !== null &&
+    data.event.attendances.some(
+      (attendance: ApiAttendance) => attendance.userId === currentUser.id
     );
 
   if (loading) {
@@ -63,7 +141,7 @@ function EventDetailScreen(
   }
 
   if (error) {
-    return <ErrorPanel message={error.message} reload={refetch} />;
+    return <ErrorPanel message={error.message} reload={refetch()} />;
   }
 
   function firstImage(event: ApiEvent) {
@@ -73,8 +151,6 @@ function EventDetailScreen(
     return null;
   }
 
-  const { event } = data;
-
   return (
     <SafeAreaView style={Events.container}>
       <ScrollView>
@@ -82,13 +158,31 @@ function EventDetailScreen(
           <View>
             {firstImage(event)}
             <View>
-              <Pressable onPress={() => navigation.navigate('Registration')}>
-                <AttendButton
-                  attending={attending()}
-                  setAttending={setAttend}
-                />
+              <AttendButton
+                attending={attending()}
+                addAttending={addAttendance}
+                setAttending={setAttendance}
+              />
+              <Pressable
+                onPress={() =>
+                  store.dispatch(
+                    setUser({ id: 1, name: "Beth", email: "beth@example.com" })
+                  )
+                }
+              >
+                <Text>Yo!</Text>
               </Pressable>
-              <Pressable onPress={() => store.dispatch(setUser({ id: 123, name: 'Beth', email: 'beth@example.com' }))}>
+              <Pressable
+                onPress={() =>
+                  store.dispatch(
+                    setUser({
+                      id: 123,
+                      name: "Beth",
+                      email: "beth@example.com",
+                    })
+                  )
+                }
+              >
                 <Text>Yo!</Text>
               </Pressable>
             </View>

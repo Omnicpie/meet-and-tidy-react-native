@@ -13,6 +13,7 @@ export default {
               EventSearchResultScreen: 'search-results',
               EventDetailScreen: 'event',
               MessDetailScreen: 'mess',
+              RegistrationScreen: 'registration',
             },
           },
           CreateMess: {

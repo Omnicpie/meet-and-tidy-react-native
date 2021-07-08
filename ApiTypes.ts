@@ -1,5 +1,5 @@
 export type ApiAttendance = {
-  eventid: number;
+  eventId: number;
   userId: number;
 };
 
