@@ -100,41 +100,25 @@ function EventDetailScreen({
     setCurrentUser(store.getState().value);
   });
 
-  const addAttendance = () => {
-    if (currentUser !== null) {
-      createAttendance({
-        variables: {
-          userId: currentUser.id,
-          eventId: event.id,
-        },
-      });
-    } else {
-      navigation.navigate("Registration");
-    }
-  };
-
   const attending = (): boolean =>
     currentUser !== null &&
     data.event.attendances.some(
       (attendance: ApiAttendance) => attendance.userId == currentUser.id
     );
 
-  const [currentUser, setCurrentUser] = useState<ApiUser | null>(
-    store.getState().value
-  );
+  // Replace all currentUser instances with a real user (when coded) and store data in Redux stat
 
-  console.log("current user is: ", currentUser);
-
-  store.subscribe(() => {
-    console.log(store.getState().value);
-    setCurrentUser(store.getState().value);
-  });
-
-  const attending = (): boolean =>
-    currentUser !== null &&
-    data.event.attendances.some(
-      (attendance: ApiAttendance) => attendance.userId === currentUser.id
-    );
+  const addAttendance = () => {
+    if (currentUser !== null) {
+      createAttendance({
+        variables: {
+          userId: currentUser.id, eventId: event.id,
+        },
+      })
+    } else {
+      navigation.navigate('Registration')
+    }
+  };
 
   if (loading) {
     return <ActivityIndicator />;

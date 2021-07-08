@@ -19,7 +19,7 @@ import SafetyDisclaimerScreen from '../screens/SafetyDisclaimerScreen';
 
 import {
   BottomTabParamList, HomeParamList, CreateMessParamList, MyActivitiesParamList
-} from '../types';
+} from '../../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
