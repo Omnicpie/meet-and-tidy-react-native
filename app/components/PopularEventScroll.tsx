@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState, useEffect } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -11,7 +11,7 @@ import ApiImage from "../helpers/ApiImage";
 import { dayOfMonth, shortMonthName } from "../helpers/DateHelpers";
 import Main from "../assets/stylesheets/Main";
 
-import { ApiEvent } from "../../ApiTypes";
+import { ApiEvent, ApiAttendance } from "../../ApiTypes";
 import ErrorPanel from "./ErrorPanel";
 
 type PopularEventScrollProps = {
@@ -39,19 +39,38 @@ export default function PopularEventScroll({
 }: PopularEventScrollProps): ReactElement {
   const { data, error, loading, refetch } = useQuery(POPULAR_EVENTS_QUERY);
 
+  const popularEvent = []
+
+  data.events.map((eventAttendances: ApiEvent, index) => eventAttendances.attendances
+    .forEach(data => {
+        const attendance = {
+        key: index,
+        data
+      }
+      popularEvent.push(attendance)
+    }))
+
+  useEffect(() => {
+    let countAttendances = popularEvent.reduce((counts, num) => {
+      counts[num.key] = (counts[num.key] || 0) + 1;
+      return counts;
+    }, {});
+
+    console.log(countAttendances);
+
+    popularEvent.sort(function(p0,p1){
+      return countAttendances[p1] - countAttendances[p0];
+    });
+
+    console.log(countAttendances);
+
+  }, [popularEvent])
+
+  // Isolate the attendances array and order items based on which has the highest amount of userId's each
+
   if (loading) {
     return <ActivityIndicator />;
   }
-
-  // Add attendences to query on this page and pull in events
-  console.log(data.events);
-
-  // Isolate the attendances array and order items based on which has the highest amount of userId's each
-  data.events.map((event) => (
-     console.log(event)
-  ))}
-
-  // Str
 
   if (error) {
     return <ErrorPanel message={error.message} reload={refetch} />;
