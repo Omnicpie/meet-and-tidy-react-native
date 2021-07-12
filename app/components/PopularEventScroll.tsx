@@ -41,10 +41,10 @@ export default function PopularEventScroll({
 
   const popularEvent = []
 
-  data.events.map((eventAttendances: ApiEvent, index) => eventAttendances.attendances
+  data.events.map((eventAttendances: ApiEvent) => eventAttendances.attendances
     .forEach(data => {
         const attendance = {
-        key: index,
+        key: parseInt(data.eventId),
         data
       }
       popularEvent.push(attendance)
@@ -56,17 +56,17 @@ export default function PopularEventScroll({
       return counts;
     }, {});
 
-    console.log(countAttendances);
+    let nestedAttendances = Object.entries(countAttendances);
+    let sortAttendanceKeyValues = nestedAttendances.sort((a, b) => b[1] - a[1]);
+    let flattenedArray = sortAttendanceKeyValues.map((arr) => arr[0]);
 
-    popularEvent.sort(function(p0,p1){
-      return countAttendances[p1] - countAttendances[p0];
-    });
+    flattenedArray.map((id) => {
+      console.log(id);
+    })
 
-    console.log(countAttendances);
+    // Add individual ids to state to render out content?
 
   }, [popularEvent])
-
-  // Isolate the attendances array and order items based on which has the highest amount of userId's each
 
   if (loading) {
     return <ActivityIndicator />;
@@ -90,7 +90,7 @@ export default function PopularEventScroll({
         <FlatList<ApiEvent>
           data={data.events}
           horizontal
-          keyExtractor={({ id }) => id.toString()}
+          keyExtractor={({id}) => id.toString()}
           renderItem={({ item }) => (
             <Pressable
               onPress={() => navigation.navigate("Event", { id: item.id })}
