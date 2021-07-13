@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { ApolloError, gql, useMutation } from '@apollo/client';
 import {
   View, SafeAreaView, Button,
@@ -13,6 +13,7 @@ import EventDescription from '../components/Events/EventDescription';
 import EventImage from '../components/Events/EventImage';
 import EventPreview from '../components/Events/EventPreview';
 import Events from '../assets/stylesheets/Events';
+import FacilitySelectButtons from '../components/Events/FacilityTypeSelectButtons';
 
 type CreateEventScreenProps = {
   navigation: any;
@@ -32,8 +33,8 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   const [screen, setScreen] = useState(1);
 
   const CREATE_EVENT = gql`
-  mutation CreateEvent($date: String, $description: String, $eventTypeId: ID!, $facilityId: ID!, $location: String, $title: String!, $url: String) {
-    createEvent(date: $date, description: $description, eventTypeId: $eventTypeId, facilityId: $facilityId, location: $location, title: $title, url: $url) {
+  mutation CreateEvent($date: String, $description: String, $eventTypeId: ID!, $facilityIds: [ID!]!, $location: String, $title: String!, $url: String) {
+    createEvent(date: $date, description: $description, eventTypeId: $eventTypeId, facilityIds: $facilityIds, location: $location, title: $title, url: $url) {
       errors
     }
   }
@@ -57,10 +58,19 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
 
   const [createEvent, _eventResult] = useMutation(CREATE_EVENT, responses);
 
+  let facilityIdsArray = [];
+
+  useEffect(() => {
+    if (facilities) {
+      facilities.forEach(id => facilityIdsArray.push(id.id));
+    }
+    console.log(facilityIdsArray)
+  }, [facilities]);
+
   function createEventAndProceed() {
     createEvent({
       variables: {
-        date, description, eventTypeId: eventType.id, facilityId: facilities.id, location, title, url,
+        date, description, eventTypeId: eventType.id, facilityIds: facilityIdsArray, location, title, url,
       },
     });
   }
@@ -84,6 +94,8 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   function onPrevious() {
     setScreen(screen - 1);
   }
+
+  console.log(facilities);
 
   function currentScreen() {
     switch (screen) {
