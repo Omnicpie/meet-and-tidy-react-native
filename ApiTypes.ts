@@ -9,6 +9,7 @@ export type ApiEvent = {
   imageUrls: Array<string>;
   startsAt: string;
   title: string;
+  attendances: ApiAttendance[];
 };
 
 export type ApiEventType = {

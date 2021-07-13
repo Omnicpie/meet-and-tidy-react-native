@@ -38,35 +38,24 @@ export default function PopularEventScroll({
   navigation,
 }: PopularEventScrollProps): ReactElement {
   const { data, error, loading, refetch } = useQuery(POPULAR_EVENTS_QUERY);
-
-  const popularEvent = []
-
-  data.events.map((eventAttendances: ApiEvent) => eventAttendances.attendances
-    .forEach(data => {
-        const attendance = {
-        key: parseInt(data.eventId),
-        data
-      }
-      popularEvent.push(attendance)
-    }))
+  const [popularEvents, setPopularEvents] = useState([])
 
   useEffect(() => {
-    let countAttendances = popularEvent.reduce((counts, num) => {
-      counts[num.key] = (counts[num.key] || 0) + 1;
-      return counts;
-    }, {});
-
-    let nestedAttendances = Object.entries(countAttendances);
-    let sortAttendanceKeyValues = nestedAttendances.sort((a, b) => b[1] - a[1]);
-    let flattenedArray = sortAttendanceKeyValues.map((arr) => arr[0]);
-
-    flattenedArray.map((id) => {
-      console.log(id);
-    })
-
-    // Add individual ids to state to render out content?
-
-  }, [popularEvent])
+    if (data) {
+      const sortedEvents = data.events.slice().sort((eventA: ApiEvent, eventB: ApiEvent) => {
+        if (eventA.attendances.length > eventB.attendances.length) {
+          return 1;
+        }
+        if (eventB.attendances.length > eventA.attendances.length) {
+          return -1;
+        }
+        if (eventA.attendances.length === eventB.attendances.length) {
+          return 0;
+        }
+      })
+      setPopularEvents(sortedEvents.reverse());
+    }
+  }, [loading, data])
 
   if (loading) {
     return <ActivityIndicator />;
@@ -88,7 +77,7 @@ export default function PopularEventScroll({
       <Text style={Main.scrollerTitle}>Popular events</Text>
       <View>
         <FlatList<ApiEvent>
-          data={data.events}
+          data={popularEvents}
           horizontal
           keyExtractor={({id}) => id.toString()}
           renderItem={({ item }) => (
