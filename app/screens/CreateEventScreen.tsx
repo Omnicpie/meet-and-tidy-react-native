@@ -58,19 +58,18 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
 
   const [createEvent, _eventResult] = useMutation(CREATE_EVENT, responses);
 
-  let facilityIdsArray = [];
-
-  useEffect(() => {
+  const facilityIdsArray = () => {
+    let ids = [];
     if (facilities) {
-      facilities.forEach(id => facilityIdsArray.push(id.id));
+      facilities.forEach(facility => ids.push(facility.id));
     }
-    console.log(facilityIdsArray)
-  }, [facilities]);
+    return ids;
+  };
 
   function createEventAndProceed() {
     createEvent({
       variables: {
-        date, description, eventTypeId: eventType.id, facilityIds: facilityIdsArray, location, title, url,
+        date, description, eventTypeId: eventType.id, facilityIds: facilityIdsArray(), location, title, url,
       },
     });
   }
@@ -94,8 +93,6 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
   function onPrevious() {
     setScreen(screen - 1);
   }
-
-  console.log(facilities);
 
   function currentScreen() {
     switch (screen) {
