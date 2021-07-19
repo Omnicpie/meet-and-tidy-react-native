@@ -3,39 +3,37 @@ import {
   Text, Image, Button, Platform, SafeAreaView, View
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-import * as ImagePicker from 'expo-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import { ScrollView } from 'react-native-gesture-handler';
 import NextPreviousButtons from '../NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
 import Main from '../../assets/stylesheets/Main';
 
 export default function EventImage({
-  image, onChangeImage, onChangeImagePreview, onNext, onPrevious,
+  image, onChangeImage, onChangeImagePreview, onNext, onPrevious
 } = props): ReactElement {
-  useEffect(() => {
-    (async () => {
-      if (Platform.OS !== 'web') {
-        const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
-        if (status !== 'granted') {
-          alert('Sorry, we need camera roll permissions to make this work!');
-        }
-      }
-    })();
-  }, []);
 
-  const pickImage = async () => {
+  /* const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: false,
-      base64: true,
+      base64: false,
       aspect: [4, 3],
       quality: 1,
     });
 
     if (!result.cancelled) {
-      onChangeImage(result.base64);
+      console.log(Object.keys(result));
+      onChangeImage()
     }
-  };
+  }; */
+
+  /*"height",
+  "uri",
+  "base64",
+  "type",
+  "cancelled",
+  "width",*/
 
   return (
     <SafeAreaView style={Events.mainContainer}>

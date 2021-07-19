@@ -3,7 +3,7 @@ import {
   Text, Image, Button, Platform, SafeAreaView, View,
 } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
-import * as ImagePicker from 'expo-image-picker';
+// Need React Native Image Picker here??
 import { ScrollView } from 'react-native-gesture-handler';
 import NextPreviousButtons from '../NextPreviousButtons';
 import Events from '../../assets/stylesheets/Events';
@@ -12,7 +12,7 @@ import Main from '../../assets/stylesheets/Main';
 export default function EventImage({
   image, onChangeImage, onChangeImagePreview, onNext, onPrevious,
 } = props): ReactElement {
-  useEffect(() => {
+  /* useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
         const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
@@ -35,9 +35,9 @@ export default function EventImage({
     if (!result.cancelled) {
       onChangeImage(result.base64);
     }
-  };
+  }; */
 
-  return (
+  // return (
     <SafeAreaView style={Events.mainContainer}>
       <ScrollView>
         <ProgressBar style={Events.progressBar} progress={0.833} color={Colors.green500} />
@@ -51,5 +51,5 @@ export default function EventImage({
         <NextPreviousButtons onPrevious={onPrevious} onNext={onNext} />
       </ScrollView>
     </SafeAreaView>
-  );
-}
+  // );
+};
