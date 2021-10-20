@@ -227,10 +227,6 @@ export default StyleSheet.create({
     paddingTop: 20,
     paddingLeft: 15,
   },
-  tagLine: {
-    color: '#888',
-    fontSize: 15,
-  },
   tellUsMore: {
     textAlign: 'center',
     width: '95%',

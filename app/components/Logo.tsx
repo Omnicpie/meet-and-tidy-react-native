@@ -11,7 +11,6 @@ export default function Logo() {
         <TouchableOpacity>
           <Image source={logo} style={Main.logo} />
         </TouchableOpacity>
-        <Text style={Main.tagLine}>Commit to clean up</Text>
         <StatusBar style="auto" />
       </View>
     </SafeAreaView>
