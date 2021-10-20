@@ -31,7 +31,7 @@ const SearchBar = ({ navigation }: SearchBarProps): ReactElement => {
         placeholder="Find an event..."
         onChangeText={onChangeSearch}
         onSubmitEditing={onSubmitSearch}
-        style={{ backgroundColor: 'white', borderRadius: 23, width: 350 }}
+        style={{ backgroundColor: 'white', borderRadius: 23, maxWidth: '90%', width: 350 }}
         value={query}
       />
     </View>

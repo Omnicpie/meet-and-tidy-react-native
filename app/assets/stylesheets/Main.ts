@@ -217,6 +217,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingTop: 35,
     paddingBottom: 25,
+    paddingLeft: 8,
+    paddingRight: 8,
     backgroundColor: 'white',
   },
   subheading: {
