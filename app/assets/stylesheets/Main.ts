@@ -5,6 +5,11 @@ export default StyleSheet.create({
     height: 200,
     width: '100%',
   },
+  apiMissingImage: {
+    backgroundColor: '#f7fbf7',
+    height: 200,
+    width: '100%',
+  },
   attendingScrollerContainer: {
     flex: 1,
     paddingHorizontal: 15,

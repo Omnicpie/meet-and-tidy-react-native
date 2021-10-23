@@ -3,16 +3,20 @@ import { View, Image } from 'react-native';
 import Main from '../assets/stylesheets/Main';
 
 type EventOrMessImageProps = {
-  imageUrl: string
+  imageUrl: string | null
 };
 
 export default function EventOrMessImage({ imageUrl }: EventOrMessImageProps): ReactElement {
   return (
     <View>
-      <Image
-        style={Main.apiImage}
-        source={{ uri: imageUrl }}
-      />
+      {imageUrl ? (
+        <Image
+          style={Main.apiImage}
+          source={{ uri: imageUrl }}
+        />
+      ) : (
+        <View style={Main.apiMissingImage} />
+      )}
     </View>
   );
 }
