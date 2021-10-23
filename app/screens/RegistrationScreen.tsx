@@ -1,20 +1,20 @@
-import { ApolloError, gql, useMutation } from '@apollo/client';
-import React, { ReactElement, useState } from 'react';
+import { ApolloError, gql, useMutation } from '@apollo/client'
+import React, { ReactElement, useState } from 'react'
 import {
-  Alert, Button, Pressable, SafeAreaView, ScrollView, TextInput,
-} from 'react-native';
-import { Text, View } from '../components/Themed';
-import Main from '../assets/stylesheets/Main';
+  Alert, Button, Pressable, SafeAreaView, ScrollView, TextInput
+} from 'react-native'
+import { Text, View } from '../components/Themed'
+import Main from '../assets/stylesheets/Main'
 
 type RegScreenProps = {
   navigation: any;
 };
 
-export default function RegistrationScreen({ navigation }: RegScreenProps): ReactElement {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [mutationFailed, setMutationFailed] = useState(false);
+export default function RegistrationScreen ({ navigation }: RegScreenProps): ReactElement {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [mutationFailed, setMutationFailed] = useState(false)
 
   const CREATE_ACCOUNT = gql`
   mutation CreateAccount($name: String, $email: String!, $password: String!) {
@@ -22,28 +22,28 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
       errors
     }
   }
-  `;
+  `
 
   const responses = {
-    onCompleted(_data: any) {
-      navigation.navigate('HomeScreen');
+    onCompleted (_data: any) {
+      navigation.navigate('HomeScreen')
     },
-    onError(_error: ApolloError) {
-      setMutationFailed(true);
+    onError (_error: ApolloError) {
+      setMutationFailed(true)
       setTimeout(() => {
-        setMutationFailed(false);
-      }, 3000);
-    },
-  };
-
-  function formValid(): boolean {
-    return email.length >= 4 && email.length <= 254 && name.length >= 1 && password.length >= 6;
+        setMutationFailed(false)
+      }, 3000)
+    }
   }
 
-  const [createAccount, _accountResult] = useMutation(CREATE_ACCOUNT, responses);
+  function formValid (): boolean {
+    return email.length >= 4 && email.length <= 254 && name.length >= 1 && password.length >= 6
+  }
 
-  function createAccountAndNavigate() {
-    createAccount({ variables: { name, email, password } });
+  const [createAccount, _accountResult] = useMutation(CREATE_ACCOUNT, responses)
+
+  function createAccountAndNavigate () {
+    createAccount({ variables: { name, email, password } })
   }
 
   const confirmSubmit = () => {
@@ -54,17 +54,17 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
         [
           {
             text: 'Cancel',
-            onPress: () => {return;}
+            onPress: () => {}
           },
           {
             text: 'OK',
-            onPress: createAccountAndNavigate,
-          },
+            onPress: createAccountAndNavigate
+          }
         ],
-        { cancelable: false },
-      );
+        { cancelable: false }
+      )
     }
-  };
+  }
 
   return (
     <SafeAreaView style={Main.mainContainer}>
@@ -121,5 +121,5 @@ export default function RegistrationScreen({ navigation }: RegScreenProps): Reac
         {mutationFailed && <View><Text style={Main.mutation}>Unable to create account, please try again.</Text></View>}
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

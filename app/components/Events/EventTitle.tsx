@@ -1,11 +1,11 @@
-import React, { ReactElement } from 'react';
-import { SafeAreaView, Text, TextInput, View } from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
-import { ScrollView } from 'react-native-gesture-handler';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
-import NextPreviousButtons from '../NextPreviousButtons';
-import { ApiEventType } from '../../../ApiTypes';
+import React, { ReactElement } from 'react'
+import { SafeAreaView, Text, TextInput, View } from 'react-native'
+import { ProgressBar, Colors } from 'react-native-paper'
+import { ScrollView } from 'react-native-gesture-handler'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
+import NextPreviousButtons from '../NextPreviousButtons'
+import { ApiEventType } from '../../../ApiTypes'
 
 type EventTitleProps = {
   title: string;
@@ -16,19 +16,19 @@ type EventTitleProps = {
   location: string;
 };
 
-export default function EventTitle({
-  title, onChangeTitle, onNext, onPrevious, eventType, location,
+export default function EventTitle ({
+  title, onChangeTitle, onNext, onPrevious, eventType, location
 }: EventTitleProps): ReactElement {
-  const suggestedTitle = title === '' ? `${location} ${eventType.name} Clean Up` : title;
-  const [value, onChangeValue] = React.useState(suggestedTitle);
+  const suggestedTitle = title === '' ? `${location} ${eventType.name} Clean Up` : title
+  const [value, onChangeValue] = React.useState(suggestedTitle)
 
-  function validateInput() {
+  function validateInput () {
     if (value.length > 3) {
       // Handle case of user never changing the title.
-      onChangeTitle(value);
-      onNext();
+      onChangeTitle(value)
+      onNext()
     } else {
-      alert('Please enter a title for your event that is at least four letters long.');
+      alert('Please enter a title for your event that is at least four letters long.')
     }
   }
 
@@ -43,8 +43,8 @@ export default function EventTitle({
         </View>
         <TextInput
           onChangeText={(text) => {
-            onChangeTitle(text);
-            onChangeValue(text);
+            onChangeTitle(text)
+            onChangeValue(text)
           }}
           style={Events.textInput}
           value={value}
@@ -54,5 +54,5 @@ export default function EventTitle({
         <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} />
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

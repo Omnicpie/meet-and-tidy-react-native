@@ -1,11 +1,11 @@
-import React from 'react';
-import { ActivityIndicator, Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native';
-import { gql, useQuery } from '@apollo/client';
-import ApiImage from '../helpers/ApiImage';
-import Messes from '../assets/stylesheets/Messes';
-import ErrorPanel from '../components/ErrorPanel';
-import { ApiMess } from '../../ApiTypes';
-import { dayOfMonth, shortMonthName, fullYear} from '../helpers/DateHelpers';
+import React from 'react'
+import { ActivityIndicator, Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native'
+import { gql, useQuery } from '@apollo/client'
+import ApiImage from '../helpers/ApiImage'
+import Messes from '../assets/stylesheets/Messes'
+import ErrorPanel from '../components/ErrorPanel'
+import { ApiMess } from '../../ApiTypes'
+import { dayOfMonth, shortMonthName, fullYear } from '../helpers/DateHelpers'
 
 type MessDetailScreenProps = {
   navigation: any;
@@ -23,30 +23,30 @@ const MESS_QUERY = gql`
       location
     }
   }
-`;
+`
 
-function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
-  const { id } = route.params;
+function MessDetailScreen ({ navigation, route } : MessDetailScreenProps) {
+  const { id } = route.params
   const {
-    data, error, loading, refetch,
-  } = useQuery(MESS_QUERY, { variables: { id } });
+    data, error, loading, refetch
+  } = useQuery(MESS_QUERY, { variables: { id } })
 
   if (loading) {
-    return <ActivityIndicator />;
+    return <ActivityIndicator />
   }
 
   if (error) {
-    return <ErrorPanel message={error.message} reload={refetch} />;
+    return <ErrorPanel message={error.message} reload={refetch} />
   }
 
-  function firstImage(mess: ApiMess) {
+  function firstImage (mess: ApiMess) {
     if (mess.imageUrls.length) {
-      return <ApiImage imageUrl={mess.imageUrls[0]} />;
+      return <ApiImage imageUrl={mess.imageUrls[0]} />
     }
-    return null;
+    return null
   }
 
-  const { mess } = data;
+  const { mess } = data
 
   return (
     <SafeAreaView style={Messes.mainPreviewContainer}>
@@ -79,7 +79,7 @@ function MessDetailScreen({ navigation, route } : MessDetailScreenProps) {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
-export default MessDetailScreen;
+export default MessDetailScreen

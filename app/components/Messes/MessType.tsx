@@ -1,14 +1,14 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  Text, SafeAreaView, View,
-} from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
-import { ScrollView } from 'react-native-gesture-handler';
-import MessTypeSelectButtons from './MessTypeSelectButtons';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
-import NextPreviousButtons from '../NextPreviousButtons';
-import { ApiMessType } from '../../../ApiTypes';
+  Text, SafeAreaView, View
+} from 'react-native'
+import { ProgressBar, Colors } from 'react-native-paper'
+import { ScrollView } from 'react-native-gesture-handler'
+import MessTypeSelectButtons from './MessTypeSelectButtons'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
+import NextPreviousButtons from '../NextPreviousButtons'
+import { ApiMessType } from '../../../ApiTypes'
 
 type MessTypeProps = {
   messType: ApiMessType;
@@ -18,14 +18,14 @@ type MessTypeProps = {
   route: any;
 };
 
-export default function MessType({
-  messType, onChangeMessType, onNext, onPrevious, route,
+export default function MessType ({
+  messType, onChangeMessType, onNext, onPrevious, route
 }: MessTypeProps): ReactElement {
-  function validateInput() {
+  function validateInput () {
     if (messType !== null) {
-      onNext();
+      onNext()
     } else {
-      alert('Please select an event type.');
+      alert('Please select an event type.')
     }
   }
 
@@ -36,7 +36,7 @@ export default function MessType({
         <Text style={Events.centeredText}>2 of 6</Text>
         <View>
           <Text style={Events.primaryHeading}>What type of mess is it?</Text>
-          <Text style={Main.tellUsMore}>Don't see the correct type of mess? {"\n"} Select 'Other'.</Text>
+          <Text style={Main.tellUsMore}>Don't see the correct type of mess? {'\n'} Select 'Other'.</Text>
         </View>
         <MessTypeSelectButtons
           messType={messType}
@@ -49,5 +49,5 @@ export default function MessType({
         />
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

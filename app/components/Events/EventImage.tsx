@@ -1,18 +1,17 @@
-import React, { useEffect, ReactElement } from 'react';
+import React, { useEffect, ReactElement } from 'react'
 import {
   Text, Image, Button, Platform, SafeAreaView, View
-} from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
-import { launchImageLibrary } from 'react-native-image-picker';
-import { ScrollView } from 'react-native-gesture-handler';
-import NextPreviousButtons from '../NextPreviousButtons';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
+} from 'react-native'
+import { ProgressBar, Colors } from 'react-native-paper'
+import { launchImageLibrary } from 'react-native-image-picker'
+import { ScrollView } from 'react-native-gesture-handler'
+import NextPreviousButtons from '../NextPreviousButtons'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
 
-export default function EventImage({
+export default function EventImage ({
   image, onChangeImage, onChangeImagePreview, onNext, onPrevious
 } = props): ReactElement {
-
   /* const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -28,12 +27,12 @@ export default function EventImage({
     }
   }; */
 
-  /*"height",
+  /* "height",
   "uri",
   "base64",
   "type",
   "cancelled",
-  "width",*/
+  "width", */
 
   return (
     <SafeAreaView style={Events.mainContainer}>
@@ -49,5 +48,5 @@ export default function EventImage({
         <NextPreviousButtons onPrevious={onPrevious} onNext={onNext} />
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

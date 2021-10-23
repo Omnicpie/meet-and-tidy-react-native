@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
-import { SafeAreaView, Text, View, ScrollView } from "react-native";
-import Main from "../assets/stylesheets/Main";
+import React, { ReactElement } from 'react'
+import { SafeAreaView, Text, View, ScrollView } from 'react-native'
+import Main from '../assets/stylesheets/Main'
 
 type OrganisingScreenProps = {
   navigation: any;
 };
 
-function OrganisingScreen({ navigation }: OrganisingScreenProps): ReactElement {
+function OrganisingScreen ({ navigation }: OrganisingScreenProps): ReactElement {
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
@@ -15,7 +15,7 @@ function OrganisingScreen({ navigation }: OrganisingScreenProps): ReactElement {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
-export default OrganisingScreen;
+export default OrganisingScreen

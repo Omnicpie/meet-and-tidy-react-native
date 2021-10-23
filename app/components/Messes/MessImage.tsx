@@ -1,16 +1,16 @@
-import React, { useEffect, ReactElement } from 'react';
+import React, { useEffect, ReactElement } from 'react'
 import {
-  Text, Image, Button, Platform, SafeAreaView, View,
-} from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
+  Text, Image, Button, Platform, SafeAreaView, View
+} from 'react-native'
+import { ProgressBar, Colors } from 'react-native-paper'
 // Need React Native Image Picker here??
-import { ScrollView } from 'react-native-gesture-handler';
-import NextPreviousButtons from '../NextPreviousButtons';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
+import { ScrollView } from 'react-native-gesture-handler'
+import NextPreviousButtons from '../NextPreviousButtons'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
 
-export default function EventImage({
-  image, onChangeImage, onChangeImagePreview, onNext, onPrevious,
+export default function EventImage ({
+  image, onChangeImage, onChangeImagePreview, onNext, onPrevious
 } = props): ReactElement {
   /* useEffect(() => {
     (async () => {
@@ -52,4 +52,4 @@ export default function EventImage({
       </ScrollView>
     </SafeAreaView>
   // );
-};
+}

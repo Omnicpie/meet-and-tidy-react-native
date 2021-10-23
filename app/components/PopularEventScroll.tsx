@@ -1,18 +1,18 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useState, useEffect } from 'react'
 import {
   ActivityIndicator,
   FlatList,
   Pressable,
   Text,
-  View,
-} from "react-native";
-import { gql, useQuery } from "@apollo/client";
-import ApiImage from "../helpers/ApiImage";
-import { dayOfMonth, shortMonthName } from "../helpers/DateHelpers";
-import Main from "../assets/stylesheets/Main";
+  View
+} from 'react-native'
+import { gql, useQuery } from '@apollo/client'
+import ApiImage from '../helpers/ApiImage'
+import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers'
+import Main from '../assets/stylesheets/Main'
 
-import { ApiEvent, ApiAttendance } from "../../ApiTypes";
-import ErrorPanel from "./ErrorPanel";
+import { ApiEvent, ApiAttendance } from '../../ApiTypes'
+import ErrorPanel from './ErrorPanel'
 
 type PopularEventScrollProps = {
   navigation: any;
@@ -32,44 +32,44 @@ const POPULAR_EVENTS_QUERY = gql`
       }
     }
   }
-`;
+`
 
-export default function PopularEventScroll({
-  navigation,
+export default function PopularEventScroll ({
+  navigation
 }: PopularEventScrollProps): ReactElement {
-  const { data, error, loading, refetch } = useQuery(POPULAR_EVENTS_QUERY);
+  const {
+    data, error, loading, refetch
+  } = useQuery(POPULAR_EVENTS_QUERY)
   const [popularEvents, setPopularEvents] = useState([])
 
   useEffect(() => {
     if (data) {
       const sortedEvents = data.events.slice().sort((eventA: ApiEvent, eventB: ApiEvent) => {
         if (eventA.attendances.length > eventB.attendances.length) {
-          return 1;
+          return 1
         }
         if (eventB.attendances.length > eventA.attendances.length) {
-          return -1;
+          return -1
         }
         if (eventA.attendances.length === eventB.attendances.length) {
-          return 0;
+          return 0
         }
       })
-      setPopularEvents(sortedEvents.reverse());
+      setPopularEvents(sortedEvents.reverse())
     }
   }, [loading, data])
 
   if (loading) {
-    return <ActivityIndicator />;
+    return <ActivityIndicator />
   }
 
   if (error) {
-    return <ErrorPanel message={error.message} reload={refetch} />;
+    return <ErrorPanel message={error.message} reload={refetch} />
   }
 
-  function firstImage(event: ApiEvent) {
-    if (event.imageUrls.length) {
-      return <ApiImage imageUrl={event.imageUrls[0]} />;
-    }
-    return null;
+  function firstImage (event: ApiEvent) {
+    const url = event.imageUrls.length ? event.imageUrls[0] : null
+    return <ApiImage imageUrl={url} />
   }
 
   return (
@@ -79,10 +79,10 @@ export default function PopularEventScroll({
         <FlatList<ApiEvent>
           data={popularEvents}
           horizontal
-          keyExtractor={({id}) => id.toString()}
+          keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
             <Pressable
-              onPress={() => navigation.navigate("Event", { id: item.id })}
+              onPress={() => navigation.navigate('Event', { id: item.id })}
             >
               <View style={Main.scrollerTile}>
                 {firstImage(item)}
@@ -106,5 +106,5 @@ export default function PopularEventScroll({
         />
       </View>
     </View>
-  );
+  )
 }

@@ -1,14 +1,14 @@
-import { useReactiveVar } from '@apollo/client';
-import React, { ReactElement } from 'react';
-import { Pressable, ScrollView, SafeAreaView, Text, View } from 'react-native';
-import Activities from '../assets/stylesheets/Activities';
-import Main from '../assets/stylesheets/Main';
+import { useReactiveVar } from '@apollo/client'
+import React, { ReactElement } from 'react'
+import { Pressable, ScrollView, SafeAreaView, Text, View } from 'react-native'
+import Activities from '../assets/stylesheets/Activities'
+import Main from '../assets/stylesheets/Main'
 
 type MyActivitiesScreenProps = {
   navigation: any;
 };
 
-function MyActivitiesScreen({ navigation }: MyActivitiesScreenProps): ReactElement {
+function MyActivitiesScreen ({ navigation }: MyActivitiesScreenProps): ReactElement {
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView style={Activities.scrollContainer}>
@@ -38,7 +38,7 @@ function MyActivitiesScreen({ navigation }: MyActivitiesScreenProps): ReactEleme
         </Pressable>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
-export default MyActivitiesScreen;
+export default MyActivitiesScreen

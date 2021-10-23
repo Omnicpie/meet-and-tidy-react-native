@@ -1,15 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   attendEventButton: {
     fontSize: 16,
     color: '#54ae33',
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   attendEventContainer: {
     marginVertical: 5,
     padding: 10,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   attendButtonContainer: {
     backgroundColor: '#fff',
@@ -19,12 +19,12 @@ export default StyleSheet.create({
     borderRadius: 8,
     borderWidth: 2,
     width: 150,
-    height: 50,
+    height: 50
   },
   attendingEventButton: {
     fontSize: 16,
     color: '#fff',
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   attendingButtonContainer: {
     backgroundColor: '#54ae33',
@@ -35,7 +35,7 @@ export default StyleSheet.create({
     borderRadius: 8,
     borderWidth: 2,
     width: 150,
-    height: 50,
+    height: 50
   },
   buttonContainer: {
     display: 'flex',
@@ -43,19 +43,19 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 75,
+    marginBottom: 75
   },
   buttonElement: {
     marginRight: 5,
-    marginLeft: 5,
+    marginLeft: 5
   },
   container: {
     backgroundColor: '#fff',
-    flex: 1,
+    flex: 1
   },
   centeredText: {
     textAlign: 'center',
-    marginTop: 5,
+    marginTop: 5
   },
   dateInputButton: {
     borderWidth: 1,
@@ -64,12 +64,12 @@ export default StyleSheet.create({
     width: 200,
     padding: 10,
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 16
   },
   dateInputContainer: {
     width: '100%',
     alignItems: 'center',
-    marginBottom: 25,
+    marginBottom: 25
   },
   descInput: {
     height: 130,
@@ -80,17 +80,17 @@ export default StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 6,
     borderWidth: 1,
-    marginLeft: 40,
+    marginLeft: 40
   },
   detailPrimaryHeading: {
     textAlign: 'center',
     fontSize: 23,
-    paddingTop: 10,
+    paddingTop: 10
   },
   detailSecondaryHeading: {
     textAlign: 'center',
     width: '100%',
-    paddingLeft: 15,
+    paddingLeft: 15
   },
   eventTypeButton: {
     margin: 5,
@@ -99,12 +99,12 @@ export default StyleSheet.create({
     borderColor: '#54ae33',
     borderRadius: 8,
     borderWidth: 2,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   eventTypeButtonText: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#54ae33',
+    color: '#54ae33'
   },
   eventTypeButtonSelected: {
     margin: 5,
@@ -113,12 +113,12 @@ export default StyleSheet.create({
     borderColor: '#54ae33',
     borderRadius: 8,
     borderWidth: 2,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   eventTypeButtonTextSelected: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#fff'
   },
   infoTile: {
     width: '85%',
@@ -127,57 +127,57 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    marginLeft: 30,
+    marginLeft: 30
   },
   imageSelected: {
     width: '100%',
     height: 200,
-    margin: 0,
+    margin: 0
   },
   mainContainer: {
     flex: 1,
     alignItems: 'stretch',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   map: {
     width: '100%',
-    height: 200,
+    height: 200
   },
   mapContainer: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   description: {
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
     paddingLeft: 15,
-    paddingRight: 15,
+    paddingRight: 15
   },
   paragraph: {
     textAlign: 'left',
     width: '100%',
     paddingLeft: 15,
-    paddingRight: 15,
+    paddingRight: 15
   },
   previewHeading: {
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: 20,
     marginTop: 15,
-    marginBottom: 15,
+    marginBottom: 15
   },
   primaryHeading: {
     textAlign: 'center',
     fontSize: 25,
     marginTop: 50,
-    marginBottom: 50,
+    marginBottom: 50
   },
   progressBar: {
-    marginTop: 50,
+    marginTop: 50
   },
   subheading: {
     textAlign: 'left',
@@ -185,7 +185,7 @@ export default StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     paddingTop: 20,
-    paddingLeft: 15,
+    paddingLeft: 15
   },
   textInput: {
     height: 40,
@@ -195,7 +195,7 @@ export default StyleSheet.create({
     borderRadius: 6,
     borderWidth: 1,
     marginBottom: 50,
-    marginLeft: 40,
+    marginLeft: 40
   },
   topTile: {
     width: '100%',
@@ -203,7 +203,7 @@ export default StyleSheet.create({
     backgroundColor: '#54ae33',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   urlHeading: {
     textAlign: 'left',
@@ -211,6 +211,6 @@ export default StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     paddingLeft: '10%',
-    paddingBottom: 10,
-  },
-});
+    paddingBottom: 10
+  }
+})

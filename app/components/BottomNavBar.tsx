@@ -1,13 +1,13 @@
-import React, { ReactElement } from 'react';
-import { SafeAreaView } from 'react-native';
-import { IconButton } from 'react-native-paper';
-import Main from '../assets/stylesheets/Main';
+import React, { ReactElement } from 'react'
+import { SafeAreaView } from 'react-native'
+import { IconButton } from 'react-native-paper'
+import Main from '../assets/stylesheets/Main'
 
 type BottomNavBarProps = {
   navigation: any;
 };
 
-function BottomNavBar({ navigation }: BottomNavBarProps): ReactElement {
+function BottomNavBar ({ navigation }: BottomNavBarProps): ReactElement {
   return (
     <SafeAreaView style={Main.navContainer}>
       <IconButton
@@ -32,7 +32,7 @@ function BottomNavBar({ navigation }: BottomNavBarProps): ReactElement {
         onPress={() => navigation.navigate('MyActivities')}
       />
     </SafeAreaView>
-  );
+  )
 }
 
-export default BottomNavBar;
+export default BottomNavBar

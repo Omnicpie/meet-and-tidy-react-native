@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
-import { SafeAreaView, Text, View, ScrollView } from "react-native";
-import Main from "../assets/stylesheets/Main";
+import React, { ReactElement } from 'react'
+import { SafeAreaView, Text, View, ScrollView } from 'react-native'
+import Main from '../assets/stylesheets/Main'
 
 type MyMessesScreenProps = {
   navigation: any;
 };
 
-function MyMessesScreen({ navigation }: MyMessesScreenProps): ReactElement {
+function MyMessesScreen ({ navigation }: MyMessesScreenProps): ReactElement {
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
@@ -15,7 +15,7 @@ function MyMessesScreen({ navigation }: MyMessesScreenProps): ReactElement {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
-export default MyMessesScreen;
+export default MyMessesScreen

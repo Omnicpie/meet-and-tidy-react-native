@@ -1,39 +1,39 @@
-import { MaterialIcons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
-import Main from '../assets/stylesheets/Main';
+import { MaterialIcons } from '@expo/vector-icons'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
+import * as React from 'react'
+import Main from '../assets/stylesheets/Main'
 
-import HomeScreen from '../screens/HomeScreen';
-import CreateMessScreen from '../screens/CreateMessScreen';
-import CreateEventScreen from '../screens/CreateEventScreen';
-import MyActivitiesScreen from '../screens/MyActivitiesScreen';
-import Attending from '../screens/Attending';
-import Organising from '../screens/Organising';
-import MyMesses from '../screens/MyMesses';
-import EventDetailScreen from '../screens/EventDetailScreen';
-import MessDetailScreen from '../screens/MessDetailScreen';
-import EventSearchResultScreen from '../screens/EventSearchResultScreen';
-import RegistrationScreen from '../screens/RegistrationScreen';
-import SafetyDisclaimerScreen from '../screens/SafetyDisclaimerScreen';
+import HomeScreen from '../screens/HomeScreen'
+import CreateMessScreen from '../screens/CreateMessScreen'
+import CreateEventScreen from '../screens/CreateEventScreen'
+import MyActivitiesScreen from '../screens/MyActivitiesScreen'
+import Attending from '../screens/Attending'
+import Organising from '../screens/Organising'
+import MyMesses from '../screens/MyMesses'
+import EventDetailScreen from '../screens/EventDetailScreen'
+import MessDetailScreen from '../screens/MessDetailScreen'
+import EventSearchResultScreen from '../screens/EventSearchResultScreen'
+import RegistrationScreen from '../screens/RegistrationScreen'
+import SafetyDisclaimerScreen from '../screens/SafetyDisclaimerScreen'
 
 import {
   BottomTabParamList, HomeParamList, CreateMessParamList, MyActivitiesParamList
-} from '../../types';
+} from '../../types'
 
-const BottomTab = createBottomTabNavigator<BottomTabParamList>();
+const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
-function TabBarIcon(props: { name: string }) {
-  return <MaterialIcons size={30} style={{ marginBottom: -3 }} {...props} />;
+function TabBarIcon (props: { name: string }) {
+  return <MaterialIcons size={30} style={{ marginBottom: -3 }} {...props} />
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const HomeStack = createStackNavigator<HomeParamList>();
+const HomeStack = createStackNavigator<HomeParamList>()
 
-function HomeNavigator() {
+function HomeNavigator () {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
@@ -72,12 +72,12 @@ function HomeNavigator() {
         options={{ headerTitle: 'SafetyDisclaimer', headerShown: true }}
       />
     </HomeStack.Navigator>
-  );
+  )
 }
 
-const CreateMessStack = createStackNavigator<CreateMessParamList>();
+const CreateMessStack = createStackNavigator<CreateMessParamList>()
 
-function CreateMessNavigator() {
+function CreateMessNavigator () {
   return (
     <CreateMessStack.Navigator>
       <CreateMessStack.Screen
@@ -86,12 +86,12 @@ function CreateMessNavigator() {
         options={{ headerTitle: 'Flag a Mess', headerShown: true }}
       />
     </CreateMessStack.Navigator>
-  );
+  )
 }
 
-const MyActivitiesStack = createStackNavigator<MyActivitiesParamList>();
+const MyActivitiesStack = createStackNavigator<MyActivitiesParamList>()
 
-function MyActivitiesNavigator() {
+function MyActivitiesNavigator () {
   return (
     <MyActivitiesStack.Navigator>
       <MyActivitiesStack.Screen
@@ -115,10 +115,10 @@ function MyActivitiesNavigator() {
         options={{ headerTitle: 'My Messes', headerShown: true }}
       />
     </MyActivitiesStack.Navigator>
-  );
+  )
 }
 
-export default function BottomTabNavigator() {
+export default function BottomTabNavigator () {
   return (
     <BottomTab.Navigator
       initialRouteName="Home"
@@ -129,7 +129,7 @@ export default function BottomTabNavigator() {
         size={35}
         component={CreateMessNavigator}
         options={{
-          tabBarIcon: () => <TabBarIcon name="delete-outline" />,
+          tabBarIcon: () => <TabBarIcon name="delete-outline" />
         }}
       />
       <BottomTab.Screen
@@ -138,7 +138,7 @@ export default function BottomTabNavigator() {
         size={35}
         component={HomeNavigator}
         options={{
-          tabBarIcon: () => <TabBarIcon name="home" />,
+          tabBarIcon: () => <TabBarIcon name="home" />
         }}
       />
       <BottomTab.Screen
@@ -147,9 +147,9 @@ export default function BottomTabNavigator() {
         size={35}
         component={MyActivitiesNavigator}
         options={{
-          tabBarIcon: () => <TabBarIcon name="person-outline" />,
+          tabBarIcon: () => <TabBarIcon name="person-outline" />
         }}
       />
     </BottomTab.Navigator>
-  );
+  )
 }

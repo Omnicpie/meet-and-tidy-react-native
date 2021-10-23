@@ -1,4 +1,4 @@
 export default {
   primary: 'blue',
-  secondard: 'red',
-};
+  secondard: 'red'
+}

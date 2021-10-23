@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
-import { Text, SafeAreaView, View} from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
-import { ScrollView } from 'react-native-gesture-handler';
-import EventTypeSelectButtons from './EventTypeSelectButtons';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
-import NextPreviousButtons from '../NextPreviousButtons';
-import { ApiEventType } from '../../../ApiTypes';
+import React, { ReactElement } from 'react'
+import { Text, SafeAreaView, View } from 'react-native'
+import { ProgressBar, Colors } from 'react-native-paper'
+import { ScrollView } from 'react-native-gesture-handler'
+import EventTypeSelectButtons from './EventTypeSelectButtons'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
+import NextPreviousButtons from '../NextPreviousButtons'
+import { ApiEventType } from '../../../ApiTypes'
 
 type EventTypeProps = {
   eventType: ApiEventType;
@@ -16,14 +16,14 @@ type EventTypeProps = {
   route: any;
 };
 
-export default function EventType({
-  eventType, onChangeEventType, onNext, onPrevious, route,
+export default function EventType ({
+  eventType, onChangeEventType, onNext, onPrevious, route
 }: EventTypeProps): ReactElement {
-  function validateInput() {
+  function validateInput () {
     if (eventType !== null) {
-      onNext();
+      onNext()
     } else {
-      alert('Please select an event type.');
+      alert('Please select an event type.')
     }
   }
 
@@ -46,5 +46,5 @@ export default function EventType({
         <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} />
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

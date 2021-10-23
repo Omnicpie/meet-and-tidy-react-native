@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  Text, View, TextInput, SafeAreaView,
-} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { ProgressBar, Colors } from 'react-native-paper';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
-import NextPreviousButtons from '../NextPreviousButtons';
+  Text, View, TextInput, SafeAreaView
+} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { ProgressBar, Colors } from 'react-native-paper'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
+import NextPreviousButtons from '../NextPreviousButtons'
 
 type EventDescriptionProps = {
   description: string;
@@ -17,8 +17,8 @@ type EventDescriptionProps = {
   onPrevious: () => void;
 };
 
-export default function EventDescription({
-  description, url, onChangeDescription, onChangeUrl, onNext, onPrevious,
+export default function EventDescription ({
+  description, url, onChangeDescription, onChangeUrl, onNext, onPrevious
 }: EventDescriptionProps): ReactElement {
   return (
     <SafeAreaView style={Events.mainContainer}>
@@ -46,5 +46,5 @@ export default function EventDescription({
         <NextPreviousButtons onPrevious={onPrevious} onNext={onNext} />
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

@@ -1,15 +1,15 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  Text, View, Image, SafeAreaView,
-} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { ProgressBar, Colors } from 'react-native-paper';
-import { ApiEventType, ApiFacility } from '../../../ApiTypes';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
+  Text, View, Image, SafeAreaView
+} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { ProgressBar, Colors } from 'react-native-paper'
+import { ApiEventType, ApiFacility } from '../../../ApiTypes'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
 import {
-  dayOfMonth, shortMonthName, fullYear,
-} from '../../helpers/DateHelpers';
+  dayOfMonth, shortMonthName, fullYear
+} from '../../helpers/DateHelpers'
 
 // Preview event before saving
 
@@ -24,8 +24,8 @@ type EventPreviewProps = {
   facilities: ApiFacility,
 }
 
-export default function EventPreview({
-  location, title, description, url, eventType, image, date, facilities,
+export default function EventPreview ({
+  location, title, description, url, eventType, image, date, facilities
 }: EventPreviewProps): ReactElement {
   return (
     <SafeAreaView>
@@ -58,5 +58,5 @@ export default function EventPreview({
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

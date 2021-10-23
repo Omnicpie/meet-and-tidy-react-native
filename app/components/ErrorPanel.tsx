@@ -1,7 +1,7 @@
-import React from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import React from 'react'
+import { Pressable, StyleSheet } from 'react-native'
 
-import { Text, View } from './Themed';
+import { Text, View } from './Themed'
 
 type ErrorPanelProps = {
   message: string;
@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     padding: 5,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   errorText: {
-    textAlign: 'center',
+    textAlign: 'center'
   },
   heading: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   button: {
     height: 40,
@@ -30,15 +30,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: '#ffffff',
     fontSize: 15,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   buttonText: {
     fontSize: 15,
     fontWeight: 'bold',
     marginVertical: 10,
-    textAlign: 'center',
-  },
-});
+    textAlign: 'center'
+  }
+})
 
 export default function ({ message, reload }: ErrorPanelProps) {
   return (
@@ -56,5 +56,5 @@ export default function ({ message, reload }: ErrorPanelProps) {
         </View>
       </Pressable>
     </View>
-  );
+  )
 }

@@ -1,9 +1,9 @@
-import React, { ReactElement, useState } from 'react';
-import { Searchbar } from 'react-native-paper';
-import { View } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import Main from '../assets/stylesheets/Main';
-import { HomeParamList } from '../../types';
+import React, { ReactElement, useState } from 'react'
+import { Searchbar } from 'react-native-paper'
+import { View } from 'react-native'
+import { StackNavigationProp } from '@react-navigation/stack'
+import Main from '../assets/stylesheets/Main'
+import { HomeParamList } from '../../types'
 
 type HomeScreenNavigationProp = StackNavigationProp<
   HomeParamList,
@@ -15,15 +15,15 @@ type SearchBarProps = {
 };
 
 const SearchBar = ({ navigation }: SearchBarProps): ReactElement => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('')
 
   const onChangeSearch = (newQuery: string) => {
-    setQuery(newQuery);
-  };
+    setQuery(newQuery)
+  }
 
   const onSubmitSearch = () => {
-    navigation.navigate('EventSearchResultScreen', { query });
-  };
+    navigation.navigate('EventSearchResultScreen', { query })
+  }
 
   return (
     <View style={Main.searchArea}>
@@ -35,7 +35,7 @@ const SearchBar = ({ navigation }: SearchBarProps): ReactElement => {
         value={query}
       />
     </View>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar

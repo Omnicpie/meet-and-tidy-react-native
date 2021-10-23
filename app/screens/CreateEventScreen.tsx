@@ -1,36 +1,36 @@
-import React, { ReactElement, useEffect, useState } from 'react';
-import { ApolloError, gql, useMutation } from '@apollo/client';
+import React, { ReactElement, useEffect, useState } from 'react'
+import { ApolloError, gql, useMutation } from '@apollo/client'
 import {
-  View, SafeAreaView, Button,
-} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import EventLocation from '../components/Events/EventLocation';
-import EventDate from '../components/Events/EventDate';
-import EventType from '../components/Events/EventType';
-import EventTitle from '../components/Events/EventTitle';
-import EventFacility from '../components/Events/EventFacility';
-import EventDescription from '../components/Events/EventDescription';
-import EventImage from '../components/Events/EventImage';
-import EventPreview from '../components/Events/EventPreview';
-import Events from '../assets/stylesheets/Events';
-import FacilitySelectButtons from '../components/Events/FacilityTypeSelectButtons';
+  View, SafeAreaView, Button
+} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import EventLocation from '../components/Events/EventLocation'
+import EventDate from '../components/Events/EventDate'
+import EventType from '../components/Events/EventType'
+import EventTitle from '../components/Events/EventTitle'
+import EventFacility from '../components/Events/EventFacility'
+import EventDescription from '../components/Events/EventDescription'
+import EventImage from '../components/Events/EventImage'
+import EventPreview from '../components/Events/EventPreview'
+import Events from '../assets/stylesheets/Events'
+import FacilitySelectButtons from '../components/Events/FacilityTypeSelectButtons'
 
 type CreateEventScreenProps = {
   navigation: any;
   route: any;
 };
 
-function CreateEventScreen({ navigation, route }: CreateEventScreenProps): ReactElement {
-  const [title, onChangeTitle] = useState('');
-  const [description, onChangeDescription] = useState('');
-  const [url, onChangeUrl] = useState('');
-  const [location, onChangeLocation] = useState('');
-  const [date, onChangeDate] = useState('');
-  const [eventType, onChangeEventType] = useState('');
-  const [facilities, onChangeFacilities] = useState([]);
-  const [image, onChangeImage] = useState('');
-  const [imagePreview, onChangeImagePreview] = useState('');
-  const [screen, setScreen] = useState(1);
+function CreateEventScreen ({ navigation, route }: CreateEventScreenProps): ReactElement {
+  const [title, onChangeTitle] = useState('')
+  const [description, onChangeDescription] = useState('')
+  const [url, onChangeUrl] = useState('')
+  const [location, onChangeLocation] = useState('')
+  const [date, onChangeDate] = useState('')
+  const [eventType, onChangeEventType] = useState('')
+  const [facilities, onChangeFacilities] = useState([])
+  const [image, onChangeImage] = useState('')
+  const [imagePreview, onChangeImagePreview] = useState('')
+  const [screen, setScreen] = useState(1)
 
   const CREATE_EVENT = gql`
   mutation CreateEvent($date: String, $description: String, $eventTypeId: ID!, $facilityIds: [ID!]!, $location: String, $title: String!, $url: String) {
@@ -38,44 +38,44 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
       errors
     }
   }
-  `;
+  `
 
   const responses = {
-    onCompleted(data: any) {
-      console.log(data);
+    onCompleted (data: any) {
+      console.log(data)
       if (data.createEvent.errors.length) {
-        console.log('completed with errors');
-        console.log(data.createEvent.errors);
+        console.log('completed with errors')
+        console.log(data.createEvent.errors)
       } else {
-        console.log('completed without errors');
-        navigation.navigate('HomeScreen');
+        console.log('completed without errors')
+        navigation.navigate('HomeScreen')
       }
     },
-    onError(_error: ApolloError) {
-      console.log(_error);
-    },
-  };
-
-  const [createEvent, _eventResult] = useMutation(CREATE_EVENT, responses);
-
-  const facilityIdsArray = () => {
-    let ids = [];
-    if (facilities) {
-      facilities.forEach(facility => ids.push(facility.id));
+    onError (_error: ApolloError) {
+      console.log(_error)
     }
-    return ids;
-  };
-
-  function createEventAndProceed() {
-    createEvent({
-      variables: {
-        date, description, eventTypeId: eventType.id, facilityIds: facilityIdsArray(), location, title, url,
-      },
-    });
   }
 
-  function onNext() {
-    setScreen(screen + 1);
+  const [createEvent, _eventResult] = useMutation(CREATE_EVENT, responses)
+
+  const facilityIdsArray = () => {
+    const ids = []
+    if (facilities) {
+      facilities.forEach(facility => ids.push(facility.id))
+    }
+    return ids
+  }
+
+  function createEventAndProceed () {
+    createEvent({
+      variables: {
+        date, description, eventTypeId: eventType.id, facilityIds: facilityIdsArray(), location, title, url
+      }
+    })
+  }
+
+  function onNext () {
+    setScreen(screen + 1)
     // saveEvent();
 
     // validate the inputs so far! DONE BUT MORE TO DO
@@ -90,11 +90,11 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
     // and navigate out of this screen/component....
   }
 
-  function onPrevious() {
-    setScreen(screen - 1);
+  function onPrevious () {
+    setScreen(screen - 1)
   }
 
-  function currentScreen() {
+  function currentScreen () {
     switch (screen) {
       case 1:
         return (
@@ -105,7 +105,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               onNext={onNext}
             />
           </View>
-        );
+        )
       case 2:
         return (
           <View>
@@ -116,7 +116,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               onNext={onNext}
             />
           </View>
-        );
+        )
       case 3:
         return (
           <View>
@@ -128,7 +128,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               route={route}
             />
           </View>
-        );
+        )
       case 4:
         return (
           <View>
@@ -141,7 +141,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               eventType={eventType}
             />
           </View>
-        );
+        )
       case 5:
         return (
           <View>
@@ -152,7 +152,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               onPrevious={onPrevious}
             />
           </View>
-        );
+        )
       case 6:
         return (
           <View>
@@ -165,7 +165,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               onPrevious={onPrevious}
             />
           </View>
-        );
+        )
       case 7:
         return (
           <View>
@@ -177,7 +177,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               onPrevious={onPrevious}
             />
           </View>
-        );
+        )
       case 8:
         return (
           <View>
@@ -207,9 +207,9 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
               </View>
             </View>
           </View>
-        );
+        )
       default:
-        return (<> </>);
+        return (<> </>)
     }
   }
   return (
@@ -218,7 +218,7 @@ function CreateEventScreen({ navigation, route }: CreateEventScreenProps): React
         {currentScreen()}
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
-export default CreateEventScreen;
+export default CreateEventScreen

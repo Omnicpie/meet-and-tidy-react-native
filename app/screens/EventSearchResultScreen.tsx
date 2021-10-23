@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  StyleSheet, SafeAreaView, Text, View,
-} from 'react-native';
-import SearchResultList from '../components/SearchResultList';
+  StyleSheet, SafeAreaView, Text, View
+} from 'react-native'
+import SearchResultList from '../components/SearchResultList'
 
 const styles = StyleSheet.create({
   container: {
@@ -10,30 +10,30 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 25,
+    paddingVertical: 25
   },
   primaryHeading: {
     textAlign: 'center',
     fontSize: 25,
     marginBottom: 25,
-    marginTop: 25,
+    marginTop: 25
   },
   paragraph: {
     width: '100%',
     paddingLeft: 40,
     paddingRight: 40,
-    marginBottom: 50,
-  },
-});
+    marginBottom: 50
+  }
+})
 
 type EventSearchResultScreenProps = {
   navigation: any;
   route: any;
 };
 
-function EventSearchResultScreen({ navigation, route }:
+function EventSearchResultScreen ({ navigation, route }:
   EventSearchResultScreenProps): ReactElement {
-  const { query } = route.params;
+  const { query } = route.params
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -43,7 +43,7 @@ function EventSearchResultScreen({ navigation, route }:
         <SearchResultList navigation={navigation} route={route} />
       </View>
     </SafeAreaView>
-  );
+  )
 }
 
-export default EventSearchResultScreen;
+export default EventSearchResultScreen

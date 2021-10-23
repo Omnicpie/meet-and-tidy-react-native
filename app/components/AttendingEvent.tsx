@@ -1,14 +1,14 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  ActivityIndicator, FlatList, Pressable, Text, View,
-} from 'react-native';
-import { gql, useQuery } from '@apollo/client';
-import ApiImage from '../helpers/ApiImage';
-import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
-import Main from '../assets/stylesheets/Main';
+  ActivityIndicator, FlatList, Pressable, Text, View
+} from 'react-native'
+import { gql, useQuery } from '@apollo/client'
+import ApiImage from '../helpers/ApiImage'
+import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers'
+import Main from '../assets/stylesheets/Main'
 
-import { ApiEvent } from '../../ApiTypes';
-import ErrorPanel from './ErrorPanel';
+import { ApiEvent } from '../../ApiTypes'
+import ErrorPanel from './ErrorPanel'
 
 const ATTEND_EVENT_QUERY = gql`
   query AttendEvents {
@@ -21,30 +21,30 @@ const ATTEND_EVENT_QUERY = gql`
       url
     }
   }
-`;
+`
 
 type AttendEventListProps = {
   navigation: any;
 };
 
-export default function AttendEventList({ navigation }: AttendEventListProps): ReactElement {
+export default function AttendEventList ({ navigation }: AttendEventListProps): ReactElement {
   const {
-    data, error, loading, refetch,
-  } = useQuery(ATTEND_EVENT_QUERY);
+    data, error, loading, refetch
+  } = useQuery(ATTEND_EVENT_QUERY)
 
   if (loading) {
-    return <ActivityIndicator />;
+    return <ActivityIndicator />
   }
 
   if (error) {
-    return <ErrorPanel message={error.message} reload={refetch} />;
+    return <ErrorPanel message={error.message} reload={refetch} />
   }
 
-  function firstImage(event: ApiEvent) {
+  function firstImage (event: ApiEvent) {
     if (event.imageUrls.length) {
-      return <ApiImage imageUrl={event.imageUrls[0]} />;
+      return <ApiImage imageUrl={event.imageUrls[0]} />
     }
-    return null;
+    return null
   }
 
   return (
@@ -77,5 +77,5 @@ export default function AttendEventList({ navigation }: AttendEventListProps): R
         />
       </View>
     </View>
-  );
+  )
 }

@@ -1,15 +1,15 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  SafeAreaView, Text, View, ScrollView,
-} from 'react-native';
-import Main from '../assets/stylesheets/Main';
-import AttendingEvent from '../components/AttendingEvent';
+  SafeAreaView, Text, View, ScrollView
+} from 'react-native'
+import Main from '../assets/stylesheets/Main'
+import AttendingEvent from '../components/AttendingEvent'
 
 type AttendingScreenProps = {
   navigation: unknown;
 };
 
-function AttendingScreen({ navigation }: AttendingScreenProps): ReactElement {
+function AttendingScreen ({ navigation }: AttendingScreenProps): ReactElement {
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
@@ -21,7 +21,7 @@ function AttendingScreen({ navigation }: AttendingScreenProps): ReactElement {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
-export default AttendingScreen;
+export default AttendingScreen

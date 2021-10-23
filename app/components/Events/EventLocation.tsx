@@ -1,21 +1,21 @@
-import React from 'react';
+import React from 'react'
 import {
-  Button, Text, View, TextInput, SafeAreaView,
-} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { ProgressBar, Colors } from 'react-native-paper';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
-import PossibleMapView from '../PossibleMapView';
+  Button, Text, View, TextInput, SafeAreaView
+} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { ProgressBar, Colors } from 'react-native-paper'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
+import PossibleMapView from '../PossibleMapView'
 
-export default function EventLocation({
-  location, onChangeLocation, onNext,
+export default function EventLocation ({
+  location, onChangeLocation, onNext
 } = props) {
-  function validateInput() {
+  function validateInput () {
     if (location.length > 2) {
-      onNext();
+      onNext()
     } else {
-      alert('Please enter a location name that is at least 3 characters long.');
+      alert('Please enter a location name that is at least 3 characters long.')
     }
   }
 
@@ -23,8 +23,8 @@ export default function EventLocation({
     latitude: 54.3781,
     longitude: -3,
     latitudeDelta: 9,
-    longitudeDelta: 9,
-  };
+    longitudeDelta: 9
+  }
 
   return (
     <SafeAreaView>
@@ -56,5 +56,5 @@ export default function EventLocation({
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

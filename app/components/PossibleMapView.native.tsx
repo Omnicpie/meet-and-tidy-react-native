@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
-import MapView from 'react-native-maps';
-import Events from '../assets/stylesheets/Events';
+import React, { ReactElement } from 'react'
+import MapView from 'react-native-maps'
+import Events from '../assets/stylesheets/Events'
 
 type PossibleMapViewProps = {
   region: any;
 };
 
-export default function PossibleMapView({ region }: PossibleMapViewProps): ReactElement {
+export default function PossibleMapView ({ region }: PossibleMapViewProps): ReactElement {
   return (
     <MapView
       style={Events.map}
@@ -16,5 +16,5 @@ export default function PossibleMapView({ region }: PossibleMapViewProps): React
       //   onChangeLocation(region);
       // }}
     />
-  );
+  )
 }

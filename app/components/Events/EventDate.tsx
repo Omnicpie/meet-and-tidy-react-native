@@ -1,11 +1,11 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState } from 'react'
 import {
-  Text, View, Button, Pressable, Keyboard,
-} from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
+  Text, View, Button, Pressable, Keyboard
+} from 'react-native'
+import { ProgressBar, Colors } from 'react-native-paper'
+import DateTimePickerModal from 'react-native-modal-datetime-picker'
 
-import Events from '../../assets/stylesheets/Events';
+import Events from '../../assets/stylesheets/Events'
 
 type EventDateProps = {
   date: string;
@@ -14,42 +14,42 @@ type EventDateProps = {
   onPrevious: () => void;
 };
 
-export default function EventDate({
-  date, onChangeDate, onNext, onPrevious,
+export default function EventDate ({
+  date, onChangeDate, onNext, onPrevious
 }: EventDateProps): ReactElement {
-  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-  const [datePickerText, setDatePickerText] = useState(date || 'Select a date');
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false)
+  const [datePickerText, setDatePickerText] = useState(date || 'Select a date')
 
   const validateInput = () => {
     if (datePickerText !== 'Select a date') {
-      onNext();
+      onNext()
     } else {
-      alert('Please enter a valid date.');
+      alert('Please enter a valid date.')
     }
-  };
+  }
 
   const showDatePicker = () => {
-    setDatePickerVisibility(true);
-  };
+    setDatePickerVisibility(true)
+  }
 
   const hideDatePicker = () => {
-    setDatePickerVisibility(false);
-  };
+    setDatePickerVisibility(false)
+  }
 
   const handleConfirm = (newDate: Date): void => {
-    const formattedDate = String(newDate);
-    hideDatePicker();
+    const formattedDate = String(newDate)
+    hideDatePicker()
 
-    setDatePickerText(formattedDate);
-    onChangeDate(formattedDate);
-  };
+    setDatePickerText(formattedDate)
+    onChangeDate(formattedDate)
+  }
 
   const handleCancel = () => {
-    Keyboard.dismiss();
-    hideDatePicker();
-  };
+    Keyboard.dismiss()
+    hideDatePicker()
+  }
 
-  const pickerDate = date === '' ? new Date() : new Date(date);
+  const pickerDate = date === '' ? new Date() : new Date(date)
 
   return (
     <View style={Events.mainContainer}>
@@ -81,5 +81,5 @@ export default function EventDate({
         />
       </View>
     </View>
-  );
+  )
 }

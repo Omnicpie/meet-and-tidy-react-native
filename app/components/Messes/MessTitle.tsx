@@ -1,13 +1,13 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  SafeAreaView, Text, TextInput, View,
-} from 'react-native';
-import { ProgressBar, Colors } from 'react-native-paper';
-import { ScrollView } from 'react-native-gesture-handler';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
-import NextPreviousButtons from '../NextPreviousButtons';
-import { ApiMessType } from '../../../ApiTypes';
+  SafeAreaView, Text, TextInput, View
+} from 'react-native'
+import { ProgressBar, Colors } from 'react-native-paper'
+import { ScrollView } from 'react-native-gesture-handler'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
+import NextPreviousButtons from '../NextPreviousButtons'
+import { ApiMessType } from '../../../ApiTypes'
 
 type MessTitleProps = {
   title: string;
@@ -18,19 +18,19 @@ type MessTitleProps = {
   location: string;
 };
 
-export default function MessTitle({
-  title, onChangeTitle, onNext, onPrevious, messType, location,
+export default function MessTitle ({
+  title, onChangeTitle, onNext, onPrevious, messType, location
 }: MessTitleProps): ReactElement {
-  const suggestedTitle = title === '' ? `${location} ${messType.name} Mess` : title;
-  const [value, onChangeValue] = React.useState(suggestedTitle);
+  const suggestedTitle = title === '' ? `${location} ${messType.name} Mess` : title
+  const [value, onChangeValue] = React.useState(suggestedTitle)
 
-  function validateInput() {
+  function validateInput () {
     if (value.length > 3) {
       // Handle case of user never changing the title.
-      onChangeTitle(value);
-      onNext();
+      onChangeTitle(value)
+      onNext()
     } else {
-      alert('Please enter a title for the mess that is at least four letters long.');
+      alert('Please enter a title for the mess that is at least four letters long.')
     }
   }
 
@@ -45,8 +45,8 @@ export default function MessTitle({
         </View>
         <TextInput
           onChangeText={(text) => {
-            onChangeTitle(text);
-            onChangeValue(text);
+            onChangeTitle(text)
+            onChangeValue(text)
           }}
           style={Events.textInput}
           value={value}
@@ -56,5 +56,5 @@ export default function MessTitle({
         <NextPreviousButtons onPrevious={onPrevious} onNext={validateInput} />
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

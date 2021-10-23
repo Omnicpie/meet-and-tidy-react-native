@@ -1,4 +1,4 @@
-import * as Linking from 'expo-linking';
+import * as Linking from 'expo-linking'
 
 export default {
   prefixes: [Linking.makeUrl('/')],
@@ -13,25 +13,25 @@ export default {
               EventSearchResultScreen: 'search-results',
               EventDetailScreen: 'event',
               MessDetailScreen: 'mess',
-              RegistrationScreen: 'registration',
-            },
+              RegistrationScreen: 'registration'
+            }
           },
           CreateMess: {
             screens: {
-              CreateMessScreen: 'create-mess',
-            },
+              CreateMessScreen: 'create-mess'
+            }
           },
           MyActivities: {
             screens: {
               MyActivitiesScreen: 'my-activities',
               MyMesses: 'my-messes',
               Attending: 'attending',
-              Organising: 'organising',
-            },
-          },
-        },
+              Organising: 'organising'
+            }
+          }
+        }
       },
-      NotFound: '*',
-    },
-  },
-};
+      NotFound: '*'
+    }
+  }
+}

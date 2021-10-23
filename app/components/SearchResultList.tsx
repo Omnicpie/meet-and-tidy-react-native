@@ -1,14 +1,14 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  StyleSheet, ActivityIndicator, FlatList, Text, View, Pressable,
-} from 'react-native';
-import { gql, useQuery } from '@apollo/client';
-import ApiImage from '../helpers/ApiImage';
-import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
-import Main from '../assets/stylesheets/Main';
+  StyleSheet, ActivityIndicator, FlatList, Text, View, Pressable
+} from 'react-native'
+import { gql, useQuery } from '@apollo/client'
+import ApiImage from '../helpers/ApiImage'
+import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers'
+import Main from '../assets/stylesheets/Main'
 
-import { ApiEvent } from '../../ApiTypes';
-import ErrorPanel from './ErrorPanel';
+import { ApiEvent } from '../../ApiTypes'
+import ErrorPanel from './ErrorPanel'
 
 type SearchResultListProps = {
   navigation: any;
@@ -25,30 +25,30 @@ const SEARCH_QUERY = gql`
       imageUrls
     },
   }
-`;
+`
 
-export default function SearchResultList(
-  { navigation, route }: SearchResultListProps,
+export default function SearchResultList (
+  { navigation, route }: SearchResultListProps
 ): ReactElement {
-  const { query } = route.params;
+  const { query } = route.params
 
   const {
-    data, error, loading, refetch,
-  } = useQuery(SEARCH_QUERY, { variables: { query } });
+    data, error, loading, refetch
+  } = useQuery(SEARCH_QUERY, { variables: { query } })
 
   if (loading) {
-    return <ActivityIndicator />;
+    return <ActivityIndicator />
   }
 
   if (error) {
-    return <ErrorPanel message={error.message} reload={refetch} />;
+    return <ErrorPanel message={error.message} reload={refetch} />
   }
 
-  function firstImage(event: ApiEvent) {
+  function firstImage (event: ApiEvent) {
     if (event.imageUrls.length) {
-      return <ApiImage imageUrl={event.imageUrls[0]} />;
+      return <ApiImage imageUrl={event.imageUrls[0]} />
     }
-    return null;
+    return null
   }
 
   return (
@@ -83,7 +83,7 @@ export default function SearchResultList(
         )}
       />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -91,48 +91,48 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 15,
     backgroundColor: '#fff',
-    marginBottom: 100,
+    marginBottom: 100
   },
   date: {
     fontSize: 20,
     color: '#000',
     textAlign: 'left',
-    marginLeft: 10,
+    marginLeft: 10
   },
   month: {
     fontSize: 16,
     color: '#54ae33',
     textAlign: 'left',
-    marginLeft: 10,
+    marginLeft: 10
   },
   eventDescription: {
     fontWeight: '500',
-    color: '#555',
+    color: '#555'
   },
   eventTitle: {
-    fontSize: 20,
+    fontSize: 20
   },
   subHeading: {
     color: 'black',
     fontSize: 20,
     fontWeight: 'bold',
     paddingBottom: 15,
-    paddingTop: 10,
+    paddingTop: 10
   },
   tileLeft: {
-    width: '25%',
+    width: '25%'
   },
   tileLower: {
     paddingVertical: 10,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-evenly'
   },
   tileRight: {
-    width: '70%',
+    width: '70%'
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
-  },
-});
+    marginBottom: 10
+  }
+})

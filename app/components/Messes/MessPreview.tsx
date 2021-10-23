@@ -1,10 +1,10 @@
-import React, { ReactElement } from "react";
-import { Image, SafeAreaView, Text, View } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-import { ProgressBar, Colors } from "react-native-paper";
-import { ApiMessType } from "../../../ApiTypes";
-import Events from "../../assets/stylesheets/Events";
-import Main from "../../assets/stylesheets/Main";
+import React, { ReactElement } from 'react'
+import { Image, SafeAreaView, Text, View } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { ProgressBar, Colors } from 'react-native-paper'
+import { ApiMessType } from '../../../ApiTypes'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
 
 type MessPreviewProps = {
   location: string;
@@ -14,12 +14,12 @@ type MessPreviewProps = {
   image: string;
 };
 
-export default function MessPreview({
+export default function MessPreview ({
   location,
   title,
   description,
   messType,
-  image,
+  image
 }: MessPreviewProps): ReactElement {
   return (
     <SafeAreaView style={Events.mainContainer}>
@@ -31,7 +31,7 @@ export default function MessPreview({
         />
         <Text style={Events.centeredText}>6 of 6</Text>
         <Text style={Events.previewHeading}>Preview mess</Text>
-        {image !== "" && (
+        {image !== '' && (
           <Image
             source={{ uri: `data:image/jpeg;base64,${image}` }}
             style={Events.imageSelected}
@@ -49,5 +49,5 @@ export default function MessPreview({
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
-import { SafeAreaView, Text, View, ScrollView } from "react-native";
-import Main from "../assets/stylesheets/Main";
+import React, { ReactElement } from 'react'
+import { SafeAreaView, Text, View, ScrollView } from 'react-native'
+import Main from '../assets/stylesheets/Main'
 
 type SafetyDisclaimerScreenProps = {
   navigation: any;
 };
 
-export default function SafetyDisclaimerScreen({ navigation }: SafetyDisclaimerScreenProps): ReactElement {
+export default function SafetyDisclaimerScreen ({ navigation }: SafetyDisclaimerScreenProps): ReactElement {
   return (
     <SafeAreaView style={Main.mainContainer}>
       <ScrollView>
@@ -21,5 +21,5 @@ export default function SafetyDisclaimerScreen({ navigation }: SafetyDisclaimerS
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

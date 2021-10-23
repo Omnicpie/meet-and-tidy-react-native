@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
-import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native';
-import { gql, useQuery } from '@apollo/client';
-import ApiImage from '../helpers/ApiImage';
-import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
-import Main from '../assets/stylesheets/Main';
+import React, { ReactElement } from 'react'
+import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native'
+import { gql, useQuery } from '@apollo/client'
+import ApiImage from '../helpers/ApiImage'
+import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers'
+import Main from '../assets/stylesheets/Main'
 
-import { ApiMess } from '../../ApiTypes';
-import ErrorPanel from './ErrorPanel';
+import { ApiMess } from '../../ApiTypes'
+import ErrorPanel from './ErrorPanel'
 
 type LocalMessesScrollProps = {
   navigation: any;
@@ -23,26 +23,26 @@ const LOCAL_MESSES_QUERY = gql`
       createdAt
     }
   }
-`;
+`
 
-export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps): ReactElement {
+export default function LocalMessesScroll ({ navigation }: LocalMessesScrollProps): ReactElement {
   const {
-    data, error, loading, refetch,
-  } = useQuery(LOCAL_MESSES_QUERY);
+    data, error, loading, refetch
+  } = useQuery(LOCAL_MESSES_QUERY)
 
   if (loading) {
-    return <ActivityIndicator />;
+    return <ActivityIndicator />
   }
 
   if (error) {
-    return <ErrorPanel message={error.message} reload={refetch} />;
+    return <ErrorPanel message={error.message} reload={refetch} />
   }
 
-  function firstImage(mess: ApiMess) {
+  function firstImage (mess: ApiMess) {
     if (mess.imageUrls.length) {
-      return <ApiImage imageUrl={mess.imageUrls[0]} />;
+      return <ApiImage imageUrl={mess.imageUrls[0]} />
     }
-    return null;
+    return null
   }
 
   return (
@@ -79,5 +79,5 @@ export default function LocalMessesScroll({ navigation }: LocalMessesScrollProps
         />
       </View>
     </View>
-  );
+  )
 }

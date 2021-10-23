@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement } from 'react'
 import {
-  Button, Text, View, TextInput, SafeAreaView,
-} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { ProgressBar, Colors } from 'react-native-paper';
-import Events from '../../assets/stylesheets/Events';
-import Main from '../../assets/stylesheets/Main';
-import PossibleMapView from '../PossibleMapView';
+  Button, Text, View, TextInput, SafeAreaView
+} from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { ProgressBar, Colors } from 'react-native-paper'
+import Events from '../../assets/stylesheets/Events'
+import Main from '../../assets/stylesheets/Main'
+import PossibleMapView from '../PossibleMapView'
 
 type MessLocationProps = {
   location: string;
@@ -14,13 +14,13 @@ type MessLocationProps = {
   onNext: () => void;
 };
 
-export default function MessLocation({ location, onChangeLocation, onNext }:
+export default function MessLocation ({ location, onChangeLocation, onNext }:
   MessLocationProps): ReactElement {
-  function validateInput() {
+  function validateInput () {
     if (location.length > 2) {
-      onNext();
+      onNext()
     } else {
-      alert('Please enter a location name that is at least 3 characters long.');
+      alert('Please enter a location name that is at least 3 characters long.')
     }
   }
 
@@ -28,8 +28,8 @@ export default function MessLocation({ location, onChangeLocation, onNext }:
     latitude: 54.3781,
     longitude: -3,
     latitudeDelta: 9,
-    longitudeDelta: 9,
-  };
+    longitudeDelta: 9
+  }
 
   return (
     <SafeAreaView style={Events.mainContainer}>
@@ -59,5 +59,5 @@ export default function MessLocation({ location, onChangeLocation, onNext }:
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
