@@ -1,22 +1,14 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  SafeAreaView,
-  Text,
-  View,
-  ScrollView,
-  Pressable,
-  Linking,
-} from "react-native";
-import { ApolloError, gql, useQuery, useMutation } from "@apollo/client";
-import ApiImage from "../helpers/ApiImage";
-import Events from "../assets/stylesheets/Events";
-import ErrorPanel from "../components/ErrorPanel";
-import { ApiAttendance, ApiEvent, ApiUser } from "../../ApiTypes";
-import AttendButton from "../components/AttendButton";
+import React, { ReactElement, useState } from 'react'
+import { ActivityIndicator, SafeAreaView, Text, View, ScrollView, Pressable, Linking } from 'react-native'
+import { ApolloError, gql, useQuery, useMutation } from '@apollo/client'
+import ApiImage from '../helpers/ApiImage'
+import Events from '../assets/stylesheets/Events'
+import ErrorPanel from '../components/ErrorPanel'
+import { ApiAttendance, ApiUser } from '../../ApiTypes'
+import AttendButton from '../components/AttendButton'
 
-import store from "../redux/Store";
-import { setUser } from "../redux/slices/UserSlice";
+import store from '../redux/Store'
+import { setUser } from '../redux/slices/UserSlice'
 
 type EventDetailScreenProps = {
   navigation: any;
@@ -38,18 +30,13 @@ const EVENT_QUERY = gql`
       }
     }
   }
-`;
+`
 
-function EventDetailScreen({
-  navigation,
-  route,
-}: EventDetailScreenProps): ReactElement {
-  const { id } = route.params;
+function EventDetailScreen ({ navigation, route }: EventDetailScreenProps): ReactElement {
+  const { id } = route.params
   const { data, error, loading, refetch } = useQuery(EVENT_QUERY, {
-    variables: { id },
-  });
-
-  const { event } = data;
+    variables: { id }
+  })
 
   const CREATE_ATTENDANCE = gql`
     mutation CreateAttendance($userId: ID!, $eventId: ID!) {
@@ -57,54 +44,56 @@ function EventDetailScreen({
         errors
       }
     }
-  `;
+  `
 
   const responses = {
-    onCompleted(data: any) {
-      console.log(data);
-      refetch();
+    onCompleted (data: any) {
+      console.log(data)
+      refetch()
       if (data.createAttendance.errors.length) {
-        console.log("completed with errors");
-        console.log(data.createAttendance.errors);
+        console.log('completed with errors')
+        console.log(data.createAttendance.errors)
       } else {
-        console.log("completed without errors");
+        console.log('completed without errors')
       }
     },
-    onError(_error: ApolloError) {
-      console.log(_error);
-    },
-  };
+    onError (_error: ApolloError) {
+      console.log(_error)
+    }
+  }
 
-  const [createAttendance, _attendResult] = useMutation(
-    CREATE_ATTENDANCE,
-    responses
-  );
+  const [createAttendance, _attendResult] = useMutation(CREATE_ATTENDANCE, responses)
 
-  const [attendance, setAttendance] = useState<boolean>(false);
+  const [attendance, setAttendance] = useState<boolean>(false)
 
-  const [currentUser, setCurrentUser] = useState<ApiUser | null>(
-    store.getState().value
-  );
+  const [currentUser, setCurrentUser] = useState<ApiUser | null>(store.getState().value)
 
-  const [currentAttendance, setCurrentAttendance] =
-    useState<ApiAttendance | null>();
+  const [currentAttendance, setCurrentAttendance] = useState<ApiAttendance | null>()
+
+  if (loading) {
+    return <ActivityIndicator />
+  }
+
+  if (error) {
+    return <ErrorPanel message={error.message} reload={refetch} />
+  }
+
+  const { event } = data
 
   // Replace all currentUser instances with a real user (when coded) and store data in Redux state
 
   if (currentUser !== null) {
-    console.log("current user is: ", currentUser);
-    console.log(data);
+    console.log('current user is: ', currentUser)
+    console.log(data)
   }
 
   store.subscribe(() => {
-    setCurrentUser(store.getState().value);
-  });
+    setCurrentUser(store.getState().value)
+  })
 
-  const attending = (): boolean =>
-    currentUser !== null &&
-    data.event.attendances.some(
-      (attendance: ApiAttendance) => attendance.userId == currentUser.id
-    );
+  const attending = (): boolean => currentUser !== null && data.event.attendances.some(
+    (attendance: ApiAttendance) => attendance.userId === currentUser.id
+  )
 
   // Replace all currentUser instances with a real user (when coded) and store data in Redux stat
 
@@ -112,27 +101,17 @@ function EventDetailScreen({
     if (currentUser !== null) {
       createAttendance({
         variables: {
-          userId: currentUser.id, eventId: event.id,
-        },
+          userId: currentUser.id, eventId: event.id
+        }
       })
     } else {
       navigation.navigate('Registration')
     }
-  };
-
-  if (loading) {
-    return <ActivityIndicator />;
   }
 
-  if (error) {
-    return <ErrorPanel message={error.message} reload={refetch()} />;
-  }
-
-  function firstImage(event: ApiEvent) {
-    if (event.imageUrls.length) {
-      return <ApiImage imageUrl={event.imageUrls[0]} />;
-    }
-    return null;
+  function firstImage () {
+    const url = event.imageUrls.length ? event.imageUrls[0] : null
+    return <ApiImage imageUrl={url} />
   }
 
   return (
@@ -140,7 +119,7 @@ function EventDetailScreen({
       <ScrollView>
         <View>
           <View>
-            {firstImage(event)}
+            {firstImage()}
             <View>
               <AttendButton
                 attending={attending()}
@@ -150,22 +129,20 @@ function EventDetailScreen({
               <Pressable
                 onPress={() =>
                   store.dispatch(
-                    setUser({ id: 1, name: "Beth", email: "beth@example.com" })
+                    setUser({ id: 1, name: 'Beth', email: 'beth@example.com' })
                   )
                 }
               >
                 <Text>Yo!</Text>
               </Pressable>
               <Pressable
-                onPress={() =>
-                  store.dispatch(
-                    setUser({
-                      id: 123,
-                      name: "Beth",
-                      email: "beth@example.com",
-                    })
-                  )
-                }
+                onPress={() => store.dispatch(
+                  setUser({
+                    id: 123,
+                    name: 'Beth',
+                    email: 'beth@example.com'
+                  })
+                )}
               >
                 <Text>Yo!</Text>
               </Pressable>
@@ -203,7 +180,7 @@ function EventDetailScreen({
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
-export default EventDetailScreen;
+export default EventDetailScreen
