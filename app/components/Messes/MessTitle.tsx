@@ -30,7 +30,7 @@ export default function MessTitle({
       onChangeTitle(value);
       onNext();
     } else {
-      alert('Please enter a title for your mess that is at least four letters long.');
+      alert('Please enter a title for the mess that is at least four letters long.');
     }
   }
 

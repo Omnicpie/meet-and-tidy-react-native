@@ -37,8 +37,8 @@ export default function MessLocation({ location, onChangeLocation, onNext }:
         <ProgressBar style={Events.progressBar} progress={0.166} color={Colors.green500} />
         <Text style={Events.centeredText}>1 of 6</Text>
         <View>
-          <Text style={Events.primaryHeading}>Where is your mess?</Text>
-          <Text style={Main.tellUsMore}>Tell us where you found this mess.</Text>
+          <Text style={Events.primaryHeading}>Where is the mess?</Text>
+          <Text style={Main.tellUsMore}>Tell us where you found this mess</Text>
         </View>
         <TextInput
           defaultValue={location}
