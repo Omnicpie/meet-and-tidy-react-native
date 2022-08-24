@@ -1,10 +1,11 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Navigation from './src/navigation';
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { ROOT_URL } from "./src/config/config";
+import Navigation from "./src/navigation";
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
+  uri: `${ROOT_URL}/graphql`,
   cache: new InMemoryCache(),
 });
 
