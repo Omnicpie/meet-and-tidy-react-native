@@ -1,33 +1,4 @@
 {
-  "expo": {
-    "name": "meet-and-tidy-react-native",
-    "slug": "meet-and-tidy-react-native",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./app/assets/images/icon.png",
-    "scheme": "meetandtidy",
-    "splash": {
-      "image": "./app/assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./app/assets/images/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./app/assets/images/favicon.png"
-    }
-  }
+  "name": "MeetAndTidy",
+  "displayName": "Meet & Tidy"
 }
