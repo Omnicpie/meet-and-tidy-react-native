@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { ActivityIndicator, FlatList, Pressable, Text, View } from 'react-native';
-import { gql, useQuery } from '@apollo/client';
-import ApiImage from '../helpers/ApiImage';
-import { dayOfMonth, shortMonthName } from '../helpers/DateHelpers';
-import Main from '../assets/stylesheets/Main';
-import ErrorPanel from './ErrorPanel';
+import React, { useState, useEffect } from "react";
+import {
+  ActivityIndicator,
+  FlatList,
+  Pressable,
+  Text,
+  View,
+} from "react-native";
+import { gql, useQuery } from "@apollo/client";
+import ApiImage from "../helpers/ApiImage";
+import { dayOfMonth, shortMonthName } from "../helpers/DateHelpers";
+import Main from "../assets/stylesheets/Main";
+import ErrorPanel from "./ErrorPanel";
 
 const POPULAR_EVENTS_QUERY = gql`
   query PopularEvents {
@@ -24,11 +30,6 @@ const POPULAR_EVENTS_QUERY = gql`
 
 export default function PopularEventScroll({ navigation }) {
   const { data, error, loading, refetch } = useQuery(POPULAR_EVENTS_QUERY);
-
-  useEffect(() => {
-    console.log('data', data);
-    console.log('err', error);
-  }, [data, error]);
 
   const [popularEvents, setPopularEvents] = useState([]);
 
@@ -59,6 +60,7 @@ export default function PopularEventScroll({ navigation }) {
 
   function firstImage(event) {
     const url = event.imageUrls.length ? event.imageUrls[0] : null;
+
     return <ApiImage imageUrl={url} />;
   }
 
@@ -71,13 +73,17 @@ export default function PopularEventScroll({ navigation }) {
           horizontal
           keyExtractor={({ id }) => id.toString()}
           renderItem={({ item }) => (
-            <Pressable onPress={() => navigation.navigate('Event', { id: item.id })}>
+            <Pressable
+              onPress={() => navigation.navigate("Event", { id: item.id })}
+            >
               <View style={Main.scrollerTile}>
                 {firstImage(item)}
                 <View style={Main.scrollerTileLower}>
                   <View style={Main.scrollerTileLeft}>
                     <Text style={Main.date}>{dayOfMonth(item.startsAt)}</Text>
-                    <Text style={Main.month}>{shortMonthName(item.startsAt)}</Text>
+                    <Text style={Main.month}>
+                      {shortMonthName(item.startsAt)}
+                    </Text>
                   </View>
                   <View style={Main.scrollerTileRight}>
                     <Text style={Main.eventTitle}>{item.title}</Text>
